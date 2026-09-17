@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ToonSutra AI — Hindi creators ke liye AI video aur poster studio." />
+  <title>ToonSutra AI — Create stories that move</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav wrap">
+    <a class="brand" href="#top" aria-label="ToonSutra AI home"><span class="brand-mark">T</span> ToonSutra <em>AI</em></a>
+    <nav><a href="#studio">Studio</a><a href="#plans">Plans</a><a class="nav-cta" href="#studio">Create free</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">INDIA'S AI STORY STUDIO</p>
+        <h1>Apni soch ko<br><span>screen par laaiye.</span></h1>
+        <p class="lede">Text se cartoon videos, cinematic posters aur Hindi voice-over. Ek idea se poori kahani banaiye.</p>
+        <div class="actions"><a class="button primary" href="#studio">Create your first story <span>→</span></a><a class="button quiet" href="#how">Kaise kaam karta hai</a></div>
+        <div class="trust"><span>Hindi + English</span><i></i><span>No editing skills needed</span><i></i><span>Built for creators</span></div>
+      </div>
+      <div class="hero-art" aria-label="Sample AI creation preview">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <div class="poster-card"><div class="poster-sun"></div><div class="poster-hills"></div><p>THE<br>LAST<br>KITE</p><small>A TOONSUTRA ORIGINAL</small></div>
+        <div class="floating tag-one">Hindi voice <b>✓</b></div><div class="floating tag-two">Scene 04 · Ready</div>
+      </div>
+    </section>
+
+    <section id="studio" class="studio wrap">
+      <div class="section-head"><p class="eyebrow">CREATOR STUDIO</p><h2>What do you want to create?</h2><p>Apna idea likhiye. Yeh demo aapka concept तैयार करता है—AI generation जल्द जोड़ा जाएगा.</p></div>
+      <div class="studio-grid">
+        <form id="idea-form" class="prompt-box">
+          <label for="idea">Your story idea</label>
+          <textarea id="idea" maxlength="500" placeholder="Ek chhote shehar ki ladki apne cartoon hero ke saath duniya bachati hai…"></textarea>
+          <div class="form-row"><label class="select-label">Format<select id="format"><option>Cartoon video</option><option>Movie poster</option><option>Political poster</option><option>Serial episode</option></select></label><label class="select-label">Language<select id="language"><option>Hindi</option><option>English</option><option>Hinglish</option></select></label></div>
+          <button class="button primary generate" type="submit">Generate concept <span>→</span></button>
+          <p class="form-note">Demo mode: concept preview only. Video rendering and payments are not enabled yet.</p>
+        </form>
+        <aside class="preview" aria-live="polite"><p class="preview-label">YOUR CREATION</p><div class="preview-placeholder" id="preview-art"><span>✦</span></div><h3 id="preview-title">Your story will appear here</h3><p id="preview-text">Choose a format and describe your idea to create a production-ready concept.</p><div class="chips" id="preview-chips"><span>AI powered</span><span>Made for India</span></div></aside>
+      </div>
+    </section>
+
+    <section id="how" class="how wrap"><p class="eyebrow">SIMPLE BY DESIGN</p><h2>Idea se audience tak.</h2><div class="steps"><article><b>01</b><h3>Likhiye</h3><p>Apni story, campaign ya poster ka idea Hindi ya English mein likhiye.</p></article><article><b>02</b><h3>Banaiye</h3><p>Format, style aur voice select karke apna creative concept generate kijiye.</p></article><article><b>03</b><h3>Share kijiye</h3><p>Ready video ya poster download karke apni audience tak pahunchaiye.</p></article></div></section>
+
+    <section id="plans" class="pricing wrap"><div><p class="eyebrow">SIMPLE PRICING</p><h2>Serious creators ke liye.</h2><p>Shuru kijiye jab aap ready hon.</p></div><div class="price-card"><p class="plan">CREATOR</p><p class="price">₹299<span>/month</span></p><ul><li>Monthly creation credits</li><li>Cartoon video concepts</li><li>Poster concepts</li><li>Hindi & English support</li></ul><button class="button primary" id="join-button" type="button">Join waitlist</button><p class="form-note" id="join-note">Payments will open when the creator studio launches.</p></div></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#top"><span class="brand-mark">T</span> ToonSutra <em>AI</em></a><p>Stories deserve to move.</p><p>© <span id="year"></span> ToonSutra AI</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
