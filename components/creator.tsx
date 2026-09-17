@@ -13,6 +13,13 @@ const products: Product[] = [
   { id: "serial", icon: "▣", name: "Serial episode", credits: "40 credits", note: "Premium story package" },
   { id: "film", icon: "★", name: "Long film", credits: "Custom quote", note: "Duration ke hisaab se" },
 ];
+const templates = [
+  { name: "Ganesh Chaturthi", idea: "Ganesh Chaturthi ki hardik shubhkamnayein, traditional Indian decoration aur festive mood", style: "Traditional Indian", language: "Hindi" },
+  { name: "Diwali offer", idea: "Diwali special shop offer, bright diyas, rangoli aur family festival mood", style: "Festival", language: "Hindi" },
+  { name: "Birthday wish", idea: "Happy Birthday celebration, colorful balloons, cake aur joyful friends", style: "Cartoon", language: "English" },
+  { name: "Shop opening", idea: "Nayi dukaan ka grand opening, local business welcome message aur festive decoration", style: "Instagram post", language: "Hindi" },
+  { name: "Movie idea", idea: "Ek chhote shehar ke hero ki inspiring journey aur cinematic dramatic scene", style: "Movie poster", language: "Hindi" },
+];
 const plans: Plan[] = [
   { id: "basic", name: "Basic", price: "₹199", credits: "20 credits / month" },
   { id: "creator", name: "Creator", price: "₹499", credits: "60 credits / month", highlight: true },
@@ -28,7 +35,9 @@ export default function Creator() {
     setLoading(true); setImage(null); setMessage("Aapka poster ban raha hai…");
     try { const response = await fetch("/api/generate-poster", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: idea, language }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error); setImage(data.image); setHistory((items) => [`${selected.name} · ${style} · ${language}`, ...items].slice(0, 3)); setMessage("Poster ready hai. Download karke share kijiye."); } catch (error) { setMessage(error instanceof Error ? error.message : "Poster generate nahi hua."); } finally { setLoading(false); }
   };
+  const applyTemplate = (template: typeof templates[number]) => { setIdea(template.idea); setStyle(template.style); setLanguage(template.language); setBrief(""); setMessage(`${template.name} template ready hai. Free brief banaiye.`); };
   return <>
+    <section className="template-section"><div className="picker-heading"><div><p className="eyebrow">FREE STARTER TEMPLATES</p><h2>Ek click se shuru karein.</h2></div><p>Template choose kijiye, phir free creative brief banaiye. Koi payment ya image charge nahi.</p></div><div className="template-grid">{templates.map((template) => <button type="button" key={template.name} onClick={() => applyTemplate(template)}><b>{template.name}</b><span>{template.style} · {template.language}</span><small>Use template →</small></button>)}</div></section>
     <section className="registration-banner"><div><b>₹10 one-time registration</b><span>Creator account activate kijiye. Uske baad 3 din ka free trial.</span></div><button type="button" onClick={() => setMessage("₹10 registration checkout Stripe approval ke baad live hoga.")}>Register for ₹10</button></section>
     <section className="trial-banner"><b>3 din bilkul free</b><span>Trial mein 3 poster credits. Koi monthly charge nahi. Day 4 se selected plan.</span></section>
     <section className="plans" aria-label="Monthly plans"><div className="picker-heading"><div><p className="eyebrow">SIMPLE MONTHLY PLANS</p><h2>Aam creator ke budget mein.</h2></div><p>Plan kabhi bhi cancel kar sakte hain. Video aur serial premium credits se.</p></div><div className="plan-grid">{plans.map(item => <button type="button" key={item.id} onClick={() => setPlan(item)} className={`plan-card ${plan.id === item.id ? "selected" : ""} ${item.highlight ? "recommended" : ""}`}>{item.highlight && <span className="popular">Most popular</span>}<strong>{item.name}</strong><b>{item.price}<small>/month</small></b><em>{item.credits}</em><span>3-day free trial included</span></button>)}</div></section>
