@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
   try {
     const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = gemini.getGenerativeModel({ model: "gemini-2.0-flash-exp", generationConfig: {
+    const model = gemini.getGenerativeModel({ model: "gemini-2.5-flash-image", generationConfig: {
       // @ts-expect-error Gemini image modality is supported by the API but absent from this SDK type.
       responseModalities: ["Text", "Image"],
     } });
