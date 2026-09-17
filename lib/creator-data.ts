@@ -8,7 +8,7 @@ export async function getCreatorProfile(email: string): Promise<CreatorProfile> 
   const sql = neon(process.env.DATABASE_URL);
   await sql`insert into creator_profiles(email, trial_started_at) values (${email}, now()) on conflict (email) do nothing`;
   const profiles = await sql`select plan, credits, trial_started_at from creator_profiles where email = ${email}`;
-  const history = await sql`select type, language, prompt, created_at from creations where creator_email = ${email} order by created_at desc limit 5`;
+  const history = await sql`select type, language, prompt, created_at from creations where creator_email = ${email} and status != 'requested' order by created_at desc limit 5`;
   const profile = profiles[0];
   return { plan: String(profile?.plan ?? "trial"), credits: Number(profile?.credits ?? 3), trialStartedAt: profile?.trial_started_at ? String(profile.trial_started_at) : null, history: history.map((item) => ({ type: String(item.type), language: String(item.language), prompt: String(item.prompt), createdAt: String(item.created_at) })) };
 }
