@@ -25,7 +25,11 @@ export async function POST(request: Request) {
     const image = parts.find((part) => part.inlineData?.data)?.inlineData;
     if (!image?.data) return NextResponse.json({ error: "The model returned no image. Please try a simpler idea." }, { status: 502 });
     return NextResponse.json({ image: `data:${image.mimeType ?? "image/png"};base64,${image.data}` });
-  } catch {
-    return NextResponse.json({ error: "Poster generation is temporarily unavailable. Please try again." }, { status: 502 });
+  } catch (error) {
+    const providerError = error as { status?: number; message?: string };
+    const status = providerError.status ?? 502;
+    const category = status === 401 || status === 403 ? "API key or model access was denied" : status === 429 ? "API quota is temporarily exhausted" : "Gemini image generation is unavailable";
+    console.error("Gemini poster generation failed", { status, category });
+    return NextResponse.json({ error: `${category}. Please try again later.` }, { status: status >= 400 && status < 600 ? status : 502 });
   }
 }
