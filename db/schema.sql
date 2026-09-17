@@ -35,3 +35,12 @@ create table if not exists feature_controls (
 insert into feature_controls(feature_key, enabled) values
   ('creative_brief', true), ('poster_generation', false), ('video_generation', false), ('registration_checkout', false), ('plan_checkout', false)
 on conflict (feature_key) do nothing;
+
+create table if not exists brand_kits (
+  creator_email text primary key references creator_profiles(email),
+  brand_name text not null default '',
+  tagline text not null default '',
+  primary_color text not null default '#634bc8',
+  accent_color text not null default '#ee6040',
+  updated_at timestamptz not null default now()
+);
