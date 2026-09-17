@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SiteFooter from "@/components/site-footer";
 
 const creations = [
   ["🎬", "Cartoon videos", "Story se scene-by-scene animated video concept."],
@@ -16,6 +17,6 @@ export default function Home() {
     <section id="create" className="product-intro"><p className="eyebrow">CREATE WITH CONFIDENCE</p><h2>Har creator ke liye ek studio.</h2><div className="creation-grid">{creations.map(([icon,title,text]) => <article key={title}><div className="icon">{icon}</div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
     <section id="how" className="features"><article><b>01</b><h2>Likhiye</h2><p>Apni story, campaign ya poster ka idea Hindi ya English mein likhiye.</p></article><article><b>02</b><h2>Banaiye</h2><p>Format aur language select karke creative concept banaiye.</p></article><article><b>03</b><h2>Share kijiye</h2><p>Launch पर अपना content audience तक pahunchaiye.</p></article></section>
     <section id="price" className="pricing"><div><p className="eyebrow">MONTHLY CREDIT PLANS</p><h2>₹199 se <small>/ month</small></h2><p>₹199 Basic, ₹499 Creator aur ₹999 Studio. 3-day free trial ke saath.</p></div><div><ul><li>Monthly creation credits</li><li>Cartoon video & poster concepts</li><li>Hindi, Hinglish & English support</li><li>Creator dashboard</li></ul><Link className="button dark" href="/studio">Start creating →</Link></div></section>
-    <footer><Link href="/" className="brand"><span>T</span>ToonSutra <i>AI</i></Link><p>Stories deserve to move.</p><p>© 2026 ToonSutra AI</p></footer>
+    <SiteFooter/>
   </main>;
 }
