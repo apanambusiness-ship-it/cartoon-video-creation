@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { auth } from "@/auth";
+import { getFeatures } from "@/lib/features";
 
 export async function POST(request: Request) {
   const session = await auth();
   if (!session?.user?.email) return NextResponse.json({ error: "Please sign in first." }, { status: 401 });
+  const features = await getFeatures().catch(() => null);
+  if (!features?.creative_brief) return NextResponse.json({ error: "Free creative brief is paused by the admin. No charge was used." }, { status: 503 });
   const body = await request.json().catch(() => null);
   const idea = typeof body?.idea === "string" ? body.idea.trim() : "";
   const language = typeof body?.language === "string" ? body.language.trim() : "Hindi";
