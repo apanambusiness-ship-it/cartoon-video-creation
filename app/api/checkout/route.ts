@@ -2,6 +2,7 @@ import "server-only";
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
+import { neon } from "@neondatabase/serverless";
 
 const products = {
   registration: { name: "ToonSutra registration", description: "One-time test registration", amount: 1000, mode: "payment" },
@@ -24,10 +25,11 @@ export async function POST(request: Request) {
     mode: product.mode,
     customer_email: session.user.email,
     line_items: [{ price_data: { currency: "inr", product_data: { name: product.name, description: product.description }, unit_amount: product.amount, recurring: product.mode === "subscription" ? { interval: "month" } : undefined }, quantity: 1 }],
-    success_url: `${url.origin}/studio?test-payment=success`,
-    cancel_url: `${url.origin}/studio?test-payment=cancelled`,
+    success_url: `${url.origin}/payment/test-success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${url.origin}/payment/test-cancelled`,
     metadata: { test_mode: "true", toonsutra_product: productId },
   });
+  if (process.env.DATABASE_URL) { const sql = neon(process.env.DATABASE_URL); await sql`insert into payments(creator_email, stripe_session_id, amount_paise, status) values (${session.user.email}, ${sessionData.id}, ${product.amount}, 'test_pending') on conflict (stripe_session_id) do nothing`; }
   if (!sessionData.url) return NextResponse.json({ error: "Stripe did not return a checkout URL." }, { status: 502 });
   return NextResponse.json({ url: sessionData.url });
 }
