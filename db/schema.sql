@@ -26,3 +26,12 @@ create table if not exists payments (
   status text not null default 'pending',
   created_at timestamptz not null default now()
 );
+
+create table if not exists feature_controls (
+  feature_key text primary key,
+  enabled boolean not null default false,
+  updated_at timestamptz not null default now()
+);
+insert into feature_controls(feature_key, enabled) values
+  ('creative_brief', true), ('poster_generation', false), ('video_generation', false), ('registration_checkout', false), ('plan_checkout', false)
+on conflict (feature_key) do nothing;
