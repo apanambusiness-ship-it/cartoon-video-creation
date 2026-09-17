@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { auth } from "@/auth";
 import { getFeatures } from "@/lib/features";
+import { saveBrief } from "@/lib/creator-data";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -18,7 +19,9 @@ export async function POST(request: Request) {
     const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = gemini.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(`You are ToonSutra AI, a family-safe Indian creator assistant. In ${language}, write a concise creative brief for a ${type} based on: ${idea}. Include title, 2-line concept, caption, visual style, and 3 hashtags. Do not impersonate people or write political persuasion.`);
-    return NextResponse.json({ text: result.response.text() });
+    const text = result.response.text();
+    await saveBrief(session.user.email, type, language, idea);
+    return NextResponse.json({ text });
   } catch (error) {
     const status = (error as { status?: number }).status;
     return NextResponse.json({ error: status === 429 ? "Free AI limit reached. Please try again later." : "Writing assistant is temporarily unavailable." }, { status: status === 429 ? 429 : 502 });
