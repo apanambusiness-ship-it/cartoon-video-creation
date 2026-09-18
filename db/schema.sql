@@ -44,3 +44,13 @@ create table if not exists brand_kits (
   accent_color text not null default '#ee6040',
   updated_at timestamptz not null default now()
 );
+
+create table if not exists poster_drafts (
+  id uuid primary key default gen_random_uuid(),
+  creator_email text not null references creator_profiles(email),
+  title text not null default 'Untitled poster',
+  layout jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+create index if not exists poster_drafts_creator_updated on poster_drafts(creator_email, updated_at desc);
