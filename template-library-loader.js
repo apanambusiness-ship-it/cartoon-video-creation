@@ -1,0 +1,1 @@
+(()=>{function load(src){return new Promise((ok,fail)=>{const s=document.createElement('script');s.src=src+'?v='+Date.now();s.onload=ok;s.onerror=fail;document.body.appendChild(s)})}load('template-library-data.js').then(()=>load('template-library-ui.js')).catch(e=>console.error('APANAM template library load failed',e));})();
