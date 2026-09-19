@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Force latest phonetic typing script
+        run: sed -i 's#</body>#<script src="phonetic-v3.js?v=33865a399d0d"></script></body>#' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
