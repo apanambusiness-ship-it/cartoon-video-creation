@@ -38,6 +38,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Each cartoon scene's caption can stay in its original lower position or move above or to the bottom band.
 - Long titles and captions now fit within the video frame with a visual ellipsis; the full caption remains in project data and SRT export.
 - A selected video scene can reuse the saved poster Brand Kit primary and secondary colors; other scenes remain unchanged.
+- Video project gallery and JSON scene backups preserve the chosen audio volume and repeat option; existing backups without settings load at their defaults.
 
 ## Build sequence (one usable milestone at a time)
 
