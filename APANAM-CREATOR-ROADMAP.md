@@ -1,0 +1,37 @@
+# APANAM Creator: ten-tool comparison and build order
+
+Reviewed 20 September 2026. These are ten creative products accessible in India, selected for feature comparison, not a verified popularity ranking. APANAM will build its own implementation; third-party templates, models and assets must not be copied.
+
+| Product | Distinctive capability to learn from | Official source |
+| --- | --- | --- |
+| Canva | Templates, posters, video and accessible design workflow | https://www.canva.com/en_in/ |
+| Adobe Express | Posts, images, video, brand workflow and resizing | https://www.adobe.com/express/ |
+| Picsart | Photo editing and creative AI tools | https://picsart.com/photo-editor/ |
+| Photoroom | Product-photo cleanup, backgrounds and product scenes | https://www.photoroom.com/ |
+| InVideo | Scene and timeline based video editing | https://invideo.io/ and https://help-studio.invideo.io/en/articles/9405284-how-to-change-the-duration-of-a-scene |
+| Animaker | Animated character builder, voice and subtitles | https://www.animaker.com/ |
+| Renderforest | Intros, logo animation, explainer video and mockups | https://www.renderforest.com/ |
+| VEED | Subtitles, dubbing and brand-aware video | https://www.veed.io/ |
+| Clipchamp | Recording, trimming and browser video export | https://clipchamp.com/en/ |
+| KineMaster | Layered timeline, keyframes and mobile video editing | https://www.kinemaster.com/features |
+
+## What is already in this repository
+
+- Poster editor: layers, templates, editable text, image upload, brand kit, local gallery, JSON backup and PNG/JPG/PDF exports.
+- Cartoon video: independent `cartoon-video.html` page with scenes, preview and browser WebM export. Speech synthesis gives a preview voice; the exported video does not yet have an audio track.
+- AI poster: separate Worker and D1 experiment; availability depends on configured Cloudflare bindings. No verified email login or per-user neuron allocation.
+
+## Build sequence (one usable milestone at a time)
+
+1. **Unified Creator entry:** clearly link poster, product visuals, video and projects without changing existing editor behavior.
+2. **Poster editing quality:** stabilize text, photo crop/background, templates, mobile layout and exports; check each end to end.
+3. **Product photo studio:** non-destructive background, product framing and marketplace aspect ratios; keep original uploads available.
+4. **Cartoon video timeline:** individual scenes/layers, duration, reorder, transitions and local project backup.
+5. **Audio export:** user-recorded/imported audio plus licensed music and narration must actually be present in downloaded video.
+6. **Captions and language:** Hindi and other Indian languages with editable timings and fonts.
+7. **Brand and reusable assets:** logo, colors, fonts and reusable originals across poster and video.
+8. **Project continuity:** one gallery with clear type labels, reliable backups and recovery across devices.
+9. **AI optional:** verify free account limits and server-side metering; show real remaining usage, never promise 10,000 neurons per login.
+10. **Final production pass:** phone and desktop checks, accessibility, export quality, privacy and free-tier cost limits.
+
+Long films, multi-user sync and paid plans require durable storage, rendering infrastructure, verified authentication and a documented operating budget; mark them planned until truly usable.
