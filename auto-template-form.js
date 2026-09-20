@@ -62,6 +62,7 @@
     if(brand){const brandNode=find(/^APANAM$/);if(brandNode)setText(brandNode,brand);else {const input=document.querySelector('#brandName');if(input)input.value=brand}}
     if(photo){const slot=[...stage.querySelectorAll('.element')].find(el=>el.dataset.name==='Product Photo Area');const placeholder=find(/अपना PRODUCT PHOTO/);slot?.remove();placeholder?.remove();const upload=document.querySelector('#imageUpload');const transfer=new DataTransfer();transfer.items.add(file);upload.files=transfer.files;upload.dispatchEvent(new Event('change',{bubbles:true}));}
     form.querySelector('[role="status"]').textContent='पोस्टर तैयार है। Text, photo और रंग बदलकर Save या Download PNG करें।';
+    form.dispatchEvent(new Event('apanam:poster-ready'));
     document.querySelector('#layers')?.dispatchEvent(new Event('change'));
   });
 })();
