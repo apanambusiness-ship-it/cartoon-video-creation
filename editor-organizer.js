@@ -9,7 +9,7 @@
   const search=document.createElement('input');search.type='search';search.placeholder='Search tools';search.setAttribute('aria-label','Search tools');
   const panels=document.createElement('div');panels.className='organizer-panels';
   shell.append(nav,search,panels);left.prepend(shell);
-  let active='Templates';
+  let active='Text';
   for(const [name] of groups){const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
   function category(title){return groups.find(([,pattern])=>new RegExp(pattern,'i').test(title))?.[0]||'Arrange'}
   function section(nodes,title){if(!nodes.length)return;const box=document.createElement('details');box.className='organizer-section';box.open=true;box.dataset.title=title;const summary=document.createElement('summary');summary.textContent=title;box.append(summary,...nodes);panels.querySelector(`[data-group="${category(title)}"]`).append(box)}
@@ -21,12 +21,20 @@
     current.push(node);
   }section(current,heading)}
   collect(left);collect(right);
+  function pinTextPanel(){
+    const approved=document.querySelector('#apanamApprovedPanel');
+    if(!approved||approved.closest('.organizer-panel[data-group="Text"]'))return;
+    const box=document.createElement('details');box.className='organizer-section organizer-featured';box.open=true;box.dataset.title='Text & Elements · Phonetic Typing';
+    const summary=document.createElement('summary');summary.textContent='Text & Elements · Phonetic Typing';
+    box.append(summary,approved);panels.querySelector('[data-group="Text"]').prepend(box);
+  }
+  pinTextPanel();
   // Give uploads their own visible home while keeping the original input and listeners.
   const upload=document.querySelector('#imageUpload')?.closest('label');
   if(upload){const related=[upload,document.querySelector('#autoMakeEditable')].filter(Boolean);section(related,'Uploads')}
   function show(){const term=search.value.trim().toLowerCase();nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.group===active));panels.querySelectorAll('.organizer-panel').forEach(p=>p.hidden=!term&&p.dataset.group!==active);panels.querySelectorAll('.organizer-section').forEach(s=>{const match=!term||s.textContent.toLowerCase().includes(term);s.hidden=!match;if(term&&match)s.open=true})}
   search.addEventListener('input',show);show();
   // Scripts loaded asynchronously may add panels after the initial layout.
-  const observer=new MutationObserver(()=>{const pending=[...left.children,...right.children].filter(n=>n!==shell);if(!pending.length)return;observer.disconnect();collect(left);collect(right);show();observer.observe(left,{childList:true});observer.observe(right,{childList:true})});
+  const observer=new MutationObserver(()=>{const pending=[...left.children,...right.children].filter(n=>n!==shell);if(!pending.length)return;observer.disconnect();collect(left);collect(right);pinTextPanel();show();observer.observe(left,{childList:true});observer.observe(right,{childList:true})});
   observer.observe(left,{childList:true});observer.observe(right,{childList:true});
 })();
