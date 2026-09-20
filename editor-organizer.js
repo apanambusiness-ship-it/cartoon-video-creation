@@ -17,10 +17,13 @@
     if(node.tagName==='H3'){section(current,heading);current=[];heading=node.textContent.trim();node.remove();continue}
     if(node.tagName==='HR'){node.remove();continue}
     // Script-inserted feature blocks remain whole, including their handlers.
-    if(node.querySelector?.('h3') && current.length){section(current,heading);current=[];heading=node.querySelector('h3').textContent.trim()}
+    if(node.querySelector?.('h3')){section(current,heading);current=[];heading=node.querySelector('h3').textContent.trim()}
     current.push(node);
   }section(current,heading)}
   collect(left);collect(right);
+  // Give uploads their own visible home while keeping the original input and listeners.
+  const upload=document.querySelector('#imageUpload')?.closest('label');
+  if(upload){const related=[upload,document.querySelector('#autoMakeEditable')].filter(Boolean);section(related,'Uploads')}
   function show(){const term=search.value.trim().toLowerCase();nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.group===active));panels.querySelectorAll('.organizer-panel').forEach(p=>p.hidden=!term&&p.dataset.group!==active);panels.querySelectorAll('.organizer-section').forEach(s=>{const match=!term||s.textContent.toLowerCase().includes(term);s.hidden=!match;if(term&&match)s.open=true})}
   search.addEventListener('input',show);show();
   // Scripts loaded asynchronously may add panels after the initial layout.
