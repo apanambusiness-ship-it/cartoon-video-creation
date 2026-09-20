@@ -23,3 +23,6 @@
 .apanam-gallery-panel button.apanam-gallery-close{width:32px;height:32px;min-height:32px;font-size:18px}
 .apanam-gallery-body{padding-top:15px}
 @media(max-width:520px){.apanam-gallery-panel .apanam-gallery-header{min-height:0;padding:10px 15px}.apanam-gallery-panel .apanam-gallery-header h2{font-size:19px}}
+.apanam-gallery-card-actions{flex-wrap:wrap}
+.apanam-gallery-panel button.apanam-gallery-rename{flex:1;min-height:36px;padding:6px 8px;border:1px solid #dcd1ff;border-radius:9px;background:#f3efff;color:#5123b1;font-size:12px;font-weight:800;cursor:pointer}
+.apanam-gallery-panel button.apanam-gallery-rename:hover{background:#e8dcff}
