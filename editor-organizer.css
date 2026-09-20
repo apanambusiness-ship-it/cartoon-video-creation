@@ -1,0 +1,18 @@
+main{grid-template-columns:minmax(290px,355px) minmax(0,1fr)!important}
+body main>aside:not(.right){min-width:0!important;width:auto!important;padding:12px!important;display:block!important}
+main>aside.right{display:none!important}
+.organizer{height:100%;display:flex;flex-direction:column;gap:10px}
+.organizer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;flex:none}
+.organizer-nav button{min-height:36px;padding:6px 8px;font-size:12px;text-align:left}
+.organizer-nav button.active{background:#6d28d9;color:white;border-color:#6d28d9}
+.organizer>input{width:100%;padding:9px;border:1px solid #ccd3dd;border-radius:8px;flex:none}
+.organizer-panels{min-height:0;overflow:auto;flex:1}
+.organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
+.organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:6px 9px 10px;background:#fff}
+.organizer-section>summary{font-weight:700;cursor:pointer;padding:7px 2px;color:#4c1d95}
+.organizer-section>button,.organizer-section>.upload,.organizer-section>select{display:block;width:100%;margin:7px 0;text-align:left}
+.organizer-section label{display:block;margin:9px 0;font-size:13px}
+.organizer-section label input:not([type=checkbox]){width:100%}
+.organizer-section .row{display:flex;gap:6px}
+.organizer-section .row button{min-width:0;flex:1}
+@media(max-width:700px){main{display:flex!important;flex-direction:column}.organizer{height:auto}.organizer-panels{overflow:visible}.organizer-nav{grid-template-columns:repeat(3,minmax(0,1fr))}main>aside:not(.right){width:100%!important}}
