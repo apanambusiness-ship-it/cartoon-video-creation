@@ -5,6 +5,7 @@ main>aside.right{display:none!important}
 .organizer-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;flex:none}
 .organizer-nav button{min-width:0;min-height:32px;padding:5px 2px;font-size:11px;line-height:1.1;text-align:center;white-space:normal;overflow-wrap:anywhere}
 .organizer-nav button.active{background:#6d28d9;color:white;border-color:#6d28d9}
+.organizer-video-link{display:block;padding:6px 8px;border-radius:8px;background:#f4f0ff;color:#5b21b6;text-decoration:none;font-weight:700;font-size:12px;text-align:center}
 .organizer>input{width:100%;padding:8px 10px;border:1px solid #ccd3dd;border-radius:8px;flex:none;background:#fff}
 .organizer-panels{min-height:0;overflow:auto;flex:1}
 .organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
