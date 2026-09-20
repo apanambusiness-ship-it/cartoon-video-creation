@@ -8,3 +8,6 @@ const stage=document.querySelector('#stage'),layers=document.querySelector('#lay
 
 // Dashboard project actions: Edit + Delete on Recent/My Projects cards.
 (()=>{const load=()=>{if(document.querySelector('script[data-apanam-dashboard-actions]'))return;const s=document.createElement('script');s.src='dashboard-project-actions.js?v=811b2960';s.dataset.apanamDashboardActions='1';document.body.appendChild(s)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else setTimeout(load,0)})();
+
+// Header project actions: always visible beside Save.
+(()=>{const load=()=>{if(document.querySelector('script[data-apanam-header-actions]'))return;const s=document.createElement('script');s.src='header-edit-delete.js?v=fb829bf6';s.dataset.apanamHeaderActions='1';document.body.appendChild(s)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else setTimeout(load,0)})();
