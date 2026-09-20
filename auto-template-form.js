@@ -37,12 +37,28 @@
     const offer=String(data.get('offer')||'').trim();
     const heading=find(/PRODUCT NAME|BEAUTY|HOME & KITCHEN|HANDMADE|त्योहार की|MEGA SALE/);
     setText(heading,name);
-    setText(find(/^₹\d+/),`₹${price.toLocaleString('en-IN')}${mrp&&mrp>price?'  MRP ₹'+mrp.toLocaleString('en-IN'):''}`);
-    if(!find(/^₹\d+/)){
+    const originalPrice=find(/^₹\d+/);
+    setText(originalPrice,`₹${price.toLocaleString('en-IN')}`);
+    if(!originalPrice){
       const priceNode=find(/Glow •|BEST SELLER|Support Local Makers|आज ही खरीदें|Limited Time Offer|UP TO 50% OFF/);
-      setText(priceNode,`₹${price.toLocaleString('en-IN')}${mrp&&mrp>price?'  MRP ₹'+mrp.toLocaleString('en-IN'):''}`);
+      setText(priceNode,`₹${price.toLocaleString('en-IN')}`);
     }
-    if(offer){const offerNode=find(/FREE DELIVERY|UP TO 50% OFF|Smart choices|LOCAL •|आज ही खरीदें|Glow •|Limited Time Offer/);setText(offerNode,offer)}
+    const offerNode=find(/FREE DELIVERY|UP TO 50% OFF|Smart choices|LOCAL •|आज ही खरीदें|Glow •|Limited Time Offer/);
+    if(offer)setText(offerNode,offer);
+    // The listing template reserves distinct positions for price, MRP, offer and trust text.
+    if(kind==='listing'){
+      const trustNode=find(/★ 4\.5/);
+      if(originalPrice){originalPrice.style.top='458px';originalPrice.style.fontSize='32px'}
+      if(offerNode){offerNode.style.left='65px';offerNode.style.top='502px';offerNode.style.fontSize='18px';if(!offer)setText(offerNode,'FREE DELIVERY')}
+      if(trustNode){trustNode.style.left='295px';trustNode.style.top='506px';trustNode.style.fontSize='14px'}
+      if(mrp>price){
+        document.querySelector('[data-add="text"]')?.click();
+        const mrpNode=stage.lastElementChild;
+        setText(mrpNode,`MRP ₹${mrp.toLocaleString('en-IN')}`);
+        mrpNode.style.left='295px';mrpNode.style.top='464px';mrpNode.style.fontSize='18px';
+        mrpNode.style.fontWeight='400';mrpNode.style.textDecoration='line-through';
+      }
+    }
     if(brand){const brandNode=find(/^APANAM$/);if(brandNode)setText(brandNode,brand);else {const input=document.querySelector('#brandName');if(input)input.value=brand}}
     if(photo){const slot=[...stage.querySelectorAll('.element')].find(el=>el.dataset.name==='Product Photo Area');const placeholder=find(/अपना PRODUCT PHOTO/);slot?.remove();placeholder?.remove();const upload=document.querySelector('#imageUpload');const transfer=new DataTransfer();transfer.items.add(file);upload.files=transfer.files;upload.dispatchEvent(new Event('change',{bubbles:true}));}
     form.querySelector('[role="status"]').textContent='पोस्टर तैयार है। Text, photo और रंग बदलकर Save या Download PNG करें।';
