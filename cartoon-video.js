@@ -1,7 +1,7 @@
 (()=>{
   const $=id=>document.getElementById(id),canvas=$('screen'),ctx=canvas.getContext('2d');
-  const fields=['title','caption','duration','background','photoFit','character','characterType','motion','transition','titleColor','captionColor','titleSize','captionSize'];
-  const defaults={title:'पहला Scene',caption:'APANAM में आपका स्वागत है',duration:4,background:'#312e81',photoFit:'cover',character:'#facc15',characterType:'smile',motion:'bounce',transition:'fade',titleColor:'#ffffff',captionColor:'#ffffff',titleSize:56,captionSize:32};
+  const fields=['title','caption','duration','background','photoFit','character','characterType','motion','transition','titleColor','captionColor','titleSize','captionSize','captionPosition'];
+  const defaults={title:'पहला Scene',caption:'APANAM में आपका स्वागत है',duration:4,background:'#312e81',photoFit:'cover',character:'#facc15',characterType:'smile',motion:'bounce',transition:'fade',titleColor:'#ffffff',captionColor:'#ffffff',titleSize:56,captionSize:32,captionPosition:'lower'};
   let scenes=[],current=-1,playing=false,recorder=null,raf=0,audioFile=null,audioContext=null,audioSource=null,voiceRecorder=null,voiceStream=null,previewAudio=null,previewAudioUrl=null,videoPreviewAudio=null,videoPreviewUrl=null;
   const images=new Map();
   function backgroundImage(src){if(!src)return null;if(images.has(src))return images.get(src);const image=new Image();image.onload=()=>{if(!playing&&(scene()?.backgroundImage===src||scene()?.logoImage===src))draw(scene(),0)};image.src=src;images.set(src,image);return image}
@@ -20,7 +20,7 @@
     else{if(s.characterType==='cat'){ctx.beginPath();ctx.moveTo(x-90,y-45);ctx.lineTo(x-102,y-145);ctx.lineTo(x-30,y-98);ctx.moveTo(x+90,y-45);ctx.lineTo(x+102,y-145);ctx.lineTo(x+30,y-98);ctx.fill()}ctx.beginPath();ctx.arc(x,y,110,0,Math.PI*2);ctx.fill()}
     ctx.fillStyle='#172033';ctx.beginPath();ctx.arc(x-36,y-25,10,0,7);ctx.arc(x+36,y-25,10,0,7);ctx.fill();ctx.beginPath();ctx.arc(x,y+12,42,.1,Math.PI-.1);ctx.lineWidth=7;ctx.strokeStyle='#172033';ctx.stroke();
     ctx.fillStyle=s.titleColor||'#fff';ctx.font=`bold ${Math.min(88,Math.max(24,Number(s.titleSize)||56))}px Arial,sans-serif`;wrapText(s.title,640,100,1120,2);
-    ctx.fillStyle=s.captionColor||'#fff';ctx.font=`${Math.min(64,Math.max(18,Number(s.captionSize)||32))}px Arial,sans-serif`;wrapText(s.caption,640,550,1080,2);
+    ctx.fillStyle=s.captionColor||'#fff';ctx.font=`${Math.min(64,Math.max(18,Number(s.captionSize)||32))}px Arial,sans-serif`;wrapText(s.caption,640,s.captionPosition==='top'?240:s.captionPosition==='bottom'?630:550,1080,2);
     const logo=backgroundImage(s.logoImage);if(logo?.complete&&logo.naturalWidth){const scale=Math.min(140/logo.naturalWidth,100/logo.naturalHeight,1),width=logo.naturalWidth*scale,height=logo.naturalHeight*scale;ctx.drawImage(logo,canvas.width-width-34,28,width,height)}
   }
   function total(){return scenes.reduce((n,s)=>n+Number(s.duration||1),0)}
