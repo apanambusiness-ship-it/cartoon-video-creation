@@ -21,6 +21,12 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Cartoon video: independent `cartoon-video.html` page with scenes, preview and browser WebM export. Speech synthesis gives a preview voice; the exported video does not yet have an audio track.
 - AI poster: separate Worker and D1 experiment; availability depends on configured Cloudflare bindings. No verified email login or per-user neuron allocation.
 
+## Progress (20 September 2026)
+
+- Unified Creator entry shipped: poster, product design, video and local poster gallery.
+- Cartoon scene reorder and JSON project backup shipped.
+- Optional uploaded or browser-recorded narration is mixed into WebM export; browser playback and exported audio still require hands-on verification across target devices.
+
 ## Build sequence (one usable milestone at a time)
 
 1. **Unified Creator entry:** clearly link poster, product visuals, video and projects without changing existing editor behavior.
