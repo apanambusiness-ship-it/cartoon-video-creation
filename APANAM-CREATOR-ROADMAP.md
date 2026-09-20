@@ -18,7 +18,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 ## What is already in this repository
 
 - Poster editor: layers, templates, editable text, image upload, brand kit, local gallery, JSON backup and PNG/JPG/PDF exports.
-- Cartoon video: independent `cartoon-video.html` page with scenes, preview and browser WebM export. Speech synthesis gives a preview voice; the exported video does not yet have an audio track.
+- Cartoon video: independent `cartoon-video.html` page with scenes, preview, browser WebM export and optional imported or recorded audio track. Speech synthesis is a preview voice only.
 - AI poster: separate Worker and D1 experiment; availability depends on configured Cloudflare bindings. No verified email login or per-user neuron allocation.
 
 ## Progress (20 September 2026)
@@ -26,6 +26,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Unified Creator entry shipped: poster, product design, video and local poster gallery.
 - Cartoon scene reorder, JSON project backup, character choice, scene fade, editable text styling, photo backgrounds, scene duplication and scene PNG export shipped.
 - Optional uploaded or browser-recorded narration is mixed into WebM export; browser playback and exported audio still require hands-on verification across target devices.
+- Separate browser video gallery supports multiple projects, rename, deletion and JSON gallery transfer. Video timeline shows progress and allows seeking to a scene preview. Audio is kept separately from the JSON scene backup.
 
 ## Build sequence (one usable milestone at a time)
 
