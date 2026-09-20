@@ -9,8 +9,8 @@
   fetch(endpoint+'/health').then(r=>r.ok?r.json():null).then(data=>{if(data?.ready){button.hidden=false;status.textContent='AI सुझाव मुफ्त दैनिक सीमा के भीतर उपलब्ध हैं।'}}).catch(()=>{});
   button.addEventListener('click',async()=>{
     const product=form.elements.product.value.trim(),price=Number(form.elements.price.value);
-    if(!product||!price){form.reportValidity();return}
-    button.disabled=true;status.textContent='AI सुझाव बना रहा है…';
+    if(!product||!Number.isSafeInteger(price)||price<1){status.textContent='पहले Product name और सही कीमत भरें।';form.reportValidity();return}
+    button.disabled=true;status.textContent='AI से सुझाव लिए जा रहे हैं…';
     try{
       const result=await fetch(endpoint+'/api/poster',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product,price,brand:form.elements.brand.value,category:form.elements.template.value})});
       const data=await result.json();if(!result.ok)throw new Error(data.error||'AI उपलब्ध नहीं है');
@@ -19,7 +19,10 @@
       form.elements.template.value=data.template;
       const apply=()=>{const stage=document.querySelector('#stage');stage.style.backgroundColor=data.backgroundColor;document.querySelectorAll('#stage .element[data-text]').forEach(el=>{if(el.dataset.text===data.headline)el.style.color=data.primaryColor});form.removeEventListener('apanam:poster-ready',apply)};
       form.addEventListener('apanam:poster-ready',apply);
-      form.requestSubmit();status.textContent='AI सुझाव लगा दिया है। पोस्टर के सभी हिस्से बदल सकते हैं।';
+      status.textContent='AI सुझाव मिल गए हैं। नया पोस्टर बनाने की पुष्टि करें।';
+      form.addEventListener('apanam:poster-ready',()=>{status.textContent='AI सुझाव से पोस्टर तैयार है।'},{once:true});
+      form.addEventListener('apanam:poster-cancelled',()=>{form.removeEventListener('apanam:poster-ready',apply);status.textContent='नया पोस्टर बनाना रद्द हुआ। पुराना पोस्टर सुरक्षित है।'},{once:true});
+      form.requestSubmit();
     }catch(error){status.textContent=error.message}finally{button.disabled=false}
   });
 })();
