@@ -27,6 +27,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Cartoon scene reorder, JSON project backup, character choice, scene fade, editable text styling, photo backgrounds, scene duplication and scene PNG export shipped.
 - Optional uploaded or browser-recorded narration is mixed into WebM export; browser playback and exported audio still require hands-on verification across target devices.
 - Separate browser video gallery supports multiple projects, rename, deletion and JSON gallery transfer. Video timeline shows progress and allows seeking to a scene preview. Audio is kept separately from the JSON scene backup.
+- Scene captions can be downloaded as a timed SRT file. A compact logo can be applied to all scenes. Imported or recorded audio has a listening control, volume setting and optional loop; it now plays alongside the video preview. Browser/device verification is still needed for synchronized playback.
 
 ## Build sequence (one usable milestone at a time)
 
