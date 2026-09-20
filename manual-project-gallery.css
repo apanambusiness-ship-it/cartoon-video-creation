@@ -15,3 +15,11 @@
 .apanam-gallery-panel .apanam-gallery-header p{display:block;position:static;margin:0;font-size:14px;line-height:1.5;color:#f2eaff;white-space:normal}
 .apanam-gallery-panel .apanam-gallery-eyebrow{display:block;color:#ffe584;line-height:1.4}
 @media(max-width:520px){.apanam-gallery-panel .apanam-gallery-header{min-height:112px;padding:16px 18px}.apanam-gallery-panel .apanam-gallery-header h2{font-size:23px}}
+/* Compact title bar: keep the canvas and gallery cards visible at laptop sizes. */
+.apanam-gallery-panel .apanam-gallery-header{min-height:0;height:auto;padding:11px 22px;gap:12px}
+.apanam-gallery-panel .apanam-gallery-header h2{font-size:21px;line-height:1.2;margin:2px 0 3px}
+.apanam-gallery-panel .apanam-gallery-header p{font-size:12px;line-height:1.35}
+.apanam-gallery-panel .apanam-gallery-eyebrow{font-size:9px;letter-spacing:1px;line-height:1.15}
+.apanam-gallery-panel button.apanam-gallery-close{width:32px;height:32px;min-height:32px;font-size:18px}
+.apanam-gallery-body{padding-top:15px}
+@media(max-width:520px){.apanam-gallery-panel .apanam-gallery-header{min-height:0;padding:10px 15px}.apanam-gallery-panel .apanam-gallery-header h2{font-size:19px}}
