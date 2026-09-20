@@ -30,7 +30,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Scene captions can be downloaded as a timed SRT file. A compact logo can be applied to all scenes. Imported or recorded audio has a listening control, volume setting and optional loop; it now plays alongside the video preview. Browser/device verification is still needed for synchronized playback.
 - The poster's saved brand logo can be copied into video scenes. Local video gallery saves audio files up to 30 MB along with scenes; JSON backups still require a separate audio file. Individual poster and video projects have their own JSON backup controls.
 - Creator menu can send the current poster to a new video scene without replacing existing scenes; the complete poster is kept inside a fitted image for the scene.
-- A saved video's scenes can be appended to the open project, up to 100 scenes total. Audio tracks are not merged when appending projects.
+- A saved video's scenes can be appended to the open project, up to 100 scenes total. Per-scene audio follows appended scenes; the saved project's main soundtrack stays separate.
 - Each scene photo can now use cover or contain framing to avoid cropping product images and posters.
 - Product Photo Quick Look now updates the same brightness, contrast and saturation values as the image controls and includes an original-look reset.
 - Poster project saves and JSON backups now preserve the transparent canvas setting when restored.
@@ -39,6 +39,15 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Long titles and captions now fit within the video frame with a visual ellipsis; the full caption remains in project data and SRT export.
 - A selected video scene can reuse the saved poster Brand Kit primary and secondary colors; other scenes remain unchanged.
 - Video project gallery and JSON scene backups preserve the chosen audio volume and repeat option; existing backups without settings load at their defaults.
+- Video offers landscape 16:9, square 1:1, and portrait 9:16 WebM export, keeping the entire original scene visible with a filled background.
+- Per-scene audio uploads play during preview and are mixed at their scene's start in WebM export. The browser gallery keeps these clips with the scenes. The complete video JSON backup includes the main soundtrack and scene clips up to 20 MB combined; the smaller scene/gallery JSON backup omits audio.
+- Saved videos can have a series title and episode number. The video gallery displays these and can filter by series. Series metadata is retained in gallery JSON transfer.
+
+## Still dependent on external setup or final device checks
+
+- AI poster requires an active Workers AI model binding and D1 quota database. The `/health` endpoint checks binding presence only; verify a real poster request on the configured account before advertising AI as live. Cloudflare's free allocation belongs to the account, not every signed-in user. Email login, per-user quota, billing, and paid tiers require separate authenticated server-side systems.
+- Final checks should cover desktop/mobile rendering, voice and scene audio synchronization, WebM/PDF/PNG export, full JSON recovery, and low-storage cases. Browser video export can be limited by device memory for long films.
+- Custom domain activation requires DNS ownership and Cloudflare configuration.
 
 ## Build sequence (one usable milestone at a time)
 
