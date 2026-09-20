@@ -29,7 +29,7 @@
     if(mrp&&(!Number.isSafeInteger(mrp)||mrp<1||mrp>99999999)){form.reportValidity();return}
     const file=data.get('photo');let photo;
     try{if(file instanceof File&&file.size){if(file.size>10*1024*1024)throw new Error('Photo 10 MB से छोटी रखें');photo=await readPhoto(file)}}catch(error){form.querySelector('[role="status"]').textContent=error.message;return}
-    if(stage.querySelector('.element')&&!confirm('नया template लगाने से अभी खुला poster बदल जाएगा। पहले Save करें। आगे बढ़ें?'))return;
+    if(stage.querySelector('.element')&&!confirm('नया template लगाने से अभी खुला poster बदल जाएगा। पहले Save करें। आगे बढ़ें?')){form.dispatchEvent(new Event('apanam:poster-cancelled'));return}
     templates[kind]();
     const texts=[...stage.querySelectorAll('.element[data-text]')];
     const find=(pattern)=>texts.find(el=>pattern.test(el.dataset.text||''));
