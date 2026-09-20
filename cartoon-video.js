@@ -1,7 +1,7 @@
 (()=>{
   const $=id=>document.getElementById(id),canvas=$('screen'),ctx=canvas.getContext('2d');
-  const fields=['title','caption','duration','background','character','characterType','motion','transition'];
-  const defaults={title:'पहला Scene',caption:'APANAM में आपका स्वागत है',duration:4,background:'#312e81',character:'#facc15',characterType:'smile',motion:'bounce',transition:'fade'};
+  const fields=['title','caption','duration','background','character','characterType','motion','transition','titleColor','captionColor','titleSize','captionSize'];
+  const defaults={title:'पहला Scene',caption:'APANAM में आपका स्वागत है',duration:4,background:'#312e81',character:'#facc15',characterType:'smile',motion:'bounce',transition:'fade',titleColor:'#ffffff',captionColor:'#ffffff',titleSize:56,captionSize:32};
   let scenes=[],current=-1,playing=false,recorder=null,raf=0,audioFile=null,audioContext=null,audioSource=null,voiceRecorder=null,voiceStream=null;
   try{const saved=JSON.parse(localStorage.getItem('apanam-cartoon-scenes')||'[]');if(Array.isArray(saved))scenes=saved.slice(0,100).map(s=>({...defaults,...s}))}catch{}
   if(!scenes.length)scenes=[{...defaults}];
@@ -17,8 +17,8 @@
     if(s.characterType==='person'){ctx.beginPath();ctx.arc(x,y-45,72,0,Math.PI*2);ctx.fill();ctx.fillRect(x-78,y+42,156,115);ctx.lineWidth=24;ctx.lineCap='round';ctx.strokeStyle=s.character;ctx.beginPath();ctx.moveTo(x-68,y+65);ctx.lineTo(x-135,y+130);ctx.moveTo(x+68,y+65);ctx.lineTo(x+135,y+130);ctx.stroke()}
     else{if(s.characterType==='cat'){ctx.beginPath();ctx.moveTo(x-90,y-45);ctx.lineTo(x-102,y-145);ctx.lineTo(x-30,y-98);ctx.moveTo(x+90,y-45);ctx.lineTo(x+102,y-145);ctx.lineTo(x+30,y-98);ctx.fill()}ctx.beginPath();ctx.arc(x,y,110,0,Math.PI*2);ctx.fill()}
     ctx.fillStyle='#172033';ctx.beginPath();ctx.arc(x-36,y-25,10,0,7);ctx.arc(x+36,y-25,10,0,7);ctx.fill();ctx.beginPath();ctx.arc(x,y+12,42,.1,Math.PI-.1);ctx.lineWidth=7;ctx.strokeStyle='#172033';ctx.stroke();
-    ctx.fillStyle='#fff';ctx.font='bold 56px Arial,sans-serif';wrapText(s.title,640,100,1120,2);
-    ctx.font='32px Arial,sans-serif';wrapText(s.caption,640,550,1080,2)
+    ctx.fillStyle=s.titleColor||'#fff';ctx.font=`bold ${Math.min(88,Math.max(24,Number(s.titleSize)||56))}px Arial,sans-serif`;wrapText(s.title,640,100,1120,2);
+    ctx.fillStyle=s.captionColor||'#fff';ctx.font=`${Math.min(64,Math.max(18,Number(s.captionSize)||32))}px Arial,sans-serif`;wrapText(s.caption,640,550,1080,2)
   }
   function total(){return scenes.reduce((n,s)=>n+Number(s.duration||1),0)}
   function frameAt(elapsed){let t=elapsed;for(const [index,s] of scenes.entries()){let d=Number(s.duration)||1;if(t<d)return {s,t,index};t-=d}return {s:scenes.at(-1),t:Number(scenes.at(-1).duration)||1,index:scenes.length-1}}
@@ -26,7 +26,7 @@
   function play(exporting=false){if(playing)stop();const length=total();if(!length)return;playing=true;const start=performance.now();$('status').textContent=exporting?'Video बन रहा है…':'Preview चल रहा है…';
     function tick(now){if(!playing)return;const elapsed=(now-start)/1000;const {s,t,index}=frameAt(Math.min(elapsed,length-.001));draw(s,t);if(index>0&&s.transition==='fade'&&t<.45){ctx.fillStyle=`rgba(13,14,31,${(1-t/.45).toFixed(3)})`;ctx.fillRect(0,0,canvas.width,canvas.height)}if(elapsed<length)raf=requestAnimationFrame(tick);else{playing=false;if(recorder?.state==='recording')recorder.stop();else $('status').textContent='Preview पूरा हुआ'}}raf=requestAnimationFrame(tick)
   }
-  fields.forEach(k=>$(k).addEventListener('input',()=>{if(!scene())return;scene()[k]=k==='duration'?Math.min(15,Math.max(1,Number($(k).value)||1)):$(k).value;save();list();if(!playing)draw(scene(),0)}));
+  fields.forEach(k=>$(k).addEventListener('input',()=>{if(!scene())return;scene()[k]=k==='duration'?Math.min(15,Math.max(1,Number($(k).value)||1)):['titleSize','captionSize'].includes(k)?Math.min(88,Math.max(18,Number($(k).value)||32)):$(k).value;save();list();if(!playing)draw(scene(),0)}));
   $('add').onclick=()=>{scenes.push({...defaults,title:`Scene ${scenes.length+1}`});save();select(scenes.length-1)};
   $('remove').onclick=()=>{if(scenes.length===1){$('status').textContent='कम से कम एक scene रखें';return}scenes.splice(current,1);save();select(Math.min(current,scenes.length-1))};
   $('preview').onclick=()=>play();$('stop').onclick=()=>{stop();window.speechSynthesis?.cancel()};
