@@ -37,6 +37,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Poster JPG/WebP export now uses the same canvas renderer as PNG. Gallery JPG/PDF exports composite transparent pixels over white; PNG and WebP can retain transparency.
 - Each cartoon scene's caption can stay in its original lower position or move above or to the bottom band.
 - Long titles and captions now fit within the video frame with a visual ellipsis; the full caption remains in project data and SRT export.
+- A selected video scene can reuse the saved poster Brand Kit primary and secondary colors; other scenes remain unchanged.
 
 ## Build sequence (one usable milestone at a time)
 
