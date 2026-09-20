@@ -5,3 +5,6 @@ const stage=document.querySelector('#stage'),layers=document.querySelector('#lay
 
 // Load Original Templates after editor initialization. Cache-busted to the current gallery build.
 (()=>{const load=()=>{if(document.getElementById('originalTemplatesV1')||document.querySelector('script[data-apanam-original-templates]'))return;const s=document.createElement('script');s.src='original-templates-v1.js?v=1328a3e2';s.dataset.apanamOriginalTemplates='1';s.onload=()=>console.log('APANAM Original Templates loaded');s.onerror=()=>console.error('APANAM Original Templates failed to load');document.body.appendChild(s)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else setTimeout(load,0)})();
+
+// Dashboard project actions: Edit + Delete on Recent/My Projects cards.
+(()=>{const load=()=>{if(document.querySelector('script[data-apanam-dashboard-actions]'))return;const s=document.createElement('script');s.src='dashboard-project-actions.js?v=811b2960';s.dataset.apanamDashboardActions='1';document.body.appendChild(s)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else setTimeout(load,0)})();
