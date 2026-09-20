@@ -26,3 +26,5 @@
 .apanam-gallery-card-actions{flex-wrap:wrap}
 .apanam-gallery-panel button.apanam-gallery-rename{flex:1;min-height:36px;padding:6px 8px;border:1px solid #dcd1ff;border-radius:9px;background:#f3efff;color:#5123b1;font-size:12px;font-weight:800;cursor:pointer}
 .apanam-gallery-panel button.apanam-gallery-rename:hover{background:#e8dcff}
+
+.apanam-gallery-card-actions{flex-wrap:wrap}.apanam-gallery-card-actions button{flex:1 1 40%;min-width:0}
