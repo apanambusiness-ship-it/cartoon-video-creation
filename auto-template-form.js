@@ -48,14 +48,15 @@
     // The listing template reserves distinct positions for price, MRP, offer and trust text.
     if(kind==='listing'){
       const trustNode=find(/★ 4\.5/);
-      if(originalPrice){originalPrice.style.top='458px';originalPrice.style.fontSize='32px'}
-      if(offerNode){offerNode.style.left='65px';offerNode.style.top='502px';offerNode.style.fontSize='18px';if(!offer)setText(offerNode,'FREE DELIVERY')}
-      if(trustNode){trustNode.style.left='295px';trustNode.style.top='506px';trustNode.style.fontSize='14px'}
+      if(heading){heading.style.left='65px';heading.style.top='407px';heading.style.width='420px';heading.style.maxWidth='420px';heading.style.whiteSpace='normal';heading.style.overflowWrap='anywhere';heading.style.lineHeight='1.1';heading.style.fontSize=name.length>28?'24px':name.length>20?'27px':'34px'}
+      if(originalPrice){originalPrice.style.top='490px';originalPrice.style.fontSize='32px'}
+      if(offerNode){offerNode.style.left='65px';offerNode.style.top='543px';offerNode.style.fontSize='18px';if(!offer)setText(offerNode,'FREE DELIVERY')}
+      if(trustNode){trustNode.style.left='295px';trustNode.style.top='547px';trustNode.style.fontSize='14px'}
       if(mrp>price){
         document.querySelector('[data-add="text"]')?.click();
         const mrpNode=stage.lastElementChild;
         setText(mrpNode,`MRP ₹${mrp.toLocaleString('en-IN')}`);
-        mrpNode.style.left='295px';mrpNode.style.top='464px';mrpNode.style.fontSize='18px';
+        mrpNode.style.left='295px';mrpNode.style.top='496px';mrpNode.style.fontSize='18px';
         mrpNode.style.fontWeight='400';mrpNode.style.textDecoration='line-through';
       }
     }
