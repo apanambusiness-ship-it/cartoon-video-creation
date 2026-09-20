@@ -52,5 +52,6 @@
       recorder.onerror=()=>{$('status').textContent='वीडियो रिकॉर्ड नहीं हो सका';stop()};recorder.onstart=()=>{audioSource?.start();play(true)};recorder.start();
     }catch(error){stream.getTracks().forEach(track=>track.stop());audioContext?.close();audioContext=null;audioSource=null;$('export').disabled=false;$('status').textContent='ऑडियो फ़ाइल नहीं खुली या ब्राउज़र इसे रिकॉर्ड नहीं कर सका। दूसरी MP3/WAV फ़ाइल चुनें।'}
   };
+  window.APANAM_CARTOON_PROJECT={snapshot:()=>scenes.map(s=>({...s})),restore(incoming){if(!Array.isArray(incoming)||!incoming.length||incoming.length>100||incoming.some(s=>!s||typeof s.title!=='string'||typeof s.caption!=='string'||!Number.isFinite(Number(s.duration))))return false;scenes=incoming.map(s=>({...defaults,...s,duration:Math.min(15,Math.max(1,Number(s.duration)||1))}));save();select(0);return true}};
   select(0)
 })();
