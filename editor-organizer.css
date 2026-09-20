@@ -5,7 +5,7 @@ main>aside.right{display:none!important}
 .organizer-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;flex:none}
 .organizer-nav button{min-width:0;min-height:32px;padding:5px 2px;font-size:11px;line-height:1.1;text-align:center;white-space:normal;overflow-wrap:anywhere}
 .organizer-nav button.active{background:#6d28d9;color:white;border-color:#6d28d9}
-header .editor-search{width:clamp(160px,22vw,320px);min-width:0;padding:9px 11px;border:1px solid #ccd3dd;border-radius:8px;flex:none;background:#fff}
+.organizer>input{width:100%;padding:8px 10px;border:1px solid #ccd3dd;border-radius:8px;flex:none;background:#fff}
 .organizer-panels{min-height:0;overflow:auto;flex:1}
 .organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
 .organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:6px 9px 10px;background:#fff}
@@ -26,4 +26,4 @@ header .editor-search{width:clamp(160px,22vw,320px);min-width:0;padding:9px 11px
 .organizer-section label input:not([type=checkbox]){width:100%}
 .organizer-section .row{display:flex;gap:6px}
 .organizer-section .row button{min-width:0;flex:1}
-@media(max-width:700px){main{display:flex!important;flex-direction:column}.organizer{height:auto}.organizer-panels{overflow:visible}.organizer-nav{grid-template-columns:repeat(5,minmax(0,1fr))}main>aside:not(.right){width:100%!important}header .editor-search{order:3;width:100%;min-height:38px}}
+@media(max-width:700px){main{display:flex!important;flex-direction:column}.organizer{height:auto}.organizer-panels{overflow:visible}.organizer-nav{grid-template-columns:repeat(5,minmax(0,1fr))}main>aside:not(.right){width:100%!important}}
