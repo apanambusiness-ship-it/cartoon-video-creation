@@ -24,7 +24,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 ## Progress (20 September 2026)
 
 - Unified Creator entry shipped: poster, product design, video and local poster gallery.
-- Cartoon scene reorder and JSON project backup shipped.
+- Cartoon scene reorder, JSON project backup, character choice, scene fade and editable text styling shipped.
 - Optional uploaded or browser-recorded narration is mixed into WebM export; browser playback and exported audio still require hands-on verification across target devices.
 
 ## Build sequence (one usable milestone at a time)
