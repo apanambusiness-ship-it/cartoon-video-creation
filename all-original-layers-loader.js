@@ -1,0 +1,1 @@
+(()=>{if(document.querySelector('script[data-apanam-all-original-layers]'))return;const s=document.createElement('script');s.src='original-template-all-layers.js?v=4ad773cd';s.dataset.apanamAllOriginalLayers='1';document.body.appendChild(s)})();
