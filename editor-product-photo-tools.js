@@ -1,1 +1,25 @@
-(()=>{const $=s=>document.querySelector(s),stage=$('#stage');if(!stage)return;const imgs=()=>[...stage.querySelectorAll('.element.selected img,.element.selected[data-type="image"]')];function chosen(){let a=imgs();if(!a.length){let e=stage.querySelector('.element.selected');if(e&&e.tagName==='IMG')a=[e]}return a}function save(){window.APANAM_PROJECT?.save?.()}function apply(filter){let a=chosen();if(!a.length)return alert('पहले product photo select करें।');a.forEach(i=>i.style.filter=filter);save()}function clean(){apply('brightness(1.06) contrast(1.06) saturate(1.04)')}function vivid(){apply('brightness(1.03) contrast(1.1) saturate(1.18)')}function soft(){apply('brightness(1.08) contrast(.96) saturate(.94)')}let right=document.querySelector('aside.right');if(!right)return;let box=document.createElement('div');box.innerHTML='<h3>Product Photo Quick Look</h3><p class="small">एक क्लिक में product photo का basic look सुधारें; कोई paid API नहीं।</p><button id="eppClean">✨ Clean Marketplace</button><button id="eppVivid">◉ Vivid Product</button><button id="eppSoft">☁ Soft Beauty</button>';right.insertBefore(box,right.firstChild);$('#eppClean').onclick=clean;$('#eppVivid').onclick=vivid;$('#eppSoft').onclick=soft;window.APANAM_PRODUCT_PHOTO_TOOLS={clean,vivid,soft};if(!document.querySelector('script[data-apanam-text-quick]')){let s=document.createElement('script');s.src='editor-text-quick-tools.js';s.dataset.apanamTextQuick='1';document.body.appendChild(s)}})();
+(()=>{
+  const $=s=>document.querySelector(s),stage=$('#stage');
+  if(!stage)return;
+  function chosen(){return [...stage.querySelectorAll('.element.selected')].filter(el=>el.dataset.locked!=='1'&&(el.tagName==='IMG'||el.querySelector('img')))}
+  function look(brightness,contrast,saturation){
+    const elements=chosen();
+    if(!elements.length){alert('पहले product photo select करें।');return}
+    for(const element of elements){
+      Object.assign(element.dataset,{brightness,contrast,saturation});
+      const image=element.tagName==='IMG'?element:element.querySelector('img');
+      const grayscale=Number(element.dataset.grayscale||0),blur=Number(element.dataset.blur||0);
+      image.style.filter=`brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) grayscale(${grayscale}%) blur(${blur}px)`;
+    }
+    for(const [id,value] of Object.entries({brightness,contrast,saturation})){const input=$('#'+id);if(input)input.value=value}
+    window.APANAM_PROJECT?.save?.();
+  }
+  const tools={clean:()=>look(106,106,104),vivid:()=>look(103,110,118),soft:()=>look(108,96,94),original:()=>look(100,100,100)};
+  const right=$('aside.right');if(!right)return;
+  const box=document.createElement('div');
+  box.innerHTML='<h3>Product Photo Quick Look</h3><p class="small">फ़ोटो का look बदलें। नीचे brightness, contrast और saturation से आगे सुधारें।</p><button id="eppClean">✨ Clean Marketplace</button><button id="eppVivid">◉ Vivid Product</button><button id="eppSoft">☁ Soft Beauty</button><button id="eppOriginal">↶ मूल रूप</button>';
+  right.insertBefore(box,right.firstChild);
+  for(const [key,id] of Object.entries({clean:'eppClean',vivid:'eppVivid',soft:'eppSoft',original:'eppOriginal'}))$('#'+id).onclick=tools[key];
+  window.APANAM_PRODUCT_PHOTO_TOOLS=tools;
+  if(!document.querySelector('script[data-apanam-text-quick]')){const script=document.createElement('script');script.src='editor-text-quick-tools.js';script.dataset.apanamTextQuick='1';document.body.appendChild(script)}
+})();
