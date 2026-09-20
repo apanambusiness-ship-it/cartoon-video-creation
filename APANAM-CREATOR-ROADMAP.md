@@ -35,6 +35,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Product Photo Quick Look now updates the same brightness, contrast and saturation values as the image controls and includes an original-look reset.
 - Poster project saves and JSON backups now preserve the transparent canvas setting when restored.
 - Poster JPG/WebP export now uses the same canvas renderer as PNG. Gallery JPG/PDF exports composite transparent pixels over white; PNG and WebP can retain transparency.
+- Each cartoon scene's caption can stay in its original lower position or move above or to the bottom band.
 
 ## Build sequence (one usable milestone at a time)
 
