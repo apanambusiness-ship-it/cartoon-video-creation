@@ -30,6 +30,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Scene captions can be downloaded as a timed SRT file. A compact logo can be applied to all scenes. Imported or recorded audio has a listening control, volume setting and optional loop; it now plays alongside the video preview. Browser/device verification is still needed for synchronized playback.
 - The poster's saved brand logo can be copied into video scenes. Local video gallery saves audio files up to 30 MB along with scenes; JSON backups still require a separate audio file. Individual poster and video projects have their own JSON backup controls.
 - Creator menu can send the current poster to a new video scene without replacing existing scenes; the complete poster is kept inside a fitted image for the scene.
+- A saved video's scenes can be appended to the open project, up to 100 scenes total. Audio tracks are not merged when appending projects.
 
 ## Build sequence (one usable milestone at a time)
 
