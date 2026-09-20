@@ -8,7 +8,8 @@
   const nav=document.createElement('nav');nav.className='organizer-nav';nav.setAttribute('aria-label','Editor tools');
   const search=document.createElement('input');search.type='search';search.placeholder='Search tools';search.setAttribute('aria-label','Search tools');
   const panels=document.createElement('div');panels.className='organizer-panels';
-  shell.append(nav,search,panels);left.prepend(shell);
+  const videoLink=document.createElement('a');videoLink.href='cartoon-video.html';videoLink.className='organizer-video-link';videoLink.textContent='🎬 Cartoon Video Maker →';
+  shell.append(nav,videoLink,search,panels);left.prepend(shell);
   let active='Text';
   for(const [name] of groups){const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
   function category(title){return groups.find(([,pattern])=>new RegExp(pattern,'i').test(title))?.[0]||'Arrange'}
