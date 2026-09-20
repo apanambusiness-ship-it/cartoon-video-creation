@@ -33,6 +33,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - A saved video's scenes can be appended to the open project, up to 100 scenes total. Audio tracks are not merged when appending projects.
 - Each scene photo can now use cover or contain framing to avoid cropping product images and posters.
 - Product Photo Quick Look now updates the same brightness, contrast and saturation values as the image controls and includes an original-look reset.
+- Poster project saves and JSON backups now preserve the transparent canvas setting when restored.
 
 ## Build sequence (one usable milestone at a time)
 
