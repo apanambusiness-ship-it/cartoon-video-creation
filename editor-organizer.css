@@ -1,4 +1,4 @@
-main{grid-template-columns:minmax(290px,355px) minmax(0,1fr)!important}
+main{grid-template-columns:minmax(365px,420px) minmax(0,1fr)!important}
 body main>aside:not(.right){min-width:0!important;width:auto!important;padding:12px!important;display:block!important}
 main>aside.right{display:none!important}
 .organizer{height:100%;display:flex;flex-direction:column;gap:10px}
@@ -10,6 +10,8 @@ main>aside.right{display:none!important}
 .organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
 .organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:6px 9px 10px;background:#fff}
 .organizer-section>summary{font-weight:700;cursor:pointer;padding:7px 2px;color:#4c1d95}
+.organizer-featured{border-color:#8b5cf6;padding:7px}
+.organizer-featured #apanamApprovedPanel{width:100%;margin:4px 0}
 .organizer-section>button,.organizer-section>.upload,.organizer-section>select{display:block;width:100%;margin:7px 0;text-align:left}
 .organizer-section label{display:block;margin:9px 0;font-size:13px}
 .organizer-section label input:not([type=checkbox]){width:100%}
