@@ -13,7 +13,22 @@
   let active='Text';
   for(const [name] of groups){const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
   function category(title){return groups.find(([,pattern])=>new RegExp(pattern,'i').test(title))?.[0]||'Arrange'}
-  function section(nodes,title){if(!nodes.length)return;const box=document.createElement('details');box.className='organizer-section';box.open=true;box.dataset.title=title;const summary=document.createElement('summary');summary.textContent=title;box.append(summary,...nodes);panels.querySelector(`[data-group="${category(title)}"]`).append(box)}
+  function section(nodes,title){
+    if(!nodes.length)return;
+    if(/Original Templates/i.test(title)){
+      panels.querySelectorAll('.organizer-section').forEach(old=>{
+        if(/Original Templates/i.test(old.dataset.title||''))old.remove();
+      });
+      nodes.forEach(node=>{
+        const repeated=node.matches?.('#originalTemplatesV1')?node.querySelector(':scope > h3'):null;
+        if(repeated)repeated.remove();
+      });
+      title='🎨 Original Templates';
+    }
+    const box=document.createElement('details');box.className='organizer-section';box.open=true;box.dataset.title=title;
+    const summary=document.createElement('summary');summary.textContent=title;
+    box.append(summary,...nodes);panels.querySelector(`[data-group="${category(title)}"]`).append(box)
+  }
   function collect(aside){let nodes=[...aside.children].filter(n=>n!==shell);let current=[],heading=aside===left?'Create':'Tools';for(const node of nodes){
     if(node.tagName==='H3'){section(current,heading);current=[];heading=node.textContent.trim();node.remove();continue}
     if(node.tagName==='HR'){node.remove();continue}
