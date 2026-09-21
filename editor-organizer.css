@@ -9,8 +9,11 @@ main>aside.right{display:none!important}
 .organizer>input{width:100%;padding:8px 10px;border:1px solid #ccd3dd;border-radius:8px;flex:none;background:#fff}
 .organizer-panels{min-height:0;overflow:auto;flex:1}
 .organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
-.organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:6px 9px 10px;background:#fff}
-.organizer-section>summary{font-weight:700;cursor:pointer;padding:7px 2px;color:#4c1d95}
+.organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:0 9px;background:#fff;overflow:hidden}
+.organizer-section[open]{padding-bottom:10px;border-color:#c4b5fd;box-shadow:0 4px 14px #4c1d9510}
+.organizer-section>summary{font-weight:700;cursor:pointer;padding:12px 2px;color:#4c1d95;list-style-position:inside}
+.organizer-section>summary:hover{color:#6d28d9}
+.organizer-section>h3,.organizer-section>section>h3,.organizer-section>div>h3:first-child{display:none!important}
 .organizer-featured{border-color:#8b5cf6;padding:7px}
 .organizer-featured #apanamApprovedPanel{width:100%;margin:4px 0;padding:8px;border-radius:12px}
 .organizer-featured #apanamApprovedPanel .ap-head{margin:-8px -8px 7px;padding:7px 9px;font-size:16px}
