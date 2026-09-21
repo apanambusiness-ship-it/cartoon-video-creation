@@ -46,6 +46,8 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 
 ## Still dependent on external setup or final device checks
 
+- On 21 September, the public editor exported a 1080 × 1080 PNG and video-only WebM files at 1280 × 720 and 720 × 1280. A synthetic WAV added to one scene produced an Opus track in one cloud-browser export, but its measured audio was silent; another export stalled during finalization. The site now reports timed-out audio/export steps instead of waiting indefinitely. Treat narrated video as unverified until a real Chrome device exports audible sound and a downloaded backup restores successfully.
+- The cloud test browser read a complete video backup and validated its scene/settings structure, but IndexedDB did not finish saving the gallery import. Do not claim gallery restore has passed in a normal user browser.
 - AI poster requires an active Workers AI model binding and D1 quota database. The `/health` endpoint checks binding presence only; verify a real poster request on the configured account before advertising AI as live. Cloudflare's free allocation belongs to the account, not every signed-in user. Email login, per-user quota, billing, and paid tiers require separate authenticated server-side systems.
 - Final checks should cover desktop/mobile rendering, voice and scene audio synchronization, WebM/PDF/PNG export, full JSON recovery, and low-storage cases. Browser video export can be limited by device memory for long films.
 - Custom domain activation requires DNS ownership and Cloudflare configuration.
