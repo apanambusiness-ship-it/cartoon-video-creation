@@ -1,0 +1,13 @@
+{
+  "name":"APANAM AI Creative Studio",
+  "short_name":"APANAM Studio",
+  "description":"Poster, product creative and cartoon video maker",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f7f5ff",
+  "theme_color":"#5b21b6",
+  "lang":"hi-IN",
+  "categories":["design","photo","video","productivity"],
+  "icons":[{"src":"apanam-app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
