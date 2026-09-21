@@ -1,0 +1,13 @@
+(()=>{
+  const api=window.APANAM_CARTOON_PROJECT,timing=document.querySelector('.video-timing-assistant');if(!api||!timing)return;
+  const box=document.createElement('section');box.className='video-export-package';box.innerHTML=`<h2>📦 Export Name & Package</h2><p>Downloads के लिए साफ project name रखें।</p><label>Project / File Name<input id="videoExportName" maxlength="70" placeholder="जैसे: APANAM-handmade-bag-video"></label><div class="export-name-preview"></div><div class="pair"><button type="button" id="useSceneExportName">पहले Scene का नाम लें</button><button type="button" id="downloadVideoManifest">⬇ Project Summary</button></div><small id="exportNameStatus">यह नाम WebM, SRT और project backup में इस्तेमाल होगा।</small>`;timing.after(box);
+  const input=box.querySelector('#videoExportName'),preview=box.querySelector('.export-name-preview'),status=box.querySelector('#exportNameStatus');
+  const safe=value=>String(value||'').trim().normalize('NFKD').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-+|-+$/g,'').slice(0,60)||'APANAM-cartoon-video';
+  try{input.value=localStorage.getItem('apanam_video_export_name_v1')||''}catch(_){}
+  window.APANAM_VIDEO_EXPORT_BASENAME=()=>safe(input.value);
+  function sync(){const name=safe(input.value);preview.textContent=`${name}.webm · ${name}.srt · ${name}-project.json`;try{localStorage.setItem('apanam_video_export_name_v1',input.value)}catch(_){}}
+  input.oninput=sync;
+  box.querySelector('#useSceneExportName').onclick=()=>{input.value=api.snapshot()[0]?.title||'APANAM-cartoon-video';sync();status.textContent='पहले scene का title file name में लगा दिया गया।'};
+  box.querySelector('#downloadVideoManifest').onclick=()=>{const scenes=api.snapshot(),seconds=scenes.reduce((sum,item)=>sum+Number(item.duration||1),0),settings=api.snapshotSettings?.()||{},content=[`Project: ${safe(input.value)}`,`Scenes: ${scenes.length}`,`Duration: ${seconds} seconds`,`Format: ${settings.format||'landscape'}`,`Series: ${settings.series||'-'}`,`Episode: ${settings.episode||'-'}`,'',...scenes.map((scene,index)=>`${index+1}. ${scene.title||'Scene'} · ${scene.duration||1}s`)].join('\n'),url=URL.createObjectURL(new Blob(['\ufeff'+content],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download=`${safe(input.value)}-summary.txt`;link.click();setTimeout(()=>URL.revokeObjectURL(url),60000);status.textContent='Project summary download हो गया।'};
+  sync();
+})();
