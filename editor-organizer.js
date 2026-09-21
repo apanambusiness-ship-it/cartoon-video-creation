@@ -22,6 +22,7 @@
     if(/Background|Canvas/i.test(title))return 'Background';
     if(/Text|Typing|Language|Font/i.test(title))return 'Text';
     if(/Create|Element|Icon|Shape|Sticker/i.test(title))return 'Elements';
+    if(/Creator Utility/i.test(title))return 'Elements';
     if(/Effect|Photo|Crop|Color|Image/i.test(title))return 'Effects';
     if(/Product|Marketplace|Price|Commerce|Delivery|Badge|Listing|Sale|Feature|Trust|Rating|Warranty|Stock|CTA/i.test(title))return 'Product';
     return groups.find(([,pattern])=>new RegExp(pattern,'i').test(title))?.[0]||'Arrange'
