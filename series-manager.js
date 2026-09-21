@@ -1,0 +1,9 @@
+(()=>{
+  const api=window.APANAM_CARTOON_PROJECT,heading=[...document.querySelectorAll('.controls h2')].find(item=>item.textContent.trim()==='Scenes');if(!api||!heading)return;
+  const box=document.createElement('section');box.className='series-manager';box.innerHTML=`<h2>Series Manager</h2><div class="pair"><label>Series का नाम<input id="videoSeriesName" maxlength="80" placeholder="जैसे: APANAM कहानी"></label><label>Episode<input id="videoEpisodeNumber" type="number" min="1" max="9999" value="1"></label></div><div class="pair"><button type="button" id="nextEpisode">＋ अगला Episode</button><button type="button" id="clearSeries">अलग Video</button></div><small id="seriesStatus">नाम खाली रखने पर यह अलग video project रहेगा।</small>`;heading.before(box);
+  const name=document.getElementById('videoSeriesName'),episode=document.getElementById('videoEpisodeNumber'),status=document.getElementById('seriesStatus');
+  const describe=()=>{status.textContent=name.value.trim()?`${name.value.trim()} · Episode ${Math.max(1,Number(episode.value)||1)}`:'यह अलग Video project है।'};name.oninput=describe;episode.oninput=describe;
+  document.getElementById('nextEpisode').onclick=()=>{if(!name.value.trim()){status.textContent='पहले Series का नाम लिखें।';return}episode.value=String(Math.min(9999,Math.max(1,Number(episode.value)||1)+1));describe();document.getElementById('title')?.focus()};
+  document.getElementById('clearSeries').onclick=()=>{name.value='';episode.value='1';describe()};
+  const originalSnapshot=api.snapshotSettings.bind(api),originalRestore=api.restoreSettings.bind(api);api.snapshotSettings=()=>({...originalSnapshot(),series:name.value.trim().slice(0,80),episode:Math.min(9999,Math.max(1,Number(episode.value)||1))});api.restoreSettings=settings=>{originalRestore(settings);name.value=String(settings?.series||'').slice(0,80);episode.value=String(Math.min(9999,Math.max(1,Number(settings?.episode)||1)));describe()};describe();
+})();
