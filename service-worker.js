@@ -1,4 +1,4 @@
-const CACHE='apanam-studio-v6';
+const CACHE='apanam-studio-v7';
 const CORE=['./','./index.html','./styles.css','./header-responsive-fix.css','./creator-missing-tools.css','./creator-missing-tools.js','./editor-organizer.css','./editor-organizer.js','./original-templates-v1.js','./festival-pack-10.js','./cartoon-video.html','./cartoon-video.css','./privacy.html','./terms.html','./apanam-app-icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('apanam-studio-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
