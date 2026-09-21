@@ -42,6 +42,7 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 - Video offers landscape 16:9, square 1:1, and portrait 9:16 WebM export, keeping the entire original scene visible with a filled background.
 - Per-scene audio uploads play during preview and are mixed at their scene's start in WebM export. The browser gallery keeps these clips with the scenes. The complete video JSON backup includes the main soundtrack and scene clips up to 20 MB combined; the smaller scene/gallery JSON backup omits audio.
 - Saved videos can have a series title and episode number. The video gallery displays these and can filter by series. Series metadata is retained in gallery JSON transfer.
+- The video gallery's version 2 JSON backup now carries main and per-scene audio, capped at 30 MB of combined audio; older scene-only gallery JSON files still import. Single-project complete backups remain available for larger galleries.
 
 ## Still dependent on external setup or final device checks
 
