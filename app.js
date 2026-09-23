@@ -2073,3 +2073,970 @@ history=[];
   }
 
 })();
+/* =========================================================
+   APANAM PHONETIC TYPING — V3 FINAL FIX
+   Roman Hindi → हिन्दी
+   IMPORTANT:
+   यह block पुराने V1/V2 phonetic system को override करता है।
+   बाकी editor code को touch नहीं करता।
+   ========================================================= */
+
+(()=>{
+  /* ---------- STOP OLD PHONETIC SYSTEMS ---------- */
+
+  window.__APANAM_PHONETIC_V3__ = true;
+
+  /*
+    पुराने bar को हटाओ ताकि duplicate bar न बने।
+  */
+  const oldBar=document.getElementById('apanamPhoneticBar');
+
+  if(oldBar){
+    oldBar.remove();
+  }
+
+
+  /* =====================================================
+     STYLE
+     ===================================================== */
+
+  if(!document.getElementById('apanamPhoneticV3Style')){
+
+    const style=document.createElement('style');
+
+    style.id='apanamPhoneticV3Style';
+
+    style.textContent=`
+
+      #apanamPhoneticBarV3{
+        position:relative;
+        width:calc(100% - 24px);
+        margin:8px auto;
+
+        min-height:48px;
+
+        display:flex;
+        align-items:center;
+
+        gap:7px;
+
+        padding:7px 9px;
+
+        box-sizing:border-box;
+
+        background:#fff;
+
+        border:1px solid #ddd6fe;
+
+        border-radius:12px;
+
+        box-shadow:
+          0 2px 10px
+          rgba(76,29,149,.08);
+
+        z-index:9999;
+
+        font-family:Arial,sans-serif;
+      }
+
+      #apanamPhoneticBarV3 .ph-title{
+        font-size:11px;
+        font-weight:800;
+
+        color:#4c1d95;
+
+        white-space:nowrap;
+      }
+
+      #apanamPhoneticBarV3 .ph-input{
+        flex:1;
+
+        min-width:150px;
+
+        height:34px;
+
+        border:1px solid #d8d5e8;
+
+        border-radius:8px;
+
+        padding:0 10px;
+
+        outline:none;
+
+        font-size:14px;
+
+        background:#fafafa;
+
+        color:#111827;
+
+        box-sizing:border-box;
+      }
+
+      #apanamPhoneticBarV3 .ph-input:focus{
+        border-color:#7c3aed;
+
+        background:#fff;
+
+        box-shadow:
+          0 0 0 2px
+          rgba(124,58,237,.10);
+      }
+
+      #apanamPhoneticBarV3 .ph-preview{
+        min-width:100px;
+        max-width:260px;
+
+        font-size:14px;
+        font-weight:600;
+
+        color:#374151;
+
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      #apanamPhoneticBarV3 button{
+        height:34px;
+
+        border:0;
+
+        border-radius:8px;
+
+        padding:0 13px;
+
+        background:#6d28d9;
+
+        color:#fff;
+
+        font-weight:800;
+
+        font-size:12px;
+
+        cursor:pointer;
+      }
+
+      #apanamPhoneticBarV3 button:hover{
+        background:#5b21b6;
+      }
+
+      #apanamPhoneticBarV3 .ph-status{
+        font-size:10px;
+
+        color:#64748b;
+
+        white-space:nowrap;
+      }
+
+      @media(max-width:800px){
+
+        #apanamPhoneticBarV3{
+          flex-wrap:wrap;
+        }
+
+        #apanamPhoneticBarV3 .ph-input{
+          min-width:180px;
+        }
+
+        #apanamPhoneticBarV3 .ph-preview{
+          width:100%;
+          max-width:none;
+          order:5;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+  }
+
+
+  /* =====================================================
+     BASIC DATA
+     ===================================================== */
+
+  const vowels={
+
+    'aa':'आ',
+    'ai':'ऐ',
+    'au':'औ',
+
+    'ee':'ई',
+    'ii':'ई',
+
+    'oo':'ऊ',
+    'uu':'ऊ',
+
+    'a':'अ',
+    'i':'इ',
+    'u':'उ',
+
+    'e':'ए',
+    'o':'ओ',
+
+    'ri':'ऋ'
+  };
+
+
+  const matras={
+
+    'a':'',
+    'aa':'ा',
+
+    'i':'ि',
+    'ee':'ी',
+    'ii':'ी',
+
+    'u':'ु',
+    'oo':'ू',
+    'uu':'ू',
+
+    'e':'े',
+    'ai':'ै',
+
+    'o':'ो',
+    'au':'ौ',
+
+    'ri':'ृ'
+  };
+
+
+  const consonants={
+
+    'ksh':'क्ष',
+
+    'chh':'छ',
+
+    'jh':'झ',
+
+    'kh':'ख',
+    'gh':'घ',
+
+    'ch':'च',
+
+    'th':'थ',
+    'dh':'ध',
+
+    'ph':'फ',
+    'bh':'भ',
+
+    'sh':'श',
+
+    'tr':'त्र',
+
+    'gy':'ज्ञ',
+
+    'kr':'क्र',
+    'gr':'ग्र',
+    'pr':'प्र',
+    'br':'ब्र',
+    'dr':'द्र',
+    'fr':'फ्र',
+
+    'kl':'क्ल',
+    'pl':'प्ल',
+    'bl':'ब्ल',
+
+    'st':'स्त',
+    'sp':'स्प',
+    'sk':'स्क',
+    'sm':'स्म',
+    'sn':'स्न',
+
+    'sw':'स्व',
+
+    'ky':'क्य',
+    'ty':'त्य',
+    'dy':'द्य',
+    'ny':'न्य',
+
+    'my':'म्य',
+    'py':'प्य',
+    'by':'ब्य',
+
+    'sy':'स्य',
+
+    'hy':'ह्य',
+
+    'k':'क',
+    'g':'ग',
+
+    'c':'क',
+
+    'j':'ज',
+
+    't':'त',
+    'd':'द',
+    'n':'न',
+
+    'p':'प',
+    'b':'ब',
+    'm':'म',
+
+    'y':'य',
+    'r':'र',
+    'l':'ल',
+
+    'v':'व',
+    'w':'व',
+
+    's':'स',
+    'h':'ह',
+
+    'f':'फ़',
+    'z':'ज़',
+
+    'q':'क़',
+    'x':'क्स'
+  };
+
+
+  const vowelKeys=
+    Object.keys(vowels)
+      .sort((a,b)=>b.length-a.length);
+
+  const consonantKeys=
+    Object.keys(consonants)
+      .sort((a,b)=>b.length-a.length);
+
+
+  /* =====================================================
+     HELPERS
+     ===================================================== */
+
+  function getVowel(s,i){
+
+    for(const v of vowelKeys){
+
+      if(s.startsWith(v,i))
+        return v;
+    }
+
+    return null;
+  }
+
+
+  function getConsonant(s,i){
+
+    for(const c of consonantKeys){
+
+      if(s.startsWith(c,i))
+        return c;
+    }
+
+    return null;
+  }
+
+
+  function isRomanLetter(ch){
+
+    return /[a-z]/i.test(ch);
+  }
+
+
+  /* =====================================================
+     WORD CONVERTER
+     ===================================================== */
+
+  function convertWord(word){
+
+    if(!word)
+      return '';
+
+    const s=word.toLowerCase();
+
+    let out='';
+
+    let i=0;
+
+
+    while(i<s.length){
+
+      /* -----------------------------------------------
+         SPACE
+         ----------------------------------------------- */
+
+      if(/\s/.test(s[i])){
+
+        out+=s[i];
+
+        i++;
+
+        continue;
+      }
+
+
+      /* -----------------------------------------------
+         NUMBERS
+         ----------------------------------------------- */
+
+      if(/[0-9]/.test(s[i])){
+
+        out+=s[i];
+
+        i++;
+
+        continue;
+      }
+
+
+      /* -----------------------------------------------
+         PUNCTUATION
+         ----------------------------------------------- */
+
+      if(
+        /[.,!?;:'"()[\]{}\-_/+*=@#$%&]/.test(s[i])
+      ){
+
+        out+=s[i];
+
+        i++;
+
+        continue;
+      }
+
+
+      /* -----------------------------------------------
+         CONSONANT
+         ----------------------------------------------- */
+
+      const c=getConsonant(s,i);
+
+      if(c){
+
+        out+=consonants[c];
+
+        i+=c.length;
+
+
+        /*
+          Check vowel immediately after consonant.
+        */
+
+        const v=getVowel(s,i);
+
+
+        if(v){
+
+          /*
+            Consonant + vowel
+          */
+
+          out+=matras[v];
+
+          i+=v.length;
+
+          continue;
+        }
+
+
+        /*
+          अगर अगला अक्षर दूसरा consonant है,
+          तो halant लगाओ।
+
+          उदाहरण:
+
+          namla
+
+          न + म + ला
+        */
+
+        const nextC=getConsonant(s,i);
+
+        if(nextC){
+
+          /*
+            कुछ सामान्य clusters ऊपर पहले ही
+            defined हैं।
+          */
+
+          out+='्';
+
+          continue;
+        }
+
+
+        /*
+          कोई vowel/consonant नहीं है।
+          Hindi में consonant का inherent "a"
+          माना जाएगा।
+
+          उदाहरण:
+
+          mera
+
+          m + e = मे
+          r + a = रा
+
+          इसलिए यहाँ कोई हलंत नहीं।
+        */
+
+        continue;
+      }
+
+
+      /* -----------------------------------------------
+         STANDALONE VOWEL
+         ----------------------------------------------- */
+
+      const v=getVowel(s,i);
+
+      if(v){
+
+        out+=vowels[v];
+
+        i+=v.length;
+
+        continue;
+      }
+
+
+      /* -----------------------------------------------
+         UNKNOWN CHARACTER
+         ----------------------------------------------- */
+
+      out+=s[i];
+
+      i++;
+    }
+
+
+    return out;
+  }
+
+
+  /* =====================================================
+     FULL TEXT CONVERTER
+     ===================================================== */
+
+  function transliterate(text){
+
+    if(!text)
+      return '';
+
+    return text
+      .split(/(\s+)/)
+      .map(part=>{
+
+        if(/^\s+$/.test(part))
+          return part;
+
+        return convertWord(part);
+
+      })
+      .join('');
+  }
+
+
+  /* =====================================================
+     CREATE BAR
+     ===================================================== */
+
+  function createBar(){
+
+    /*
+      Duplicate protection
+    */
+
+    if(
+      document.getElementById(
+        'apanamPhoneticBarV3'
+      )
+    ){
+
+      return;
+    }
+
+
+    const bar=document.createElement('div');
+
+    bar.id='apanamPhoneticBarV3';
+
+
+    bar.innerHTML=`
+
+      <span class="ph-title">
+        ⌨ Phonetic
+      </span>
+
+      <input
+        id="apanamPhoneticInputV3"
+        class="ph-input"
+        type="text"
+        placeholder="mera naam kya hai"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+      <span
+        id="apanamPhoneticPreviewV3"
+        class="ph-preview"
+      >
+        मेरा नाम क्या है
+      </span>
+
+      <button
+        id="apanamPhoneticApplyV3"
+        type="button"
+      >
+        हिंदी में लगाएँ
+      </button>
+
+      <span
+        id="apanamPhoneticStatusV3"
+        class="ph-status"
+      >
+        Roman → हिन्दी
+      </span>
+
+    `;
+
+
+    /* -----------------------------------------------
+       INSERT ABOVE STAGE
+       ----------------------------------------------- */
+
+    const st=document.querySelector('#stage');
+
+
+    if(st && st.parentElement){
+
+      st.parentElement.insertBefore(
+        bar,
+        st
+      );
+
+    }else{
+
+      document.body.insertBefore(
+        bar,
+        document.body.firstChild
+      );
+    }
+
+
+    /* -----------------------------------------------
+       ELEMENTS
+       ----------------------------------------------- */
+
+    const input=
+      document.getElementById(
+        'apanamPhoneticInputV3'
+      );
+
+
+    const preview=
+      document.getElementById(
+        'apanamPhoneticPreviewV3'
+      );
+
+
+    const apply=
+      document.getElementById(
+        'apanamPhoneticApplyV3'
+      );
+
+
+    const status=
+      document.getElementById(
+        'apanamPhoneticStatusV3'
+      );
+
+
+    /* -----------------------------------------------
+       UPDATE PREVIEW
+       ----------------------------------------------- */
+
+    function updatePreview(){
+
+      const roman=input.value;
+
+      const hindi=
+        transliterate(roman);
+
+
+      input.dataset.hindi=hindi;
+
+
+      if(hindi){
+
+        preview.textContent=hindi;
+
+        status.textContent=
+          '✓ तैयार';
+
+        status.style.color=
+          '#15803d';
+
+      }else{
+
+        preview.textContent=
+          'हिन्दी यहाँ दिखेगी';
+
+        status.textContent=
+          'Roman → हिन्दी';
+
+        status.style.color=
+          '#64748b';
+      }
+    }
+
+
+    /* -----------------------------------------------
+       PUT INTO EDITOR
+       ----------------------------------------------- */
+
+    function putIntoEditor(text){
+
+      if(!text)
+        return;
+
+
+      /*
+        सबसे पहले selected element खोजो।
+      */
+
+      let current=
+        document.querySelector(
+          '#stage .element.selected'
+        );
+
+
+      /*
+        अगर selected text नहीं है,
+        तो normal #textValue को update करो।
+      */
+
+      const textValue=
+        document.querySelector(
+          '#textValue'
+        );
+
+
+      if(current && current.dataset.text!=null){
+
+        /*
+          History सुरक्षित रखो।
+        */
+
+        if(typeof snap==='function')
+          snap();
+
+
+        current.dataset.text=text;
+
+
+        /*
+          केवल actual text node बदलो।
+          handles को नहीं छेड़ना।
+        */
+
+        let textNode=
+          [...current.childNodes]
+            .find(
+              n=>n.nodeType===Node.TEXT_NODE
+            );
+
+
+        if(textNode){
+
+          textNode.nodeValue=text;
+
+        }else{
+
+          /*
+            अगर text node नहीं मिला,
+            तो handles से पहले text node डालो।
+          */
+
+          const node=
+            document.createTextNode(text);
+
+          current.insertBefore(
+            node,
+            current.firstChild
+          );
+        }
+
+
+        /*
+          Existing textValue भी sync करो।
+        */
+
+        if(textValue)
+          textValue.value=text;
+
+
+        /*
+          Layer list refresh
+        */
+
+        if(typeof renderLayers==='function')
+          renderLayers();
+
+
+        /*
+          Re-select ताकि selected handles बने रहें।
+        */
+
+        if(typeof select==='function')
+          select(current);
+
+
+        status.textContent=
+          '✓ Text canvas में लग गया';
+
+        status.style.color=
+          '#15803d';
+
+        return;
+      }
+
+
+      /*
+        अगर कोई canvas text selected नहीं है,
+        तो सिर्फ editor input में डालो।
+      */
+
+      if(textValue){
+
+        textValue.value=text;
+
+        textValue.dispatchEvent(
+          new Event(
+            'input',
+            {bubbles:true}
+          )
+        );
+
+        textValue.dispatchEvent(
+          new Event(
+            'change',
+            {bubbles:true}
+          )
+        );
+
+
+        status.textContent=
+          '✓ Text input में लग गया';
+
+        status.style.color=
+          '#15803d';
+
+        return;
+      }
+
+
+      /*
+        कोई selected text नहीं मिला।
+      */
+
+      status.textContent=
+        'पहले Text चुनें';
+
+      status.style.color=
+        '#b91c1c';
+    }
+
+
+    /* -----------------------------------------------
+       LIVE INPUT
+       ----------------------------------------------- */
+
+    input.addEventListener(
+      'input',
+      updatePreview
+    );
+
+
+    /* -----------------------------------------------
+       APPLY BUTTON
+       ----------------------------------------------- */
+
+    apply.addEventListener(
+      'click',
+      ()=>{
+
+        const hindi=
+          input.dataset.hindi ||
+          transliterate(input.value);
+
+
+        putIntoEditor(hindi);
+      }
+    );
+
+
+    /* -----------------------------------------------
+       ENTER KEY
+       ----------------------------------------------- */
+
+    input.addEventListener(
+      'keydown',
+      e=>{
+
+        if(e.key==='Enter'){
+
+          e.preventDefault();
+
+          apply.click();
+        }
+
+      }
+    );
+
+
+    /*
+      Initial preview
+    */
+
+    updatePreview();
+  }
+
+
+  /* =====================================================
+     START
+     ===================================================== */
+
+  function start(){
+
+    /*
+      अगर V3 पहले से लगा है तो दोबारा नहीं।
+    */
+
+    if(
+      document.getElementById(
+        'apanamPhoneticBarV3'
+      )
+    )
+      return;
+
+
+    createBar();
+  }
+
+
+  /*
+    Editor और बाकी original scripts को
+    पहले load होने का समय दो।
+  */
+
+  if(
+    document.readyState==='loading'
+  ){
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      ()=>{
+        setTimeout(start,1200);
+      },
+      {once:true}
+    );
+
+  }else{
+
+    setTimeout(start,1200);
+  }
+
+})();
