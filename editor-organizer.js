@@ -41,6 +41,8 @@
       title='🎨 Original Templates';
     }
     const panel=panels.querySelector(`[data-group="${category(title)}"]`);
+    const existing=[...panel.querySelectorAll('.organizer-section')].find(item=>item.dataset.title===title);
+    if(existing){existing.append(...nodes);return}
     const box=document.createElement('details');box.className='organizer-section';box.open=!panel.querySelector('.organizer-section');box.dataset.title=title;
     const summary=document.createElement('summary');summary.textContent=title;
     box.addEventListener('toggle',()=>{if(!box.open)return;panel.querySelectorAll('.organizer-section').forEach(other=>{if(other!==box)other.open=false})});
