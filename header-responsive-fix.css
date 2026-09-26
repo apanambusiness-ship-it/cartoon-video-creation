@@ -431,3 +431,7 @@ body>header>div:first-child .apanamHeaderLogo{
     object-fit:contain!important;
   }
 }
+
+/* Supplied APANAM logo: show the complete mark clearly without changing header controls. */
+body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180px!important;height:76px!important;min-width:180px!important;min-height:76px!important;max-width:none!important;max-height:none!important;object-fit:contain!important;object-position:left center!important;}
+@media(max-width:700px){body>header>div:first-child{flex:0 0 120px!important;width:120px!important;}body>header>div:first-child .apanamHeaderLogo{width:110px!important;height:58px!important;min-width:110px!important;min-height:58px!important;}}
