@@ -32,7 +32,7 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
 }
 
 @media(max-width:430px){
-  body>header>div:first-child{flex-basis:92px}
+  body>header>div:first-child{flex-basis:150px!important;flex-grow:0!important;min-width:150px!important}body>header>div:first-child b{white-space:nowrap!important}
   body>header>div:first-child b{font-size:14px!important;white-space:normal;line-height:1.05}
   body>header>div:first-child span{display:block!important;font-size:10px}
 }
