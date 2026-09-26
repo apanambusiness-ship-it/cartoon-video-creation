@@ -660,3 +660,155 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
     max-width:50px!important;
   }
 }
+
+
+/* MOBILE HEADER: Load stays on top row; bottom controls use horizontal navigation. */
+@media(max-width:700px){
+  body>header>.actions{
+    grid-template-columns:62px 52px 54px 60px 58px!important;
+    grid-template-rows:34px 34px!important;
+    overflow:hidden!important;
+  }
+  /* Top row: CREATE, Save, Edit, Delete, Load */
+  body>header>.actions #apanamCreatorHubButton{grid-column:1!important;grid-row:1!important}
+  body>header>.actions #saveProject{grid-column:2!important;grid-row:1!important}
+  body>header>.actions #headerEditProject{grid-column:3!important;grid-row:1!important}
+  body>header>.actions #headerDeleteProject{grid-column:4!important;grid-row:1!important}
+  body>header>.actions #loadProject{grid-column:5!important;grid-row:1!important}
+
+  /* Bottom row is a horizontally navigable strip. */
+  body>header>.actions #undo,
+  body>header>.actions #redo,
+  body>header>.actions #download,
+  body>header>.actions #apanamInstallApp,
+  body>header>.actions #apanamHelpButton,
+  body>header>.actions #apanamSafetyButton,
+  body>header>.actions #apanamLaunchButton{
+    grid-row:2!important;
+  }
+  body>header>.actions #undo{grid-column:1!important}
+  body>header>.actions #redo{grid-column:2!important}
+  body>header>.actions #download{grid-column:3!important}
+  body>header>.actions #apanamInstallApp{grid-column:4!important}
+  body>header>.actions #apanamHelpButton{grid-column:5!important}
+
+  /* Put the remaining utility controls after Help in the same bottom strip. */
+  body>header>.actions{
+    display:flex!important;
+    align-items:flex-start!important;
+    flex-wrap:nowrap!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    touch-action:pan-x!important;
+    padding:0!important;
+    gap:2px!important;
+  }
+  body>header>.actions::-webkit-scrollbar{display:none!important}
+
+  body>header>.actions #apanamCreatorHubButton,
+  body>header>.actions #saveProject,
+  body>header>.actions #headerEditProject,
+  body>header>.actions #headerDeleteProject,
+  body>header>.actions #loadProject{
+    position:relative!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:52px!important;
+  }
+  body>header>.actions #apanamCreatorHubButton{min-width:62px!important}
+  body>header>.actions #headerDeleteProject{min-width:60px!important}
+  body>header>.actions #loadProject{min-width:58px!important}
+
+  /* Create a real visual row break while allowing row 2 to scroll horizontally. */
+  body>header>.actions::before{
+    content:''!important;
+    flex:0 0 0!important;
+    width:0!important;
+  }
+}
+@media(max-width:360px){
+  body>header>.actions{
+    grid-template-columns:60px 50px 52px 58px 54px!important;
+  }
+}
+
+
+/* FINAL OVERRIDE: dedicated top/bottom mobile rows. */
+@media(max-width:700px){
+  body>header>.actions{
+    position:absolute!important;
+    left:94px!important;
+    top:3px!important;
+    width:calc(100% - 98px)!important;
+    height:72px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:4px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    margin:0!important;
+    touch-action:auto!important;
+  }
+  body>header>.actions .apanam-mobile-top-row{
+    flex:0 0 34px!important;
+    height:34px!important;
+    display:flex!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow:hidden!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row{
+    flex:0 0 34px!important;
+    height:34px!important;
+    display:flex!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    scrollbar-width:none!important;
+    touch-action:pan-x!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row::-webkit-scrollbar{display:none!important}
+  body>header>.actions .apanam-mobile-top-row button,
+  body>header>.actions .apanam-mobile-bottom-row button{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:3px 7px!important;
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:9px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+  }
+  body>header>.actions .apanam-mobile-top-row #apanamCreatorHubButton{min-width:62px!important}
+  body>header>.actions .apanam-mobile-top-row #saveProject{min-width:52px!important}
+  body>header>.actions .apanam-mobile-top-row #headerEditProject{min-width:54px!important}
+  body>header>.actions .apanam-mobile-top-row #headerDeleteProject{min-width:60px!important}
+  body>header>.actions .apanam-mobile-top-row #loadProject{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #undo{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #redo{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #download{min-width:78px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamInstallApp,
+  body>header>.actions .apanam-mobile-bottom-row #apanamHelpButton,
+  body>header>.actions .apanam-mobile-bottom-row #apanamSafetyButton,
+  body>header>.actions .apanam-mobile-bottom-row #apanamLaunchButton{
+    width:34px!important;
+    min-width:34px!important;
+    max-width:34px!important;
+    padding:2px 0!important;
+    font-size:0!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row #apanamInstallApp::before{content:'↓';font-size:15px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamHelpButton::before{content:'?';font-size:14px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamSafetyButton::before{content:'🛡';font-size:12px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamLaunchButton::before{content:'✓';font-size:14px!important}
+}
