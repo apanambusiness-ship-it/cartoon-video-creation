@@ -542,3 +542,17 @@ body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180p
     padding-right:6px!important;
   }
 }
+
+
+/* FINAL SAFETY: Text & Elements toolbar must stay in normal document position. */
+#apanamTopTextToolbar{
+  position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important;
+  transform:none!important; margin:0!important; clear:both!important; float:none!important;
+}
+#apanamTopTextToolbar #apanamApprovedPanel{
+  position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important;
+  transform:none!important;
+}
+#apanamTopTextToolbar #apPhoneticDrag{
+  transform:none!important; position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important;
+}
