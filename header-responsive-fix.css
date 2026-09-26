@@ -167,3 +167,106 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
   body>header>#saveProject,
   body>header>.actions>#saveProject{right:64px!important}
 }
+
+/* Final mobile header correction: larger brand + primary actions beside it.
+   Secondary actions stay on one horizontal row below. */
+@media(max-width:700px){
+  body>header{
+    height:86px!important;
+    min-height:86px!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    align-content:flex-start!important;
+    position:relative!important;
+    overflow:hidden!important;
+    padding:5px 7px!important;
+    gap:0!important;
+  }
+  body>header>div:first-child{
+    flex:0 0 50%!important;
+    width:50%!important;
+    height:42px!important;
+    min-height:42px!important;
+    padding-left:42px!important;
+    padding-right:2px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+  }
+  body>header>div:first-child b{
+    font-size:18px!important;
+    line-height:1.05!important;
+    white-space:nowrap!important;
+  }
+  body>header>div:first-child span{
+    font-size:12px!important;
+    line-height:1.05!important;
+    margin-top:3px!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions{
+    flex:0 0 100%!important;
+    width:100%!important;
+    height:34px!important;
+    min-height:34px!important;
+    position:static!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:4px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:2px 0!important;
+    scrollbar-width:none!important;
+  }
+  body>header>.actions::-webkit-scrollbar{display:none!important}
+
+  body>header>.actions #apanamCreatorHubButton,
+  body>header>.actions #saveProject,
+  body>header>.actions #headerEditProject{
+    position:absolute!important;
+    top:9px!important;
+    height:28px!important;
+    min-height:28px!important;
+    margin:0!important;
+    padding:3px 5px!important;
+    font-size:9px!important;
+    line-height:1!important;
+    border-radius:7px!important;
+    z-index:120!important;
+    flex:none!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions #apanamCreatorHubButton{right:92px!important;width:66px!important;min-width:66px!important}
+  body>header>.actions #saveProject{right:45px!important;width:42px!important;min-width:42px!important}
+  body>header>.actions #headerEditProject{right:5px!important;width:36px!important;min-width:36px!important}
+
+  body>header>.actions #headerDeleteProject,
+  body>header>.actions #loadProject,
+  body>header>.actions #undo,
+  body>header>.actions #redo,
+  body>header>.actions #download,
+  body>header>.actions #apanamInstallApp,
+  body>header>.actions #apanamHelpButton,
+  body>header>.actions #apanamSafetyButton,
+  body>header>.actions #apanamLaunchButton{
+    flex:0 0 auto!important;
+    height:30px!important;
+    min-height:30px!important;
+    padding:4px 7px!important;
+    margin:0!important;
+    font-size:10px!important;
+    border-radius:7px!important;
+    white-space:nowrap!important;
+  }
+  body>main{min-height:calc(100vh - 86px)!important}
+}
+@media(max-width:360px){
+  body>header>div:first-child{flex-basis:49%!important;width:49%!important}
+  body>header>.actions #apanamCreatorHubButton{right:89px!important;width:62px!important;min-width:62px!important}
+  body>header>.actions #saveProject{right:43px!important;width:40px!important;min-width:40px!important}
+  body>header>.actions #headerEditProject{right:4px!important;width:35px!important;min-width:35px!important}
+}
