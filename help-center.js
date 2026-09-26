@@ -2,7 +2,7 @@
   const existing=[...document.querySelectorAll('[id="apanamHelpButton"]')];existing.slice(1).forEach(el=>el.remove());
   if(existing[0])return;
   const poster=document.getElementById('stage'),video=document.getElementById('screen');if(!poster&&!video)return;
-  const header=document.querySelector('body>header'),button=document.createElement('button');button.type='button';button.id='apanamHelpButton';button.textContent='? Help';button.title='काम करने का आसान तरीका';(header.querySelector('.actions')||header).append(button);
+  const header=document.querySelector('body>header'),button=document.createElement('button');button.type='button';button.id='apanamHelpButton';button.textContent='? Help';button.title='काम करने का आसान तरीका';(header.querySelector('.header-utility-actions')||header).append(button);
   const overlay=document.createElement('div');overlay.className='apanam-help-overlay';overlay.hidden=true;
   const posterSteps=[['1','Template चुनें','Templates में अपनी category का डिज़ाइन चुनें।'],['2','Text और Photo बदलें','किसी element पर click करके edit करें।'],['3','Brand लगाएँ','Logo, रंग, फोन और social handle सेव करें।'],['4','Project सुरक्षित रखें','Save से gallery में रखें और JSON backup लें।'],['5','Download करें','PNG, JPG, WebP या PDF चुनें।']];
   const videoSteps=[['1','Scene बनाएँ','हर भाग का title, caption और समय लिखें।'],['2','Photo और Layers जोड़ें','Background, अतिरिक्त Text/Photo और Logo लगाएँ।'],['3','आवाज़ जोड़ें','मुख्य music, recording या scene की अलग audio चुनें।'],['4','Series व Subtitle','Series/Episode भरें और जरूरत पर SRT खोलें।'],['5','Export व Backup','WebM बनाएँ और audio सहित पूरा JSON backup लें।']];
