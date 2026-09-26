@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 218" role="img" aria-label="APANAM AI Creative Studio">
-<rect width="324" height="218" fill="#fff"/>
-<defs>
- <linearGradient id="o" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff3d2e"/><stop offset=".55" stop-color="#ff8a00"/><stop offset="1" stop-color="#ffd000"/></linearGradient>
- <linearGradient id="p" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5b00d6"/><stop offset=".55" stop-color="#c000ff"/><stop offset="1" stop-color="#8b00ff"/></linearGradient>
- <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d00d9"/><stop offset=".55" stop-color="#008cff"/><stop offset="1" stop-color="#00b9ff"/></linearGradient>
-</defs>
-<!-- colorful A mark -->
-<path d="M82 105L124 38Q135 20 151 30L174 43L137 106Q128 121 112 126Q96 130 84 119Q77 113 82 105Z" fill="url(#o)"/>
-<path d="M151 30L178 75L205 35Q213 22 226 31L244 43L204 110L178 75L153 114L137 106Z" fill="url(#p)"/>
-<path d="M137 106L153 114L178 75L204 110Q215 125 232 120L249 111Q258 106 253 95Q248 83 235 77L204 64L178 75Z" fill="url(#b)"/>
-<path d="M169 69L184 80L169 92Q165 95 165 89V72Q165 66 169 69Z" fill="#fff"/>
-<!-- wordmark -->
-<text x="35" y="163" font-family="Arial,Helvetica,sans-serif" font-size="39" font-weight="800" letter-spacing="-1.5" fill="#10294d">APANAM</text>
-<text x="258" y="163" font-family="Arial,Helvetica,sans-serif" font-size="39" font-weight="800" letter-spacing="-1.5" fill="url(#p)">AI</text>
-<text x="96" y="190" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="500" letter-spacing="2.2" fill="#405577">Creative Studio</text>
-<rect x="244" y="183" width="45" height="3" rx="1.5" fill="url(#p)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472 300"><defs><linearGradient id="a1" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ff3b30"/><stop offset=".55" stop-color="#ff9f0a"/><stop offset="1" stop-color="#ffd60a"/></linearGradient><linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7b00ff"/><stop offset=".55" stop-color="#c000ff"/><stop offset="1" stop-color="#ff2d92"/></linearGradient><linearGradient id="a3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6d00ff"/><stop offset=".55" stop-color="#008cff"/><stop offset="1" stop-color="#00b8ff"/></linearGradient><linearGradient id="ai" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8a00ff"/><stop offset=".55" stop-color="#ff00a8"/><stop offset="1" stop-color="#008cff"/></linearGradient><linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff00a8"/><stop offset="1" stop-color="#00b8ff"/></linearGradient></defs><rect width="472" height="300" fill="#fff"/><g transform="translate(105 24)"><path d="M10 139 L72 25 Q82 8 102 10 Q118 12 126 30 L158 100 L125 154 L92 80 L54 154 Q45 170 29 164 Q4 155 10 139Z" fill="url(#a1)"/><path d="M158 100 L184 40 Q194 18 211 17 Q230 16 242 36 L285 116 Q294 133 285 149 Q274 168 254 160 L205 128 L158 100Z" fill="url(#a2)"/><path d="M55 154 L92 80 L125 154 L158 100 L205 128 Q222 139 239 128 L254 119 Q275 112 288 130 Q301 149 286 163 Q270 179 248 168 L205 147 Q186 137 169 145 L125 168 Q105 178 85 172 L55 163 Q44 160 55 154Z" fill="url(#a3)"/><path d="M127 81 L127 115 L158 98 Z" fill="#fff"/></g><text x="55" y="218" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" letter-spacing="-2" fill="#10264a">APANAM</text><text x="330" y="218" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" letter-spacing="-2" fill="url(#ai)">AI</text><text x="128" y="252" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3" fill="#4b5f80">Creative Studio</text><rect x="339" y="243" width="54" height="4" rx="2" fill="url(#line)"/></svg>
