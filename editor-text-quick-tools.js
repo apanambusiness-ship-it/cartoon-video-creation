@@ -6,31 +6,38 @@ let colors=['#111111','#6b7280','#d1d5db','#ffffff','#ef4444','#f97316','#fbbf24
 (()=>{
   const handle=pal.querySelector('.ph');if(!handle)return;
   let drag=null;
+  const point=(e)=>e.touches?e.touches[0]:e;
   const clamp=()=>{
-    if(pal.style.display==='none')return;
-    const r=pal.getBoundingClientRect(),maxX=Math.max(0,innerWidth-r.width),maxY=Math.max(0,innerHeight-r.height);
-    pal.style.left=Math.max(0,Math.min(parseFloat(pal.style.left)||r.left,maxX))+'px';
-    pal.style.top=Math.max(0,Math.min(parseFloat(pal.style.top)||r.top,maxY))+'px';
-    pal.style.right='auto';
-  };
-  const start=e=>{
-    if(e.target.closest('button'))return;
+    if(getComputedStyle(pal).display==='none')return;
     const r=pal.getBoundingClientRect();
-    drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:r.left,top:r.top};
-    pal.style.left=r.left+'px';pal.style.top=r.top+'px';pal.style.right='auto';
-    handle.setPointerCapture?.(e.pointerId);e.preventDefault();
+    pal.style.left=Math.max(0,Math.min(r.left,innerWidth-r.width))+'px';
+    pal.style.top=Math.max(0,Math.min(r.top,innerHeight-r.height))+'px';
+    pal.style.right='auto';pal.style.bottom='auto';pal.style.transform='none';
   };
-  const move=e=>{
-    if(!drag||e.pointerId!==drag.id)return;
-    pal.style.left=Math.max(0,Math.min(innerWidth-pal.offsetWidth,drag.left+e.clientX-drag.x))+'px';
-    pal.style.top=Math.max(0,Math.min(innerHeight-pal.offsetHeight,drag.top+e.clientY-drag.y))+'px';
+  const startDrag=e=>{
+    if(e.target.closest('button,input,select'))return;
+    const p=point(e),r=pal.getBoundingClientRect();
+    drag={x:p.clientX,y:p.clientY,left:r.left,top:r.top};
+    pal.style.left=r.left+'px';pal.style.top=r.top+'px';
+    pal.style.right='auto';pal.style.bottom='auto';pal.style.transform='none';
+    handle.setPointerCapture?.(e.pointerId);
     e.preventDefault();
   };
-  const end=e=>{if(drag&&e.pointerId===drag.id)drag=null};
-  handle.addEventListener('pointerdown',start);
-  handle.addEventListener('pointermove',move);
-  handle.addEventListener('pointerup',end);
-  handle.addEventListener('pointercancel',end);
+  const moveDrag=e=>{
+    if(!drag)return;
+    const p=point(e);
+    pal.style.left=Math.max(0,Math.min(innerWidth-pal.offsetWidth,drag.left+p.clientX-drag.x))+'px';
+    pal.style.top=Math.max(0,Math.min(innerHeight-pal.offsetHeight,drag.top+p.clientY-drag.y))+'px';
+    e.preventDefault();
+  };
+  const stopDrag=()=>{drag=null};
+  handle.addEventListener('pointerdown',startDrag,{passive:false});
+  handle.addEventListener('pointermove',moveDrag,{passive:false});
+  handle.addEventListener('pointerup',stopDrag);
+  handle.addEventListener('pointercancel',stopDrag);
+  handle.addEventListener('touchstart',startDrag,{passive:false});
+  handle.addEventListener('touchmove',moveDrag,{passive:false});
+  handle.addEventListener('touchend',stopDrag);
   addEventListener('resize',clamp);
 })();
 function sync(el){if(!el||el.dataset.text==null)return;active=el;$('#apanamEditText').value=el.dataset.text||'';$('#apanamEditSize').value=parseInt(el.style.fontSize)||42;$('#apanamSwatch').style.background=getComputedStyle(el).color}document.addEventListener('click',e=>{let el=e.target.closest?.('#stage .element');if(el&&el.dataset.text!=null)setTimeout(()=>sync(el),0)},true);function changeColor(c){need().forEach(e=>e.style.color=c);$('#apanamSwatch').style.background=c;pal.style.display='none';save()}$('#apanamTextColorBtn').onclick=()=>{if(!need().length)return;pal.style.display='block'};$('#apanamPaletteClose').onclick=()=>pal.style.display='none';pal.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>changeColor(b.dataset.color));$('#apanamCustom').oninput=e=>changeColor(e.target.value);$('#apanamEditText').oninput=e=>need().forEach(el=>{el.dataset.text=e.target.value;let n=[...el.childNodes].find(n=>n.nodeType===3);if(n)n.nodeValue=e.target.value;else el.prepend(document.createTextNode(e.target.value))});$('#apanamEditSize').oninput=e=>need().forEach(el=>el.style.fontSize=e.target.value+'px');$('#apanamEditFont').onchange=e=>need().forEach(el=>el.style.fontFamily=e.target.value);$('#apanamB').onclick=()=>need().forEach(el=>el.style.fontWeight=parseInt(getComputedStyle(el).fontWeight)>=700?'400':'800');$('#apanamI').onclick=()=>need().forEach(el=>el.style.fontStyle=getComputedStyle(el).fontStyle==='italic'?'normal':'italic');$('#apanamC').onclick=()=>need().forEach(el=>el.style.textAlign='center');
