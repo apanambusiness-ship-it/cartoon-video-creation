@@ -368,3 +368,25 @@ body>header>div:first-child .apanamHeaderLogo{
     min-height:40px!important;
   }
 }
+
+
+/* Final logo visibility correction: enlarge only the logo area, keep buttons/layout unchanged. */
+@media(min-width:701px){
+  body>header>div:first-child{flex-basis:210px!important}
+  body>header>div:first-child .apanamHeaderLogo{
+    width:150px!important;
+    height:56px!important;
+    min-width:150px!important;
+    min-height:56px!important;
+    max-width:none!important;
+    max-height:none!important;
+  }
+}
+@media(max-width:700px){
+  body>header>div:first-child .apanamHeaderLogo{
+    width:105px!important;
+    height:42px!important;
+    min-width:105px!important;
+    min-height:42px!important;
+  }
+}
