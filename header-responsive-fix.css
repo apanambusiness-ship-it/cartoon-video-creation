@@ -347,3 +347,24 @@ body>header>div:first-child .apanamHeaderLogo{
     max-height:38px!important;
   }
 }
+
+/* Hard override: preserve the complete supplied logo aspect ratio; do not crop or stretch. */
+body>header>div:first-child .apanamHeaderLogo{
+  display:block!important;
+  width:84px!important;
+  height:50px!important;
+  max-width:none!important;
+  max-height:none!important;
+  min-width:84px!important;
+  min-height:50px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+@media(max-width:700px){
+  body>header>div:first-child .apanamHeaderLogo{
+    width:70px!important;
+    height:40px!important;
+    min-width:70px!important;
+    min-height:40px!important;
+  }
+}
