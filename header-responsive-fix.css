@@ -51,3 +51,119 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
  body>header>.actions #apanamCreatorHubButton{font-size:9px!important;font-weight:800!important}
 }
 @media(max-width:430px){body>header{height:112px!important;min-height:112px!important}body>header>div:first-child b{font-size:15px!important}body>header>div:first-child span{font-size:10px!important}}
+
+/* Mobile header: use the free space beside APANAM AI for the primary actions.
+   This is CSS-only; desktop/tablet remain unchanged. */
+@media(max-width:700px){
+  body>header{
+    height:88px!important;
+    min-height:88px!important;
+    padding:5px 7px!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    align-content:flex-start!important;
+    gap:0!important;
+    overflow:hidden!important;
+    position:sticky!important;
+  }
+  body>header>div:first-child{
+    flex:0 0 100%!important;
+    width:100%!important;
+    height:44px!important;
+    min-height:44px!important;
+    box-sizing:border-box!important;
+    padding-left:40px!important;
+    padding-right:160px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    position:relative!important;
+  }
+  body>header>div:first-child b{
+    font-size:15px!important;
+    line-height:1.05!important;
+    white-space:nowrap!important;
+  }
+  body>header>div:first-child span{
+    font-size:10px!important;
+    line-height:1.05!important;
+    margin-top:2px!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions{
+    flex:0 0 100%!important;
+    width:100%!important;
+    height:36px!important;
+    min-height:36px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:4px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:2px 0!important;
+    scrollbar-width:none!important;
+  }
+  body>header>.actions::-webkit-scrollbar{display:none!important}
+
+  /* Primary actions sit beside the brand in the first row. */
+  body>header>#apanamCreatorHubButton,
+  body>header>.actions>#apanamCreatorHubButton,
+  body>header>#saveProject,
+  body>header>.actions>#saveProject,
+  body>header>#headerEditProject,
+  body>header>.actions>#headerEditProject{
+    position:absolute!important;
+    top:9px!important;
+    height:28px!important;
+    min-height:28px!important;
+    width:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:3px 6px!important;
+    font-size:9px!important;
+    line-height:1!important;
+    border-radius:7px!important;
+    z-index:110!important;
+    white-space:nowrap!important;
+  }
+  body>header>#apanamCreatorHubButton,
+  body>header>.actions>#apanamCreatorHubButton{right:118px!important}
+  body>header>#saveProject,
+  body>header>.actions>#saveProject{right:68px!important}
+  body>header>#headerEditProject,
+  body>header>.actions>#headerEditProject{right:7px!important}
+
+  /* Keep the secondary actions in the second row. */
+  body>header>.actions>#apanamCreatorHubButton,
+  body>header>.actions>#saveProject,
+  body>header>.actions>#headerEditProject{
+    flex:0 0 auto!important;
+  }
+  body>header>.actions>#headerDeleteProject,
+  body>header>.actions>#loadProject,
+  body>header>.actions>#undo,
+  body>header>.actions>#redo,
+  body>header>.actions>#download{
+    flex:0 0 auto!important;
+    height:30px!important;
+    min-height:30px!important;
+    padding:4px 7px!important;
+    margin:0!important;
+    font-size:10px!important;
+    border-radius:7px!important;
+    white-space:nowrap!important;
+  }
+  body>main{
+    min-height:calc(100vh - 88px)!important;
+  }
+}
+@media(max-width:360px){
+  body>header>div:first-child{padding-right:154px!important}
+  body>header>#apanamCreatorHubButton,
+  body>header>.actions>#apanamCreatorHubButton{right:112px!important}
+  body>header>#saveProject,
+  body>header>.actions>#saveProject{right:64px!important}
+}
