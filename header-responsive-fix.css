@@ -41,3 +41,99 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
 body>header>div:first-child{background-image:url('apanam-header-logo-final.svg?v=exact-logo-2')!important;background-position:left center!important;background-repeat:no-repeat!important;background-size:90px auto!important;padding-left:96px!important}
 body>header>div:first-child b,body>header>div:first-child span{display:none!important}
 @media(max-width:700px){body>header>div:first-child{flex-basis:92px!important;background-size:78px auto!important;padding-left:82px!important}body>header>div:first-child b,body>header>div:first-child span{display:none!important}}
+
+/* FINAL MOBILE STABILITY: keep header in two controlled rows; never move the Text & Elements toolbar. */
+@media(max-width:700px){
+  :root{--apanam-header-height:116px}
+  body>header{
+    height:116px!important;min-height:116px!important;
+    display:grid!important;
+    grid-template-columns:92px minmax(0,1fr)!important;
+    grid-template-rows:56px 56px!important;
+    gap:0 4px!important;
+    padding:3px 6px!important;
+    overflow:hidden!important;
+    align-items:center!important;
+  }
+  body>header>div:first-child{
+    grid-column:1!important;grid-row:1 / span 2!important;
+    width:92px!important;height:110px!important;min-width:92px!important;
+    flex:none!important;
+    background-size:90px auto!important;
+    background-position:center!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  body>header>.actions{
+    grid-column:2!important;grid-row:1 / span 2!important;
+    width:100%!important;height:110px!important;
+    min-width:0!important;
+    display:flex!important;align-content:flex-start!important;align-items:center!important;
+    justify-content:flex-start!important;flex-wrap:wrap!important;
+    gap:5px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    touch-action:pan-x!important;
+  }
+  body>header>.actions button{
+    min-height:36px!important;height:36px!important;
+    padding:5px 7px!important;font-size:11px!important;
+    flex:0 0 auto!important;
+  }
+  body>header>.actions #apanamCreatorHubButton{order:1!important}
+  body>header>.actions #saveProject{order:2!important}
+  body>header>.actions #headerEditProject{order:3!important}
+  body>header>.actions #headerDeleteProject{order:4!important}
+  body>header>.actions #loadProject{order:5!important}
+  body>header>.actions #undo{order:6!important}
+  body>header>.actions #redo{order:7!important}
+  body>header>.actions #download{order:8!important}
+  body>header>.actions #apanamInstallApp{order:9!important}
+  body>header>.actions #apanamHelp{order:10!important}
+  body>header>.actions #apanamSafety{order:11!important}
+  body>header>.actions #apanamPublish{order:12!important}
+  body>main{height:auto!important;min-height:calc(100vh - 116px)!important}
+  #apanamTopTextToolbar{
+    position:relative!important;
+    width:100%!important;
+    height:62px!important;
+    overflow:hidden!important;
+    touch-action:pan-x!important;
+    cursor:default!important;
+  }
+  #apanamTopTextToolbar #apanamApprovedPanel{
+    height:62px!important;
+    width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-x!important;
+    cursor:default!important;
+    white-space:nowrap!important;
+    display:flex!important;
+    align-items:center!important;
+  }
+  #apanamTopTextToolbar .ap-grid{
+    display:flex!important;
+    flex:0 0 auto!important;
+    width:max-content!important;
+    gap:5px!important;
+  }
+  #apanamTopTextToolbar .ap-grid button{
+    flex:0 0 72px!important;
+    width:72px!important;
+    min-width:72px!important;
+    max-width:72px!important;
+    height:46px!important;
+    min-height:46px!important;
+    padding:5px 4px!important;
+    font-size:11px!important;
+    touch-action:pan-x!important;
+  }
+}
+@media(max-width:360px){
+  body>header>div:first-child{width:86px!important;min-width:86px!important}
+  body>header{grid-template-columns:86px minmax(0,1fr)!important}
+  body>header>.actions button{font-size:10px!important;padding:5px 6px!important}
+  #apanamTopTextToolbar .ap-grid button{flex-basis:68px!important;width:68px!important;min-width:68px!important}
+}
