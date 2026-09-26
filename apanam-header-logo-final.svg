@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260">
+<defs>
+ <linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd21a"/><stop offset=".38" stop-color="#ff7a22"/><stop offset=".7" stop-color="#9b00ff"/><stop offset="1" stop-color="#00a8ff"/></linearGradient>
+ <linearGradient id="ai" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a100ff"/><stop offset="1" stop-color="#00a8ff"/></linearGradient>
+</defs>
+<rect width="440" height="260" fill="#fff"/>
+<path d="M135 92 Q142 72 160 43 Q170 27 189 27 Q207 27 218 44 L255 103 Q264 118 279 118 Q293 118 301 103 L330 48 Q339 30 356 30 Q373 30 383 47 L412 101 Q422 120 408 135 Q394 150 376 142 L338 124 Q321 116 308 130 L286 153 Q274 166 256 166 L176 166 Q158 166 149 151 Q140 138 146 123 Z" fill="url(#a)"/>
+<path d="M252 104 L285 123 L252 142 Z" fill="#b100ff"/>
+<text x="220" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" letter-spacing="-2" fill="#173b86">APANAM</text>
+<text x="354" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" letter-spacing="-2" fill="url(#ai)">AI</text>
+<text x="220" y="239" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="3" fill="#425474">Creative Studio</text>
+<path d="M348 235 H382" stroke="#a100ff" stroke-width="4" stroke-linecap="round"/><path d="M382 235 H405" stroke="#00a8ff" stroke-width="4" stroke-linecap="round"/>
+</svg>
