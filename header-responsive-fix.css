@@ -542,3 +542,135 @@ body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180p
     padding-right:6px!important;
   }
 }
+
+
+/* MOBILE STABLE LAYOUT — do not let header controls overlap/reorder unexpectedly. */
+@media (max-width:700px){
+  body>header{
+    height:128px!important;
+    min-height:128px!important;
+    padding:4px!important;
+    display:grid!important;
+    grid-template-columns:100px minmax(0,1fr)!important;
+    grid-template-rows:1fr!important;
+    align-items:start!important;
+    overflow:hidden!important;
+    position:relative!important;
+  }
+  body>header>div:first-child{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:100px!important;
+    height:60px!important;
+    min-height:60px!important;
+    flex:none!important;
+    overflow:hidden!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  body>header>div:first-child .apanamHeaderLogo{
+    display:block!important;
+    width:96px!important;
+    height:58px!important;
+    min-width:96px!important;
+    min-height:58px!important;
+    max-width:none!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  body>header>div:first-child b,
+  body>header>div:first-child span{display:none!important}
+
+  body>header>.actions{
+    grid-column:2!important;
+    grid-row:1!important;
+    width:100%!important;
+    height:120px!important;
+    min-width:0!important;
+    min-height:120px!important;
+    padding:0!important;
+    margin:0!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-auto-rows:32px!important;
+    gap:4px!important;
+    align-content:start!important;
+    overflow:hidden!important;
+    position:static!important;
+  }
+  body>header>.actions>*{
+    position:static!important;
+    inset:auto!important;
+    float:none!important;
+    transform:none!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:32px!important;
+    min-height:32px!important;
+    margin:0!important;
+    padding:4px 3px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:8px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    order:initial!important;
+  }
+  /* DOM order is intentional: first row CREATE/Save/Edit/Delete. */
+  body>header>.actions #apanamCreatorHubButton{grid-column:auto!important;grid-row:1!important}
+  body>header>.actions #saveProject{grid-column:auto!important;grid-row:1!important}
+  body>header>.actions #headerEditProject{grid-column:auto!important;grid-row:1!important}
+  body>header>.actions #headerDeleteProject{grid-column:auto!important;grid-row:1!important}
+  body>header>.actions #loadProject{grid-row:2!important}
+  body>header>.actions #undo{grid-row:2!important}
+  body>header>.actions #redo{grid-row:2!important}
+  body>header>.actions #download{grid-row:2!important}
+  body>header>.actions #apanamInstallApp{grid-row:3!important}
+  body>header>.actions #apanamHelpButton{grid-row:3!important}
+  body>header>.actions #apanamSafetyButton{grid-row:3!important}
+  body>header>.actions #apanamPublishButton{grid-row:3!important}
+  body>header>.actions:after{display:none!important}
+
+  /* Text & Elements: reliable finger horizontal scrolling. */
+  #apanamTopTextToolbar #apanamApprovedPanel{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-x!important;
+    overscroll-behavior-x:contain!important;
+  }
+  #apanamTopTextToolbar #apanamApprovedPanel .ap-grid{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    width:max-content!important;
+    max-width:none!important;
+  }
+}
+@media (max-width:380px){
+  body>header{
+    grid-template-columns:92px minmax(0,1fr)!important;
+  }
+  body>header>div:first-child{width:92px!important}
+  body>header>div:first-child .apanamHeaderLogo{
+    width:88px!important;
+    height:56px!important;
+    min-width:88px!important;
+  }
+  body>header>.actions>*{
+    font-size:9px!important;
+    padding-left:2px!important;
+    padding-right:2px!important;
+  }
+}
