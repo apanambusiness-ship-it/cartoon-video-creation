@@ -319,3 +319,12 @@ body>header>div:first-child span{display:none!important}
     padding-left:0!important;
   }
 }
+
+/* Visible logo image fix. */
+body>header>div:first-child{background-image:none!important;padding-left:0!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
+body>header>div:first-child .apanamHeaderLogo{display:block!important;width:190px!important;height:auto!important;max-width:100%!important;object-fit:contain!important}
+body>header>div:first-child b,body>header>div:first-child span{display:none!important}
+@media(max-width:700px){
+  body>header>div:first-child{justify-content:flex-start!important;padding-left:2px!important;padding-right:0!important}
+  body>header>div:first-child .apanamHeaderLogo{width:190px!important;max-width:calc(100vw - 170px)!important}
+}
