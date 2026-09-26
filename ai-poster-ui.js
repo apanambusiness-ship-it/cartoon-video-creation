@@ -7,6 +7,9 @@
   const status=document.createElement('p');status.className='small';status.setAttribute('role','status');status.textContent='AI सुविधा Cloudflare से जुड़ने पर उपलब्ध होगी।';
   form.append(button,status);
   const quotaKey='apanam-ai-quota-paused-utc';
+  const pending=(()=>{try{return JSON.parse(sessionStorage.getItem('apanam-ai-create-suggestion')||'null')}catch(_){return null}})();
+  if(pending&&form.elements.product&&form.elements.price){form.elements.product.value=pending.product||pending.headline||'';form.elements.price.value=pending.price||'';form.elements.offer.value=pending.offer||pending.tagline||'';if(form.elements.template&&pending.template)form.elements.template.value=pending.template;try{sessionStorage.removeItem('apanam-ai-create-suggestion')}catch(_){}setTimeout(()=>form.requestSubmit(),120)}
+
   const today=()=>new Date().toISOString().slice(0,10);
   const showLimit=()=>{button.disabled=true;status.textContent='आज की 3 मुफ्त AI कोशिशें पूरी हैं। अगली कोशिश सुबह 5:30 बजे (भारतीय समय) करें। मैनुअल पोस्टर अभी बना सकते हैं।'};
   fetch(endpoint+'/health').then(r=>r.ok?r.json():null).then(data=>{if(data?.ready){button.hidden=false;if(localStorage.getItem(quotaKey)===today())showLimit();else status.textContent='AI सुझाव: रोज़ अधिकतम 3 कोशिशें। मैनुअल पोस्टर हमेशा उपलब्ध है।'}}).catch(()=>{status.textContent='AI सेवा से संपर्क नहीं हो पा रहा। मैनुअल पोस्टर बना सकते हैं।'});
