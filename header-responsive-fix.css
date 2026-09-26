@@ -435,3 +435,110 @@ body>header>div:first-child .apanamHeaderLogo{
 /* Supplied APANAM logo: show the complete mark clearly without changing header controls. */
 body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180px!important;height:76px!important;min-width:180px!important;min-height:76px!important;max-width:none!important;max-height:none!important;object-fit:contain!important;object-position:left center!important;}
 @media(max-width:700px){body>header>div:first-child{flex:0 0 120px!important;width:120px!important;}body>header>div:first-child .apanamHeaderLogo{width:110px!important;height:58px!important;min-width:110px!important;min-height:58px!important;}}
+
+
+/* Mobile final: keep the brand on the left and all four primary actions together.
+   Secondary actions remain in a clean horizontal row below. */
+@media(max-width:700px){
+  body>header{
+    height:94px!important;
+    min-height:94px!important;
+    padding:4px 6px!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:flex-start!important;
+    position:sticky!important;
+    overflow:hidden!important;
+  }
+  body>header>div:first-child{
+    flex:0 0 108px!important;
+    width:108px!important;
+    height:42px!important;
+    min-height:42px!important;
+    padding:0!important;
+    margin:0!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+  }
+  body>header>div:first-child .apanamHeaderLogo{
+    width:108px!important;
+    height:42px!important;
+    min-width:108px!important;
+    min-height:42px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+  body>header>.actions{
+    position:static!important;
+    flex:1 1 auto!important;
+    width:auto!important;
+    height:86px!important;
+    min-width:0!important;
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-content:flex-start!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    gap:3px!important;
+    overflow:hidden!important;
+    padding:0!important;
+  }
+  body>header>.actions #apanamCreatorHubButton,
+  body>header>.actions #saveProject,
+  body>header>.actions #headerEditProject,
+  body>header>.actions #headerDeleteProject{
+    position:static!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    height:32px!important;
+    min-height:32px!important;
+    padding:4px 8px!important;
+    margin:0!important;
+    font-size:11px!important;
+    line-height:1!important;
+    border-radius:8px!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions #apanamCreatorHubButton{order:1!important}
+  body>header>.actions #saveProject{order:2!important}
+  body>header>.actions #headerEditProject{order:3!important}
+  body>header>.actions #headerDeleteProject{order:4!important}
+  body>header>.actions #loadProject{order:10!important}
+  body>header>.actions #undo{order:11!important}
+  body>header>.actions #redo{order:12!important}
+  body>header>.actions #download{order:13!important}
+  body>header>.actions #apanamInstallApp{order:14!important}
+  body>header>.actions #apanamHelpButton{order:15!important}
+  body>header>.actions #apanamSafetyButton{order:16!important}
+  body>header>.actions #apanamPublishButton{order:17!important}
+  body>header>.actions>*{flex:0 0 auto!important}
+  body>header>.actions>*:nth-child(n+5){
+    height:32px!important;
+    min-height:32px!important;
+    padding:4px 8px!important;
+    margin:0!important;
+    font-size:11px!important;
+    border-radius:8px!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions #loadProject{
+    margin-left:0!important;
+  }
+  body>header>.actions:after{display:none!important}
+}
+@media(max-width:380px){
+  body>header>div:first-child{flex-basis:96px!important;width:96px!important}
+  body>header>div:first-child .apanamHeaderLogo{width:96px!important;height:40px!important;min-width:96px!important}
+  body>header>.actions #apanamCreatorHubButton,
+  body>header>.actions #saveProject,
+  body>header>.actions #headerEditProject,
+  body>header>.actions #headerDeleteProject{
+    font-size:10px!important;
+    padding-left:6px!important;
+    padding-right:6px!important;
+  }
+}
