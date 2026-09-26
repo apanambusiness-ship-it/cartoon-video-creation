@@ -328,3 +328,22 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
   body>header>div:first-child{justify-content:flex-start!important;padding-left:2px!important;padding-right:0!important}
   body>header>div:first-child .apanamHeaderLogo{width:190px!important;max-width:calc(100vw - 170px)!important}
 }
+
+/* Final logo sizing: keep the complete supplied logo visible inside the compact header. */
+body>header>div:first-child .apanamHeaderLogo{
+  width:auto!important;
+  height:50px!important;
+  max-width:96px!important;
+  max-height:50px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  flex:0 0 auto!important;
+}
+@media(max-width:700px){
+  body>header>div:first-child .apanamHeaderLogo{
+    width:auto!important;
+    height:38px!important;
+    max-width:70px!important;
+    max-height:38px!important;
+  }
+}
