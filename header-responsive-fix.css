@@ -390,3 +390,44 @@ body>header>div:first-child .apanamHeaderLogo{
     min-height:42px!important;
   }
 }
+
+/* Actual header logo sizing: show the supplied logo at readable size. */
+@media(min-width:701px){
+  body>header>div:first-child{
+    flex:0 0 170px!important;
+    width:170px!important;
+    height:76px!important;
+    min-height:76px!important;
+    overflow:visible!important;
+    justify-content:flex-start!important;
+  }
+  body>header>div:first-child .apanamHeaderLogo{
+    display:block!important;
+    width:120px!important;
+    height:76px!important;
+    min-width:120px!important;
+    min-height:76px!important;
+    max-width:none!important;
+    max-height:none!important;
+    object-fit:contain!important;
+  }
+}
+@media(max-width:700px){
+  body>header>div:first-child{
+    flex:0 0 120px!important;
+    width:120px!important;
+    height:58px!important;
+    min-height:58px!important;
+    overflow:visible!important;
+  }
+  body>header>div:first-child .apanamHeaderLogo{
+    display:block!important;
+    width:92px!important;
+    height:58px!important;
+    min-width:92px!important;
+    min-height:58px!important;
+    max-width:none!important;
+    max-height:none!important;
+    object-fit:contain!important;
+  }
+}
