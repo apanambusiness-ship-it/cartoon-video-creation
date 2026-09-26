@@ -602,3 +602,27 @@ body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180p
  body>header>.actions #headerEditProject,
  body>header>.actions #headerDeleteProject{font-size:10px!important;padding-left:6px!important;padding-right:6px!important}
 }
+
+
+/* Mobile header final order + reliable horizontal touch scrolling for Text & Elements. */
+@media(max-width:700px){
+  body>header>.actions #apanamLaunchButton{order:17!important}
+  body>header>.actions #apanamInstallApp{order:14!important}
+  body>header>.actions #apanamHelpButton{order:15!important}
+  body>header>.actions #apanamSafetyButton{order:16!important}
+
+  #apanamTopTextToolbar #apanamApprovedPanel{
+    overflow-x:scroll!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-x!important;
+    overscroll-behavior-x:contain!important;
+    scrollbar-width:auto!important;
+    cursor:grab!important;
+  }
+  #apanamTopTextToolbar #apanamApprovedPanel:active{cursor:grabbing!important}
+  #apanamTopTextToolbar .ap-grid{
+    width:max-content!important;
+    max-width:none!important;
+  }
+}
