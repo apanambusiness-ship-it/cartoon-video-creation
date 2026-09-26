@@ -283,3 +283,22 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
   body>header>.actions #saveProject{right:52px!important}
   body>header>.actions #headerEditProject{right:11px!important}
 }
+
+/* Keep CREATE, Save, Edit, Delete together in the mobile top row. */
+@media(max-width:700px){
+  body>header>.actions #apanamCreatorHubButton{right:136px!important;width:58px!important;min-width:58px!important}
+  body>header>.actions #saveProject{right:91px!important;width:40px!important;min-width:40px!important}
+  body>header>.actions #headerEditProject{right:50px!important;width:36px!important;min-width:36px!important}
+  body>header>.actions #headerDeleteProject{
+    position:absolute!important;top:9px!important;right:5px!important;
+    width:43px!important;min-width:43px!important;height:28px!important;min-height:28px!important;
+    padding:3px 4px!important;margin:0!important;font-size:9px!important;line-height:1!important;
+    border-radius:7px!important;z-index:120!important;white-space:nowrap!important;
+  }
+}
+@media(max-width:360px){
+  body>header>.actions #apanamCreatorHubButton{right:132px!important;width:56px!important;min-width:56px!important}
+  body>header>.actions #saveProject{right:89px!important;width:39px!important;min-width:39px!important}
+  body>header>.actions #headerEditProject{right:49px!important;width:35px!important;min-width:35px!important}
+  body>header>.actions #headerDeleteProject{right:4px!important;width:42px!important;min-width:42px!important}
+}
