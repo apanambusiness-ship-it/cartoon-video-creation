@@ -302,3 +302,20 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
   body>header>.actions #headerEditProject{right:49px!important;width:35px!important;min-width:35px!important}
   body>header>.actions #headerDeleteProject{right:4px!important;width:42px!important;min-width:42px!important}
 }
+/* Final APANAM AI logo: use the supplied final branding mark without changing header buttons/layout. */
+body>header>div:first-child{
+  background-image:url('apanam-header-logo-final.svg')!important;
+  background-repeat:no-repeat!important;
+  background-position:left center!important;
+  background-size:112px auto!important;
+  padding-left:0!important;
+}
+body>header>div:first-child b,
+body>header>div:first-child span{display:none!important}
+@media(max-width:700px){
+  body>header>div:first-child{
+    background-size:108px auto!important;
+    background-position:left center!important;
+    padding-left:0!important;
+  }
+}
