@@ -59,6 +59,7 @@
   collect(left);collect(right);
   function pinTextPanel(){
     const approved=document.querySelector('#apanamApprovedPanel');
+    if(approved?.dataset.topToolbar==='1')return;
     if(!approved||approved.closest('.organizer-panel[data-group="Text"]'))return;
     const box=document.createElement('details');box.className='organizer-section organizer-featured';box.open=true;box.dataset.title='Text & Elements · Phonetic Typing';
     const summary=document.createElement('summary');summary.textContent='Text & Elements · Phonetic Typing';
