@@ -11,7 +11,7 @@
   const videoLink=document.createElement('a');videoLink.href='cartoon-video.html';videoLink.className='organizer-video-link';videoLink.textContent='🎬 Cartoon Video Maker →';
   shell.append(nav,videoLink,search,panels);left.prepend(shell);
   let active='Text';
-  for(const [name] of groups){const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
+  for(const [name] of groups){if(name==='Text')continue;const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
   function cleanTitle(title){return String(title||'Tools').replace(/^\s*\d+\s+/,'').replace(/\s+[—-]\s*\d+\s*$/,'').replace(/\s+/g,' ').trim()}
   function category(title){
     title=cleanTitle(title);
@@ -70,7 +70,7 @@
   const upload=document.querySelector('#imageUpload')?.closest('label');
   if(upload){const related=[upload,document.querySelector('#autoMakeEditable')].filter(Boolean);section(related,'Uploads')}
   function prune(){panels.querySelectorAll('.organizer-section').forEach(s=>{if(![...s.children].some(n=>n.tagName!=='SUMMARY'))s.remove()})}
-  function show(){prune();const term=search.value.trim().toLowerCase();nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.group===active));panels.querySelectorAll('.organizer-panel').forEach(p=>p.hidden=!term&&p.dataset.group!==active);panels.querySelectorAll('.organizer-section').forEach(s=>{const match=!term||s.textContent.toLowerCase().includes(term);s.hidden=!match;if(term&&match)s.open=true})}
+  function show(){const textPanel=panels.querySelector('[data-group="Text"]');if(textPanel)textPanel.hidden=true;prune();const term=search.value.trim().toLowerCase();nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.group===active));panels.querySelectorAll('.organizer-panel').forEach(p=>p.hidden=!term&&p.dataset.group!==active);panels.querySelectorAll('.organizer-section').forEach(s=>{const match=!term||s.textContent.toLowerCase().includes(term);s.hidden=!match;if(term&&match)s.open=true})}
   search.addEventListener('input',show);show();
   // Scripts loaded asynchronously may add panels after the initial layout.
   const observer=new MutationObserver(()=>{const pending=[...left.children,...right.children].filter(n=>n!==shell);if(!pending.length)return;observer.disconnect();collect(left);collect(right);pinTextPanel();show();observer.observe(left,{childList:true});observer.observe(right,{childList:true})});
