@@ -732,3 +732,83 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
     grid-template-columns:60px 50px 52px 58px 54px!important;
   }
 }
+
+
+/* FINAL OVERRIDE: dedicated top/bottom mobile rows. */
+@media(max-width:700px){
+  body>header>.actions{
+    position:absolute!important;
+    left:94px!important;
+    top:3px!important;
+    width:calc(100% - 98px)!important;
+    height:72px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:4px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    margin:0!important;
+    touch-action:auto!important;
+  }
+  body>header>.actions .apanam-mobile-top-row{
+    flex:0 0 34px!important;
+    height:34px!important;
+    display:flex!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow:hidden!important;
+    white-space:nowrap!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row{
+    flex:0 0 34px!important;
+    height:34px!important;
+    display:flex!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    scrollbar-width:none!important;
+    touch-action:pan-x!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row::-webkit-scrollbar{display:none!important}
+  body>header>.actions .apanam-mobile-top-row button,
+  body>header>.actions .apanam-mobile-bottom-row button{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:3px 7px!important;
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:9px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+  }
+  body>header>.actions .apanam-mobile-top-row #apanamCreatorHubButton{min-width:62px!important}
+  body>header>.actions .apanam-mobile-top-row #saveProject{min-width:52px!important}
+  body>header>.actions .apanam-mobile-top-row #headerEditProject{min-width:54px!important}
+  body>header>.actions .apanam-mobile-top-row #headerDeleteProject{min-width:60px!important}
+  body>header>.actions .apanam-mobile-top-row #loadProject{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #undo{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #redo{min-width:58px!important}
+  body>header>.actions .apanam-mobile-bottom-row #download{min-width:78px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamInstallApp,
+  body>header>.actions .apanam-mobile-bottom-row #apanamHelpButton,
+  body>header>.actions .apanam-mobile-bottom-row #apanamSafetyButton,
+  body>header>.actions .apanam-mobile-bottom-row #apanamLaunchButton{
+    width:34px!important;
+    min-width:34px!important;
+    max-width:34px!important;
+    padding:2px 0!important;
+    font-size:0!important;
+  }
+  body>header>.actions .apanam-mobile-bottom-row #apanamInstallApp::before{content:'↓';font-size:15px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamHelpButton::before{content:'?';font-size:14px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamSafetyButton::before{content:'🛡';font-size:12px!important}
+  body>header>.actions .apanam-mobile-bottom-row #apanamLaunchButton::before{content:'✓';font-size:14px!important}
+}
