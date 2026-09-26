@@ -10,7 +10,7 @@
   const panels=document.createElement('div');panels.className='organizer-panels';
   const videoLink=document.createElement('a');videoLink.href='cartoon-video.html';videoLink.className='organizer-video-link';videoLink.textContent='🎬 Cartoon Video Maker →';
   shell.append(nav,videoLink,search,panels);left.prepend(shell);
-  let active='Text';
+  let active='Templates';
   for(const [name] of groups){if(name==='Text')continue;const button=document.createElement('button');button.type='button';button.textContent=name;button.dataset.group=name;button.onclick=()=>{active=name;search.value='';show()};nav.append(button);const panel=document.createElement('div');panel.className='organizer-panel';panel.dataset.group=name;panels.append(panel)}
   function cleanTitle(title){return String(title||'Tools').replace(/^\s*\d+\s+/,'').replace(/\s+[—-]\s*\d+\s*$/,'').replace(/\s+/g,' ').trim()}
   function category(title){
@@ -40,7 +40,7 @@
       });
       title='🎨 Original Templates';
     }
-    const panel=panels.querySelector(`[data-group="${category(title)}"]`);
+    const cat=category(title);if(cat==='Text')return;const panel=panels.querySelector(`[data-group="${cat}"]`);
     const existing=[...panel.querySelectorAll('.organizer-section')].find(item=>item.dataset.title===title);
     if(existing){existing.append(...nodes);return}
     const box=document.createElement('details');box.className='organizer-section';box.open=!panel.querySelector('.organizer-section');box.dataset.title=title;
