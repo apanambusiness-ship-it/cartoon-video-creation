@@ -37,6 +37,7 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
   body>header>div:first-child span{display:block!important;font-size:10px}
 }
 
-/* Only logo asset changed: preserve the old header/layout exactly. */
-body>header>div:first-child{background-image:url('apanam-header-logo-final.svg?v=20260926-exact-logo')!important;background-repeat:no-repeat!important;background-position:left center!important;background-size:96px auto!important;padding-left:104px!important}body>header>div:first-child b,body>header>div:first-child span{display:none!important}
-@media(max-width:700px){body>header>div:first-child{background-size:72px auto!important;padding-left:78px!important}}
+/* Exact APANAM AI logo only — do not alter toolbar/layout. */
+body>header>div:first-child{background-image:url('apanam-header-logo-final.svg?v=exact-logo-2')!important;background-position:left center!important;background-repeat:no-repeat!important;background-size:90px auto!important;padding-left:96px!important}
+body>header>div:first-child b,body>header>div:first-child span{display:none!important}
+@media(max-width:700px){body>header>div:first-child{flex-basis:92px!important;background-size:78px auto!important;padding-left:82px!important}body>header>div:first-child b,body>header>div:first-child span{display:none!important}}
