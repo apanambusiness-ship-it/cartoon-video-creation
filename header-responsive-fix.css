@@ -263,3 +263,34 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
     padding:5px 6px!important;
   }
 }
+
+
+/* MOBILE LOGO: keep it entirely inside row 1 so it never overlaps row 2 buttons. */
+@media(max-width:700px){
+  body>header>div:first-child{
+    top:3px!important;
+    height:50px!important;
+    width:92px!important;
+    min-width:92px!important;
+    background-size:78px auto!important;
+    background-position:center center!important;
+    background-repeat:no-repeat!important;
+  }
+  body>header>.actions{
+    top:3px!important;
+    grid-template-rows:50px 36px!important;
+    row-gap:5px!important;
+  }
+}
+@media(max-width:360px){
+  body>header>div:first-child{
+    width:86px!important;
+    min-width:86px!important;
+    height:50px!important;
+    background-size:74px auto!important;
+  }
+  body>header>.actions{
+    grid-template-columns:86px repeat(7,max-content)!important;
+    grid-template-rows:50px 36px!important;
+  }
+}
