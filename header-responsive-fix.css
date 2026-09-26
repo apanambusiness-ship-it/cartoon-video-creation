@@ -472,9 +472,9 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
     overflow:hidden!important;
   }
   body>header>.actions #apanamInstallApp{grid-column:5;grid-row:2}
-  body>header>.actions #apanamHelpButton{position:absolute!important;left:292px;top:38px}
-  body>header>.actions #apanamSafetyButton{position:absolute!important;left:314px;top:38px}
-  body>header>.actions #apanamLaunchButton{position:absolute!important;left:336px;top:38px}
+  body>header>.actions #apanamHelpButton{position:absolute!important;left:278px;top:38px}
+  body>header>.actions #apanamSafetyButton{position:absolute!important;left:300px;top:38px}
+  body>header>.actions #apanamLaunchButton{position:absolute!important;left:322px;top:38px}
   body>header>.actions #apanamInstallApp::before{content:'↓';font-size:15px!important}
   body>header>.actions #apanamHelpButton::before{content:'?';font-size:15px!important}
   body>header>.actions #apanamSafetyButton::before{content:'🛡';font-size:13px!important}
@@ -525,9 +525,9 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
     width:calc(100% - 6px)!important;
     grid-template-columns:60px 62px 54px 54px 62px!important;
   }
-  body>header>.actions #apanamHelpButton{left:282px}
-  body>header>.actions #apanamSafetyButton{left:304px}
-  body>header>.actions #apanamLaunchButton{left:326px}
+  body>header>.actions #apanamHelpButton{left:268px}
+  body>header>.actions #apanamSafetyButton{left:290px}
+  body>header>.actions #apanamLaunchButton{left:312px}
   #apanamTopTextToolbar .ap-head{flex-basis:100px!important}
   #apanamTopTextToolbar .ap-grid button{min-width:56px!important;width:56px!important}
 }
