@@ -270,3 +270,16 @@ body>main{height:calc(100vh - var(--apanam-header-height))!important}
   body>header>.actions #saveProject{right:43px!important;width:40px!important;min-width:40px!important}
   body>header>.actions #headerEditProject{right:4px!important;width:35px!important;min-width:35px!important}
 }
+
+
+/* Final mobile primary-action nudge: keep CREATE / Save / Edit safely inside the right side. */
+@media(max-width:700px){
+  body>header>.actions #apanamCreatorHubButton{right:102px!important}
+  body>header>.actions #saveProject{right:55px!important}
+  body>header>.actions #headerEditProject{right:13px!important}
+}
+@media(max-width:360px){
+  body>header>.actions #apanamCreatorHubButton{right:99px!important}
+  body>header>.actions #saveProject{right:52px!important}
+  body>header>.actions #headerEditProject{right:11px!important}
+}
