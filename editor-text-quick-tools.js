@@ -2,43 +2,47 @@
 const css=document.createElement('style');css.textContent=`#apanamTextPanel{margin:10px 0;padding:12px;border:1px solid #ddd6fe;border-radius:12px;background:#faf8ff}#apanamTextPanel input,#apanamTextPanel select{width:100%;padding:8px;margin:4px 0 8px;border:1px solid #ccd3dd;border-radius:8px}#apanamTextPanel .fmt{display:flex;gap:6px}#apanamTextPanel .fmt button{flex:1}#apanamTextColorBtn{width:100%;display:flex;justify-content:space-between;align-items:center;margin-top:8px}#apanamSwatch{width:34px;height:24px;border-radius:6px;background:#6d28d9}#apanamPalette{display:none;position:fixed;z-index:999999;left:270px;top:145px;width:310px;padding:16px;background:white;border:2px solid #6d28d9;border-radius:14px;box-shadow:0 20px 60px #0004}#apanamPalette .ph{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:800;margin-bottom:12px;cursor:move;user-select:none;touch-action:none}#apanamPalette .ph button{cursor:pointer}#apanamPalette .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}#apanamPalette .pc{width:42px;height:42px;min-height:42px;padding:0;border-radius:50%;border:2px solid #e5e7eb}#apanamPalette .custom{margin-top:14px}#apanamPalette .custom input{width:100%;height:42px}#stage .element[data-text]{pointer-events:auto!important;cursor:pointer!important}@media(max-width:700px){#apanamPalette{left:5%;top:90px;width:90%}}`;document.head.appendChild(css);
 let left=document.querySelector('main>aside');let panel=document.createElement('div');panel.id='apanamTextPanel';panel.innerHTML=`<h3>Text Settings</h3><label>Text</label><input id="apanamEditText" placeholder="टेक्स्ट लिखें"><label>Font</label><select id="apanamEditFont"><option value="Arial">Arial</option><option value="sans-serif">Hindi / System Sans</option><option value="serif">Hindi / System Serif</option><option value="Georgia">Georgia</option></select><label>Font Size</label><input id="apanamEditSize" type="number" min="10" max="200" value="42"><div class="fmt"><button id="apanamB"><b>B</b></button><button id="apanamI"><i>I</i></button><button id="apanamC">≡</button></div><button id="apanamTextColorBtn"><span>Text Color</span><span id="apanamSwatch"></span></button>`;let hr=left?.querySelector('hr');if(left&&hr)left.insertBefore(panel,hr);
 let colors=['#111111','#6b7280','#d1d5db','#ffffff','#ef4444','#f97316','#fbbf24','#22c55e','#0ea5e9','#2563eb','#6d28d9','#ec4899','#92400e','#14b8a6','#000000'];let pal=document.createElement('div');pal.id='apanamPalette';pal.innerHTML=`<div class="ph"><span>Text Color</span><button id="apanamPaletteClose">×</button></div><div class="grid">${colors.map(c=>`<button class="pc" data-color="${c}" style="background:${c}"></button>`).join('')}</div><div class="custom"><b>Custom Color</b><input id="apanamCustom" type="color" value="#6d28d9"></div>`;document.body.appendChild(pal);
-// Make the Text Color palette freely draggable on desktop and mobile.
+// Make the Text Color palette reliably draggable.
+// Drag from the purple header OR any empty area of the popup.
+// Buttons/inputs remain clickable and are never treated as drag handles.
 (()=>{
-  const handle=pal.querySelector('.ph');if(!handle)return;
   let drag=null;
-  const point=(e)=>e.touches?e.touches[0]:e;
-  const clamp=()=>{
+  const blocked=e=>!!e.target.closest?.('button,input,select');
+  const startDrag=e=>{
+    if(e.button!==undefined && e.button!==0)return;
+    if(blocked(e))return;
+    if(getComputedStyle(pal).display==='none')return;
+    const r=pal.getBoundingClientRect();
+    drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:r.left,top:r.top};
+    pal.style.left=r.left+'px';
+    pal.style.top=r.top+'px';
+    pal.style.right='auto';
+    pal.style.bottom='auto';
+    pal.style.transform='none';
+    e.preventDefault();
+  };
+  const moveDrag=e=>{
+    if(!drag || e.pointerId!==drag.id)return;
+    const maxX=Math.max(0,innerWidth-pal.offsetWidth);
+    const maxY=Math.max(0,innerHeight-pal.offsetHeight);
+    pal.style.left=Math.max(0,Math.min(maxX,drag.left+e.clientX-drag.x))+'px';
+    pal.style.top=Math.max(0,Math.min(maxY,drag.top+e.clientY-drag.y))+'px';
+    e.preventDefault();
+  };
+  const stopDrag=e=>{
+    if(drag && (e.pointerId===undefined || e.pointerId===drag.id))drag=null;
+  };
+  pal.addEventListener('pointerdown',startDrag,true);
+  document.addEventListener('pointermove',moveDrag,true);
+  document.addEventListener('pointerup',stopDrag,true);
+  document.addEventListener('pointercancel',stopDrag,true);
+  pal.style.touchAction='none';
+  addEventListener('resize',()=>{
     if(getComputedStyle(pal).display==='none')return;
     const r=pal.getBoundingClientRect();
     pal.style.left=Math.max(0,Math.min(r.left,innerWidth-r.width))+'px';
     pal.style.top=Math.max(0,Math.min(r.top,innerHeight-r.height))+'px';
-    pal.style.right='auto';pal.style.bottom='auto';pal.style.transform='none';
-  };
-  const startDrag=e=>{
-    if(e.target.closest('button,input,select'))return;
-    const p=point(e),r=pal.getBoundingClientRect();
-    drag={x:p.clientX,y:p.clientY,left:r.left,top:r.top};
-    pal.style.left=r.left+'px';pal.style.top=r.top+'px';
-    pal.style.right='auto';pal.style.bottom='auto';pal.style.transform='none';
-    handle.setPointerCapture?.(e.pointerId);
-    e.preventDefault();
-  };
-  const moveDrag=e=>{
-    if(!drag)return;
-    const p=point(e);
-    pal.style.left=Math.max(0,Math.min(innerWidth-pal.offsetWidth,drag.left+p.clientX-drag.x))+'px';
-    pal.style.top=Math.max(0,Math.min(innerHeight-pal.offsetHeight,drag.top+p.clientY-drag.y))+'px';
-    e.preventDefault();
-  };
-  const stopDrag=()=>{drag=null};
-  handle.addEventListener('pointerdown',startDrag,{passive:false});
-  handle.addEventListener('pointermove',moveDrag,{passive:false});
-  handle.addEventListener('pointerup',stopDrag);
-  handle.addEventListener('pointercancel',stopDrag);
-  handle.addEventListener('touchstart',startDrag,{passive:false});
-  handle.addEventListener('touchmove',moveDrag,{passive:false});
-  handle.addEventListener('touchend',stopDrag);
-  addEventListener('resize',clamp);
+  });
 })();
 function sync(el){if(!el||el.dataset.text==null)return;active=el;$('#apanamEditText').value=el.dataset.text||'';$('#apanamEditSize').value=parseInt(el.style.fontSize)||42;$('#apanamSwatch').style.background=getComputedStyle(el).color}document.addEventListener('click',e=>{let el=e.target.closest?.('#stage .element');if(el&&el.dataset.text!=null)setTimeout(()=>sync(el),0)},true);function changeColor(c){need().forEach(e=>e.style.color=c);$('#apanamSwatch').style.background=c;pal.style.display='none';save()}$('#apanamTextColorBtn').onclick=()=>{if(!need().length)return;pal.style.display='block'};$('#apanamPaletteClose').onclick=()=>pal.style.display='none';pal.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>changeColor(b.dataset.color));$('#apanamCustom').oninput=e=>changeColor(e.target.value);$('#apanamEditText').oninput=e=>need().forEach(el=>{el.dataset.text=e.target.value;let n=[...el.childNodes].find(n=>n.nodeType===3);if(n)n.nodeValue=e.target.value;else el.prepend(document.createTextNode(e.target.value))});$('#apanamEditSize').oninput=e=>need().forEach(el=>el.style.fontSize=e.target.value+'px');$('#apanamEditFont').onchange=e=>need().forEach(el=>el.style.fontFamily=e.target.value);$('#apanamB').onclick=()=>need().forEach(el=>el.style.fontWeight=parseInt(getComputedStyle(el).fontWeight)>=700?'400':'800');$('#apanamI').onclick=()=>need().forEach(el=>el.style.fontStyle=getComputedStyle(el).fontStyle==='italic'?'normal':'italic');$('#apanamC').onclick=()=>need().forEach(el=>el.style.textAlign='center');
 let right=document.querySelector('aside.right');if(right){let box=document.createElement('div');box.innerHTML='<h3>E-commerce Text Quick Style</h3><p class="small">Selected text को listing/banner के हिसाब से जल्दी format करें।</p><button id="etqHeading">H1 Product Heading</button><button id="etqPrice">₹ Strong Price</button><button id="etqReadable">¶ Readable Details</button>';right.insertBefore(box,right.firstChild);$('#etqHeading').onclick=heading;$('#etqPrice').onclick=price;$('#etqReadable').onclick=readable}window.APANAM_TEXT_QUICK_TOOLS={heading,price,readable}})();
