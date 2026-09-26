@@ -137,3 +137,43 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
   body>header>.actions button{font-size:10px!important;padding:5px 6px!important}
   #apanamTopTextToolbar .ap-grid button{flex-basis:68px!important;width:68px!important;min-width:68px!important}
 }
+
+/* FINAL MOBILE HEADER: exactly 2 rows; second row scrolls horizontally instead of creating a third row. */
+@media(max-width:700px){
+  body>header>.actions{
+    display:grid!important;
+    grid-template-columns:repeat(8,max-content)!important;
+    grid-template-rows:36px 36px!important;
+    grid-auto-flow:row!important;
+    align-items:center!important;
+    align-content:start!important;
+    justify-content:start!important;
+    column-gap:5px!important;
+    row-gap:5px!important;
+    height:77px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:0 0 2px!important;
+    touch-action:pan-x!important;
+    scrollbar-width:none!important;
+  }
+  body>header>.actions::-webkit-scrollbar{display:none!important}
+  body>header>.actions button{width:auto!important;min-width:0!important;height:36px!important;min-height:36px!important;padding:5px 7px!important;font-size:11px!important;white-space:nowrap!important;flex:none!important}
+  body>header>.actions #apanamCreatorHubButton{grid-column:1!important;grid-row:1!important}
+  body>header>.actions #saveProject{grid-column:2!important;grid-row:1!important}
+  body>header>.actions #headerEditProject{grid-column:3!important;grid-row:1!important}
+  body>header>.actions #headerDeleteProject{grid-column:4!important;grid-row:1!important}
+  body>header>.actions #loadProject{grid-column:1!important;grid-row:2!important}
+  body>header>.actions #undo{grid-column:2!important;grid-row:2!important}
+  body>header>.actions #redo{grid-column:3!important;grid-row:2!important}
+  body>header>.actions #download{grid-column:4!important;grid-row:2!important}
+  body>header>.actions #apanamInstallApp{grid-column:5!important;grid-row:2!important}
+  body>header>.actions #apanamHelpButton{grid-column:6!important;grid-row:2!important}
+  body>header>.actions #apanamSafetyButton{grid-column:7!important;grid-row:2!important}
+  body>header>.actions #apanamLaunchButton{grid-column:8!important;grid-row:2!important}
+}
+@media(max-width:360px){
+  body>header{grid-template-columns:86px minmax(0,1fr)!important}
+  body>header>div:first-child{width:86px!important;min-width:86px!important}
+  body>header>.actions button{font-size:10px!important;padding:5px 6px!important}
+}
