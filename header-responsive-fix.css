@@ -542,3 +542,83 @@ body>header>div:first-child .apanamHeaderLogo{display:block!important;width:180p
     padding-right:6px!important;
   }
 }
+
+
+/* Mobile header repair: two clean rows, no button wrapping into a third row. */
+@media(max-width:700px){
+  body>header{
+    height:96px!important;
+    min-height:96px!important;
+    padding:4px 5px!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:flex-start!important;
+    overflow:hidden!important;
+  }
+  body>header>div:first-child{
+    flex:0 0 108px!important;
+    width:108px!important;
+    height:48px!important;
+    min-height:48px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    margin:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+  }
+  body>header>div:first-child .apanamHeaderLogo{
+    width:108px!important;
+    height:48px!important;
+    min-width:108px!important;
+    min-height:48px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+  body>header>.actions{
+    flex:1 1 auto!important;
+    width:auto!important;
+    height:88px!important;
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    grid-template-rows:34px 34px!important;
+    gap:3px!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    align-content:start!important;
+    position:static!important;
+  }
+  body>header>.actions>*{
+    position:static!important;
+    margin:0!important;
+    min-width:0!important;
+    width:auto!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:3px 5px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:8px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+
+  /* Row 1: CREATE · Save · Edit · Delete */
+  body>header>.actions #apanamCreatorHubButton{grid-column:1 / span 3!important;grid-row:1!important}
+  body>header>.actions #saveProject{grid-column:4 / span 2!important;grid-row:1!important}
+  body>header>.actions #headerEditProject{grid-column:6 / span 3!important;grid-row:1!important}
+  body>header>.actions #headerDeleteProject{grid-column:9 / span 3!important;grid-row:1!important}
+
+  /* Row 2: Load · Undo · Redo · Download · Install · Help · Safety · Publish */
+  body>header>.actions #loadProject{grid-column:1 / span 1!important;grid-row:2!important}
+  body>header>.actions #undo{grid-column:2 / span 2!important;grid-row:2!important}
+  body>header>.actions #redo{grid-column:4 / span 2!important;grid-row:2!important}
+  body>header>.actions #download{grid-column:6 / span 2!important;grid-row:2!important}
+  body>header>.actions #apanamInstallApp{grid-column:8 / span 1!important;grid-row:2!important}
+  body>header>.actions #apanamHelpButton{grid-column:9 / span 1!important;grid-row:2!important}
+  body>header>.actions #apanamSafetyButton{grid-column:10 / span 1!important;grid-row:2!important}
+  body>header>.actions #apanamLaunchButton{grid-column:11 / span 2!important;grid-row:2!important}
+}
