@@ -531,3 +531,132 @@ body>header>div:first-child b,body>header>div:first-child span{display:none!impo
   #apanamTopTextToolbar .ap-head{flex-basis:100px!important}
   #apanamTopTextToolbar .ap-grid button{min-width:56px!important;width:56px!important}
 }
+
+
+/* TARGETED MOBILE HEADER/TOOLBAR TUNE — keep desktop unchanged. */
+@media(max-width:700px){
+  :root{--apanam-header-height:82px!important}
+  body>header{
+    height:82px!important;
+    min-height:82px!important;
+    padding:3px 4px!important;
+    overflow:hidden!important;
+  }
+  body>header>div:first-child{
+    left:4px!important;
+    top:4px!important;
+    width:84px!important;
+    min-width:84px!important;
+    height:68px!important;
+    background-size:84px auto!important;
+    background-position:center center!important;
+    padding:0!important;
+  }
+  body>header>.actions{
+    left:94px!important;
+    top:3px!important;
+    width:calc(100% - 98px)!important;
+    height:72px!important;
+    display:grid!important;
+    grid-template-columns:62px 52px 54px 60px 45px 45px 45px 54px!important;
+    grid-template-rows:34px 34px!important;
+    gap:2px!important;
+    overflow:hidden!important;
+    padding:0!important;
+  }
+  body>header>.actions button{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:3px 2px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:9px!important;
+    overflow:hidden!important;
+    white-space:nowrap!important;
+    text-overflow:clip!important;
+  }
+  body>header>.actions #apanamCreatorHubButton{grid-column:1!important;grid-row:1!important}
+  body>header>.actions #saveProject{grid-column:2!important;grid-row:1!important}
+  body>header>.actions #headerEditProject{grid-column:3!important;grid-row:1!important}
+  body>header>.actions #headerDeleteProject{grid-column:4!important;grid-row:1!important}
+  body>header>.actions #loadProject{grid-column:1!important;grid-row:2!important}
+  body>header>.actions #undo{grid-column:2!important;grid-row:2!important}
+  body>header>.actions #redo{grid-column:3!important;grid-row:2!important}
+  body>header>.actions #download{grid-column:4!important;grid-row:2!important}
+  body>header>.actions #apanamInstallApp{grid-column:5!important;grid-row:2!important}
+  body>header>.actions #apanamHelpButton{grid-column:6!important;grid-row:2!important}
+  body>header>.actions #apanamSafetyButton{grid-column:7!important;grid-row:2!important}
+  body>header>.actions #apanamLaunchButton{grid-column:8!important;grid-row:2!important}
+  body>header>.actions #apanamInstallApp,
+  body>header>.actions #apanamHelpButton,
+  body>header>.actions #apanamSafetyButton,
+  body>header>.actions #apanamLaunchButton{
+    position:static!important;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:30px!important;
+    min-height:30px!important;
+    padding:2px 0!important;
+    font-size:0!important;
+    overflow:hidden!important;
+  }
+  body>header>.actions #apanamInstallApp::before{content:'↓';font-size:15px!important}
+  body>header>.actions #apanamHelpButton::before{content:'?';font-size:14px!important}
+  body>header>.actions #apanamSafetyButton::before{content:'🛡';font-size:12px!important}
+  body>header>.actions #apanamLaunchButton::before{content:'✓';font-size:14px!important}
+
+  /* Text & Elements: compact buttons; the row itself may scroll, buttons never crop internally. */
+  #apanamTopTextToolbar{
+    height:58px!important;
+    min-height:58px!important;
+    margin-top:0!important;
+  }
+  #apanamTopTextToolbar #apanamApprovedPanel{
+    height:58px!important;
+    min-height:58px!important;
+    padding:5px 6px!important;
+    gap:4px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    touch-action:pan-x!important;
+  }
+  #apanamTopTextToolbar #apanamApprovedPanel::-webkit-scrollbar{display:none!important}
+  #apanamTopTextToolbar .ap-head{
+    flex:0 0 96px!important;
+    font-size:11px!important;
+  }
+  #apanamTopTextToolbar .ap-grid{gap:4px!important}
+  #apanamTopTextToolbar .ap-grid button{
+    min-width:52px!important;
+    width:52px!important;
+    max-width:52px!important;
+    height:38px!important;
+    min-height:38px!important;
+    padding:4px 2px!important;
+    font-size:9.5px!important;
+  }
+}
+@media(max-width:360px){
+  body>header>div:first-child{
+    width:82px!important;
+    min-width:82px!important;
+    background-size:82px auto!important;
+  }
+  body>header>.actions{
+    left:92px!important;
+    width:calc(100% - 96px)!important;
+    grid-template-columns:60px 50px 52px 58px 44px 44px 44px 52px!important;
+  }
+  #apanamTopTextToolbar .ap-head{flex-basis:92px!important}
+  #apanamTopTextToolbar .ap-grid button{
+    min-width:50px!important;
+    width:50px!important;
+    max-width:50px!important;
+  }
+}
