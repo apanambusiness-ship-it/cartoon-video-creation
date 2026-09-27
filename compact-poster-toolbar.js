@@ -32,10 +32,10 @@
     const formatRow=document.createElement('div');formatRow.className='apanam-strip';
     shell.append(elementRow,formatRow);header.after(shell);
     const button=(row,label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;row.append(b);return b};
-    [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>document.querySelector('[data-add="'+kind+'"]')?.click()));
+    [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>{if(kind==='image')document.getElementById('imageUpload')?.click();else document.querySelector('[data-add="'+kind+'"]')?.click()}));
     button(elementRow,'→',()=>elementRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
     const select=(id)=>document.getElementById(id);
-    button(formatRow,'Phonetic',()=>select('apanamRomanInput')?.focus()); const phonetic=select('apanamRomanInput');if(phonetic){phonetic.style.display='block';phonetic.placeholder='Phonetic typing';formatRow.append(phonetic)}
+    button(formatRow,'Phonetic',()=>{const lang=select('apanamTypingLanguage');if(lang?.value==='off'){lang.value='hi';lang.dispatchEvent(new Event('change',{bubbles:true}))}select('apanamRomanInput')?.focus()}); const phonetic=select('apanamRomanInput');if(phonetic){phonetic.style.display='block';phonetic.placeholder='Phonetic · भाषा चुनें';formatRow.append(phonetic)}
     const language=select('apanamTypingLanguage'),font=select('fontFamily'),size=document.createElement('input');size.type='number';size.min='10';size.max='160';size.value=select('fontSize')?.value||42;size.addEventListener('change',()=>{const source=select('fontSize');if(source){source.value=size.value;source.dispatchEvent(new Event('input',{bubbles:true}));source.dispatchEvent(new Event('change',{bubbles:true}))}});
     [[language,'Language'],[font,'Font'],[size,'Size']].forEach(([control,label])=>{if(control){control.setAttribute('aria-label',label);control.title=label;formatRow.append(control)}});
     [['Bold','bold'],['Italic','italic']].forEach(([label,id])=>button(formatRow,label,()=>select(id)?.click()));
