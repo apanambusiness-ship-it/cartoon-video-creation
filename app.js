@@ -1032,7 +1032,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'original-templates-v1.js?v=20260927-greetings3';
+      'original-templates-v1.js?v=20260927-greetings4';
 
     s.dataset.apanamOriginalTemplates='1';
 
@@ -1242,7 +1242,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'festival-pack-10.js?v=20260921-2';
+      'festival-pack-10.js?v=20260927-rebuild';
 
     s.dataset.festivalPack10='1';
 
