@@ -50,3 +50,13 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
   #apanamCompactTools .apanam-strip:nth-child(2) > .apanam-inline-control { flex:1 1 auto!important; max-width:none!important; }
   #apanamCompactTools #apanamRomanInput { flex:1 1 130px!important; width:auto!important; max-width:none!important; }
 }
+
+@media (min-width: 901px) {
+  #apanamCompactTools .apanam-strip:nth-child(2) > button:not(.apanam-next),
+  #apanamCompactTools .apanam-strip:nth-child(2) > select,
+  #apanamCompactTools .apanam-strip:nth-child(2) > input,
+  #apanamCompactTools .apanam-strip:nth-child(2) > .apanam-inline-control { flex:1 1 0%!important; min-width:70px!important; }
+  #apanamCompactTools #apanamTypingLanguage { min-width:130px!important; width:130px!important; }
+  #apanamCompactTools #apanamRomanInput { flex:1 1 0%!important; min-width:130px!important; }
+  #apanamCompactTools .apanam-strip:nth-child(2) > .apanam-inline-control { min-width:115px!important; }
+}
