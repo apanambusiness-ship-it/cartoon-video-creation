@@ -15,10 +15,13 @@
     const allowed=new Set(order.map(item=>typeof item==='string'?item:item.id));
     const moveExtras=()=>[...actions.children].filter(node=>!allowed.has(node.id)).forEach(node=>extras.append(node));
     moveExtras();new MutationObserver(moveExtras).observe(actions,{childList:true});
+    const icon=(button,symbol,label)=>{const mark=document.createElement('span');mark.className='apanam-button-icon';mark.setAttribute('aria-hidden','true');mark.textContent=symbol;button.replaceChildren(mark,document.createTextNode(label));button.setAttribute('aria-label',label);return button};
+    const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};
+    Object.entries(headerIcons).forEach(([id,[symbol,label]])=>{const control=document.getElementById(id);if(control)icon(control,symbol,label)});
     const download=document.getElementById('download');
-    download.textContent='Download ▾';
+    download.append(document.createTextNode(' ▾'));
     const menu=document.createElement('div');menu.id='apanamDownloadMenu';menu.hidden=true;
-    ['PNG','JPG','PDF'].forEach(fmt=>{const button=document.createElement('button');button.type='button';button.textContent=fmt;button.onclick=async()=>{
+    ['PNG','JPG','PDF'].forEach(fmt=>{const button=document.createElement('button');button.type='button';icon(button,{PNG:'▧',JPG:'▨',PDF:'▤'}[fmt],fmt);button.onclick=async()=>{
       menu.hidden=true;
       if(fmt==='PNG')window.APANAM_EXPORT?.();
       if(fmt==='JPG')document.getElementById('downloadJpg')?.click();
@@ -31,7 +34,8 @@
     const elementRow=document.createElement('div');elementRow.className='apanam-strip';
     const formatRow=document.createElement('div');formatRow.className='apanam-strip';
     shell.append(elementRow,formatRow);header.after(shell);
-    const button=(row,label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;row.append(b);return b};
+    const stripIcons={Text:'T',Image:'▧',Logo:'◇',Phone:'☎',Social:'@',Rectangle:'▭',Circle:'○',Phonetic:'अ',Bold:'B',Italic:'I'};
+    const button=(row,label,fn)=>{const b=document.createElement('button');b.type='button';if(stripIcons[label])icon(b,stripIcons[label],label);else b.textContent=label;b.onclick=fn;row.append(b);return b};
     [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>{if(kind==='image')document.getElementById('imageUpload')?.click();else document.querySelector('[data-add="'+kind+'"]')?.click()}));
     button(elementRow,'→',()=>elementRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
     const select=(id)=>document.getElementById(id);
