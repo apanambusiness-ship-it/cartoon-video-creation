@@ -60,3 +60,7 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
   #apanamCompactTools #apanamRomanInput { flex:1 1 0%!important; min-width:130px!important; }
   #apanamCompactTools .apanam-strip:nth-child(2) > .apanam-inline-control { min-width:115px!important; }
 }
+
+/* Small consistent symbols keep the text labels readable. */
+.apanam-button-icon{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;margin-right:5px;font-size:16px;font-weight:800;line-height:1;vertical-align:-3px}
+#apanamDownloadMenu .apanam-button-icon{margin-right:8px}
