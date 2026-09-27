@@ -21,5 +21,5 @@
   right.insertBefore(box,right.firstChild);
   for(const [key,id] of Object.entries({clean:'eppClean',vivid:'eppVivid',soft:'eppSoft',original:'eppOriginal'}))$('#'+id).onclick=tools[key];
   window.APANAM_PRODUCT_PHOTO_TOOLS=tools;
-  if(!document.querySelector('script[data-apanam-text-quick]')){const script=document.createElement('script');script.src='editor-text-quick-tools.js';script.dataset.apanamTextQuick='1';document.body.appendChild(script)}
+  if(!document.querySelector('script[data-apanam-text-quick]')){const script=document.createElement('script');script.src='editor-text-quick-tools.js?v=20260927-audit2';script.dataset.apanamTextQuick='1';document.body.appendChild(script)}
 })();
