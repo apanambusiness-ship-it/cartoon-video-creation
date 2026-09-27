@@ -15,6 +15,11 @@
   function cleanTitle(title){return String(title||'Tools').replace(/^\s*\d+\s+/,'').replace(/\s+[—-]\s*\d+\s*$/,'').replace(/\s+/g,' ').trim()}
   function category(title){
     title=cleanTitle(title);
+    if(/Category Detail|How To Use|In The Box|Pack Contents|Size \/ Dimensions|Payment Info|Specification Cards|Offer & Promotion|Packaging Info|Pricing & Saving|Bulk Creative|Seasonal & Campaign|Certification & Authenticity|Category Creative/i.test(title))return 'Product';
+    if(/Watermark & Ownership/i.test(title))return 'Brand';
+    if(/Accessibility & Readability/i.test(title))return 'Text';
+    if(/Creative Search & Organize/i.test(title))return 'Templates';
+    if(/AI Creative Assist/i.test(title))return 'Elements';
     if(/Template|Festival/i.test(title))return 'Templates';
     if(/Upload/i.test(title))return 'Uploads';
     if(/Image Check|Export|Download|Safe Zone|Autosave|Keyboard|Publish/i.test(title))return 'Export';
