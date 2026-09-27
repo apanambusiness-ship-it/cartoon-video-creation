@@ -10,6 +10,11 @@
     [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
     const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamHelpButton','apanamSafetyButton'];
     order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
+    const extras=document.createElement('details');extras.id='apanamHeaderExtras';extras.innerHTML='<summary>Install / Publish tools</summary>';
+    (document.querySelector('.organizer-panel[data-group="Export"]')||document.querySelector('main>aside:not(.right)'))?.append(extras);
+    const allowed=new Set(order.map(item=>typeof item==='string'?item:item.id));
+    const moveExtras=()=>[...actions.children].filter(node=>!allowed.has(node.id)).forEach(node=>extras.append(node));
+    moveExtras();new MutationObserver(moveExtras).observe(actions,{childList:true});
     const download=document.getElementById('download');
     download.textContent='Download ▾';
     const menu=document.createElement('div');menu.id='apanamDownloadMenu';menu.hidden=true;
@@ -33,10 +38,11 @@
     button(formatRow,'Phonetic',()=>select('apanamRomanInput')?.focus()); const phonetic=select('apanamRomanInput');if(phonetic){phonetic.style.display='block';phonetic.placeholder='Phonetic typing';formatRow.append(phonetic)}
     const language=select('apanamTypingLanguage'),font=select('fontFamily'),size=document.createElement('input');size.type='number';size.min='10';size.max='160';size.value=select('fontSize')?.value||42;size.addEventListener('change',()=>{const source=select('fontSize');if(source){source.value=size.value;source.dispatchEvent(new Event('input',{bubbles:true}));source.dispatchEvent(new Event('change',{bubbles:true}))}});
     [[language,'Language'],[font,'Font'],[size,'Size']].forEach(([control,label])=>{if(control){control.setAttribute('aria-label',label);control.title=label;formatRow.append(control)}});
-    [['Bold','bold'],['Italic','italic'],['Align','alignCenter']].forEach(([label,id])=>button(formatRow,label,()=>(id==='alignCenter'?document.querySelector('[data-textalign="center"]'):select(id))?.click()));
-    button(formatRow,'Spacing',()=>{const node=select('letterSpacing');node?.closest('.organizer-section')?.setAttribute('open','');node?.scrollIntoView({block:'center'});node?.focus()});
-    const color=select('color');button(formatRow,'Color',()=>color?.click());
-    button(formatRow,'More',()=>{document.querySelector('.organizer-nav [data-group="Text"]')?.click();document.querySelector('main>aside:not(.right)')?.scrollIntoView({block:'nearest'})});button(formatRow,'→',()=>formatRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
+    [['Bold','bold'],['Italic','italic']].forEach(([label,id])=>button(formatRow,label,()=>select(id)?.click()));
+    const align=document.createElement('select');align.setAttribute('aria-label','Align');align.title='Align';[['','Align'],['left','Left'],['center','Center'],['right','Right']].forEach(([value,label])=>align.add(new Option(label,value)));align.onchange=()=>document.querySelector('[data-textalign="'+align.value+'"]')?.click();formatRow.append(align);
+    const spacing=select('letterSpacing');if(spacing){const label=document.createElement('label');label.className='apanam-inline-control';label.textContent='Spacing';label.append(spacing);formatRow.append(label)}
+    const color=select('color');if(color){const label=document.createElement('label');label.className='apanam-inline-control';label.textContent='Color';label.append(color);formatRow.append(label)}
+    button(formatRow,'→',()=>formatRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
     // Keep the established panel available for advanced editing and phonetic input.
   };
   async function pdfExport(){
