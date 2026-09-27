@@ -8,7 +8,7 @@
     const utility=actions.querySelector('.header-utility-actions');
     const create=document.getElementById('apanamCreatorHubButton')||document.createElement('button');create.textContent='Create';if(!create.id)create.onclick=()=>{};
     [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
-    const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamHelpButton','apanamSafetyButton'];
+    const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamInstallApp','apanamHelpButton','apanamSafetyButton'];
     order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
     const extras=document.createElement('details');extras.id='apanamHeaderExtras';extras.innerHTML='<summary>Install / Publish tools</summary>';
     (document.querySelector('.organizer-panel[data-group="Export"]')||document.querySelector('main>aside:not(.right)'))?.append(extras);
@@ -16,7 +16,7 @@
     const moveExtras=()=>[...actions.children].filter(node=>!allowed.has(node.id)).forEach(node=>extras.append(node));
     moveExtras();new MutationObserver(moveExtras).observe(actions,{childList:true});
     const icon=(button,symbol,label)=>{const mark=document.createElement('span');mark.className='apanam-button-icon';mark.setAttribute('aria-hidden','true');mark.textContent=symbol;button.replaceChildren(mark,document.createTextNode(label));button.setAttribute('aria-label',label);return button};
-    const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};
+    const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamInstallApp:['⬇','Install App'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};
     Object.entries(headerIcons).forEach(([id,[symbol,label]])=>{const control=document.getElementById(id);if(control)icon(control,symbol,label)});
     const download=document.getElementById('download');
     download.append(document.createTextNode(' ▾'));
