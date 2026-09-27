@@ -74,3 +74,6 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
 
 /* Fit the complete 353×233 logo inside a taller brand area. */
 @media (min-width:901px){:root{--apanam-header-height:88px!important}body>header{height:88px!important;min-height:88px!important}body>header .apanam-header-brand{height:82px!important;background-size:124px auto!important}body>header>.actions{height:80px!important}body:not(.apanam-more-open)>main{height:calc(100vh - 168px)!important}body.apanam-more-open>main{height:calc(100vh - 238px)!important}}
+
+/* Moderate logo size; never wrap header actions into a second row. */
+@media (min-width:901px){:root{--apanam-header-height:76px!important}body>header{height:76px!important;min-height:76px!important}body>header .apanam-header-brand{flex:0 0 120px!important;width:120px!important;min-width:120px!important;height:70px!important;background-size:104px auto!important}body>header>.actions{height:68px!important;flex-wrap:nowrap!important;align-content:center!important}body>header .actions button{flex-shrink:0!important}body:not(.apanam-more-open)>main{height:calc(100vh - 156px)!important}body.apanam-more-open>main{height:calc(100vh - 226px)!important}}
