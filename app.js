@@ -1032,7 +1032,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'original-templates-v1.js?v=20260927-greetings2';
+      'original-templates-v1.js?v=20260927-greetings3';
 
     s.dataset.apanamOriginalTemplates='1';
 
