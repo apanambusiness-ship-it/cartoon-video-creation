@@ -982,6 +982,8 @@ stage.addEventListener('click',e=>{
 
 document.addEventListener('keydown',e=>{
 
+  if(e.defaultPrevented||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)||document.activeElement?.isContentEditable)return;
+
   if(
     (e.key==='Delete'||e.key==='Backspace') &&
     selected &&
