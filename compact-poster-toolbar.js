@@ -1,13 +1,12 @@
 (()=>{
   const ready=()=>{
-    const header=document.querySelector('body>header'), panel=document.querySelector('#apanamApprovedPanel');
-    if(!header||!panel){setTimeout(ready,150);return}
+    const header=document.querySelector('body>header');
+    if(!header){setTimeout(ready,150);return}
     if(document.querySelector('#apanamCompactTools'))return;
     const actions=header.querySelector('.actions');
     const top=actions.querySelector('.header-top-actions'),bottom=actions.querySelector('.header-bottom-actions');
     const utility=actions.querySelector('.header-utility-actions');
-    const create=document.createElement('button');create.type='button';create.textContent='Create';create.onclick=()=>document.querySelector('#apanamCreatorHubButton')?.click();
-    top.prepend(create);
+    const create=document.getElementById('apanamCreatorHubButton')||document.createElement('button');create.textContent='Create';if(!create.id)create.onclick=()=>{};
     [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
     const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamHelpButton','apanamSafetyButton'];
     order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
@@ -28,16 +27,16 @@
     const formatRow=document.createElement('div');formatRow.className='apanam-strip';
     shell.append(elementRow,formatRow);header.after(shell);
     const button=(row,label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;row.append(b);return b};
-    [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>panel.querySelector('[data-kind="'+kind+'"]')?.click()));
+    [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>document.querySelector('[data-add="'+kind+'"]')?.click()));
     button(elementRow,'→',()=>elementRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
     const select=(id)=>document.getElementById(id);
-    button(formatRow,'Phonetic',()=>select('apPhonetic')?.focus()); const phonetic=select('apPhonetic');if(phonetic){phonetic.placeholder='Phonetic typing';formatRow.append(phonetic)}
-    const language=select('apLang'),font=select('apFont'),size=select('apSize');
+    button(formatRow,'Phonetic',()=>select('apanamRomanInput')?.focus()); const phonetic=select('apanamRomanInput');if(phonetic){phonetic.style.display='block';phonetic.placeholder='Phonetic typing';formatRow.append(phonetic)}
+    const language=select('apanamTypingLanguage'),font=select('fontFamily'),size=document.createElement('input');size.type='number';size.min='10';size.max='160';size.value=select('fontSize')?.value||42;size.addEventListener('change',()=>{const source=select('fontSize');if(source){source.value=size.value;source.dispatchEvent(new Event('input',{bubbles:true}));source.dispatchEvent(new Event('change',{bubbles:true}))}});
     [[language,'Language'],[font,'Font'],[size,'Size']].forEach(([control,label])=>{if(control){control.setAttribute('aria-label',label);control.title=label;formatRow.append(control)}});
-    [['Bold','apBold'],['Italic','apItalic'],['Align','apCenter']].forEach(([label,id])=>button(formatRow,label,()=>select(id)?.click()));
+    [['Bold','bold'],['Italic','italic'],['Align','alignCenter']].forEach(([label,id])=>button(formatRow,label,()=>(id==='alignCenter'?document.querySelector('[data-textalign="center"]'):select(id))?.click()));
     button(formatRow,'Spacing',()=>{const node=select('letterSpacing');node?.closest('.organizer-section')?.setAttribute('open','');node?.scrollIntoView({block:'center'});node?.focus()});
     const color=select('color');button(formatRow,'Color',()=>color?.click());
-    button(formatRow,'More',()=>document.body.classList.toggle('apanam-more-open'));button(formatRow,'→',()=>formatRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
+    button(formatRow,'More',()=>{document.querySelector('.organizer-nav [data-group="Text"]')?.click();document.querySelector('main>aside:not(.right)')?.scrollIntoView({block:'nearest'})});button(formatRow,'→',()=>formatRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
     // Keep the established panel available for advanced editing and phonetic input.
   };
   async function pdfExport(){
