@@ -77,3 +77,14 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
 
 /* Moderate logo size; never wrap header actions into a second row. */
 @media (min-width:901px){:root{--apanam-header-height:76px!important}body>header{height:76px!important;min-height:76px!important}body>header .apanam-header-brand{flex:0 0 120px!important;width:120px!important;min-width:120px!important;height:70px!important;background-size:104px auto!important}body>header>.actions{height:68px!important;flex-wrap:nowrap!important;align-content:center!important}body>header .actions button{flex-shrink:0!important}body:not(.apanam-more-open)>main{height:calc(100vh - 156px)!important}body.apanam-more-open>main{height:calc(100vh - 226px)!important}}
+
+/* Mobile header stays a single scrollable row. Keep Delete among the first actions. */
+@media (max-width:900px) {
+  :root { --apanam-header-height:62px!important; }
+  body>header { height:62px!important; min-height:62px!important; padding:4px 6px!important; gap:5px!important; align-items:center!important; overflow:hidden!important; }
+  body>header .apanam-header-brand { flex:0 0 76px!important; width:76px!important; min-width:76px!important; height:54px!important; background-size:76px auto!important; background-position:center!important; }
+  body>header>.actions { display:flex!important; flex:1 1 auto!important; flex-direction:row!important; flex-wrap:nowrap!important; align-items:center!important; justify-content:flex-start!important; width:auto!important; min-width:0!important; height:54px!important; gap:5px!important; overflow-x:auto!important; overflow-y:hidden!important; white-space:nowrap!important; }
+  body>header .actions button { flex:0 0 auto!important; height:40px!important; min-height:40px!important; width:auto!important; min-width:max-content!important; padding:5px 8px!important; font-size:11px!important; }
+  body>header .actions #apanamCreatorHubButton{order:1}body>header .actions #saveProject{order:2}body>header .actions #headerEditProject{order:3}body>header .actions #headerDeleteProject{order:4}body>header .actions #loadProject{order:5}body>header .actions #undo{order:6}body>header .actions #redo{order:7}body>header .actions #download{order:8}body>header .actions #apanamHelpButton{order:9}body>header .actions #apanamSafetyButton{order:10}
+  #apanamCompactTools .apanam-next { position:sticky!important; right:0!important; z-index:5!important; background:#6d28d9!important; color:#fff!important; border-color:#5b21b6!important; font-size:18px!important; font-weight:800!important; box-shadow:-6px 0 10px #ffffffdd!important; }
+}
