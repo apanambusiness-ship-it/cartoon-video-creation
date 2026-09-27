@@ -1,0 +1,64 @@
+(()=>{
+  const ready=()=>{
+    const header=document.querySelector('body>header'), panel=document.querySelector('#apanamApprovedPanel');
+    if(!header||!panel){setTimeout(ready,150);return}
+    if(document.querySelector('#apanamCompactTools'))return;
+    const actions=header.querySelector('.actions');
+    const top=actions.querySelector('.header-top-actions'),bottom=actions.querySelector('.header-bottom-actions');
+    const utility=actions.querySelector('.header-utility-actions');
+    const create=document.createElement('button');create.type='button';create.textContent='Create';create.onclick=()=>document.querySelector('#apanamCreatorHubButton')?.click();
+    top.prepend(create);
+    [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
+    const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamHelpButton','apanamSafetyButton'];
+    order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
+    const download=document.getElementById('download');
+    download.textContent='Download ▾';
+    const menu=document.createElement('div');menu.id='apanamDownloadMenu';menu.hidden=true;
+    ['PNG','JPG','PDF'].forEach(fmt=>{const button=document.createElement('button');button.type='button';button.textContent=fmt;button.onclick=async()=>{
+      menu.hidden=true;
+      if(fmt==='PNG')window.APANAM_EXPORT?.();
+      if(fmt==='JPG')document.getElementById('downloadJpg')?.click();
+      if(fmt==='PDF')try{await pdfExport()}catch(e){alert('PDF export में समस्या आई: '+e.message)}
+    };menu.append(button)});
+    document.body.append(menu);
+    download.addEventListener('click',e=>{e.stopImmediatePropagation();e.preventDefault();const r=download.getBoundingClientRect();menu.style.top=r.bottom+4+'px';menu.style.left=Math.min(r.left,innerWidth-90)+'px';menu.hidden=!menu.hidden},true);
+    document.addEventListener('click',e=>{if(e.target!==download&&!menu.contains(e.target))menu.hidden=true});
+    const shell=document.createElement('div');shell.id='apanamCompactTools';
+    const elementRow=document.createElement('div');elementRow.className='apanam-strip';
+    const formatRow=document.createElement('div');formatRow.className='apanam-strip';
+    shell.append(elementRow,formatRow);header.after(shell);
+    const button=(row,label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;row.append(b);return b};
+    [['Text','text'],['Image','image'],['Logo','logo'],['Phone','phone'],['Social','social'],['Rectangle','rect'],['Circle','circle']].forEach(([label,kind])=>button(elementRow,label,()=>panel.querySelector('[data-kind="'+kind+'"]')?.click()));
+    button(elementRow,'→',()=>elementRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
+    const select=(id)=>document.getElementById(id);
+    button(formatRow,'Phonetic',()=>select('apPhonetic')?.focus()); const phonetic=select('apPhonetic');if(phonetic){phonetic.placeholder='Phonetic typing';formatRow.append(phonetic)}
+    const language=select('apLang'),font=select('apFont'),size=select('apSize');
+    [[language,'Language'],[font,'Font'],[size,'Size']].forEach(([control,label])=>{if(control){control.setAttribute('aria-label',label);control.title=label;formatRow.append(control)}});
+    [['Bold','apBold'],['Italic','apItalic'],['Align','apCenter']].forEach(([label,id])=>button(formatRow,label,()=>select(id)?.click()));
+    button(formatRow,'Spacing',()=>{const node=select('letterSpacing');node?.closest('.organizer-section')?.setAttribute('open','');node?.scrollIntoView({block:'center'});node?.focus()});
+    const color=select('color');button(formatRow,'Color',()=>color?.click());
+    button(formatRow,'More',()=>document.body.classList.toggle('apanam-more-open'));button(formatRow,'→',()=>formatRow.scrollBy({left:220,behavior:'smooth'})).className='apanam-next';
+    // Keep the established panel available for advanced editing and phonetic input.
+  };
+  async function pdfExport(){
+    const render=window.APANAM_RENDER_CANVAS;if(!render)throw Error('Renderer unavailable');
+    const canvas=await render(),raw=atob(canvas.toDataURL('image/jpeg',.92).split(',')[1]);
+    const width=canvas.width,height=canvas.height,enc=new TextEncoder();
+    const parts=[],offsets=[0];let length=0;
+    function append(data){const bytes=typeof data==='string'?enc.encode(data):data;parts.push(bytes);length+=bytes.length}
+    append('%PDF-1.4\n');
+    function object(n,body){offsets[n]=length;append(n+' 0 obj\n'+body+'\nendobj\n')}
+    object(1,'<< /Type /Catalog /Pages 2 0 R >>');
+    object(2,'<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+    object(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+width+' '+height+'] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
+    offsets[4]=length;append('4 0 obj\n<< /Type /XObject /Subtype /Image /Width '+width+' /Height '+height+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+raw.length+' >>\nstream\n');
+    const img=Uint8Array.from(raw,c=>c.charCodeAt(0));append(img);append('\nendstream\nendobj\n');
+    const commands='q '+width+' 0 0 '+height+' 0 0 cm /Im0 Do Q\n';
+    object(5,'<< /Length '+enc.encode(commands).length+' >>\nstream\n'+commands+'endstream');
+    const xref=length;append('xref\n0 6\n0000000000 65535 f \n');
+    for(let i=1;i<=5;i++)append(String(offsets[i]).padStart(10,'0')+' 00000 n \n');
+    append('trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF');
+    const link=document.createElement('a');link.href=URL.createObjectURL(new Blob(parts,{type:'application/pdf'}));link.download='APANAM-design-'+width+'x'+height+'.pdf';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),60000)
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
+})();
