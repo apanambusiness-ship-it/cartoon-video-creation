@@ -71,3 +71,6 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
 /* Make the artwork itself visibly larger, including its built-in whitespace. */
 @media (min-width:901px){:root{--apanam-header-height:72px!important}body>header{height:72px!important;min-height:72px!important;padding:4px 10px!important;gap:8px!important}body>header .apanam-header-brand{flex:0 0 160px!important;width:160px!important;min-width:160px!important;height:64px!important;background-size:190px auto!important;background-position:center!important}body>header>.actions{height:64px!important}body:not(.apanam-more-open)>main{height:calc(100vh - 152px)!important}body.apanam-more-open>main{height:calc(100vh - 222px)!important}}
 @media (max-width:900px){body>header .apanam-header-brand{background-size:100px auto!important;background-position:center!important}}
+
+/* Fit the complete 353×233 logo inside a taller brand area. */
+@media (min-width:901px){:root{--apanam-header-height:88px!important}body>header{height:88px!important;min-height:88px!important}body>header .apanam-header-brand{height:82px!important;background-size:124px auto!important}body>header>.actions{height:80px!important}body:not(.apanam-more-open)>main{height:calc(100vh - 168px)!important}body.apanam-more-open>main{height:calc(100vh - 238px)!important}}
