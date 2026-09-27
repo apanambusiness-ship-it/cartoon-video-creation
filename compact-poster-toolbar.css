@@ -88,3 +88,5 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
   body>header .actions #apanamCreatorHubButton{order:1}body>header .actions #saveProject{order:2}body>header .actions #headerEditProject{order:3}body>header .actions #headerDeleteProject{order:4}body>header .actions #loadProject{order:5}body>header .actions #undo{order:6}body>header .actions #redo{order:7}body>header .actions #download{order:8}body>header .actions #apanamHelpButton{order:9}body>header .actions #apanamSafetyButton{order:10}
   #apanamCompactTools .apanam-next { position:sticky!important; right:0!important; z-index:5!important; background:#6d28d9!important; color:#fff!important; border-color:#5b21b6!important; font-size:18px!important; font-weight:800!important; box-shadow:-6px 0 10px #ffffffdd!important; }
 }
+
+@media (max-width:900px){body>header .actions #headerDeleteProject{order:3}body>header .actions #headerEditProject{order:4}}
