@@ -90,3 +90,19 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
 }
 
 @media (max-width:900px){body>header .actions #headerDeleteProject{order:3}body>header .actions #headerEditProject{order:4}}
+
+/* Compact floating text palette. Existing pointer drag handler stays intact. */
+#apanamTextBar{gap:4px!important;padding:6px!important;border-radius:10px!important;max-width:calc(100vw - 20px)!important;box-shadow:0 8px 24px #1e1b4b30!important}
+#apanamTextBar button[data-color]{width:26px!important;height:26px!important;min-width:26px!important;min-height:26px!important;flex:0 0 26px!important}
+#apanamTextBar .close{background:#ede9fe!important;color:#4c1d95!important;border:1px solid #c4b5fd!important;box-shadow:none!important}
+@media(max-width:700px){
+  #apanamTextBar{left:10px!important;right:auto!important;top:70px!important;width:min(310px,calc(100vw - 20px))!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:5px!important;padding:7px!important;align-items:center!important}
+  #apanamTextBar[style*="display: none"]{display:none!important}
+  #apanamTextBar > b{grid-column:1 / span 5;grid-row:1;margin:0!important;font-size:13px!important;line-height:28px}
+  #apanamTextBar .close{grid-column:6;grid-row:1;position:static!important;justify-self:end;width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important}
+  #apanamTextBar button[data-color]{justify-self:center;width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important}
+  #apanamTextBar #apanamAnyColor{justify-self:center;width:27px!important;height:27px!important;min-width:27px!important}
+  #apanamTextBar #apanamPhoneticLanguage{grid-column:span 2;width:100%!important;min-width:0!important;flex:auto!important}
+  #apanamTextBar #apanamPhoneticInput{grid-column:span 3;width:100%!important;min-width:0!important;max-width:none!important;box-sizing:border-box}
+  #apanamTextBar #apanamPhoneticPreviewFinal{grid-column:1 / -1;min-height:0!important}
+}
