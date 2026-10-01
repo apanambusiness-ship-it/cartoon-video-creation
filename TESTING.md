@@ -59,3 +59,5 @@ Editable OCR layer tests use real Tesseract recognition, check stage-scale font 
 Drag regression verifies movement at the rendered stage zoom, prevents dragging locked photos and checks that one Undo restores the moved object position before the next Undo restores the original image. Image binding uses a WeakSet so restored layers get fresh handlers without clearing their lock state. Smart guides apply after movement.
 
 Text-background regression checks all original white background pixels remain exactly unchanged during glyph conversion and uses real OCR on a gradient-backed sample to verify unsafe conversion is rejected atomically. English and Hindi recognition/edit/delete/conversion tests were rerun.
+
+Desktop OCR regression asserts text controls belong to the Text sidebar and do not match :modal. OCR recognition now omits regions below confidence 65.
