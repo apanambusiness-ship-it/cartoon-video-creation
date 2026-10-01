@@ -6,16 +6,16 @@ body.studio-mobile-layout>header .apanam-header-brand{height:46px!important;flex
 body.studio-mobile-layout>header>.actions{height:46px!important;flex-direction:row!important;overflow-x:auto!important;flex-wrap:nowrap!important;justify-content:flex-start!important;gap:5px!important}
 body.studio-mobile-layout>header .actions button{height:40px!important;min-height:40px!important;font-size:12px!important;min-width:max-content!important;padding:6px 9px!important;flex:0 0 auto!important}
 body.studio-mobile-layout #studioHeaderPrev,body.studio-mobile-layout #studioHeaderNext{display:none!important}
-body.studio-mobile-layout #apanamCompactTools{display:block!important;height:44px;overflow:hidden}body.studio-mobile-layout #apanamCompactTools .apanam-strip{height:44px;min-height:44px;padding:3px 6px;gap:6px}body.studio-mobile-layout #apanamCompactTools .apanam-strip button{min-height:38px;height:38px;font-size:12px;padding:5px 9px}
-body.studio-mobile-layout>main{display:block!important;min-height:0!important;height:calc(100dvh - 166px - env(safe-area-inset-bottom))!important;width:100%!important;overflow:hidden!important}
-body.studio-mobile-layout.studio-text-selected>main{height:calc(100dvh - 166px - env(safe-area-inset-bottom))!important}
+body.studio-mobile-layout #apanamCompactTools{display:block!important;height:88px;overflow:hidden}body.studio-mobile-layout #apanamCompactTools .apanam-strip{height:44px;min-height:44px;padding:3px 6px;gap:6px}body.studio-mobile-layout #apanamCompactTools .apanam-strip button{min-height:38px;height:38px;font-size:12px;padding:5px 9px}
+body.studio-mobile-layout>main{display:block!important;min-height:0!important;height:calc(100dvh - 210px - env(safe-area-inset-bottom))!important;width:100%!important;overflow:hidden!important}
+body.studio-mobile-layout.studio-text-selected>main{height:calc(100dvh - 210px - env(safe-area-inset-bottom))!important}
 body.studio-mobile-layout .workspace{width:100%;height:100%;padding:8px!important;overflow:auto;box-sizing:border-box}
 body.studio-mobile-layout #studioSelectionBar{min-height:40px;padding:6px 8px;flex-wrap:nowrap;gap:5px;margin-bottom:6px;position:relative;z-index:5}
 body.studio-mobile-layout #studioSelectionBar>div:first-child{min-width:0;flex:1}body.studio-mobile-layout #studioSelectionName{max-width:170px;font-size:12px}body.studio-mobile-layout #studioSelectionHint{display:none}
 body.studio-mobile-layout #studioSelectionBar .studio-selection-actions{width:auto;flex:none}body.studio-mobile-layout .studio-selection-actions button{min-height:36px;font-size:11px}body.studio-mobile-layout .studio-layer-more summary{padding:8px;font-size:11px}
 body.studio-mobile-layout .zoomBar{margin:0 0 8px;gap:8px}body.studio-mobile-layout .zoomBar button{min-height:36px;padding:5px 12px}
 body.studio-mobile-layout #stageWrap{padding:8px!important;max-width:none!important}
-body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){display:none!important;position:fixed;inset:98px 0 70px;width:100%!important;height:auto!important;z-index:9600;padding:12px!important;overflow:auto;background:#fff;box-sizing:border-box}
+body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){display:none!important;position:fixed;inset:142px 0 70px;width:100%!important;height:auto!important;z-index:9600;padding:12px!important;overflow:auto;background:#fff;box-sizing:border-box}
 body.studio-mobile-layout.studio-mobile-tools-open main>aside:not(.right):not(.studio-layers-pane){display:block!important}
 body.studio-mobile-layout .organizer{height:auto;min-height:100%}body.studio-mobile-layout .organizer-panels{overflow:visible;flex:1}body.studio-mobile-layout .organizer-nav{grid-template-columns:repeat(3,minmax(0,1fr))}body.studio-mobile-layout .organizer-nav button{min-height:44px;font-size:12px}
 body.studio-mobile-layout #studioMobileToolsClose{display:block;min-height:44px;width:100%;margin:0 0 10px;background:#ede9fe;color:#5b21b6}
@@ -38,3 +38,5 @@ body.studio-mobile-layout #mobileSheetBody .studio-format-strip{display:grid!imp
 #mobileSheetBody .studio-format-strip>button,#mobileSheetBody .studio-format-strip>input,#mobileSheetBody .studio-format-strip>select{min-width:0!important;width:100%!important;max-width:100%!important;height:44px!important;padding:6px;font-size:13px!important;box-sizing:border-box}
 #mobileSheetBody .studio-format-strip>.apanam-inline-control{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid #ddd;padding:8px;border-radius:7px}#mobileSheetBody .apanam-inline-control input{max-width:65%;min-height:32px}
 }
+
+@media(max-width:900px){body.studio-mobile-layout #apanamCompactTools .studio-format-strip{display:flex!important;height:44px;min-height:44px;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;gap:6px;padding:3px 6px;box-sizing:border-box;touch-action:pan-x}body.studio-mobile-layout .studio-format-strip>*{flex:0 0 auto}body.studio-mobile-layout .studio-format-strip select,body.studio-mobile-layout .studio-format-strip input{height:36px;max-width:130px;font-size:12px}body.studio-mobile-layout .studio-format-strip .apanam-inline-control{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}}
