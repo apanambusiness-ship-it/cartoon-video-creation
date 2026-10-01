@@ -32,7 +32,7 @@
     const backgroundAt=(xx,yy)=>{const u=xx/Math.max(1,width-1),v=yy/Math.max(1,height-1);return [0,1,2].map(k=>(1-v)*((1-u)*corners[0][k]+u*corners[1][k])+v*((1-u)*corners[2][k]+u*corners[3][k]));};
     let edge=0,clean=0,foreground=0,matchedStrong=0,matched=0;let mask=new Uint8Array(width*height);
     for(let yy=0;yy<height;yy++)for(let xx=0;xx<width;xx++){const i=yy*width+xx,bg=backgroundAt(xx,yy),delta=bg.map((n,k)=>d.data[i*4+k]-n),v=ink.map((n,k)=>n-bg[k]),vv=v.reduce((s,n)=>s+n*n,0);if(vv<6400)throw Error('Text और background अलग नहीं पहचाने। मूल image सुरक्षित है।');const distance=Math.hypot(...delta),t=delta.reduce((s,n,k)=>s+n*v[k],0)/vv,residual=Math.hypot(...delta.map((n,k)=>n-t*v[k])),glyph=distance>=22&&t>.08&&t<1.3&&residual<50&&d.data[i*4+3]>=128;
-      if(xx===0||yy===0||xx===width-1||yy===height-1){edge++;if(distance<45||glyph)clean++;}if(distance>=45){foreground++;if(glyph)matchedStrong++;}if(glyph){mask[i]=1;matched++;}}
+      if(xx===0||yy===0||xx===width-1||yy===height-1){edge++;if(distance<70||glyph)clean++;}if(distance>=70){foreground++;if(glyph)matchedStrong++;}if(glyph){mask[i]=1;matched++;}}
     if(clean/Math.max(1,edge)<.85||matchedStrong/Math.max(1,foreground)<.85||matched/(width*height)>.7||matched<4)throw Error('इस text के पीछे photo/जटिल background है। मूल image सुरक्षित है।');
     // Extend over antialiasing and embossed highlights, then interpolate from the unchanged
     // background next to each glyph instead of painting a flat/pale silhouette.
