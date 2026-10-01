@@ -57,3 +57,5 @@ Desktop object editor regression also checks that the selection canvas aligns wi
 Editable OCR layer tests use real Tesseract recognition, check stage-scale font bounds, undo/redo conversion, text editing, duplication, lock/hide/show/unlock and reload persistence. Source image edits and real SlimSAM/LaMa object dragging were rerun after these changes.
 
 Drag regression verifies movement at the rendered stage zoom, prevents dragging locked photos and checks that one Undo restores the moved object position before the next Undo restores the original image. Image binding uses a WeakSet so restored layers get fresh handlers without clearing their lock state. Smart guides apply after movement.
+
+Text-background regression checks all original white background pixels remain exactly unchanged during glyph conversion and uses real OCR on a gradient-backed sample to verify unsafe conversion is rejected atomically. English and Hindi recognition/edit/delete/conversion tests were rerun.
