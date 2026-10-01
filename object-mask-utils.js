@@ -8,7 +8,9 @@ function isolate(input,width,height,points,labels,rgba){
  const visit=i=>{if(!mask[i]&&good(i)){mask[i]=1;queue[tail++]=i;}};
  while(head<tail){const i=queue[head++],x=i%width,y=Math.floor(i/width);if(x===0||x===width-1||y===0||y===height-1)edges++;if(x>0)visit(i-1);if(x<width-1)visit(i+1);if(y>0)visit(i-width);if(y<height-1)visit(i+width);}
  const fraction=tail/size,edgeFraction=edges/Math.max(1,2*width+2*height-4);if(fraction>.85||(fraction>.35&&edgeFraction>.7))throw Error('वस्तु के बजाय बड़ा background चुना गया। बदलाव नहीं किया; वस्तु के बीच click करें या Brush से चुनें।');
- return {mask,count:tail,fraction};
+ // Remove tiny enclosed gaps caused by printed text/reflections inside an object.
+ const seen=new Uint8Array(size);let filled=0;for(let start=0;start<size;start++){if(mask[start]||seen[start])continue;let n=1,h=0,touches=false;queue[0]=start;seen[start]=1;const add=i=>{if(!mask[i]&&!seen[i]){seen[i]=1;queue[n++]=i;}};while(h<n){const i=queue[h++],x=i%width,y=Math.floor(i/width);if(x===0||y===0||x===width-1||y===height-1)touches=true;if(x>0)add(i-1);if(x<width-1)add(i+1);if(y>0)add(i-width);if(y<height-1)add(i+width);}if(!touches&&n<=tail*.005){for(let j=0;j<n;j++){const i=queue[j];if(!rgba||rgba[i*4+3]>=128){mask[i]=1;filled++;}}}}
+ return {mask,count:tail+filled,fraction:(tail+filled)/size};
 }
 root.APANAM_MASK_UTILS={isolate};if(typeof module!=='undefined')module.exports=root.APANAM_MASK_UTILS;
 })(typeof self!=='undefined'?self:globalThis);
