@@ -18,6 +18,8 @@
     const icon=(button,symbol,label)=>{const mark=document.createElement('span');mark.className='apanam-button-icon';mark.setAttribute('aria-hidden','true');mark.textContent=symbol;button.replaceChildren(mark,document.createTextNode(label));button.setAttribute('aria-label',label);return button};
     const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamInstallApp:['⬇','Install App'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};
     Object.entries(headerIcons).forEach(([id,[symbol,label]])=>{const control=document.getElementById(id);if(control)icon(control,symbol,label)});
+    const quick=document.getElementById('studioQuickAccess')||document.createElement('nav');quick.id='studioQuickAccess';quick.setAttribute('aria-label','Templates and help');header.after(quick);
+    const desktop=matchMedia('(min-width:901px)');const placeAccess=()=>{['studioTemplateLibrary','apanamHelpButton'].forEach(id=>{const control=document.getElementById(id);if(!control)return;if(desktop.matches)quick.append(control);else if(id==='studioTemplateLibrary')actions.prepend(control);else actions.append(control)});quick.hidden=!desktop.matches};window.APANAM_PLACE_ACCESS=placeAccess;desktop.addEventListener('change',placeAccess);placeAccess();
     const download=document.getElementById('download');
     download.append(document.createTextNode(' ▾'));
     const menu=document.createElement('div');menu.id='apanamDownloadMenu';menu.hidden=true;
