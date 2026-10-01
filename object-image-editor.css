@@ -19,3 +19,8 @@
 #objectEditor button,#objectEditor summary,#objectEditor select{touch-action:manipulation}
 #objectEditor .object-titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none}#objectEditor .object-titlebar h3{font-size:14px;line-height:1.4;min-width:0}#objectEditor .object-titlebar #objectClose{width:auto;flex:none;padding:6px 8px;font-size:11px}#objectEditor.object-inline .object-titlebar h3{font-size:13px}
 @media(max-width:900px){#objectEditor .object-titlebar h3{font-size:14px}#objectEditor .object-titlebar #objectClose{font-size:12px;min-height:44px}}
+
+/* The source layer box is not the pixel selection; show only the mask while editing. */
+#stage .element.object-selection-source{outline:none!important;box-shadow:none!important}
+#stage .object-selection-source>.handle,#stage .object-selection-source>.rotateHandle,#stage .object-selection-source>.resize{display:none!important}
+#objectMaskHint{font-size:13px;line-height:1.5;padding:10px;border:1px solid #fb7185;border-radius:8px;background:#4c1d2b;color:#fff;margin:8px 0}
