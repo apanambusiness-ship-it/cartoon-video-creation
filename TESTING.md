@@ -53,3 +53,7 @@ A transparent variant of the user-provided sports illustration was tested with t
 Real SlimSAM selection and direct drag inside the preview were verified on both the sports shoe and oil bottle visible in the user's screenshots. Releasing the mouse extracts/moves a new object layer and leaves the original photo position unchanged. The opaque photo path also runs actual LaMa repair. OCR recognition/edit/delete tests continue to pass, with hit boxes hidden until explicitly requested after reload.
 
 Desktop object editor regression also checks that the selection canvas aligns with the original image on the main stage, while action controls remain on screen. Desktop editing uses a nonmodal side panel; mobile keeps a fitted preview.
+
+Editable OCR layer tests use real Tesseract recognition, check stage-scale font bounds, undo/redo conversion, text editing, duplication, lock/hide/show/unlock and reload persistence. Source image edits and real SlimSAM/LaMa object dragging were rerun after these changes.
+
+Drag regression verifies movement at the rendered stage zoom, prevents dragging locked photos and checks that one Undo restores the moved object position before the next Undo restores the original image. Image binding uses a WeakSet so restored layers get fresh handlers without clearing their lock state. Smart guides apply after movement.

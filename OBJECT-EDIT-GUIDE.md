@@ -26,3 +26,11 @@ User images are passed to local workers, never to an inference API. Runtime/mode
 For already-painted black/colour rectangles, use Undo in the current browser session or reopen the original uploaded template. A later software update cannot reconstruct overwritten source pixels.
 
 While the object editor is open, Delete/Backspace acts on the object selection rather than the full source image. OCR text-hit boxes only appear after explicit text recognition; they are hidden during object editing and after reload.
+
+## Editable text layers
+
+**Text को editable layers बनाएँ** recognizes text (if needed), creates separate draggable Studio text layers and removes the recognized text from the source using the sampled surrounding colour. Text colour is estimated from contrasting image pixels; font size is fitted to the recognized bounds in stage coordinates, avoiding a second image-to-stage scale. OCR boxes stay transparent until hovered/focused, and **Text पहचान बंद** hides them. Recognition ignores low-confidence regions below 45. The conversion is one undoable operation and saved text layers need no further OCR after reload. Exact fonts and patterned backgrounds are not reconstructed; review spelling and use Undo if the result is unsuitable.
+
+The template layer panel supports text/font-size/colour edits, Fit to text box, Duplicate, Lock/Unlock, Hide/Show, stacking order and full layer deletion. Extracted photo objects remain normal image layers. This is not automatic decomposition of every object in a flattened design.
+
+Moving image and text layers accounts for the canvas zoom. Dragging saves on release and records the original position once movement starts; clicking alone does not create a drag undo entry. Locked image layers remain locked after project restore.

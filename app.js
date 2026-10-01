@@ -193,11 +193,12 @@ function wire(el){
 
     let sx=e.clientX,
         sy=e.clientY,
-        l=el.offsetLeft,
-        t=el.offsetTop,
+        l=parseFloat(getComputedStyle(el).left)||0,
+        t=parseFloat(getComputedStyle(el).top)||0,
+        originalLeft=el.style.left,originalTop=el.style.top,
         id=e.pointerId;
 
-    snap();
+    const bounds=stage.getBoundingClientRect(),fx=stage.offsetWidth/bounds.width,fy=stage.offsetHeight/bounds.height;let moved=false;
 
     try{
       el.setPointerCapture(id);
@@ -207,11 +208,12 @@ function wire(el){
 
       if(ev.pointerId!==id) return;
 
+      if(!moved){if(Math.hypot(ev.clientX-sx,ev.clientY-sy)<2)return;el.style.left=originalLeft;el.style.top=originalTop;snap();moved=true;}
       el.style.left=
-        l+(ev.clientX-sx)+'px';
+        l+(ev.clientX-sx)*fx+'px';
 
       el.style.top=
-        t+(ev.clientY-sy)+'px';
+        t+(ev.clientY-sy)*fy+'px';
     }
 
     function up(ev){
@@ -225,6 +227,7 @@ function wire(el){
       try{
         el.releasePointerCapture(id);
       }catch(_){}
+      if(moved)window.APANAM_PROJECT?.save();
     }
 
     el.addEventListener('pointermove',mv);
