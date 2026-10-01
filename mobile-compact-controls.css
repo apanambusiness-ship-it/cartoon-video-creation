@@ -18,3 +18,5 @@ body.studio-mobile-layout>main,body.studio-mobile-layout.studio-text-selected>ma
 body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){top:118px!important}
 #studioMobileActionGrid button,#mobileSheetBody button{font-size:12px!important;padding:6px 9px!important;min-height:36px!important;border-radius:7px!important}
 }
+
+@media(max-width:900px){body.studio-mobile-layout>header .actions #saveProject{order:0!important}body.studio-mobile-layout>header .actions #undo{order:1!important}body.studio-mobile-layout>header .actions #redo{order:2!important}body.studio-mobile-layout>header .actions #download{order:4!important}body.studio-mobile-layout>header .actions #apanamSocialShare{order:3!important}body.studio-mobile-layout>header .actions #loadProject{order:20!important}}
