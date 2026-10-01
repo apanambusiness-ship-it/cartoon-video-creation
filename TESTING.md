@@ -51,3 +51,5 @@ A transparent variant of the user-provided sports illustration was tested with t
 ### Direct object dragging
 
 Real SlimSAM selection and direct drag inside the preview were verified on both the sports shoe and oil bottle visible in the user's screenshots. Releasing the mouse extracts/moves a new object layer and leaves the original photo position unchanged. The opaque photo path also runs actual LaMa repair. OCR recognition/edit/delete tests continue to pass, with hit boxes hidden until explicitly requested after reload.
+
+Desktop object editor regression also checks that the selection canvas aligns with the original image on the main stage, while action controls remain on screen. Desktop editing uses a nonmodal side panel; mobile keeps a fitted preview.
