@@ -29,3 +29,7 @@ Template content regression: `STUDIO_CHROMIUM_PATH=/tmp/studio-chromium node tes
 `tests/template-delete-regression.cjs` checks actual image pixels for erase, direct text/photo edits, unchanged pixels outside the selection, no extra cover layer, Undo/Redo and persisted edits after reload.
 
 OCR integration uses the real Tesseract.js 5.1.1 browser worker and trained English/Hindi data. `tests/image-ocr-regression.cjs` routes CDN assets to locally installed identical packages for deterministic network-independent verification; recognition is not mocked. Install `tesseract.js@5.1.1`, `@tesseract.js-data/eng`, `@tesseract.js-data/hin`, `@tesseract.js-data/ben`, and `@fontsource/noto-sans-devanagari` under `/tmp/studio-ocr`. Run with `STUDIO_OCR_LANGUAGE=hin` for the Hindi sample. It checks detection, click editing, a second OCR pass over newly drawn pixels, Delete, Undo/Redo, persistence, clean snapshots and no-text fallback.
+
+## Browser object editing (2026-10-01)
+
+The object editor regression uses real SlimSAM and the 62 MB quantized LaMa model. A real photo is segmented, inpainted and split into a draggable normal Studio layer. Save/reload, Undo/Redo, brush deletion and native file replacement are checked. Existing desktop header, source-image delete and real OCR regressions also passed. See OBJECT-EDIT-GUIDE.md for model fixture paths and runtime requirements. Public-site byte checks verify deployment; automated inference testing uses identical model/runtime assets through local routes.
