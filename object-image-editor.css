@@ -24,3 +24,6 @@
 #stage .element.object-selection-source{outline:none!important;box-shadow:none!important}
 #stage .object-selection-source>.handle,#stage .object-selection-source>.rotateHandle,#stage .object-selection-source>.resize{display:none!important}
 #objectMaskHint{font-size:13px;line-height:1.5;padding:10px;border:1px solid #fb7185;border-radius:8px;background:#4c1d2b;color:#fff;margin:8px 0}
+
+#objectEditor.object-inline #objectMask{outline:none}
+body.studio-workspace #objectEditor #objectMaskHint{display:block!important;font-size:12px}
