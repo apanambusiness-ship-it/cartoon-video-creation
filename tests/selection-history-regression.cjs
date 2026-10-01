@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync('object-image-editor.js','utf8');
+const code=source.slice(source.indexOf('function selectionSnapshot()'),source.indexOf('function stop()'));
+const controls={objectSelectionOp:{value:'new'},objectBrush:{value:1},objectBrushSize:{}};
+const sandbox={Uint8Array,mask:new Uint8Array(6),points:[],labels:[],busy:false,selectionPast:[],selectionFuture:[],q:id=>controls[id]||(controls[id]={}),draw(){},say(){}};
+vm.createContext(sandbox);vm.runInContext(code,sandbox);
+sandbox.mergeSelection(Uint8Array.from([1,0,0,0,0,0]));
+controls.objectSelectionOp.value='add';sandbox.mergeSelection(Uint8Array.from([0,0,1,0,0,0]));assert.deepEqual(Array.from(sandbox.mask),[1,0,1,0,0,0]);
+controls.objectSelectionOp.value='subtract';sandbox.mergeSelection(Uint8Array.from([1,0,0,0,0,0]));assert.deepEqual(Array.from(sandbox.mask),[0,0,1,0,0,0]);
+sandbox.selectionHistory(false);assert.deepEqual(Array.from(sandbox.mask),[1,0,1,0,0,0]);sandbox.selectionHistory(true);assert.deepEqual(Array.from(sandbox.mask),[0,0,1,0,0,0]);
+sandbox.selectionHistory(false);sandbox.mergeSelection(Uint8Array.from([0,0,0,0,1,0]));assert.equal(sandbox.selectionFuture.length,0);
+console.log('PASS disconnected selection add/subtract, Undo/Redo, and new edit discards redo branch');
