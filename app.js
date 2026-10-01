@@ -697,6 +697,7 @@ if($('#delete')){
       selected.remove();
 
       select(null);
+      window.APANAM_PROJECT?.save();
     }
   };
 }
