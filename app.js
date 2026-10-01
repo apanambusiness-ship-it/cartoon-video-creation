@@ -183,7 +183,6 @@ function wire(el){
     if(
       e.target.classList.contains('handle')||
       e.target.classList.contains('rotateHandle')||
-      e.target.closest('.inline-text-input')||
       el.dataset.locked==='1'
     ) return;
 
@@ -194,12 +193,11 @@ function wire(el){
 
     let sx=e.clientX,
         sy=e.clientY,
-        l=parseFloat(getComputedStyle(el).left)||0,
-        t=parseFloat(getComputedStyle(el).top)||0,
-        originalLeft=el.style.left,originalTop=el.style.top,
+        l=el.offsetLeft,
+        t=el.offsetTop,
         id=e.pointerId;
 
-    const bounds=stage.getBoundingClientRect(),fx=stage.offsetWidth/bounds.width,fy=stage.offsetHeight/bounds.height;let moved=false;
+    snap();
 
     try{
       el.setPointerCapture(id);
@@ -209,12 +207,11 @@ function wire(el){
 
       if(ev.pointerId!==id) return;
 
-      if(!moved){if(Math.hypot(ev.clientX-sx,ev.clientY-sy)<2)return;el.style.left=originalLeft;el.style.top=originalTop;snap();moved=true;}
       el.style.left=
-        l+(ev.clientX-sx)*fx+'px';
+        l+(ev.clientX-sx)+'px';
 
       el.style.top=
-        t+(ev.clientY-sy)*fy+'px';
+        t+(ev.clientY-sy)+'px';
     }
 
     function up(ev){
@@ -228,7 +225,6 @@ function wire(el){
       try{
         el.releasePointerCapture(id);
       }catch(_){}
-      if(moved)window.APANAM_PROJECT?.save();
     }
 
     el.addEventListener('pointermove',mv);
@@ -350,16 +346,37 @@ function wire(el){
     addEventListener('mouseup',up);
   };
 
-  el.ondblclick=e=>{e.stopPropagation();window.APANAM_EDIT_TEXT?.(el);};
+  el.ondblclick=e=>{
 
+    e.stopPropagation();
+
+    if(
+      el.dataset.text!=null &&
+      el.dataset.locked!=='1'
+    ){
+
+      let v=prompt(
+        'Text edit करें',
+        el.dataset.text
+      );
+
+      if(v!=null){
+
+        snap();
+
+        el.dataset.text=v;
+
+        let textNode=[...el.childNodes]
+          .find(n=>n.nodeType===Node.TEXT_NODE);
+
+        if(textNode)
+          textNode.nodeValue=v;
+
+        select(el);
+      }
+    }
+  };
 }
-
-window.APANAM_EDIT_TEXT=function(el){
-  if(!el||el.dataset.text==null||el.dataset.locked==='1'||el.querySelector('.inline-text-input'))return;
-  snap();const initial=el.dataset.text,editor=document.createElement('textarea');editor.className='inline-text-input';editor.setAttribute('data-html2canvas-ignore','true');editor.setAttribute('aria-label','Canvas पर text लिखें');editor.value=initial;
-  const style=getComputedStyle(el);Object.assign(editor.style,{position:'absolute',inset:'0',width:'100%',height:'100%',minHeight:'1.2em',boxSizing:'border-box',margin:'0',padding:'0',font:style.font,color:style.color,lineHeight:style.lineHeight,background:'transparent',border:'1px solid #7c3aed',outline:'none',resize:'none',zIndex:'2147483647',overflow:'auto',whiteSpace:'pre-wrap'});
-  const update=()=>{el.dataset.text=editor.value;let node=[...el.childNodes].find(n=>n.nodeType===Node.TEXT_NODE);if(node)node.nodeValue=editor.value;};editor.oninput=update;editor.addEventListener('pointerdown',e=>e.stopPropagation());editor.onclick=e=>e.stopPropagation();editor.ondblclick=e=>e.stopPropagation();editor.onkeydown=e=>{e.stopPropagation();if(e.key==='Escape'){editor.value=initial;update();editor.blur();}else if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();editor.blur();}};editor.onblur=()=>{update();editor.remove();window.APANAM_PROJECT?.save();renderLayers();};el.append(editor);editor.focus({preventScroll:true});editor.select();
-};
 
 function renderLayers(){
 
@@ -697,7 +714,6 @@ if($('#delete')){
       selected.remove();
 
       select(null);
-      window.APANAM_PROJECT?.save();
     }
   };
 }
@@ -784,7 +800,6 @@ window.APANAM_EDITOR_WIRE=wire;
 function restore(html){
 
   stage.innerHTML=html;
-  stage.querySelectorAll('.ocr-editor-hits,.template-region-selector').forEach(node=>node.remove());
 
   [...stage.querySelectorAll('.element')]
     .forEach(wire);
@@ -1261,7 +1276,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'ecommerce-template-pack-18-v2.js?v=20261001-preserve';
+      'ecommerce-template-pack-18-v2.js?v=20260923-1';
 
     s.dataset.apanamEcommercePack18V2='1';
 

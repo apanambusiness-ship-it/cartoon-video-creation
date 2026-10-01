@@ -8,7 +8,7 @@
     const utility=actions.querySelector('.header-utility-actions');
     const create=document.getElementById('apanamCreatorHubButton')||document.createElement('button');create.textContent='Create';if(!create.id)create.onclick=()=>{};
     [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
-    const order=[create,'studioTemplateLibrary','saveProject','headerEditProject','objectHeaderEdit','loadProject','headerDeleteProject','undo','redo','download','apanamInstallApp','apanamHelpButton','apanamSafetyButton'];
+    const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamInstallApp','apanamHelpButton','apanamSafetyButton'];
     order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
     const extras=document.createElement('details');extras.id='apanamHeaderExtras';extras.innerHTML='<summary>Install / Publish tools</summary>';
     (document.querySelector('.organizer-panel[data-group="Export"]')||document.querySelector('main>aside:not(.right)'))?.append(extras);
@@ -18,10 +18,6 @@
     const icon=(button,symbol,label)=>{const mark=document.createElement('span');mark.className='apanam-button-icon';mark.setAttribute('aria-hidden','true');mark.textContent=symbol;button.replaceChildren(mark,document.createTextNode(label));button.setAttribute('aria-label',label);return button};
     const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamInstallApp:['⬇','Install App'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};
     Object.entries(headerIcons).forEach(([id,[symbol,label]])=>{const control=document.getElementById(id);if(control)icon(control,symbol,label)});
-    const placeAccess=()=>{const template=document.getElementById('studioTemplateLibrary'),help=document.getElementById('apanamHelpButton');if(template)actions.prepend(template);if(help)actions.append(help);document.getElementById('studioQuickAccess')?.remove()};window.APANAM_PLACE_ACCESS=placeAccess;placeAccess();
-    actions.tabIndex=0;actions.setAttribute('aria-label','Main editor actions, scroll horizontally');
-    for(const [id,label,step,sign] of [['studioHeaderPrev','पिछले बटन',-260,'‹'],['studioHeaderNext','अगले बटन',260,'›']]){const arrow=document.createElement('button');arrow.type='button';arrow.id=id;arrow.className='studio-header-arrow';arrow.setAttribute('aria-label',label);arrow.textContent=sign;arrow.onclick=()=>actions.scrollBy({left:step,behavior:'smooth'});if(step<0)actions.before(arrow);else actions.after(arrow)}
-    actions.addEventListener('keydown',e=>{if(e.target!==actions||!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();e.stopPropagation();actions.scrollBy({left:e.key==='ArrowLeft'?-260:260,behavior:'smooth'})});
     const download=document.getElementById('download');
     download.append(document.createTextNode(' ▾'));
     const menu=document.createElement('div');menu.id='apanamDownloadMenu';menu.hidden=true;
