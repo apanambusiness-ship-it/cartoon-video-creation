@@ -47,3 +47,7 @@ The optional STUDIO_OBJECT_SCREENSHOT fixture was also run against the user-prov
 ### Object-only PNG edits
 
 A transparent variant of the user-provided sports illustration was tested with the real SlimSAM model, entering through the main Delete control. Extracting the shoe removed 16,485 object pixels and preserved all 367,864 unselected pixels exactly, including transparency and the other objects. Transparent sources default to AI fill off; optional AI repair is composited on the canvas background colour and cannot turn existing transparent pixels opaque. Main rectangle-style Delete/Replace entry points now open object selection; legacy explicit Advanced box-edit regression checks still pass.
+
+### Direct object dragging
+
+Real SlimSAM selection and direct drag inside the preview were verified on both the sports shoe and oil bottle visible in the user's screenshots. Releasing the mouse extracts/moves a new object layer and leaves the original photo position unchanged. The opaque photo path also runs actual LaMa repair. OCR recognition/edit/delete tests continue to pass, with hit boxes hidden until explicitly requested after reload.
