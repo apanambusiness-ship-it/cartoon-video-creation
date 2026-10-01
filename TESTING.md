@@ -43,3 +43,7 @@ The regression now opens a real JPEG through the template-library upload UI and 
 The object editor now fits the photo preview between its controls and footer. Regression checks verify photo, Separate/Drag, Delete, Replace and Close all remain onscreen without scrolling at 1280×620, 1024×600 and 390×700. The real-model separation/drag and persistence checks remain in the same regression.
 
 The optional STUDIO_OBJECT_SCREENSHOT fixture was also run against the user-provided sports illustration screenshot: the shoe was segmented, inpainted, split into a layer and dragged. This verifies the visible screenshot content in a local browser; it does not prove inference in the user's live browser.
+
+### Object-only PNG edits
+
+A transparent variant of the user-provided sports illustration was tested with the real SlimSAM model, entering through the main Delete control. Extracting the shoe removed 16,485 object pixels and preserved all 367,864 unselected pixels exactly, including transparency and the other objects. Transparent sources default to AI fill off; optional AI repair is composited on the canvas background colour and cannot turn existing transparent pixels opaque. Main rectangle-style Delete/Replace entry points now open object selection; legacy explicit Advanced box-edit regression checks still pass.
