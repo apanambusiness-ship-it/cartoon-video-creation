@@ -32,3 +32,9 @@ Hosting GitHub Pages है। Vercel या भुगतान का उपय
 Poster / Templates में “खोलें और edit करें” दबाएँ। Templates tab में “Template का text / photo बदलें” के नीचे JSON की text और image layers के fields मिलेंगे। Text field में लिखें; Photo field से नई image चुनें। Canvas में चुनें से drag, resize और अन्य editor tools इस्तेमाल करें।
 
 PNG/JPG की पुरानी lettering या photo मूल image में जुड़ी होती है। “Text का हिस्सा चुनें” या “Photo का हिस्सा चुनें” दबाकर canvas पर box बनाएँ, ढकने का रंग चुनें, फिर नई layer के field में text/photo डालें। मूल content उस जगह नई layer से ढकता है; automatic source-layer recovery नहीं है। Photo के पीछे patterned background हो तो matching रंग या अलग background patch चाहिए। OCR के लिए internet चाहिए और पहचान जाँचकर सुधारें। Editable JSON backup में नई layers बचती हैं; PNG/JPG export में वे फिर एक image बनती हैं।
+
+
+## मूल image से Delete और Edit
+हर अलग text/photo layer के नीचे Delete बटन है। PNG/JPG में “मूल image से text / photo मिटाएँ” से box चुनकर उस हिस्से के pixels हटाएँ। “मिटाने के बाद” में transparent या चुना background रंग चुनें। यह कोई overlay नहीं बनाता।
+
+मूल image के अंदर Edit करने के लिए नया text, text रंग/size या नई photo चुनें, फिर “Image के अंदर Text Edit” या “Image के अंदर Photo Edit” दबाकर पुराना हिस्सा box में चुनें। नया content उसी image में सेव होता है। Undo/Redo से वापस जा सकते हैं। छिपा हुआ मूल background/पुराना font अपने आप वापस नहीं मिलता। PNG/JPG में जितना हिस्सा चुनेंगे उतना बदलता है; पीछे pattern हो तो matching background स्वयं तैयार करना होगा। Rotated/flipped images को पहले सामान्य स्थिति में लाएँ। बाहरी image के CORS रोकने पर उसे डाउनलोड करके upload करें।
