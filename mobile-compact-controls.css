@@ -1,0 +1,20 @@
+@media(max-width:900px){
+body>header,body.studio-mobile-layout>header{height:46px!important;min-height:46px!important;padding:3px 5px!important;gap:4px!important}
+body>header .apanam-header-brand,body.studio-mobile-layout>header .apanam-header-brand{height:38px!important;flex:0 0 56px!important;width:56px!important;min-width:56px!important;background-size:54px auto!important}
+body>header>.actions,body.studio-mobile-layout>header>.actions{height:38px!important;min-width:0!important;gap:4px!important;align-items:center!important}
+body>header .actions button,body.studio-mobile-layout>header .actions button{height:32px!important;min-height:32px!important;padding:4px 7px!important;font-size:11px!important;border-radius:7px!important}
+.apanam-button-icon{font-size:13px!important;min-width:13px!important;height:14px!important;margin-right:3px!important}
+#apanamPosterEditor,#studioMobileAllActions{height:32px!important;min-height:32px!important;max-width:70px;flex:0 0 auto;padding:3px 6px!important;font-size:10px!important;line-height:1.15;border-radius:7px!important}
+body #apanamCompactTools,body.studio-mobile-layout #apanamCompactTools{height:72px!important}
+body #apanamCompactTools .apanam-strip,body.studio-mobile-layout #apanamCompactTools .apanam-strip{height:36px!important;min-height:36px!important;box-sizing:border-box;padding:2px 5px!important;gap:4px!important}
+body #apanamCompactTools button,body #apanamCompactTools select,body #apanamCompactTools input,body.studio-mobile-layout #apanamCompactTools .apanam-strip button{height:30px!important;min-height:30px!important;padding:3px 7px!important;font-size:11px!important;border-radius:6px!important}
+body #apanamCompactTools .apanam-inline-control{padding:2px 5px!important;font-size:10px!important}
+.organizer-nav{gap:4px!important}.organizer-nav button,body.studio-mobile-layout .organizer-nav button{min-height:30px!important;padding:4px 2px!important;font-size:10px!important;border-radius:6px!important}
+body .apanam-mobile-bar,body.studio-mobile-layout .apanam-mobile-bar{padding:3px!important;gap:2px!important;border-radius:10px!important;box-shadow:0 3px 12px #11182720!important}
+body .apanam-mobile-bar button,body.studio-mobile-layout .apanam-mobile-bar button{min-height:42px!important;padding:3px 2px!important;gap:2px!important;border-radius:7px!important;font-size:11px!important}
+body .apanam-mobile-bar span{font-size:16px!important}body .apanam-mobile-bar small,body.studio-mobile-layout .apanam-mobile-bar small{font-size:10px!important}
+body .zoomBar button,body.studio-mobile-layout .zoomBar button{min-height:30px!important;padding:4px 10px!important;font-size:12px!important;border-radius:7px!important}
+body.studio-mobile-layout>main,body.studio-mobile-layout.studio-text-selected>main{height:calc(100dvh - 178px - env(safe-area-inset-bottom))!important}
+body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){top:118px!important}
+#studioMobileActionGrid button,#mobileSheetBody button{font-size:12px!important;padding:6px 9px!important;min-height:36px!important;border-radius:7px!important}
+}
