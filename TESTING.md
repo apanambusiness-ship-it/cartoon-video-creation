@@ -33,3 +33,7 @@ OCR integration uses the real Tesseract.js 5.1.1 browser worker and trained Engl
 ## Browser object editing (2026-10-01)
 
 The object editor regression uses real SlimSAM and the 62 MB quantized LaMa model. A real photo is segmented, inpainted and split into a draggable normal Studio layer. Save/reload, Undo/Redo, brush deletion and native file replacement are checked. Existing desktop header, source-image delete and real OCR regressions also passed. See OBJECT-EDIT-GUIDE.md for model fixture paths and runtime requirements. Public-site byte checks verify deployment; automated inference testing uses identical model/runtime assets through local routes.
+
+### Object editor entry correction
+
+The regression now opens a real JPEG through the template-library upload UI and clicks main Edit while a caption layer is selected. It verifies the object dialog opens, real SlimSAM/LaMa complete, replacement/drag/save work, and a background-only upload opens in one click without restoring the old background on reload. Desktop controls pass at 1024/1280/1440/1920 widths. Model hosts were checked with the public-site Origin header; they return permitted CORS headers. Browser live navigation in this workspace returns ERR_EMPTY_RESPONSE, so live publication is checked by deployment status and fetched file bytes, not claimed as a live-browser inference test.

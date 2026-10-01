@@ -1,6 +1,6 @@
 # Photo / Object editing
 
-Open an uploaded JPG/PNG/camera image, select it and press **Edit**, double-click it, or press **Photo / Object Edit** below the canvas.
+Open an uploaded JPG/PNG/camera image, select it and press **Edit**, double-click it, or press **Photo / Object Edit** in the main header or below the canvas. Main Edit finds an image even when a caption layer is currently selected; background photos also open in one click. Download progress is shown while AI models load.
 
 1. Click the person/object you want. SlimSAM runs in a worker in your browser.
 2. Review the red mask. Additional AI clicks add selection; **AI: हिस्सा हटाएँ** excludes a point. Brush modes add/remove pixels manually. Brush edits should follow the AI clicks, since another AI click recomputes the mask.
