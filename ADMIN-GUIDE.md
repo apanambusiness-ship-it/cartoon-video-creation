@@ -38,3 +38,9 @@ PNG/JPG की पुरानी lettering या photo मूल image मे�
 हर अलग text/photo layer के नीचे Delete बटन है। PNG/JPG में “मूल image से text / photo मिटाएँ” से box चुनकर उस हिस्से के pixels हटाएँ। “मिटाने के बाद” में transparent या चुना background रंग चुनें। यह कोई overlay नहीं बनाता।
 
 मूल image के अंदर Edit करने के लिए नया text, text रंग/size या नई photo चुनें, फिर “Image के अंदर Text Edit” या “Image के अंदर Photo Edit” दबाकर पुराना हिस्सा box में चुनें। नया content उसी image में सेव होता है। Undo/Redo से वापस जा सकते हैं। छिपा हुआ मूल background/पुराना font अपने आप वापस नहीं मिलता। PNG/JPG में जितना हिस्सा चुनेंगे उतना बदलता है; पीछे pattern हो तो matching background स्वयं तैयार करना होगा। Rotated/flipped images को पहले सामान्य स्थिति में लाएँ। बाहरी image के CORS रोकने पर उसे डाउनलोड करके upload करें।
+
+
+## PNG/JPG के text को पहचानकर click से Edit
+Poster upload करके खोलें। Header का Edit या canvas के पास “Auto पहचानकर Edit” दबाएँ। हिन्दी + English / English / বাংলা + English भाषा चुन सकते हैं। पहली बार OCR library और language data internet से डाउनलोड होते हैं; पहचान browser में होती है। पहचाने हुए text के चारों ओर boxes आते हैं। Box पर click से text, font, size, text/background रंग बदलें और “Text सेव करें” दबाएँ; “यह text Delete करें” उसी मूल image से text हटाता है। Undo/Redo और JSON backup में edited image व पहचाने हुए हिस्से बचते हैं। Boxes editing UI हैं, export में नहीं जाते।
+
+हर image में OCR सफल या सही नहीं होता; अस्पष्ट, घुमे, decorative या छोटे text की spelling/box जाँचें। Original font या hidden patterned background अपने आप वापस नहीं आता। पहचान न होने पर manual Text/Photo बदलें विकल्प उपलब्ध हैं। Photo की जगह स्वयं box चुनें; automatic photo segmentation उपलब्ध नहीं है।

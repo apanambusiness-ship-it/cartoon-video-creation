@@ -800,6 +800,7 @@ window.APANAM_EDITOR_WIRE=wire;
 function restore(html){
 
   stage.innerHTML=html;
+  stage.querySelectorAll('.ocr-editor-hits,.template-region-selector').forEach(node=>node.remove());
 
   [...stage.querySelectorAll('.element')]
     .forEach(wire);

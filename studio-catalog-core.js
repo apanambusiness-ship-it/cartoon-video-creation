@@ -8,7 +8,7 @@
       const name=attr.name.toLowerCase(),value=attr.value.trim();
       if(name.startsWith('on')||name==='srcdoc'||name==='id'||name==='data-drag-fix'||name==='autofocus'||name==='contenteditable'||name==='srcset'||((name==='href'||name==='xlink:href'||name==='src')&&!/^(data:image\/(png|jpeg|webp|gif);base64,|https?:\/\/|\.\.?\/|#)/i.test(value)))el.removeAttribute(attr.name);
     }
-    template.content.querySelectorAll('.handle,.rotateHandle,.smartGuide,.template-region-selector').forEach(el=>el.remove());
+    template.content.querySelectorAll('.handle,.rotateHandle,.smartGuide,.template-region-selector,.ocr-editor-hits').forEach(el=>el.remove());
     return template.innerHTML;
   }
   function project(value){
