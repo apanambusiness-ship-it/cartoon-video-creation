@@ -66,3 +66,15 @@ Reviewed 20 September 2026. These are ten creative products accessible in India,
 10. **Final production pass:** phone and desktop checks, accessibility, export quality, privacy and free-tier cost limits.
 
 Long films, multi-user sync and paid plans require durable storage, rendering infrastructure, verified authentication and a documented operating budget; mark them planned until truly usable.
+
+## Final stability pass — 1 October 2026
+
+- Fixed mobile video-header overflow and checked both editors at 320, 390, 768 and 1280 px in Chromium.
+- Video restore now rolls back scenes and per-scene audio when local storage is full.
+- Gallery imports validate and decode all projects before one IndexedDB transaction; malformed imports no longer save only the first projects. Distinct names/settings and audio projects are retained even when scenes match.
+- Version Recovery now propagates database-open failures and waits for transaction completion.
+- Storyboard, music cues, timing and teleprompter render scene text literally rather than interpreting markup.
+- Timing proposals invalidate after scene/input changes; thumbnail text edits invalidate the previous render.
+- Silent videos have an explicit completion-checklist choice.
+- Added reproducible browser regression checks in `tests/browser-regression.cjs`; see `TESTING.md`.
+- External setup remains pending: verified Workers AI request, authenticated email login/cloud sync, billing and domain configuration. No DNS or paid services changed.
