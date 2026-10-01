@@ -2,7 +2,7 @@
 'use strict';
 function init(){
 const stage=document.getElementById('stage'),workspace=document.querySelector('.workspace'),aside=document.querySelector('main>aside:not(.right)');if(!stage||!workspace||!aside)return;
-document.body.classList.add('studio-workspace');
+document.body.classList.add('studio-workspace');const projectDelete=document.getElementById('headerDeleteProject');if(projectDelete){projectDelete.textContent='Project Delete';projectDelete.title='पूरा वर्तमान design हटाएँ; केवल एक layer के लिए Layer विकल्प में Delete चुनें';}
 const context=document.createElement('div');context.id='studioSelectionBar';context.setAttribute('role','region');context.setAttribute('aria-label','Selected layer tools');context.innerHTML='<div><small>चुनी हुई layer</small><strong id="studioSelectionName">अपना design बनाएँ</strong><small id="studioSelectionHint">बाएँ से template, text या photo जोड़ें</small></div><div class="studio-selection-actions"></div>';workspace.prepend(context);
 const actions=context.querySelector('.studio-selection-actions');
 function selected(){return stage.querySelector('.element.selected');}
