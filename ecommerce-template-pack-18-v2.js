@@ -251,7 +251,7 @@
 
   window.APANAM_ECOMMERCE_DEFS=defs;
 
-  clear();
-  layout(0,defs[0]);
+  // A late-loaded template pack must preserve restored or newly edited content.
+  if(!stage.querySelector('.element')){clear();layout(0,defs[0]);}
 
 })();

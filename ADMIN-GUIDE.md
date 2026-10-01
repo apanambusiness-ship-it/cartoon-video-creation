@@ -26,3 +26,9 @@ App नाम, announcement, support संपर्क, मुख्य रं�
 ## Free setup की बाकी स्थिति
 
 Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Workers AI, verified email login तथा cloud project sync के लिए अलग authenticated server/account configuration जरूरी है; उन्हें इस static admin page में सक्रिय बताकर नहीं दिखाया गया है। DNS और paid services में कोई बदलाव नहीं किया गया।
+
+
+## Uploaded template का content बदलना
+Poster / Templates में “खोलें और edit करें” दबाएँ। Templates tab में “Template का text / photo बदलें” के नीचे JSON की text और image layers के fields मिलेंगे। Text field में लिखें; Photo field से नई image चुनें। Canvas में चुनें से drag, resize और अन्य editor tools इस्तेमाल करें।
+
+PNG/JPG की पुरानी lettering या photo मूल image में जुड़ी होती है। “Text का हिस्सा चुनें” या “Photo का हिस्सा चुनें” दबाकर canvas पर box बनाएँ, ढकने का रंग चुनें, फिर नई layer के field में text/photo डालें। मूल content उस जगह नई layer से ढकता है; automatic source-layer recovery नहीं है। Photo के पीछे patterned background हो तो matching रंग या अलग background patch चाहिए। OCR के लिए internet चाहिए और पहचान जाँचकर सुधारें। Editable JSON backup में नई layers बचती हैं; PNG/JPG export में वे फिर एक image बनती हैं।

@@ -1276,7 +1276,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'ecommerce-template-pack-18-v2.js?v=20260923-1';
+      'ecommerce-template-pack-18-v2.js?v=20261001-preserve';
 
     s.dataset.apanamEcommercePack18V2='1';
 
