@@ -8,7 +8,7 @@
     const utility=actions.querySelector('.header-utility-actions');
     const create=document.getElementById('apanamCreatorHubButton')||document.createElement('button');create.textContent='Create';if(!create.id)create.onclick=()=>{};
     [top,bottom,utility].forEach(row=>{[...row.children].forEach(child=>actions.append(child));row.remove()});
-    const order=[create,'saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamInstallApp','apanamHelpButton','apanamSafetyButton'];
+    const order=[create,'studioTemplateLibrary','saveProject','headerEditProject','loadProject','headerDeleteProject','undo','redo','download','apanamInstallApp','apanamHelpButton','apanamSafetyButton'];
     order.forEach(item=>{const node=typeof item==='string'?document.getElementById(item):item;if(node)actions.append(node)});
     const extras=document.createElement('details');extras.id='apanamHeaderExtras';extras.innerHTML='<summary>Install / Publish tools</summary>';
     (document.querySelector('.organizer-panel[data-group="Export"]')||document.querySelector('main>aside:not(.right)'))?.append(extras);
