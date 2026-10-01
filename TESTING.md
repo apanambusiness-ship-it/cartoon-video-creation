@@ -19,3 +19,7 @@ The suite serves the project locally with service workers blocked and checks:
 - WebM downloads, with a generated WAV verifying real audio and video streams.
 
 A real phone should still check microphone permissions, audible playback and installation. Server-side AI, account login, cloud sync and paid services require their own configured systems.
+
+## Admin and template library
+
+Run `node tests/admin-regression.cjs` for admin batch upload, IndexedDB draft persistence, safe editable HTML, rename, editor round trip, catalog/settings download and user image upload. Public catalog updates still require a GitHub owner/maintainer commit; local admin drafts never modify the published JSON.

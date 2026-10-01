@@ -1,0 +1,43 @@
+(()=>{
+  'use strict';
+  const format='apanam-studio-catalog';
+  function safeHTML(html){
+    const template=document.createElement('template');template.innerHTML=String(html||'');
+    template.content.querySelectorAll('script,iframe,object,embed,link,meta,base,form,input,textarea,select,button,foreignObject,animate,set').forEach(el=>el.remove());
+    for(const el of template.content.querySelectorAll('*'))for(const attr of [...el.attributes]){
+      const name=attr.name.toLowerCase(),value=attr.value.trim();
+      if(name.startsWith('on')||name==='srcdoc'||name==='id'||name==='autofocus'||name==='contenteditable'||name==='srcset'||((name==='href'||name==='xlink:href'||name==='src')&&!/^(data:image\/(png|jpeg|webp|gif);base64,|https?:\/\/|\.\.?\/|#)/i.test(value)))el.removeAttribute(attr.name);
+    }
+    template.content.querySelectorAll('.handle,.rotateHandle,.smartGuide').forEach(el=>el.remove());
+    return template.innerHTML;
+  }
+  function project(value){
+    if(!value||typeof value.html!=='string')throw Error('सही editable poster JSON चुनें।');
+    const width=Number(value.width)||1080,height=Number(value.height)||1080;
+    if(!Number.isFinite(width)||!Number.isFinite(height)||width<100||height<100||width>8192||height>8192)throw Error('Canvas size 100–8192 pixels के बीच रखें।');
+    const html=safeHTML(value.html);if(!html.trim())throw Error('Template खाली है।');
+    return {version:2,html,width,height,bgColor:/^(#[0-9a-f]{3,8}|transparent|rgba?\([\d\s.,%]+\))$/i.test(value.bgColor||'')?value.bgColor:'#ffffff',bgImage:typeof value.bgImage==='string'&&/^(data:image\/(png|jpeg|webp|gif);base64,|https?:\/\/)/i.test(value.bgImage)?value.bgImage:'',transparent:Boolean(value.transparent)};
+  }
+  function catalog(value){
+    if(value?.format!==format||!Array.isArray(value.templates))throw Error('सही APANAM catalog JSON चुनें।');
+    const defaults={appName:'APANAMai STUDIO',announcement:'',contact:'',primaryColor:'#5b21b6',posterEnabled:true,videoEnabled:true,uploadsEnabled:true,maintenance:false},raw=value.settings||{},settings={...defaults};
+    for(const key of ['appName','announcement','contact'])settings[key]=String(raw[key]??defaults[key]).slice(0,key==='announcement'?1000:120);
+    if(/^#[0-9a-f]{6}$/i.test(raw.primaryColor))settings.primaryColor=raw.primaryColor;
+    for(const key of ['posterEnabled','videoEnabled','uploadsEnabled','maintenance'])if(typeof raw[key]==='boolean')settings[key]=raw[key];
+    const ids=new Set();const templates=value.templates.map(item=>{
+      if(!item||typeof item.id!=='string'||!item.id||ids.has(item.id))throw Error('Template IDs खाली या duplicate हैं।');ids.add(item.id);
+      return {id:item.id.slice(0,100),name:String(item.name||'मेरा Template').slice(0,120),category:String(item.category||'General').slice(0,80),published:item.published!==false,project:project(item.project),updatedAt:String(item.updatedAt||'')};
+    });return {format,version:1,settings,templates};
+  }
+  async function imageProject(file){
+    if(!/^image\/(png|jpeg|webp|gif)$/.test(file.type))throw Error('PNG, JPG, WebP या GIF फोटो चुनें।');
+    const src=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('फोटो पढ़ी नहीं गई।'));reader.readAsDataURL(file)});
+    const image=new Image();image.src=src;await image.decode();const scale=Math.min(1,4096/Math.max(image.naturalWidth,image.naturalHeight)),width=Math.max(100,Math.round(image.naturalWidth*scale)),height=Math.max(100,Math.round(image.naturalHeight*scale));
+    const node=document.createElement('div');node.className='element';node.dataset.kind='image';node.dataset.type='image';node.dataset.name=file.name;node.style.cssText=`position:absolute;left:0;top:0;width:${width/2}px;height:${height/2}px;z-index:1;`;const img=document.createElement('img');img.src=src;img.alt=file.name;img.style.cssText='width:100%;height:100%;object-fit:contain';node.append(img);
+    return project({html:node.outerHTML,width,height,bgColor:'#ffffff'});
+  }
+  function download(value,name){const link=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),30000)}
+  const draftDB=()=>new Promise((resolve,reject)=>{const request=indexedDB.open('apanam-admin-drafts',1);request.onupgradeneeded=()=>request.result.createObjectStore('drafts');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
+  async function draft(write){const db=await draftDB();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('drafts',write?'readwrite':'readonly'),request=write?tx.objectStore('drafts').put(write,'catalog'):tx.objectStore('drafts').get('catalog');let value;request.onsuccess=()=>value=request.result;tx.oncomplete=()=>resolve(value);tx.onabort=()=>reject(tx.error||Error('Storage full'));tx.onerror=()=>reject(tx.error)})}finally{db.close()}}
+  window.APANAM_CATALOG={catalog,project,safeHTML,imageProject,download,draft,async load(){const response=await fetch('./studio-catalog.json',{cache:'no-store'});if(!response.ok)throw Error('Catalog नहीं खुला।');return catalog(await response.json())}};
+})();

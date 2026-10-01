@@ -78,3 +78,12 @@ Long films, multi-user sync and paid plans require durable storage, rendering in
 - Silent videos have an explicit completion-checklist choice.
 - Added reproducible browser regression checks in `tests/browser-regression.cjs`; see `TESTING.md`.
 - External setup remains pending: verified Workers AI request, authenticated email login/cloud sync, billing and domain configuration. No DNS or paid services changed.
+
+## Free admin/catalog pass — 1 October 2026
+
+- Shared `studio-catalog.json` supplies published editable templates and app settings to both editors.
+- `admin.html` manages browser drafts: multi-file images/JSON, names, categories, duplicates, visibility, deletion and editor round trips. No fixed template-count limit; browser and hosting storage limits still apply.
+- Users can open published templates and add their own images/editable JSON without paid services. Image-only posters stay a single photo layer; editable JSON preserves separate text/photo layers.
+- Publication uses the authenticated GitHub owner/maintainer workflow, with catalog backup/download, source-control and deployment links. Public admin drafts do not change the shared catalog.
+- Imported template HTML is sanitized before editor restore. Added original layered starter templates and the Hindi `ADMIN-GUIDE.md`.
+- Vercel is not used. Workers AI health could not be verified (the request returned 403); verified email authentication/cloud sync still need external server/account setup.

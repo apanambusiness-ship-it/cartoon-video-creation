@@ -1,0 +1,48 @@
+{
+  "format": "apanam-studio-catalog",
+  "version": 1,
+  "settings": {
+    "appName": "APANAMai STUDIO",
+    "announcement": "",
+    "contact": "",
+    "primaryColor": "#5b21b6",
+    "posterEnabled": true,
+    "videoEnabled": true,
+    "uploadsEnabled": true,
+    "maintenance": false
+  },
+  "templates": [
+    {
+      "id": "starter-product",
+      "name": "Product Poster · Editable",
+      "category": "Product",
+      "published": true,
+      "project": {
+        "version": 2,
+        "html": "<div class=\"element text\" data-type=\"text\" data-text=\"अपने Product का नाम\" style=\"position:absolute;left:35px;top:40px;width:470px;min-height:40px;font:700 34px Arial;color:#4c1d95;white-space:pre-wrap;z-index:2\">अपने Product का नाम</div><div class=\"element text\" data-type=\"text\" data-text=\"अपनी फोटो Upload Image से जोड़ें\" style=\"position:absolute;left:35px;top:245px;width:470px;min-height:40px;font:700 20px Arial;color:#475569;white-space:pre-wrap;z-index:2\">अपनी फोटो Upload Image से जोड़ें</div><div class=\"element text\" data-type=\"text\" data-text=\"फोन / Website यहाँ लिखें\" style=\"position:absolute;left:35px;top:440px;width:470px;min-height:40px;font:700 20px Arial;color:#4c1d95;white-space:pre-wrap;z-index:2\">फोन / Website यहाँ लिखें</div>",
+        "width": 1080,
+        "height": 1080,
+        "bgColor": "#eef2ff",
+        "bgImage": "",
+        "transparent": false
+      },
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "starter-announcement",
+      "name": "Announcement · Editable",
+      "category": "Social",
+      "published": true,
+      "project": {
+        "version": 2,
+        "html": "<div class=\"element text\" data-type=\"text\" data-text=\"आपका संदेश यहाँ\" style=\"position:absolute;left:35px;top:40px;width:470px;min-height:40px;font:700 34px Arial;color:#4c1d95;white-space:pre-wrap;z-index:2\">आपका संदेश यहाँ</div><div class=\"element text\" data-type=\"text\" data-text=\"अपनी फोटो Upload Image से जोड़ें\" style=\"position:absolute;left:35px;top:245px;width:470px;min-height:40px;font:700 20px Arial;color:#475569;white-space:pre-wrap;z-index:2\">अपनी फोटो Upload Image से जोड़ें</div><div class=\"element text\" data-type=\"text\" data-text=\"फोन / Website यहाँ लिखें\" style=\"position:absolute;left:35px;top:440px;width:470px;min-height:40px;font:700 20px Arial;color:#4c1d95;white-space:pre-wrap;z-index:2\">फोन / Website यहाँ लिखें</div>",
+        "width": 1080,
+        "height": 1080,
+        "bgColor": "#fff7ed",
+        "bgImage": "",
+        "transparent": false
+      },
+      "updatedAt": "2026-10-01"
+    }
+  ]
+}
