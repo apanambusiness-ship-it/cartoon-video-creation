@@ -37,3 +37,9 @@ The object editor regression uses real SlimSAM and the 62 MB quantized LaMa mode
 ### Object editor entry correction
 
 The regression now opens a real JPEG through the template-library upload UI and clicks main Edit while a caption layer is selected. It verifies the object dialog opens, real SlimSAM/LaMa complete, replacement/drag/save work, and a background-only upload opens in one click without restoring the old background on reload. Desktop controls pass at 1024/1280/1440/1920 widths. Model hosts were checked with the public-site Origin header; they return permitted CORS headers. Browser live navigation in this workspace returns ERR_EMPTY_RESPONSE, so live publication is checked by deployment status and fetched file bytes, not claimed as a live-browser inference test.
+
+### Visible object actions
+
+The object editor now fits the photo preview between its controls and footer. Regression checks verify photo, Separate/Drag, Delete, Replace and Close all remain onscreen without scrolling at 1280×620, 1024×600 and 390×700. The real-model separation/drag and persistence checks remain in the same regression.
+
+The optional STUDIO_OBJECT_SCREENSHOT fixture was also run against the user-provided sports illustration screenshot: the shoe was segmented, inpainted, split into a layer and dragged. This verifies the visible screenshot content in a local browser; it does not prove inference in the user's live browser.
