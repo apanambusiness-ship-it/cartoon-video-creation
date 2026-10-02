@@ -1,6 +1,6 @@
 (()=>{
  const header=document.querySelector('.admin-header');if(!header)return;
- const brand=header.firstElementChild;brand.classList.add('admin-brand');const logo=document.createElement('img');logo.src='apanam-header-logo-final.svg';logo.alt='APANAM';logo.className='admin-brand-logo';brand.prepend(logo);
+ const brand=header.firstElementChild;brand.classList.add('admin-brand');const logo=document.createElement('img');logo.src='apanam-header-logo-original.png?v=1';logo.alt='APANAM';logo.className='admin-brand-logo';brand.prepend(logo);
  const form=document.getElementById('studioCloudLogin')||document.getElementById('memberLogin');if(!form)return;
  const wrapper=document.createElement('div');wrapper.className='account-login-layout';form.before(wrapper);const loginDetails=document.createElement('details');loginDetails.className='account-login-details';const loginSummary=document.createElement('summary');loginSummary.textContent='Login / Account बदलें';loginDetails.append(loginSummary,form);wrapper.append(loginDetails);
  const profile=document.createElement('aside');profile.className='account-photo';const photo=document.createElement('img');photo.alt='Profile photo';photo.hidden=true;const fallback=document.createElement('span');fallback.className='account-avatar';fallback.textContent='A';
