@@ -1,5 +1,5 @@
 (()=>{
-  if('serviceWorker' in navigator)addEventListener('load',async()=>{try{const registration=await navigator.serviceWorker.register('./service-worker.js?v=20260927-2',{updateViaCache:'none'});registration.update().catch(()=>{})}catch{}});
+  if('serviceWorker' in navigator)addEventListener('load',async()=>{try{const registration=await navigator.serviceWorker.register('./service-worker.js?v=current-editors39',{updateViaCache:'none'});registration.update().catch(()=>{})}catch{}});
   const header=document.querySelector('body>header');if(!header)return;
   const installed=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
   if(document.getElementById('apanamInstallApp'))return;
