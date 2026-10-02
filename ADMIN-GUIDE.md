@@ -76,3 +76,9 @@ Membership, payment collection तथा paid AI generation अभी लाग�
 ## Social Share और Caption
 
 Poster/video में Share दबाएँ → अपना संदेश/hashtags लिखें → platform button या apps में भेजें दबाएँ → फोन की Share सूची से app चुनें। यह तैयार image/video file भेजता है; platform पर खुद post नहीं करता। कुछ apps caption नहीं लेते; संदेश Copy करके वहाँ Paste करें। File sharing न मिलने पर Download करके attach करें। Video अभी WebM है; जिस social app में WebM स्वीकार न हो, उसमें compatible format की जरूरत रहेगी। Video बदलने पर पहले नया export बनाएँ: पुराने export को Share में रोक दिया जाता है।
+
+## Private Cloud Posters और membership controls
+
+User Membership page पर Login करे। Studio में Poster / Templates → मेरे Cloud Posters से 1–5 slot चुनकर खुले poster को नाम सहित Save करे। दूसरे device पर उसी account से Login करके slot खोलें। Poster JSON और उसमें embedded photos private row में रहते हैं; दूसरे users और सामान्य admin को इन personal project rows की अनुमति नहीं है। हर project 2 MB से छोटा रखें। Existing slot बदलने से पहले JSON backup लें। दूसरे device ने बदलाव किया हो तो conflict पर cloud project दोबारा खोलकर बदलाव मिलाएँ। यह poster sync है; video/audio project cloud sync अभी नहीं है।
+
+Admin में Membership सूची देखें / Refresh से अधिकतम 100 records दिखते हैं। अवधि बदलें / फिर चालू करें से User ID form में आता है; आज से 1–365 दिन चुनकर Grant दें। मुफ्त Access वापस लें से record revoked होता है; दोबारा Grant देकर वापस चालू कर सकते हैं। Manual editor का paywall अभी लागू नहीं है, इसलिए यह membership status बदलता है; अभी खुले editor को बंद नहीं करता।
