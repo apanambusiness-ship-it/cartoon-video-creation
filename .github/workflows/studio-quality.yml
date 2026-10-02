@@ -1,0 +1,42 @@
+name: Studio quality checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.js'
+      - '**.html'
+      - '**.css'
+      - '.github/workflows/studio-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: studio-quality
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned browser test dependency
+        run: npm install --no-save --package-lock=false playwright@1.55.1
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Check contracts and cache
+        run: |
+          node tests/account-recovery-regression.cjs
+          node tests/mobile-native-input-regression.cjs poster-editor-assets/touch-support.js
+          node tests/video-format-regression.cjs
+          node tests/service-worker-core-regression.cjs
+      - name: Check mobile and offline editing
+        run: node tests/current-studio-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-quality-screenshots
+          path: quality-artifacts/
+          retention-days: 7
