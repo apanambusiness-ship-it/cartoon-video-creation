@@ -6,6 +6,8 @@ on:
       - 'object-ai-worker.js'
       - 'object-mask-utils.js'
       - 'tests/real-ai-model-browser.cjs'
+      - 'tests/real-hindi-ocr-browser.cjs'
+      - 'image-content-editor.js'
       - '.github/workflows/studio-ai-quality.yml'
   workflow_dispatch:
 permissions:
@@ -26,6 +28,13 @@ jobs:
         run: npm install --no-save --package-lock=false playwright@1.55.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Install Hindi test font
+        run: |
+          sudo apt-get install --no-install-recommends -y fonts-noto-core
+          mkdir -p quality-artifacts
+          cp /usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf quality-artifacts/qa-hindi.ttf
+      - name: Run real Hindi photo OCR
+        run: node tests/real-hindi-ocr-browser.cjs
       - name: Download and run real models
         run: node tests/real-ai-model-browser.cjs
       - uses: actions/upload-artifact@v4
