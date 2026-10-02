@@ -8,7 +8,7 @@ create table public.studio_video_projects(
  user_id uuid not null references auth.users(id) on delete cascade,
  slot smallint not null check(slot between 1 and 2),
  title text not null check(char_length(title) between 1 and 80),
- payload jsonb not null check(payload->>'format'='apanam-cartoon-project-full' and jsonb_typeof(payload->'scenes')='array' and jsonb_array_length(payload->'scenes') between 1 and 100 and octet_length(payload::text)<=2097152),
+ payload jsonb not null check(coalesce(payload->>'format'='apanam-cartoon-project-full' and jsonb_typeof(payload->'scenes')='array' and jsonb_array_length(payload->'scenes') between 1 and 100 and octet_length(payload::text)<=2097152,false)),
  version bigint not null default 1 check(version>0),
  updated_at timestamptz not null default now(),
  primary key(user_id,slot)
