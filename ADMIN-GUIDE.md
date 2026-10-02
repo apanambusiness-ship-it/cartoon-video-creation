@@ -72,3 +72,7 @@ Membership, payment collection तथा paid AI generation अभी लाग�
 `membership.html` पर user Login करके अपनी User ID admin को दे। Admin Workspace → Business users में अधिकृत admin उस UUID और 1–365 दिनों की अवधि को Save कर सकता है। यह complimentary manual membership का cloud रिकॉर्ड है, admin अधिकार या AI credits नहीं। नया grant पुरानी समाप्ति तारीख को आज से चुने दिनों तक बदल देता है। User केवल अपना membership रिकॉर्ड देख सकता है।
 
 ₹10 activation → 15 दिन trial और ₹100/month manual plan page पर प्रस्ताव के रूप में दिखते हैं। Payment, paid subscription और paid export enforcement अभी सक्रिय नहीं हैं; editor अभी खुला है। बिना verified payment के paid access सक्रिय न करें।
+
+## Social Share और Caption
+
+Poster/video में Share दबाएँ → अपना संदेश/hashtags लिखें → platform button या apps में भेजें दबाएँ → फोन की Share सूची से app चुनें। यह तैयार image/video file भेजता है; platform पर खुद post नहीं करता। कुछ apps caption नहीं लेते; संदेश Copy करके वहाँ Paste करें। File sharing न मिलने पर Download करके attach करें। Video अभी WebM है; जिस social app में WebM स्वीकार न हो, उसमें compatible format की जरूरत रहेगी। Video बदलने पर पहले नया export बनाएँ: पुराने export को Share में रोक दिया जाता है।
