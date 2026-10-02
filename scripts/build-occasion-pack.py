@@ -7,7 +7,8 @@ image=Image.new('RGB',(360,420),'#e2e8f0');draw=ImageDraw.Draw(image);draw.ellip
 def shape(name,x,y,w,h,color,radius=0):
  return f'<div class="element" data-kind="shape" data-type="shape" data-name="{html.escape(name)}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:{color};border-radius:{radius}px;z-index:1"></div>'
 def text(name,value,x,y,w,h,size,color,weight=600,align='left'):
- return f'<div class="element text" data-type="text" data-name="{html.escape(name)}" data-text="{html.escape(value,quote=True)}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;font-family:system-ui,sans-serif;font-size:{size}px;font-weight:{weight};line-height:1.35;color:{color};text-align:{align};white-space:pre-wrap;z-index:3">{html.escape(value)}</div>'
+ slot={'संस्था':'organization','आपका नाम':'person','संपर्क':'contact'}.get(name);brand=f' data-brand-slot="{slot}"' if slot else ''
+ return f'<div class="element text"{brand} data-type="text" data-name="{html.escape(name)}" data-text="{html.escape(value,quote=True)}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;font-family:system-ui,sans-serif;font-size:{size}px;font-weight:{weight};line-height:1.35;color:{color};text-align:{align};white-space:pre-wrap;z-index:3">{html.escape(value)}</div>'
 def photo(x,y,w,h):
  return f'<div class="element" data-kind="image" data-type="image" data-name="Photo · अपना चित्र लगाएँ" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;z-index:2"><img alt="अपनी photo से बदलें" src="{PHOTO}" style="width:100%;height:100%;object-fit:cover;border-radius:16px"></div>'
 def make(key,name,category,headline,subtitle,accent,bg,ink,portrait=False,date='',occasion=''):
