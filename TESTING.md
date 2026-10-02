@@ -61,3 +61,9 @@ Drag regression verifies movement at the rendered stage zoom, prevents dragging 
 Text-background regression checks all original white background pixels remain exactly unchanged during glyph conversion and uses real OCR on a gradient-backed sample to verify unsafe conversion is rejected atomically. English and Hindi recognition/edit/delete/conversion tests were rerun.
 
 Desktop OCR regression asserts text controls belong to the Text sidebar and do not match :modal. OCR recognition now omits regions below confidence 65.
+
+## Published-package audit — 2 October 2026
+
+Downloaded the actual Pages artifact at commit 24b1857, checked all 216 JavaScript files with `node --check`, and ran account recovery, native touch and video format contract regressions. All passed. App script/style references exist; generated Jekyll guide URLs require the repository URL prefix when checking locally.
+
+The editor loads `poster-editor-assets/touch-support.js`; its legacy-browser fallback now preserves native text inputs too. `node tests/mobile-native-input-regression.cjs poster-editor-assets/touch-support.js` verifies that loaded copy. `node tests/service-worker-core-regression.cjs` checks all 183 core URLs exist and auth POST/external cloud calls are excluded. The static core is about 1 MB. These checks do not replace real phone editing, real offline launch or actual MP4/audio playback verification.
