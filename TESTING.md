@@ -67,3 +67,14 @@ Desktop OCR regression asserts text controls belong to the Text sidebar and do n
 Downloaded the actual Pages artifact at commit 24b1857, checked all 216 JavaScript files with `node --check`, and ran account recovery, native touch and video format contract regressions. All passed. App script/style references exist; generated Jekyll guide URLs require the repository URL prefix when checking locally.
 
 The editor loads `poster-editor-assets/touch-support.js`; its legacy-browser fallback now preserves native text inputs too. `node tests/mobile-native-input-regression.cjs poster-editor-assets/touch-support.js` verifies that loaded copy. `node tests/service-worker-core-regression.cjs` checks all 183 core URLs exist and auth POST/external cloud calls are excluded. The static core is about 1 MB. These checks do not replace real phone editing, real offline launch or actual MP4/audio playback verification.
+
+
+## Private small video/audio cloud backups — 2026-10-02
+
+Two private slots per authenticated account, 2 MB per complete JSON project. A private atomic counter limits this feature to 50 MB of logical JSON payload across all accounts; this is not a cap on total database, WAL, network traffic or other app features. No paid plan or automatic upgrade was activated.
+
+Rollback-only database regression passed: owner-only access, anonymous denial, cross-user write/read/delete rejection, stale version update rejection, slot limit, budget overflow and required payload fields. Test users and rows were rolled back. Security review found no new advisories for these tables/trigger; existing guarded admin RPC and leaked-password warnings remain.
+
+Browser regression passed at mobile width: inline login; scenes, main audio and per-scene audio Save/Load; size, conflict and full-quota errors; JSON download before deletion; local video preserved. REST responses in browser tests are simulated; a real user's cross-device login/download remains an operational check. Real Chromium WebM/MP4 files contain both video and audio streams; other devices/codecs are not guaranteed.
+
+Account/profile now includes daily in-app expiring/expired business-membership notices. These do not send email/SMS or enable paid access restrictions. Provider setup, payment/paid AI generation and real-phone acceptance remain pending.
