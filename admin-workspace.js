@@ -1,0 +1,17 @@
+(()=>{
+  const main=document.querySelector('.admin-main'),nav=main.querySelector('nav'),sections=[...main.querySelectorAll(':scope > section')];
+  const member=document.createElement('a');member.href='#memberships';member.textContent='मुफ्त Access';nav.insertBefore(member,nav.children[2]);nav.setAttribute('aria-label','Admin विभाग');
+  const links=[...nav.querySelectorAll('a')];
+  function select(id){if(!sections.some(s=>s.id===id))id='cloud';for(const s of sections)s.hidden=s.id!==id;for(const a of links){const active=a.hash==='#'+id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');} }
+  nav.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();history.replaceState(null,'',a.hash);select(a.hash.slice(1));});window.addEventListener('hashchange',()=>select(location.hash.slice(1)));select(location.hash.slice(1));
+  const toast=document.createElement('div');toast.className='admin-toast';toast.hidden=true;toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');const text=document.createElement('span'),close=document.createElement('button');close.type='button';close.textContent='×';close.setAttribute('aria-label','संदेश बंद करें');toast.append(text,close);document.body.append(toast);let timer;close.onclick=()=>{clearTimeout(timer);toast.hidden=true;};
+  const sources=['adminStatus','studioCloudStatus','manualGrantStatus'].map(id=>document.getElementById(id));
+  function notify(source){const value=source.textContent.trim();if(!value)return;text.textContent=value;toast.hidden=false;clearTimeout(timer);timer=setTimeout(()=>{toast.hidden=true;},7000);}
+  for(const source of sources)new MutationObserver(()=>notify(source)).observe(source,{childList:true,characterData:true,subtree:true});
+  const badge=document.createElement('p');badge.className='admin-account-state';document.querySelector('.admin-header').append(badge);const cloud=document.getElementById('studioCloudStatus');function account(){badge.textContent=cloud.textContent.startsWith('Admin login तैयार')?'● Admin सक्रिय':window.APANAM_CLOUD?.user()?'● Login हुआ':'○ Login करें';}new MutationObserver(account).observe(cloud,{childList:true,subtree:true});account();
+  const notice=document.querySelector('.admin-notice');notice.textContent='Draft में बदलाव करें → Backup लें → Cloud Publish करें।';
+  for(const section of sections){const explanation=section.querySelector(':scope > p:not([id])');if(explanation){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='जानकारी / कैसे काम करें';explanation.before(details);details.append(summary,explanation);}}
+  const list=document.getElementById('adminTemplates');const opened=new Set();
+  function compact(){for(const card of list.children){if(card.querySelector('.admin-card-details'))continue;const name=card.querySelector('input[aria-label="Template नाम"]');const details=document.createElement('details');details.className='admin-card-details';const summary=document.createElement('summary');summary.textContent=name.value+' · विवरण / विकल्प';details.append(summary);const nodes=[...card.children].filter(n=>n.tagName!=='IFRAME');for(const n of nodes)details.append(n);card.append(details);details.open=opened.has(name.value);details.addEventListener('toggle',()=>{if(details.open)opened.add(name.value);else opened.delete(name.value);});}}
+  new MutationObserver(compact).observe(list,{childList:true});compact();
+})();
