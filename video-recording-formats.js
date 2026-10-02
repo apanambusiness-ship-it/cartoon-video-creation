@@ -1,0 +1,3 @@
+(()=>{'use strict';const supported=m=>{try{return !!globalThis.MediaRecorder?.isTypeSupported(m)}catch{return false}};
+function select(format,hasAudio=false){const mp4=hasAudio?['video/mp4;codecs=avc1.424028,mp4a.40.2','video/mp4;codecs=avc1,mp4a.40.2','video/mp4']:['video/mp4;codecs=avc1.424028','video/mp4;codecs=avc1','video/mp4'];const webm=hasAudio?['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm']:['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'];const mime=(format==='mp4'?mp4:webm).find(supported);return mime?{mime,extension:format==='mp4'?'mp4':'webm',label:format==='mp4'?'MP4':'WebM'}:null;}
+globalThis.APANAM_VIDEO_FORMATS={select,supported};})();
