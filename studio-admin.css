@@ -24,3 +24,8 @@
 @media(max-width:700px){.header-account-name{display:none}.header-account>summary{padding:3px;border:0}.header-account .account-avatar,.header-account img{width:34px;height:34px}.header-account-menu{width:200px;max-width:calc(100vw - 20px)}.header-account-menu button{min-height:42px}.admin-header>a{margin-left:auto}.header-account{margin-left:0}}
 
 .admin-user-card{border:1px solid #e7e2f0;border-radius:10px;padding:12px;margin:8px 0}.admin-user-card h3{font-size:15px;margin:0 0 4px}.admin-user-overview{font-size:12px;color:#475569;margin:4px 0;overflow-wrap:anywhere}.admin-user-card .admin-actions{margin-top:7px}.admin-user-card summary{cursor:pointer;font-size:13px;color:#5b21b6}.admin-user-card .profile-records{margin:8px 0}#adminUserSearch{align-items:end}#users>.admin-actions{align-items:center}#adminUserPages{font-size:12px}
+
+/* Desktop directory uses available width; mobile stays stacked. */
+#adminUserList{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;align-items:start}.admin-user-card{min-width:0;margin:0}.admin-user-card .profile-records{grid-template-columns:110px minmax(0,1fr)}
+@media(min-width:900px){.admin-main{max-width:1440px}.admin-header{padding-left:max(16px,calc((100vw - 1408px)/2));padding-right:max(16px,calc((100vw - 1408px)/2))}#adminUserList{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1300px){#adminUserList{grid-template-columns:repeat(3,minmax(0,1fr))}}
