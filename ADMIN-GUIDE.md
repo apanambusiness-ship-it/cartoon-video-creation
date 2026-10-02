@@ -44,3 +44,17 @@ PNG/JPG की पुरानी lettering या photo मूल image मे�
 Poster upload करके खोलें। Header का Edit या canvas के पास “Auto पहचानकर Edit” दबाएँ। हिन्दी + English / English / বাংলা + English भाषा चुन सकते हैं। पहली बार OCR library और language data internet से डाउनलोड होते हैं; पहचान browser में होती है। पहचाने हुए text के चारों ओर boxes आते हैं। Box पर click से text, font, size, text/background रंग बदलें और “Text सेव करें” दबाएँ; “यह text Delete करें” उसी मूल image से text हटाता है। Undo/Redo और JSON backup में edited image व पहचाने हुए हिस्से बचते हैं। Boxes editing UI हैं, export में नहीं जाते।
 
 हर image में OCR सफल या सही नहीं होता; अस्पष्ट, घुमे, decorative या छोटे text की spelling/box जाँचें। Original font या hidden patterned background अपने आप वापस नहीं आता। पहचान न होने पर manual Text/Photo बदलें विकल्प उपलब्ध हैं। Photo की जगह स्वयं box चुनें; automatic photo segmentation उपलब्ध नहीं है।
+
+
+## रोज के अवसर वाले posters (2 अक्टूबर 2026)
+
+1. Admin Workspace में category चुनें: त्योहार, राजनीतिक, जयंती, पुण्यतिथि या दैनिक शुभकामनाएँ।
+2. अवसर/विषय और उसकी तारीख भरकर PNG/JPG या editable JSON upload करें। हर template की तारीख बाद में भी बदली जा सकती है।
+3. केवल स्थिर तारीख वाले अवसर पर “हर साल इसी तारीख” चुनें। बदलती त्योहार तारीख हर साल सही करें।
+4. User Library में दिखाई देने वाला checkbox चालू रखें, Catalog JSON डाउनलोड करें और अधिकृत GitHub owner से प्रकाशित करें। यह browser draft है; Save करने मात्र से सभी users तक नहीं पहुँचता।
+5. User Poster / Templates → आज के posters या अपनी तारीख → अपना नाम / Logo लगाएँ चुनता है।
+6. नाम, संस्था, Mobile/WhatsApp, social links और logo भरें। जानकारी इस device पर सेव होती है; cloud account sync अभी नहीं है।
+7. नामपट्टी ऊपर या नीचे रखें; template में वहाँ खाली जगह छोड़ें। हर text/logo अलग editable layer है। दोबारा लगाने पर पिछली नामपट्टी बदलेगी। Undo/Redo और Save उपलब्ध हैं।
+8. Download / Share से तैयार file लें या उपलब्ध mobile share menu में app चुनें। यह social accounts पर automatic scheduled publishing नहीं है।
+
+रोज की artwork admin तैयार/upload करेगा; app अपने-आप जयंती/पुण्यतिथि की जानकारी या सही त्योहार तारीख नहीं बनाता। Original poster के pixels नहीं बदले जाते; नामपट्टी चुनी जगह पर दिखती है।

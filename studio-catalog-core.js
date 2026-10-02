@@ -18,6 +18,9 @@
     const html=safeHTML(value.html);if(!html.trim())throw Error('Template खाली है।');
     return {version:2,html,width,height,bgColor:/^(#[0-9a-f]{3,8}|transparent|rgba?\([\d\s.,%]+\))$/i.test(value.bgColor||'')?value.bgColor:'#ffffff',bgImage:typeof value.bgImage==='string'&&/^(data:image\/(png|jpeg|webp|gif);base64,|https?:\/\/)/i.test(value.bgImage)?value.bgImage:'',transparent:Boolean(value.transparent)};
   }
+  function validDate(value){const v=String(value||'');if(!/^\d{4}-\d{2}-\d{2}$/.test(v))return '';const d=new Date(v+'T00:00:00Z');return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===v?v:''}
+  function today(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
+  function onDate(item,date){return Boolean(item.eventDate&&(item.repeatYearly?item.eventDate.slice(5)===date.slice(5):item.eventDate===date))}
   function catalog(value){
     if(value?.format!==format||!Array.isArray(value.templates))throw Error('सही APANAM catalog JSON चुनें।');
     const defaults={appName:'APANAMai STUDIO',announcement:'',contact:'',primaryColor:'#5b21b6',posterEnabled:true,videoEnabled:true,uploadsEnabled:true,maintenance:false},raw=value.settings||{},settings={...defaults};
@@ -26,7 +29,7 @@
     for(const key of ['posterEnabled','videoEnabled','uploadsEnabled','maintenance'])if(typeof raw[key]==='boolean')settings[key]=raw[key];
     const ids=new Set();const templates=value.templates.map(item=>{
       if(!item||typeof item.id!=='string'||!item.id||ids.has(item.id))throw Error('Template IDs खाली या duplicate हैं।');ids.add(item.id);
-      return {id:item.id.slice(0,100),name:String(item.name||'मेरा Template').slice(0,120),category:String(item.category||'General').slice(0,80),published:item.published!==false,project:project(item.project),updatedAt:String(item.updatedAt||'')};
+      return {id:item.id.slice(0,100),name:String(item.name||'मेरा Template').slice(0,120),category:String(item.category||'General').slice(0,80),published:item.published!==false,eventDate:validDate(item.eventDate),repeatYearly:item.repeatYearly===true,occasion:String(item.occasion||'').slice(0,100),project:project(item.project),updatedAt:String(item.updatedAt||'')};
     });return {format,version:1,settings,templates};
   }
   async function imageProject(file){
@@ -39,5 +42,5 @@
   function download(value,name){const link=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),30000)}
   const draftDB=()=>new Promise((resolve,reject)=>{const request=indexedDB.open('apanam-admin-drafts',1);request.onupgradeneeded=()=>request.result.createObjectStore('drafts');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
   async function draft(write){const db=await draftDB();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('drafts',write?'readwrite':'readonly'),request=write?tx.objectStore('drafts').put(write,'catalog'):tx.objectStore('drafts').get('catalog');let value;request.onsuccess=()=>value=request.result;tx.oncomplete=()=>resolve(value);tx.onabort=()=>reject(tx.error||Error('Storage full'));tx.onerror=()=>reject(tx.error)})}finally{db.close()}}
-  window.APANAM_CATALOG={catalog,project,safeHTML,imageProject,download,draft,async load(){const response=await fetch('./studio-catalog.json',{cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)throw Error('Catalog नहीं खुला।');return catalog(await response.json())}};
+  window.APANAM_CATALOG={catalog,validDate,today,onDate,project,safeHTML,imageProject,download,draft,async load(){const response=await fetch('./studio-catalog.json',{cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)throw Error('Catalog नहीं खुला।');return catalog(await response.json())}};
 })();
