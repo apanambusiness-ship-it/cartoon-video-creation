@@ -78,3 +78,17 @@ Rollback-only database regression passed: owner-only access, anonymous denial, c
 Browser regression passed at mobile width: inline login; scenes, main audio and per-scene audio Save/Load; size, conflict and full-quota errors; JSON download before deletion; local video preserved. REST responses in browser tests are simulated; a real user's cross-device login/download remains an operational check. Real Chromium WebM/MP4 files contain both video and audio streams; other devices/codecs are not guaranteed.
 
 Account/profile now includes daily in-app expiring/expired business-membership notices. These do not send email/SMS or enable paid access restrictions. Provider setup, payment/paid AI generation and real-phone acceptance remain pending.
+
+
+
+## Business / reminders / private media verification (2026-10-02)
+
+- Trial is server-recorded once for verified users, exactly 15 days; current manual editor stays open during pre-launch. Payment remains disabled.
+- Quotes round upward from maximum provider unit cost and margin; they do not debit a balance or call a paid provider.
+- Consent-bound 7/3/1/0-day reminder queue includes the later applicable trial/complimentary expiry; renewed/revoked/opted-out notices are skipped. Unknown provider outcomes are not resent automatically.
+- Private media limits: 10 MiB/file, 30 MiB and 30 files/user, 150 MiB pool. All downloads use a quota-controlled authenticated proxy (100 MiB / 20 requests per user per UTC day; 500 MiB pool/day). Aborted requests still consume quota.
+- Database rollback test passed: trial reuse, owner isolation, admin-only prices, margin, consent, queue deduplication, media limits and disabled payment activation. No synthetic accounts persist.
+- Actual Edge handler dry tests pass authentication, admin guard, MIME validation, ownership, no public signed download and timeout reservation retention.
+- Automated UI tests cover user/admin pages, trial, consent, quote, upload, backup-before-delete, unavailable-provider guard and 390/1280px layouts with mocked backend responses. They are not a live cross-device account test.
+- Natural-photo browser tests use a fixed OpenCV fruit camera sample, actual freehand/touch handlers, extra-finger cancellation, unchanged pixels outside the selection, saved extracted layer and real local LaMa repair.
+- Physical-phone/microphone/sharing tests remain manual. Email delivery needs Brevo API key, verified sender and matching Edge/Vault cron secret. SMS and professional paid AI need external providers/keys and cost limits. No paid provider, payment collection or message delivery was activated in this release.

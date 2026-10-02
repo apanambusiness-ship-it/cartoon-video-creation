@@ -102,3 +102,9 @@ Payment checkout/webhook, ₹10 activation/15-day paid trial, ₹100 subscriptio
 ## Video download format
 
 Video Studio में Download format से WebM या MP4 चुनें। MP4 केवल उस browser में चालू होता है जहाँ native recording support मिले; यह server-side converter नहीं है। Audio वाला MP4 बनाने के लिए उस browser में संबंधित audio codec भी उपलब्ध होना चाहिए। समस्या पर WebM चुनें। तैयार file की playback और आवाज़ वास्तविक device पर जाँचना बाकी है। Project में बदलाव के बाद पहले नया video export बनाएँ; पुराना export Share में रोका जाता है।
+
+
+
+## Business / Reminders और निजी media
+
+नई server limits, trial, AI लागत / margin, Email setup और phone verification के लिए [BUSINESS-SETUP.md](BUSINESS-SETUP.md) पढ़ें। Admin navigation में Business / Reminders खोलें। User Membership page में Trial, Reminder preference और मेरी Cloud Files मिलेंगे। Payment और paid AI अभी बंद हैं।

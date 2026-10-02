@@ -8,6 +8,8 @@ on:
       - 'tests/real-ai-model-browser.cjs'
       - 'tests/real-hindi-ocr-browser.cjs'
       - 'image-content-editor.js'
+      - 'object-image-editor.js'
+      - 'tests/real-photo-editor-browser.cjs'
       - '.github/workflows/studio-ai-quality.yml'
   workflow_dispatch:
 permissions:
@@ -34,6 +36,10 @@ jobs:
           curl --fail --location --globoff --retry 2 --connect-timeout 20 --max-time 90 'https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth%2Cwght%5D.ttf' -o quality-artifacts/qa-hindi.ttf
       - name: Run real Hindi photo OCR
         run: node tests/real-hindi-ocr-browser.cjs
+      - name: Download fixed natural-photo fixture
+        run: curl --fail --location --retry 2 --connect-timeout 20 --max-time 90 'https://raw.githubusercontent.com/opencv/opencv/20e367198c7adde8f1efc0f525256b1e15798024/samples/data/fruits.jpg' -o quality-artifacts/qa-camera-fruits.jpg
+      - name: Check camera photo selection and real repair
+        run: node tests/real-photo-editor-browser.cjs
       - name: Download and run real models
         run: node tests/real-ai-model-browser.cjs
       - uses: actions/upload-artifact@v4
@@ -42,3 +48,4 @@ jobs:
           name: studio-real-ai-screenshots
           path: quality-artifacts/
           retention-days: 7
+
