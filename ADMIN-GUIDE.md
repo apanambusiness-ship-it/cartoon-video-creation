@@ -66,3 +66,9 @@ Studio का अलग Supabase project है; ERP project अलग और �
 हर cloud image अधिकतम 2 MB और catalog अधिकतम 10 MB है। Draft images भी public asset URL पर रहती हैं: confidential images upload न करें। Catalog से poster हटाना storage image को delete नहीं करता, ताकि पुराने saved designs काम करें। Storage quota की निगरानी और बाद में सुरक्षित cleanup जरूरी है; free service unlimited नहीं है। Concurrent admin बदलाव पर conflict दिखता है: backup लेकर नया cloud draft खोलें और बदलाव दोबारा मिलाएँ।
 
 Membership, payment collection तथा paid AI generation अभी लागू नहीं हुए हैं।
+
+## मुफ्त Business Manual Membership
+
+`membership.html` पर user Login करके अपनी User ID admin को दे। Admin Workspace → Business users में अधिकृत admin उस UUID और 1–365 दिनों की अवधि को Save कर सकता है। यह complimentary manual membership का cloud रिकॉर्ड है, admin अधिकार या AI credits नहीं। नया grant पुरानी समाप्ति तारीख को आज से चुने दिनों तक बदल देता है। User केवल अपना membership रिकॉर्ड देख सकता है।
+
+₹10 activation → 15 दिन trial और ₹100/month manual plan page पर प्रस्ताव के रूप में दिखते हैं। Payment, paid subscription और paid export enforcement अभी सक्रिय नहीं हैं; editor अभी खुला है। बिना verified payment के paid access सक्रिय न करें।
