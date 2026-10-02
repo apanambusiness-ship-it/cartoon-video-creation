@@ -4,7 +4,7 @@
 
 - Users: प्रकाशित templates खोलना, text/photo/logo बदलना, अपनी image या editable JSON upload करना, और export/backup डाउनलोड करना।
 - Admin: `admin.html` में template जोड़ना, नाम/category बदलना, duplicate करना, hide/delete करना, editor में layers बदलना, app settings तैयार करना और catalog backup लेना।
-- Live publication: GitHub repository का अधिकृत owner/maintainer `studio-catalog.json` upload करके commit करता है। Public admin page केवल अपने browser के drafts बदल सकता है। किसी visitor को live publish अनुमति नहीं मिलती। Password या access token frontend में नहीं रखा गया है।
+- Live publication: Cloud Admin Login में verified owner account से login करें। Admin अधिकार database में अलग दिए जाते हैं; signup से admin अधिकार नहीं मिलते। Cloud draft Save निजी catalog रखता है और Publish केवल visible posters सार्वजनिक करता है। Access session उसी browser tab में रहती है; public configuration में केवल publishable key है।
 - Software changes: admin workspace का “Software source / सभी files” लिंक खोलकर GitHub में code/features बदलें। प्रत्येक commit का इतिहास और deployment status उपलब्ध है।
 
 ## Poster / template जोड़ना
@@ -13,19 +13,19 @@
 2. कई images या JSON files एक साथ चुनें। Draft IndexedDB में सेव होता है।
 3. “Editor में बदलें” से poster खोलें। Photo, text और logo edit करें। ऊपर “Template बदलाव admin में सेव करें” दबाएँ।
 4. Name/category बदलें। “User Library में दिखाएँ” हटाने पर template अगले publication के बाद छिपेगा।
-5. Catalog JSON download करके GitHub में root पर `studio-catalog.json` upload/replace और commit करें। Deployment हरा होने पर app refresh करें।
+5. पहले Catalog JSON backup डाउनलोड करें। अधिकृत admin Cloud draft Save या Publish दबाएँ। दूसरे device पर Login → Cloud draft खोलें। GitHub `studio-catalog.json` पुराना backup/fallback रास्ता भी उपलब्ध है।
 
 JPG/PNG में पुराने text/photos अलग layers नहीं होते। Image एक layer के रूप में खुलती है; नई text/photo/logo layers जोड़ सकते हैं। पूरी तरह editable template के लिए editor का Save JSON इस्तेमाल करें।
 
-Template संख्या पर कोई तय सीमा नहीं रखी गई है। Browser storage और hosting/file-size limits फिर भी लागू हैं। Search तथा “और दिखाएँ” बड़े संग्रह को चरणों में खोलते हैं। नियमित JSON backup और मूल images अलग सुरक्षित रखें। Draft केवल उसी browser/device में रहता है; प्रकाशित catalog सभी users को मिलता है।
+Template संख्या पर कोई तय सीमा नहीं रखी गई है। Browser storage और hosting/file-size limits फिर भी लागू हैं। Search तथा “और दिखाएँ” बड़े संग्रह को चरणों में खोलते हैं। नियमित JSON backup और मूल images अलग सुरक्षित रखें। Local draft उसी browser/device में रहता है। Cloud draft Save के बाद अधिकृत admin दूसरे device से उसे खोल सकता है; प्रकाशित catalog सभी users को मिलता है।
 
 ## App settings
 
-App नाम, announcement, support संपर्क, मुख्य रंग, poster/video availability, Library user upload और maintenance notice बदल सकते हैं। Settings पहले draft होती हैं; GitHub publication के बाद live होती हैं। ये interface controls हैं, server-side access controls नहीं।
+App नाम, announcement, support संपर्क, मुख्य रंग, poster/video availability, Library user upload और maintenance notice बदल सकते हैं। Settings पहले draft होती हैं; Cloud Publish या GitHub publication के बाद live होती हैं। ये interface controls हैं, server-side access controls नहीं।
 
 ## Free setup की बाकी स्थिति
 
-Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Workers AI, verified email login तथा cloud project sync के लिए अलग authenticated server/account configuration जरूरी है; उन्हें इस static admin page में सक्रिय बताकर नहीं दिखाया गया है। DNS और paid services में कोई बदलाव नहीं किया गया।
+Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Email login और admin cloud catalog का code जुड़ा है; पहला verified owner account और उसका admin grant अभी जरूरी है। Workers AI और user project cloud sync अभी लागू नहीं हैं। DNS और paid services में कोई बदलाव नहीं किया गया।
 
 
 ## Uploaded template का content बदलना
@@ -58,3 +58,11 @@ Poster upload करके खोलें। Header का Edit या canvas �
 8. Download / Share से तैयार file लें या उपलब्ध mobile share menu में app चुनें। यह social accounts पर automatic scheduled publishing नहीं है।
 
 रोज की artwork admin तैयार/upload करेगा; app अपने-आप जयंती/पुण्यतिथि की जानकारी या सही त्योहार तारीख नहीं बनाता। Original poster के pixels नहीं बदले जाते; नामपट्टी चुनी जगह पर दिखती है।
+
+## Cloud setup और सीमाएँ
+
+Studio का अलग Supabase project है; ERP project अलग और अपरिवर्तित है। पहला owner अपना account बनाकर email verify करे; उसके verified Auth user को database में admin grant देना अभी जरूरी है। Password/OTP chat में साझा न करें। Default email delivery सीमित है; सार्वजनिक customer signup से पहले production SMTP configure करना होगा।
+
+हर cloud image अधिकतम 2 MB और catalog अधिकतम 10 MB है। Draft images भी public asset URL पर रहती हैं: confidential images upload न करें। Catalog से poster हटाना storage image को delete नहीं करता, ताकि पुराने saved designs काम करें। Storage quota की निगरानी और बाद में सुरक्षित cleanup जरूरी है; free service unlimited नहीं है। Concurrent admin बदलाव पर conflict दिखता है: backup लेकर नया cloud draft खोलें और बदलाव दोबारा मिलाएँ।
+
+Membership, payment collection तथा paid AI generation अभी लागू नहीं हुए हैं।
