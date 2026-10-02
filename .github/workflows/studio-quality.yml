@@ -27,6 +27,8 @@ jobs:
         run: npm install --no-save --package-lock=false playwright@1.55.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Install exported media verifier
+        run: sudo apt-get install --no-install-recommends -y ffmpeg
       - name: Check contracts and cache
         run: |
           node tests/account-recovery-regression.cjs
