@@ -30,9 +30,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install Hindi test font
         run: |
-          sudo apt-get install --no-install-recommends -y fonts-noto-core
           mkdir -p quality-artifacts
-          cp /usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf quality-artifacts/qa-hindi.ttf
+          curl --fail --location --globoff --retry 2 --connect-timeout 20 --max-time 90 'https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth%2Cwght%5D.ttf' -o quality-artifacts/qa-hindi.ttf
       - name: Run real Hindi photo OCR
         run: node tests/real-hindi-ocr-browser.cjs
       - name: Download and run real models
