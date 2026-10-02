@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '**.js'
+      - '**.cjs'
       - '**.html'
       - '**.css'
       - '.github/workflows/studio-quality.yml'
