@@ -25,7 +25,7 @@ App नाम, announcement, support संपर्क, मुख्य रं�
 
 ## Free setup की बाकी स्थिति
 
-Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Email login और admin cloud catalog का code जुड़ा है; पहला verified owner account और उसका admin grant अभी जरूरी है। Workers AI और user project cloud sync अभी लागू नहीं हैं। DNS और paid services में कोई बदलाव नहीं किया गया।
+Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Email login और admin cloud catalog का code जुड़ा है; Verified owner और admin grant जुड़े हैं। Users के निजी poster cloud slots भी जुड़े हैं। Workers AI का वास्तविक generation सत्यापन बाकी है। DNS और paid services में कोई बदलाव नहीं किया गया।
 
 
 ## Uploaded template का content बदलना
@@ -61,11 +61,11 @@ Poster upload करके खोलें। Header का Edit या canvas �
 
 ## Cloud setup और सीमाएँ
 
-Studio का अलग Supabase project है; ERP project अलग और अपरिवर्तित है। पहला owner अपना account बनाकर email verify करे; उसके verified Auth user को database में admin grant देना अभी जरूरी है। Password/OTP chat में साझा न करें। Default email delivery सीमित है; सार्वजनिक customer signup से पहले production SMTP configure करना होगा।
+Studio का अलग Supabase project है; ERP project अलग और अपरिवर्तित है। Verified owner को admin अधिकार दिया गया है; नए signup से admin अधिकार नहीं मिलते। Password/OTP chat में साझा न करें। Custom SMTP जोड़ा गया है; email delivery, sender limits और Spam folder की वास्तविक जाँच जरूरी है।
 
 हर cloud image अधिकतम 2 MB और catalog अधिकतम 10 MB है। Draft images भी public asset URL पर रहती हैं: confidential images upload न करें। Catalog से poster हटाना storage image को delete नहीं करता, ताकि पुराने saved designs काम करें। Storage quota की निगरानी और बाद में सुरक्षित cleanup जरूरी है; free service unlimited नहीं है। Concurrent admin बदलाव पर conflict दिखता है: backup लेकर नया cloud draft खोलें और बदलाव दोबारा मिलाएँ।
 
-Membership, payment collection तथा paid AI generation अभी लागू नहीं हुए हैं।
+Complimentary membership रिकॉर्ड जुड़ा है। Payment collection और paid AI generation अभी सक्रिय नहीं हैं।
 
 ## मुफ्त Business Manual Membership
 
@@ -82,3 +82,15 @@ Poster/video में Share दबाएँ → अपना संदेश/ha
 User Membership page पर Login करे। Studio में Poster / Templates → मेरे Cloud Posters से 1–5 slot चुनकर खुले poster को नाम सहित Save करे। दूसरे device पर उसी account से Login करके slot खोलें। Poster JSON और उसमें embedded photos private row में रहते हैं; दूसरे users और सामान्य admin को इन personal project rows की अनुमति नहीं है। हर project 2 MB से छोटा रखें। Existing slot बदलने से पहले JSON backup लें। दूसरे device ने बदलाव किया हो तो conflict पर cloud project दोबारा खोलकर बदलाव मिलाएँ। यह poster sync है; video/audio project cloud sync अभी नहीं है।
 
 Admin में Membership सूची देखें / Refresh से अधिकतम 100 records दिखते हैं। अवधि बदलें / फिर चालू करें से User ID form में आता है; आज से 1–365 दिन चुनकर Grant दें। मुफ्त Access वापस लें से record revoked होता है; दोबारा Grant देकर वापस चालू कर सकते हैं। Manual editor का paywall अभी लागू नहीं है, इसलिए यह membership status बदलता है; अभी खुले editor को बंद नहीं करता।
+
+## Users / Profiles और Account सहायता — 2 October 2026
+
+Admin → Users / Profiles में नाम, email, संस्था, mobile या WhatsApp खोजें। Membership filter से सभी, सक्रिय, 7 दिन में समाप्त, अवधि समाप्त, वापस लिए गए Access या बिना membership वाले users चुनें। प्रति पेज 50 records; पहला/पिछला/अगला/आखिरी और page jump उपलब्ध हैं। Desktop में cards साथ-साथ और mobile में नीचे-नीचे आते हैं। पूरा विवरण दबाने पर निजी account विवरण खुलता है; यह सूची केवल अधिकृत admin को मिलती है।
+
+Membership page पर user नया account बना सकता है, login कर सकता है, User ID copy कर सकता है और Profile बदल सकता है। Password भूल गए / Email verify करें खोलें: email भरकर reset या verification link माँगें। सबसे नया link इस्तेमाल करें। Reset link Membership page पर नया Password form खोलता है। Password दो बार समान भरें और Save करें। पुराना/समाप्त link होने पर नया माँगें। लिंक, password और OTP किसी को न दें। वास्तविक mailbox delivery का end-to-end परीक्षण बाकी है।
+
+Admin के Validity reminder और Email खोलें केवल संदेश तैयार करते हैं; भेजना admin को होगा। Automatic reminders के लिए server-side scheduler, delivery log/deduplication और email/SMS provider चाहिए। Brevo SMTP auth email के लिए है; arbitrary business reminders हेतु अलग server credential setup जरूरी है। Paid SMS अभी नहीं जोड़ा है।
+
+## अभी चालू न मानें
+
+Payment checkout/webhook, ₹10 activation/15-day paid trial, ₹100 subscription enforcement, prepaid AI credits, professional AI audio/video, MP4 conversion और video/audio cloud backup बाकी हैं। इन पर account/provider लागत तय किए बिना पैसे न लें। Manual editor अभी खुला है; complimentary membership status इसका paywall नहीं बनाता। Phone पर selection, microphone, audio/export और installation का अंतिम device परीक्षण जरूरी है।
