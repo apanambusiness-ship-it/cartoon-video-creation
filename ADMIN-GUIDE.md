@@ -98,3 +98,7 @@ Payment checkout/webhook, ₹10 activation/15-day paid trial, ₹100 subscriptio
 ## Cloud poster slot खाली करना
 
 मेरे Cloud Posters में सेव slot चुनें → JSON backup लेकर हटाएँ → पुष्टि करें। JSON download शुरू होता है; फिर केवल आपके account का चुना cloud poster हटता है। Download पूरा होने की स्वयं जाँच करें। Canvas में खुला poster और local gallery नहीं हटते। दूसरे device से poster बदलने पर delete रुकता है; सूची Refresh करके नया poster खोलें। खाली slot में नया poster Save कर सकते हैं।
+
+## Video download format
+
+Video Studio में Download format से WebM या MP4 चुनें। MP4 केवल उस browser में चालू होता है जहाँ native recording support मिले; यह server-side converter नहीं है। Audio वाला MP4 बनाने के लिए उस browser में संबंधित audio codec भी उपलब्ध होना चाहिए। समस्या पर WebM चुनें। तैयार file की playback और आवाज़ वास्तविक device पर जाँचना बाकी है। Project में बदलाव के बाद पहले नया video export बनाएँ; पुराना export Share में रोका जाता है।
