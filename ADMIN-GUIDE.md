@@ -94,3 +94,7 @@ Admin के Validity reminder और Email खोलें केवल सं�
 ## अभी चालू न मानें
 
 Payment checkout/webhook, ₹10 activation/15-day paid trial, ₹100 subscription enforcement, prepaid AI credits, professional AI audio/video, MP4 conversion और video/audio cloud backup बाकी हैं। इन पर account/provider लागत तय किए बिना पैसे न लें। Manual editor अभी खुला है; complimentary membership status इसका paywall नहीं बनाता। Phone पर selection, microphone, audio/export और installation का अंतिम device परीक्षण जरूरी है।
+
+## Cloud poster slot खाली करना
+
+मेरे Cloud Posters में सेव slot चुनें → JSON backup लेकर हटाएँ → पुष्टि करें। JSON download शुरू होता है; फिर केवल आपके account का चुना cloud poster हटता है। Download पूरा होने की स्वयं जाँच करें। Canvas में खुला poster और local gallery नहीं हटते। दूसरे device से poster बदलने पर delete रुकता है; सूची Refresh करके नया poster खोलें। खाली slot में नया poster Save कर सकते हैं।
