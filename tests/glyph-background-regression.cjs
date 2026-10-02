@@ -13,4 +13,11 @@ const original=pixels.slice(),bounds={x0:30,y0:25,x1:83,y1:81},state={img:{natur
 const patch=context.glyphPatch(state,bounds,'#e6e0d2','#1e4116');assert(patch.count>1000);
 for(let y=0;y<patch.pixels.height;y++)for(let x=0;x<patch.pixels.width;x++){const i=y*patch.pixels.width+x,originalIndex=((y+patch.y0)*width+x+patch.x0)*4;if(patch.mask[i]){for(let k=0;k<3;k++)assert(Math.abs(patch.pixels.data[i*4+k]-[230,224,210][k])<=4,'Embossed highlights and dark ink must leave a clean background');}else for(let k=0;k<4;k++)assert.equal(patch.pixels.data[i*4+k],original[originalIndex+k],'Unselected photo pixels must stay identical');assert.equal(patch.pixels.data[i*4+3],255);}
 fillBackground(true);assert.throws(()=>context.glyphPatch(state,bounds,'#ffffff','#111111'),/background/,'A strongly changing background must be rejected');
+// Reviewed yellow letters on a varying red banner use a narrow colour mask.
+for(let y=0;y<height;y++)for(let x=0;x<width;x++)pixels.set([120+Math.floor(x/3),20+Math.floor(y/5),28,255],(y*width+x)*4);
+for(let y=25;y<=80;y++)for(let x=30;x<=82;x++)if(ink(x,y))pixels.set([245,225,25,255],(y*width+x)*4);
+const colouredOriginal=pixels.slice(),coloured=context.colorGlyphPatch(state,bounds,'#f5e119');assert(coloured.count>1000);
+for(let y=0;y<coloured.pixels.height;y++)for(let x=0;x<coloured.pixels.width;x++){const i=y*coloured.pixels.width+x,j=((y+coloured.y0)*width+x+coloured.x0)*4;if(!coloured.mask[i])for(let k=0;k<4;k++)assert.equal(coloured.pixels.data[i*4+k],colouredOriginal[j+k]);else assert(coloured.pixels.data[i*4+1]<80,'Yellow glyphs are removed while the red gradient is restored');}
+assert.throws(()=>context.colorGlyphPatch(state,bounds,'#eeeeee'),/रंग/);
+console.log('PASS reviewed colour mask restores gradient and preserves unselected pixels');
 console.log('PASS embossed glyphs removed without a white silhouette; unselected pixels preserved; complex background rejected');

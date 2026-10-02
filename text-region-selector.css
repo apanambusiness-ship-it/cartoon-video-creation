@@ -24,3 +24,5 @@
 
 #textRegionTools #imageOCRLanguage{height:28px;min-height:28px!important;font-size:11px;padding:3px 5px;max-width:155px;width:100%;border-radius:6px;background:#fff;color:#172033}
 @media(max-width:900px){#textRegionPhone #textRegionTools strong{grid-column:1;grid-row:1}#textRegionPhone #textRegionTools #imageOCRLanguage{grid-column:2/4;grid-row:1;max-width:100%;height:26px;min-height:26px!important}}
+
+#textRegionReview[hidden]{display:none!important}#textRegionReview{font-size:11px;grid-column:1/-1;display:grid;gap:3px}#textRegionReviewText{box-sizing:border-box;min-width:0;width:100%;height:30px;font-size:16px;padding:4px 6px;border:1px solid #a78bfa;border-radius:5px}#textRegionPhone #textRegionTools.has-text-review{max-height:190px}
