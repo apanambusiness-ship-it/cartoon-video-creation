@@ -9,7 +9,7 @@ This setup applies only to cartoon-video-creation and Supabase project jruxafztu
 - Existing admin complimentary Manual Access remains available separately.
 - Admin → Business / Reminders: store provider maximum per-unit cost in rupees, provider name and 25–75% margin. The estimate rounds up from `cost / (1 - margin)`. Include provider tax, exchange rate, processing and failed-generation allowance in the cost. This estimate does not buy credits or call a paid provider.
 - Membership → Reminder preference: users can opt in/out of expiry emails. No marketing subscription is implied. SMS and automatic WhatsApp remain unavailable pending a provider and verified recipient numbers.
-- Membership or editor → Cloud Files: upload/download/delete private JSON, PNG/JPG/WebP, MP3/WAV/OGG, MP4/WebM. Deletion first downloads a local backup when the stored file is ready.
+- Membership or editor → Cloud Files: upload/download/delete private JSON, PNG/JPG/WebP, MP3/WAV/OGG, browser-recorded WebM/M4A audio, MP4/WebM. Deletion first downloads a local backup when the stored file is ready.
 
 ## Storage limits
 

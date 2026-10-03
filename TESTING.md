@@ -92,3 +92,7 @@ Account/profile now includes daily in-app expiring/expired business-membership n
 - Automated UI tests cover user/admin pages, trial, consent, quote, upload, backup-before-delete, unavailable-provider guard and 390/1280px layouts with mocked backend responses. They are not a live cross-device account test.
 - Natural-photo browser tests use a fixed OpenCV fruit camera sample, actual freehand/touch handlers, extra-finger cancellation, unchanged pixels outside the selection, saved extracted layer and real local LaMa repair.
 - Physical-phone/microphone/sharing tests remain manual. Email delivery needs Brevo API key, verified sender and matching Edge/Vault cron secret. SMS and professional paid AI need external providers/keys and cost limits. No paid provider, payment collection or message delivery was activated in this release.
+
+## Recorded audio Cloud Files — 3 October 2026
+
+WebM and MP4/M4A narration are accepted alongside existing audio formats. Edge regression checks codec-suffixed MIME normalization and rejects mismatched content before reserving quota. Rollback database regression checks both MIME types, private bucket limits and unchanged account quota rejection. Payment, paid AI and email delivery remain disabled.

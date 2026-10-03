@@ -150,7 +150,7 @@ revoke all on studio_private.media_budget,studio_private.media_transfer from pub
 create function public.studio_media_reserve(owner_id uuid,file_title text,file_bytes bigint,file_mime text) returns public.studio_media_files language plpgsql security definer set search_path='' as $$
 declare used bigint; r public.studio_media_files;
 begin
- if file_bytes is null or file_bytes not between 1 and 10485760 or file_mime is null or file_mime not in('image/png','image/jpeg','image/webp','audio/mpeg','audio/wav','audio/ogg','video/mp4','video/webm','application/json') then raise exception 'Unsupported file or size'; end if;
+ if file_bytes is null or file_bytes not between 1 and 10485760 or file_mime is null or file_mime not in('image/png','image/jpeg','image/webp','audio/mpeg','audio/wav','audio/ogg','audio/webm','audio/mp4','video/mp4','video/webm','application/json') then raise exception 'Unsupported file or size'; end if;
  perform 1 from studio_private.media_budget where id for update;
  select coalesce(sum(bytes),0) into used from public.studio_media_files where user_id=owner_id and status<>'deleted';
  if used+file_bytes>31457280 or (select count(*) from public.studio_media_files where user_id=owner_id and status<>'deleted')>=30 then raise exception 'Your 30 MB / 30 file cloud limit reached'; end if;
@@ -186,7 +186,7 @@ begin
 end $$;
 revoke all on function public.studio_media_reserve(uuid,text,bigint,text),public.studio_media_state(uuid,uuid,text),public.studio_media_download(uuid,uuid) from public,anon,authenticated;
 grant execute on function public.studio_media_reserve(uuid,text,bigint,text),public.studio_media_state(uuid,uuid,text),public.studio_media_download(uuid,uuid) to service_role;
-insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('studio-private-media','studio-private-media',false,10485760,array['image/png','image/jpeg','image/webp','audio/mpeg','audio/wav','audio/ogg','video/mp4','video/webm','application/json']);
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('studio-private-media','studio-private-media',false,10485760,array['image/png','image/jpeg','image/webp','audio/mpeg','audio/wav','audio/ogg','audio/webm','audio/mp4','video/mp4','video/webm','application/json']);
 
 create extension if not exists pg_cron;
 select cron.schedule('studio-prepare-membership-reminders','30 * * * *','select studio_private.prepare_reminders();');
@@ -208,3 +208,4 @@ create policy "No direct client access" on studio_private.media_budget for all t
 create policy "No direct client access" on studio_private.media_transfer for all to authenticated using(false) with check(false);
 create policy "No direct client access" on studio_private.reminder_queue for all to authenticated using(false) with check(false);
 create policy "No direct client access" on studio_private.reminder_day for all to authenticated using(false) with check(false);
+

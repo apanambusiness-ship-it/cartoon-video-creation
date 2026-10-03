@@ -60,5 +60,12 @@ reset role;
 update public.studio_notification_preferences set email_reminders=false where user_id=(select id from qa_people where role_name='member');
 select studio_private.prepare_reminders();
 select pg_temp.assert_true(not exists(select 1 from studio_private.reminder_queue where user_id=(select id from qa_people where role_name='member') and status='pending'),'opting out cancels pending reminders');
+set local role service_role;
+select pg_temp.assert_true((public.studio_media_reserve((select id from qa_people where role_name='other'),'Recorded WebM',12,'audio/webm')).mime='audio/webm','WebM narration accepted');
+select pg_temp.assert_true((public.studio_media_reserve((select id from qa_people where role_name='other'),'Recorded M4A',12,'audio/mp4')).mime='audio/mp4','M4A narration accepted');
+select pg_temp.expect_error('select public.studio_media_reserve((select id from qa_people where role_name=''member''),''recorded over quota'',12,''audio/webm'')','30 MB');
+reset role;
+select pg_temp.assert_true((select not public and file_size_limit=10485760 and allowed_mime_types @> array['audio/webm','audio/mp4'] from storage.buckets where id='studio-private-media'),'recorded audio bucket stays private and size limited');
 select 'PASS: trial, margin, consent, queue deduplication, media quotas, ownership and blocked payments' as result;
 rollback;
+
