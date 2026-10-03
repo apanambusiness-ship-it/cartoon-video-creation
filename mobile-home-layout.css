@@ -1,3 +1,4 @@
+#studioMobileLayerDelete,#studioMobileLayerEdit,#studioMobileLayerText{display:none}
 #studioMobileCreateMore,#studioMobilePageNav,#studioMobileTyping{display:none}
 /* Final mobile editor layout; desktop rules remain in their existing stylesheets. */
 @media(max-width:900px){
@@ -92,3 +93,44 @@
  body.studio-mobile-layout .zoomBar button{background:#fff;color:#53318a;border-color:#dcd3ed}
  body.studio-mobile-layout button:disabled{opacity:.45}
 }
+#studioMobileTypingPanel{display:none}
+@media(max-width:900px){
+ body.studio-mobile-layout>header .apanam-header-brand{flex-basis:40px!important;min-width:40px!important;width:40px!important;background-size:40px auto!important}
+ body.studio-mobile-layout>header #studioMobilePageNav{flex:1;min-width:0;padding:0;border:0;gap:4px}
+ body.studio-mobile-layout>header #studioMobilePageNav button,body.studio-mobile-layout>header #studioMobilePageNav a{height:40px;min-height:40px;font-size:10px;padding:4px 2px;line-height:1.25;color:#fff!important}
+ body.studio-mobile-layout>header #studioMobileTemplates{background:linear-gradient(135deg,#7951d4,#5e2db0)!important;border-color:#7142c1!important}
+ body.studio-mobile-layout>header #studioMobileCreate{background:linear-gradient(135deg,#208daf,#126a8a)!important;border-color:#17768f!important}
+ body.studio-mobile-layout>header #studioMobilePageNav a{background:linear-gradient(135deg,#28996b,#137754)!important;border-color:#258261!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions{display:flex!important;flex:0 0 46px;min-height:46px;align-items:center;gap:5px;padding:3px 6px!important;width:100%;flex-wrap:nowrap;overflow:hidden;background:#fff;justify-content:space-between!important;margin:0!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions>button{display:none!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions>:is(#saveProject,#undo,#redo,#apanamSocialShare,#loadProject,#download){display:flex!important;align-items:center;justify-content:center;flex:1 1 0;min-width:0!important;max-width:none!important;width:auto!important;height:40px!important;min-height:40px!important;font-size:11px!important;padding:5px 3px!important;margin:0;border-radius:8px;white-space:nowrap}
+ body.studio-mobile-layout #studioMobilePrimaryActions .apanam-button-icon{display:none!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #saveProject{background:#e4f8ed;color:#19603c;border-color:#b5e1c8}
+ body.studio-mobile-layout #studioMobilePrimaryActions #undo,body.studio-mobile-layout #studioMobilePrimaryActions #redo{flex:0 0 32px;font-size:0!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #undo{background:#fff1c7;color:#94550f;border-color:#ebd48c}
+ body.studio-mobile-layout #studioMobilePrimaryActions #redo{background:#dff6fc;color:#086b82;border-color:#ace0ee}
+ body.studio-mobile-layout #studioMobilePrimaryActions #undo:after{content:'↶'!important;font-size:22px!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #redo:after{content:'↷'!important;font-size:22px!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #apanamSocialShare{background:#eaf0ff;color:#364b94;border-color:#cbd7f6}
+ body.studio-mobile-layout #studioMobilePrimaryActions #loadProject{background:#fff0e1;color:#9c551a;border-color:#edd4b6}
+ body.studio-mobile-layout #studioMobilePrimaryActions #download{background:#7440b9;color:#fff;border-color:#7440b9;font-size:10px!important}
+ body.studio-mobile-layout #studioSelectionBar{display:grid;grid-template-columns:minmax(65px,.8fr) minmax(0,2fr);gap:6px;align-items:center;padding:7px}
+ body.studio-mobile-layout #studioSelectionBar>div:first-child{min-width:0}
+ body.studio-mobile-layout #studioSelectionName{font-size:11px;max-width:100%}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;width:100%}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>button{display:none!important}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerDelete,#studioMobileLayerEdit,#studioMobileLayerText){display:block!important;min-width:0;min-height:32px;padding:4px 2px;font-size:10px;white-space:nowrap}
+ body.studio-mobile-layout #studioMobileTextStyle{font-size:0!important}
+ body.studio-mobile-layout #studioMobileTextStyle:after{content:'Font';font-size:10px}
+ body.studio-mobile-layout #studioMobileLayerDelete{background:#fff0f1;color:#a13043;border-color:#edc6cc}
+ body.studio-mobile-layout .studio-layer-more summary{font-size:10px;min-height:32px;padding:6px 3px}
+ body.studio-mobile-layout #studioMobileTypingPanel:not([hidden]){display:block;position:fixed;z-index:10060;width:min(260px,calc(100vw - 16px));max-height:calc(100dvh - 12px);overflow:auto;padding:7px;background:#fff;border:1px solid #c7a8eb;border-radius:11px;box-shadow:0 6px 24px #29154333;text-align:left}
+ body.studio-mobile-layout #studioMobileTypingPanel[hidden]{display:none!important}
+ body.studio-mobile-layout .mobile-typing-handle{display:flex;align-items:center;justify-content:space-between;gap:6px;touch-action:none;cursor:grab;color:#633194;font-size:12px;padding:0 0 5px}
+ body.studio-mobile-layout #studioMobileTypingClose{width:32px;min-height:30px;padding:2px;font-size:22px;border:0;background:#f4edfc;color:#66308d}
+ body.studio-mobile-layout .mobile-typing-fields{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px}
+ body.studio-mobile-layout #studioMobileTypingPanel :is(input,select){display:block!important;min-width:0;width:100%!important;max-width:100%!important;margin:0!important;min-height:38px;padding:5px!important;font-size:16px!important;box-sizing:border-box;border:1px solid #cdb7e7;border-radius:7px}
+ body.studio-mobile-layout #studioMobileTypingPanel #apanamTypingStatus{grid-column:1/-1;font-size:11px!important;line-height:1.4;margin:0!important;max-height:38px;overflow:auto}
+}
+
+@media(max-width:900px){body.studio-mobile-layout .studio-layer-more summary{font-size:0}body.studio-mobile-layout .studio-layer-more summary:after{content:"Layer";font-size:10px}}

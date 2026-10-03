@@ -7,7 +7,7 @@ const more=async(name)=>{await p.locator('#studioMobileAllActions').tap();await 
 try{
 await p.locator('#studioMobileTemplates').tap();await check('templates','.studio-library','[data-close]');
 await p.locator('#studioMobileCreate').tap();await check('create','.apanam-hub','[data-hub=close]');
-await p.locator('#studioMobileTyping').tap();await check('typing','#studioMobileSheet','#mobileSheetClose');
+await p.locator('#studioMobileTyping').tap();await check('typing','#studioMobileTypingPanel','#studioMobileTypingClose');
 await p.locator('.apanam-mobile-bar').getByRole('button',{name:'Layers',exact:true}).tap();await check('layers','#studioMobileSheet','#mobileSheetClose');
 await p.locator('#studioMobileAllActions').tap();await check('menu','#studioMobileSheet','#mobileSheetClose');
 await more('Load');await check('projects','.apanam-gallery-panel','.apanam-gallery-close');
