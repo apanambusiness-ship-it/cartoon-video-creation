@@ -32,7 +32,7 @@ Deno.serve(async(req:Request)=>{
    const answer=await response.json().catch(()=>({}));
    code='HTTP_'+response.status;
    if(response.ok&&typeof answer.messageId==='string'){outcome='accepted';messageId=answer.messageId;}
-   else if(response.status>=400&&response.status<500){outcome='failed';}
+   else if(response.status>=400&&response.status<500){outcome='failed';code=('HTTP_'+response.status+' '+String(answer.code||'')+' '+String(answer.message||'').replaceAll(key,'[redacted]')).slice(0,100);}
   }catch{/* Ambiguous requests are never retried automatically. */}
   if(outcome==='accepted')accepted++;else if(outcome==='failed')failed++;else uncertain++;
   await rpc('studio_finish_payment_alert',{order_uuid:row.order_id,outcome,message_id:messageId,code});
