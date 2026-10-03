@@ -104,3 +104,7 @@ WebM and MP4/M4A narration are accepted alongside existing audio formats. Edge r
 ## Export format backups — 3 October 2026
 
 Export filename preview and project summary follow the chosen MP4/WebM container. JSON backups retain `settings.exportFormat`; restoration uses a supported choice and remains compatible with older backups. Format changes invalidate the previous download signature. Node regression covers restoration and fallback; the browser suite checks real export filenames, preview text and actual downloaded JSON backups.
+
+## Final server checks — 3 October 2026
+
+Rollback production-database verification passed for video backup ownership, anonymous denial, stale writes, two slots and atomic total quota. `tests/studio-download-limits-regression.sql` also passed 20-request/account/day, 100 MiB/account/day and 500 MiB/Studio/day download caps, including unchanged counters after rejected attempts. No objects were uploaded and all synthetic records rolled back. Edge dry tests check email accepted/rejected/unknown outcomes, one request only, idempotency key, invalid scheduler authentication and disabled payments/SMS/paid AI. Provider calls are mocked; these tests do not prove real inbox delivery, cross-device user login or a physical phone.

@@ -56,3 +56,11 @@ Automated Chromium tests emulate mobile dimensions and touch. They cannot prove 
 `tests/studio-business-rls-regression.sql` uses synthetic accounts inside a rolled-back transaction. It checks trial reuse, owner isolation, admin-only costs, margin rounding, consent, reminder deduplication, private file quotas and blocked paid activation. `tests/studio-business-edge-regression.cjs` mocks network responses to exercise the actual deployed handler without sending messages. Browser tests exercise user/admin screens, backup-before-delete, touch selection and genuine local OCR/AI downloads.
 
 Provider references: https://developers.brevo.com/reference/send-transac-email and https://supabase.com/docs/guides/functions/schedule-functions
+
+## Final acceptance before provider activation
+
+- Phone: select/drag/resize/replace a photo; edit text; Save/Load; check a saved project offline. Record voice, stop, export a short video, play it with sound and share it using the actual phone app.
+- Cross-device Cloud: with the same verified account, save a small sample poster/video and its audio on device A; open it on device B, compare text/photo/audio and download a local backup. Automatic tests and rolled-back server tests are complete; this real-account acceptance is still pending.
+- Email: enter the transactional key and verified sender through Supabase Secrets, then the matching scheduler secret through Edge Secrets and Vault as described above. Enable sending only after sender/provider checks; verify acceptance logs and actual delivery to a consenting test recipient separately. Never paste API keys in chat or public code.
+- SMS and paid AI remain unavailable until their providers, verified recipients or price/credit arrangements, keys and actual output samples are configured. Estimates do not activate paid generation.
+- Payment setup stays excluded. No real provider delivery or real-phone acceptance was claimed in the final server checks.
