@@ -17,3 +17,41 @@ body.studio-workspace #templateCanvasHint{display:none}#imageAutoEditStatus:empt
 body.studio-area-editing #templateCanvasActions .canvas-tool-group[aria-label="Photo editing options"]{display:none}
 @media(min-width:1100px){body.studio-workspace .studio-layers-pane #templateCanvasActions{position:static;display:none}body.studio-workspace.studio-image-selected .studio-layers-pane #templateCanvasActions{display:flex}.studio-layers-pane #studioLayerInspector{margin-bottom:12px}}
 @media(max-width:1099px){body.studio-workspace #templateCanvasActions .canvas-tool-group{grid-template-columns:1fr 1fr}#templateCanvasActions .canvas-tool-group>strong,#templateCanvasActions .canvas-tool-group>small,#templateCanvasActions .canvas-tool-more{grid-column:1/-1}#templateCanvasActions button{min-height:44px;font-size:13px}#studioSelectionBar small{max-width:100%}.studio-layer-more>div{left:0;right:auto}.studio-selection-actions{width:auto}#studioSelectionBar{gap:8px}}
+
+
+/* Compact desktop sidebars; mobile touch targets keep their own sizing. */
+@media(min-width:901px){
+ body.studio-workspace main>aside:not(.right){padding:8px!important}
+ body.studio-workspace .organizer{gap:7px}
+ body.studio-workspace .organizer-nav{gap:4px}
+ body.studio-workspace main>aside:not(.right) button,body.studio-workspace main>aside:not(.right) .upload{min-height:30px!important;padding:5px 7px!important;font-size:11px!important;line-height:1.35;border-radius:7px;white-space:normal;overflow-wrap:anywhere}
+ body.studio-workspace .organizer-nav button{min-height:30px!important;padding:5px 3px!important;background:#f5f1fc;border-color:#ddd1ee;color:#563480}
+ body.studio-workspace .organizer-nav button.active{background:linear-gradient(125deg,#7951c3,#6134a5);border-color:#6134a5;color:#fff}
+ body.studio-workspace .organizer-section{padding:0 7px;margin-bottom:7px;border-radius:8px}
+ body.studio-workspace .organizer-section[open]{padding-bottom:6px}
+ body.studio-workspace .organizer-section>summary{font-size:12px;line-height:1.4;padding:8px 1px}
+ body.studio-workspace .organizer-section>button,body.studio-workspace .organizer-section>.upload,body.studio-workspace .organizer-section>select{margin:4px 0}
+ body.studio-workspace .organizer-section label{margin:6px 0;font-size:11px}
+ body.studio-workspace .organizer-section .row{gap:4px;flex-wrap:wrap}
+ body.studio-workspace .organizer-section .row button{flex:1 1 65px;min-width:0}
+ body.studio-workspace .organizer>input{padding:7px 8px;font-size:12px}
+ body.studio-workspace .organizer-video-link{padding:6px 7px;border:1px solid #ded3ee;border-radius:7px}
+ body.studio-workspace .organizer-section button:not(.danger):not([disabled]){background:linear-gradient(135deg,#fff,#f3f0fb);border-color:#d9d2e7;color:#503373}
+ body.studio-workspace main>aside button:focus-visible,body.studio-workspace main>aside .upload:focus-visible{outline:2px solid #8055bb;outline-offset:2px}
+ body.studio-workspace #studioQuickCreate{padding-bottom:6px}
+ body.studio-workspace #studioQuickCreate .apanam-strip{gap:4px;padding:4px 0}
+}
+@media(min-width:1100px){
+ body.studio-workspace main>.studio-layers-pane{padding:8px!important}
+ body.studio-workspace .studio-layers-pane button{min-height:30px!important;padding:5px 7px!important;font-size:11px!important;line-height:1.35;border-radius:7px;white-space:normal;overflow-wrap:anywhere}
+ body.studio-workspace .studio-layers-pane button:not([disabled]){background:linear-gradient(135deg,#fff,#f0f5fb);border-color:#cfdaea;color:#345379}
+ body.studio-workspace .studio-layers-pane h3{font-size:13px;line-height:1.4;margin:3px 0 6px}
+ body.studio-workspace .studio-layers-pane .template-layer-field{margin-bottom:6px;border-radius:8px;padding:7px}
+ body.studio-workspace .studio-layers-pane .template-layer-field label{font-size:11px;margin:5px 0}
+ body.studio-workspace .studio-layers-pane #templateCanvasActions{padding:8px;margin-bottom:8px;gap:7px}
+ body.studio-workspace .studio-layers-pane #templateCanvasActions .canvas-tool-group{gap:5px}
+ body.studio-workspace .studio-layers-pane #templateCanvasActions .canvas-tool-group>strong{font-size:12px}
+ body.studio-workspace .studio-layers-pane #objectEditor.object-inline{padding:8px;margin-bottom:8px}
+ body.studio-workspace .studio-layers-pane #objectEditor .object-footer{display:flex;flex-wrap:wrap;gap:4px}
+ body.studio-workspace .studio-layers-pane button.danger{color:#a73149;background:#fff3f5;border-color:#edc5ce}
+}
