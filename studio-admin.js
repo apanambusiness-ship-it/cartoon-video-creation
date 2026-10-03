@@ -2,6 +2,7 @@
   const api=window.APANAM_CATALOG,status=document.getElementById('adminStatus'),form=document.getElementById('adminSettings'),list=document.getElementById('adminTemplates');let data,limit=24,busy=false;
   const message=text=>{status.textContent=text};
   try{const saved=await api.draft();data=saved?api.catalog(saved):await api.load()}catch(error){try{data=await api.load()}catch(_){message('Catalog या browser storage नहीं खुला। App refresh करके कोशिश करें।');return}}
+  const readyControls=document.createElement('div');readyControls.innerHTML='<label><input type="checkbox" name="externalPostersEnabled"> अनुमति वाले बाहरी तैयार posters की खोज चालू रखें</label><label>बाहरी posters छिपाएँ · स्रोत URL, हर लाइन एक<textarea name="externalPosterBlocklist" maxlength="12000" rows="4" placeholder="Gallery के स्रोत link का URL यहाँ डालें"></textarea></label>';form.append(readyControls);
   function settings(){for(const el of form.elements){if(!el.name)continue;if(el.type==='checkbox')el.checked=data.settings[el.name];else el.value=data.settings[el.name]??''}}
   async function save(next){const clean=api.catalog(next);await api.draft(clean);data=clean;updateStorage();return clean}
   async function updateStorage(){try{const estimate=await navigator.storage?.estimate?.();document.getElementById('adminStorage').textContent=`Catalog: ${(new Blob([JSON.stringify(data)]).size/1048576).toFixed(2)} MB · ${data.templates.length} templates${estimate?.quota?` · Browser उपयोग ${(estimate.usage/1048576).toFixed(1)} / ${(estimate.quota/1048576).toFixed(0)} MB`:''}`}catch(_){}}
@@ -41,3 +42,4 @@
   if(cloud)cloudState();
   settings();render();message('Admin draft तैयार है। Cloud Publish के लिए अधिकृत admin login करें।');
 })();
+

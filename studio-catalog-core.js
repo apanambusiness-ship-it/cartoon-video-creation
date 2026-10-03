@@ -23,10 +23,11 @@
   function onDate(item,date){return item.category==='दैनिक शुभकामनाएँ'||Boolean(item.eventDate&&(item.repeatYearly?item.eventDate.slice(5)===date.slice(5):item.eventDate===date))}
   function catalog(value){
     if(value?.format!==format||!Array.isArray(value.templates))throw Error('सही APANAM catalog JSON चुनें।');
-    const defaults={appName:'APANAMai STUDIO',announcement:'',contact:'',primaryColor:'#5b21b6',posterEnabled:true,videoEnabled:true,uploadsEnabled:true,maintenance:false},raw=value.settings||{},settings={...defaults};
+    const defaults={appName:'APANAMai STUDIO',announcement:'',contact:'',primaryColor:'#5b21b6',posterEnabled:true,videoEnabled:true,uploadsEnabled:true,maintenance:false,externalPostersEnabled:true,externalPosterBlocklist:''},raw=value.settings||{},settings={...defaults};
     for(const key of ['appName','announcement','contact'])settings[key]=String(raw[key]??defaults[key]).slice(0,key==='announcement'?1000:120);
     if(/^#[0-9a-f]{6}$/i.test(raw.primaryColor))settings.primaryColor=raw.primaryColor;
-    for(const key of ['posterEnabled','videoEnabled','uploadsEnabled','maintenance'])if(typeof raw[key]==='boolean')settings[key]=raw[key];
+    for(const key of ['posterEnabled','videoEnabled','uploadsEnabled','maintenance','externalPostersEnabled'])if(typeof raw[key]==='boolean')settings[key]=raw[key];
+    settings.externalPosterBlocklist=String(raw.externalPosterBlocklist||'').slice(0,12000);
     const ids=new Set();const templates=value.templates.map(item=>{
       if(!item||typeof item.id!=='string'||!item.id||ids.has(item.id))throw Error('Template IDs खाली या duplicate हैं।');ids.add(item.id);
       return {id:item.id.slice(0,100),name:String(item.name||'मेरा Template').slice(0,120),category:String(item.category||'General').slice(0,80),published:item.published!==false,eventDate:validDate(item.eventDate),repeatYearly:item.repeatYearly===true,occasion:String(item.occasion||'').slice(0,100),project:project(item.project),updatedAt:String(item.updatedAt||'')};
