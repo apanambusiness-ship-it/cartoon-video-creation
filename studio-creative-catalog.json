@@ -1,0 +1,4822 @@
+{
+  "version": 1,
+  "backgrounds": [
+    {
+      "id": "creative-bg-roses-paper",
+      "name": "गुलाब और मोगरा · Ivory",
+      "category": "फूल",
+      "tags": "rose jasmine wedding",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "roses-paper",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-diwali",
+      "name": "दीपावली · दीपक और गेंदा",
+      "category": "Festival",
+      "tags": "diwali diya deepawali दीपावली",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "diwali",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-lotus-sunrise",
+      "name": "कमल तालाब · सूर्योदय",
+      "category": "प्रकृति",
+      "tags": "lotus morning nature",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "lotus-sunrise",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-wedding",
+      "name": "शाही Wedding Arch",
+      "category": "Wedding",
+      "tags": "wedding शादी विवाह",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "wedding",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-daisy-morning",
+      "name": "Daisy · Morning Sky",
+      "category": "प्रकृति",
+      "tags": "daisy morning nature",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "daisy-morning",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-holi",
+      "name": "होली · रंग और गुलाल",
+      "category": "Festival",
+      "tags": "holi होली रंग",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "holi",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-navratri",
+      "name": "नवरात्रि · गरबा और डांडिया",
+      "category": "Festival",
+      "tags": "navratri garba dandiya नवरात्रि",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "navratri",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-eid",
+      "name": "ईद · चाँद और लालटेन",
+      "category": "Festival",
+      "tags": "eid ईद crescent lantern",
+      "bg": "#fff8ed",
+      "layers": [
+        {
+          "asset": "eid",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-009",
+      "name": "Rose garden · Floral corners",
+      "category": "फूल",
+      "tags": "Rose garden rose foliage",
+      "bg": "#fbf0ed",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-010",
+      "name": "Rose garden · Garden border",
+      "category": "फूल",
+      "tags": "Rose garden rose foliage",
+      "bg": "#fbf0ed",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-011",
+      "name": "Rose garden · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Rose garden rose foliage",
+      "bg": "#fbf0ed",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-012",
+      "name": "Rose garden · Botanical arch",
+      "category": "फूल",
+      "tags": "Rose garden rose foliage",
+      "bg": "#fbf0ed",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-013",
+      "name": "Lotus serenity · Floral corners",
+      "category": "फूल",
+      "tags": "Lotus serenity lotus foliage",
+      "bg": "#edf6f1",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-014",
+      "name": "Lotus serenity · Garden border",
+      "category": "फूल",
+      "tags": "Lotus serenity lotus foliage",
+      "bg": "#edf6f1",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-015",
+      "name": "Lotus serenity · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Lotus serenity lotus foliage",
+      "bg": "#edf6f1",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-016",
+      "name": "Lotus serenity · Botanical arch",
+      "category": "फूल",
+      "tags": "Lotus serenity lotus foliage",
+      "bg": "#edf6f1",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-017",
+      "name": "Jasmine white · Floral corners",
+      "category": "फूल",
+      "tags": "Jasmine white jasmine foliage",
+      "bg": "#fbfaf0",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-018",
+      "name": "Jasmine white · Garden border",
+      "category": "फूल",
+      "tags": "Jasmine white jasmine foliage",
+      "bg": "#fbfaf0",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "jasmine",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-019",
+      "name": "Jasmine white · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Jasmine white jasmine foliage",
+      "bg": "#fbfaf0",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-020",
+      "name": "Jasmine white · Botanical arch",
+      "category": "फूल",
+      "tags": "Jasmine white jasmine foliage",
+      "bg": "#fbfaf0",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-021",
+      "name": "गेंदा उत्सव · Floral corners",
+      "category": "Festival",
+      "tags": "गेंदा उत्सव marigold jasmine",
+      "bg": "#fff4de",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-022",
+      "name": "गेंदा उत्सव · Garden border",
+      "category": "Festival",
+      "tags": "गेंदा उत्सव marigold jasmine",
+      "bg": "#fff4de",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-023",
+      "name": "गेंदा उत्सव · Bottom bouquet",
+      "category": "Festival",
+      "tags": "गेंदा उत्सव marigold jasmine",
+      "bg": "#fff4de",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-024",
+      "name": "गेंदा उत्सव · Botanical arch",
+      "category": "Festival",
+      "tags": "गेंदा उत्सव marigold jasmine",
+      "bg": "#fff4de",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-025",
+      "name": "Rose & jasmine · Floral corners",
+      "category": "फूल",
+      "tags": "Rose & jasmine rose jasmine",
+      "bg": "#fff7ec",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-026",
+      "name": "Rose & jasmine · Garden border",
+      "category": "फूल",
+      "tags": "Rose & jasmine rose jasmine",
+      "bg": "#fff7ec",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-027",
+      "name": "Rose & jasmine · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Rose & jasmine rose jasmine",
+      "bg": "#fff7ec",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-028",
+      "name": "Rose & jasmine · Botanical arch",
+      "category": "फूल",
+      "tags": "Rose & jasmine rose jasmine",
+      "bg": "#fff7ec",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-029",
+      "name": "Lotus & jasmine · Floral corners",
+      "category": "फूल",
+      "tags": "Lotus & jasmine lotus jasmine",
+      "bg": "#f3f5fa",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-030",
+      "name": "Lotus & jasmine · Garden border",
+      "category": "फूल",
+      "tags": "Lotus & jasmine lotus jasmine",
+      "bg": "#f3f5fa",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-031",
+      "name": "Lotus & jasmine · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Lotus & jasmine lotus jasmine",
+      "bg": "#f3f5fa",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-032",
+      "name": "Lotus & jasmine · Botanical arch",
+      "category": "फूल",
+      "tags": "Lotus & jasmine lotus jasmine",
+      "bg": "#f3f5fa",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-033",
+      "name": "Green botanical · Floral corners",
+      "category": "फूल",
+      "tags": "Green botanical foliage jasmine",
+      "bg": "#ecf5ef",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-034",
+      "name": "Green botanical · Garden border",
+      "category": "फूल",
+      "tags": "Green botanical foliage jasmine",
+      "bg": "#ecf5ef",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "foliage",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-035",
+      "name": "Green botanical · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Green botanical foliage jasmine",
+      "bg": "#ecf5ef",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-036",
+      "name": "Green botanical · Botanical arch",
+      "category": "फूल",
+      "tags": "Green botanical foliage jasmine",
+      "bg": "#ecf5ef",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-037",
+      "name": "Floral wedding · Floral corners",
+      "category": "Wedding",
+      "tags": "Floral wedding floral-corner rose",
+      "bg": "#fff6ef",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-038",
+      "name": "Floral wedding · Garden border",
+      "category": "Wedding",
+      "tags": "Floral wedding floral-corner rose",
+      "bg": "#fff6ef",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-039",
+      "name": "Floral wedding · Bottom bouquet",
+      "category": "Wedding",
+      "tags": "Floral wedding floral-corner rose",
+      "bg": "#fff6ef",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-040",
+      "name": "Floral wedding · Botanical arch",
+      "category": "Wedding",
+      "tags": "Floral wedding floral-corner rose",
+      "bg": "#fff6ef",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-041",
+      "name": "Rose bouquet · Floral corners",
+      "category": "Wedding",
+      "tags": "Rose bouquet floral-corner jasmine",
+      "bg": "#fcf0f3",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-042",
+      "name": "Rose bouquet · Garden border",
+      "category": "Wedding",
+      "tags": "Rose bouquet floral-corner jasmine",
+      "bg": "#fcf0f3",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-043",
+      "name": "Rose bouquet · Bottom bouquet",
+      "category": "Wedding",
+      "tags": "Rose bouquet floral-corner jasmine",
+      "bg": "#fcf0f3",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-044",
+      "name": "Rose bouquet · Botanical arch",
+      "category": "Wedding",
+      "tags": "Rose bouquet floral-corner jasmine",
+      "bg": "#fcf0f3",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-045",
+      "name": "Lotus blessing · Floral corners",
+      "category": "फूल",
+      "tags": "Lotus blessing lotus marigold",
+      "bg": "#fff3e4",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-046",
+      "name": "Lotus blessing · Garden border",
+      "category": "फूल",
+      "tags": "Lotus blessing lotus marigold",
+      "bg": "#fff3e4",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-047",
+      "name": "Lotus blessing · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Lotus blessing lotus marigold",
+      "bg": "#fff3e4",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-048",
+      "name": "Lotus blessing · Botanical arch",
+      "category": "फूल",
+      "tags": "Lotus blessing lotus marigold",
+      "bg": "#fff3e4",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-049",
+      "name": "मोगरा गुलाब · Floral corners",
+      "category": "फूल",
+      "tags": "मोगरा गुलाब jasmine rose",
+      "bg": "#fff8f2",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-050",
+      "name": "मोगरा गुलाब · Garden border",
+      "category": "फूल",
+      "tags": "मोगरा गुलाब jasmine rose",
+      "bg": "#fff8f2",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "jasmine",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-051",
+      "name": "मोगरा गुलाब · Bottom bouquet",
+      "category": "फूल",
+      "tags": "मोगरा गुलाब jasmine rose",
+      "bg": "#fff8f2",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-052",
+      "name": "मोगरा गुलाब · Botanical arch",
+      "category": "फूल",
+      "tags": "मोगरा गुलाब jasmine rose",
+      "bg": "#fff8f2",
+      "layers": [
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-053",
+      "name": "Orange blossoms · Floral corners",
+      "category": "फूल",
+      "tags": "Orange blossoms marigold foliage",
+      "bg": "#fdf5e3",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-054",
+      "name": "Orange blossoms · Garden border",
+      "category": "फूल",
+      "tags": "Orange blossoms marigold foliage",
+      "bg": "#fdf5e3",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-055",
+      "name": "Orange blossoms · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Orange blossoms marigold foliage",
+      "bg": "#fdf5e3",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-056",
+      "name": "Orange blossoms · Botanical arch",
+      "category": "फूल",
+      "tags": "Orange blossoms marigold foliage",
+      "bg": "#fdf5e3",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-057",
+      "name": "Garden invitation · Floral corners",
+      "category": "Wedding",
+      "tags": "Garden invitation floral-corner foliage",
+      "bg": "#f8f4ea",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-058",
+      "name": "Garden invitation · Garden border",
+      "category": "Wedding",
+      "tags": "Garden invitation floral-corner foliage",
+      "bg": "#f8f4ea",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-059",
+      "name": "Garden invitation · Bottom bouquet",
+      "category": "Wedding",
+      "tags": "Garden invitation floral-corner foliage",
+      "bg": "#f8f4ea",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-060",
+      "name": "Garden invitation · Botanical arch",
+      "category": "Wedding",
+      "tags": "Garden invitation floral-corner foliage",
+      "bg": "#f8f4ea",
+      "layers": [
+        {
+          "asset": "foliage",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "floral-corner",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "foliage",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-061",
+      "name": "Festival lotus · Floral corners",
+      "category": "Festival",
+      "tags": "Festival lotus lotus diya",
+      "bg": "#fff7dd",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-062",
+      "name": "Festival lotus · Garden border",
+      "category": "Festival",
+      "tags": "Festival lotus lotus diya",
+      "bg": "#fff7dd",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-063",
+      "name": "Festival lotus · Bottom bouquet",
+      "category": "Festival",
+      "tags": "Festival lotus lotus diya",
+      "bg": "#fff7dd",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-064",
+      "name": "Festival lotus · Botanical arch",
+      "category": "Festival",
+      "tags": "Festival lotus lotus diya",
+      "bg": "#fff7dd",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "lotus",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-065",
+      "name": "दीपक गेंदा · Floral corners",
+      "category": "Festival",
+      "tags": "दीपक गेंदा diya marigold",
+      "bg": "#fff0d6",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-066",
+      "name": "दीपक गेंदा · Garden border",
+      "category": "Festival",
+      "tags": "दीपक गेंदा diya marigold",
+      "bg": "#fff0d6",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "diya",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-067",
+      "name": "दीपक गेंदा · Bottom bouquet",
+      "category": "Festival",
+      "tags": "दीपक गेंदा diya marigold",
+      "bg": "#fff0d6",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-068",
+      "name": "दीपक गेंदा · Botanical arch",
+      "category": "Festival",
+      "tags": "दीपक गेंदा diya marigold",
+      "bg": "#fff0d6",
+      "layers": [
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "diya",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-069",
+      "name": "दीपक मोगरा · Floral corners",
+      "category": "Festival",
+      "tags": "दीपक मोगरा diya jasmine",
+      "bg": "#fffae7",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-070",
+      "name": "दीपक मोगरा · Garden border",
+      "category": "Festival",
+      "tags": "दीपक मोगरा diya jasmine",
+      "bg": "#fffae7",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "diya",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-071",
+      "name": "दीपक मोगरा · Bottom bouquet",
+      "category": "Festival",
+      "tags": "दीपक मोगरा diya jasmine",
+      "bg": "#fffae7",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-072",
+      "name": "दीपक मोगरा · Botanical arch",
+      "category": "Festival",
+      "tags": "दीपक मोगरा diya jasmine",
+      "bg": "#fffae7",
+      "layers": [
+        {
+          "asset": "jasmine",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "diya",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-073",
+      "name": "तोरण उत्सव · Floral corners",
+      "category": "Festival",
+      "tags": "तोरण उत्सव toran marigold",
+      "bg": "#fff8e5",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 3,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-074",
+      "name": "तोरण उत्सव · Garden border",
+      "category": "Festival",
+      "tags": "तोरण उत्सव toran marigold",
+      "bg": "#fff8e5",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "toran",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-075",
+      "name": "तोरण उत्सव · Bottom bouquet",
+      "category": "Festival",
+      "tags": "तोरण उत्सव toran marigold",
+      "bg": "#fff8e5",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-076",
+      "name": "तोरण उत्सव · Botanical arch",
+      "category": "Festival",
+      "tags": "तोरण उत्सव toran marigold",
+      "bg": "#fff8e5",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 12,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 58,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-077",
+      "name": "तोरण दीपक · Floral corners",
+      "category": "Festival",
+      "tags": "तोरण दीपक toran diya",
+      "bg": "#fff5de",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 3,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 67,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-078",
+      "name": "तोरण दीपक · Garden border",
+      "category": "Festival",
+      "tags": "तोरण दीपक toran diya",
+      "bg": "#fff5de",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "toran",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-079",
+      "name": "तोरण दीपक · Bottom bouquet",
+      "category": "Festival",
+      "tags": "तोरण दीपक toran diya",
+      "bg": "#fff5de",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-080",
+      "name": "तोरण दीपक · Botanical arch",
+      "category": "Festival",
+      "tags": "तोरण दीपक toran diya",
+      "bg": "#fff5de",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 12,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 58,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-081",
+      "name": "Rose lamp · Floral corners",
+      "category": "Festival",
+      "tags": "Rose lamp rose diya",
+      "bg": "#fff3ed",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-082",
+      "name": "Rose lamp · Garden border",
+      "category": "Festival",
+      "tags": "Rose lamp rose diya",
+      "bg": "#fff3ed",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-083",
+      "name": "Rose lamp · Bottom bouquet",
+      "category": "Festival",
+      "tags": "Rose lamp rose diya",
+      "bg": "#fff3ed",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-084",
+      "name": "Rose lamp · Botanical arch",
+      "category": "Festival",
+      "tags": "Rose lamp rose diya",
+      "bg": "#fff3ed",
+      "layers": [
+        {
+          "asset": "diya",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "diya",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-085",
+      "name": "Lotus garland · Floral corners",
+      "category": "Festival",
+      "tags": "Lotus garland toran lotus",
+      "bg": "#fff8ea",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 3,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 67,
+          "y": 72,
+          "w": 30,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-086",
+      "name": "Lotus garland · Garden border",
+      "category": "Festival",
+      "tags": "Lotus garland toran lotus",
+      "bg": "#fff8ea",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "toran",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-087",
+      "name": "Lotus garland · Bottom bouquet",
+      "category": "Festival",
+      "tags": "Lotus garland toran lotus",
+      "bg": "#fff8ea",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "toran",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-088",
+      "name": "Lotus garland · Botanical arch",
+      "category": "Festival",
+      "tags": "Lotus garland toran lotus",
+      "bg": "#fff8ea",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 24,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 12,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "lotus",
+          "x": 58,
+          "y": 63,
+          "w": 36,
+          "h": 34,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-089",
+      "name": "Wedding jasmine · Floral corners",
+      "category": "Festival",
+      "tags": "Wedding jasmine floral-corner toran",
+      "bg": "#fff8f0",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 0,
+          "y": 68,
+          "w": 40,
+          "h": 32,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 60,
+          "y": 68,
+          "w": 40,
+          "h": 32,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-090",
+      "name": "Wedding jasmine · Garden border",
+      "category": "Festival",
+      "tags": "Wedding jasmine floral-corner toran",
+      "bg": "#fff8f0",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 3,
+          "y": 65,
+          "w": 38,
+          "h": 34,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 57,
+          "y": 65,
+          "w": 38,
+          "h": 34,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-091",
+      "name": "Wedding jasmine · Bottom bouquet",
+      "category": "Festival",
+      "tags": "Wedding jasmine floral-corner toran",
+      "bg": "#fff8f0",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 6,
+          "y": 62,
+          "w": 36,
+          "h": 36,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 54,
+          "y": 62,
+          "w": 36,
+          "h": 36,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-092",
+      "name": "Wedding jasmine · Botanical arch",
+      "category": "Festival",
+      "tags": "Wedding jasmine floral-corner toran",
+      "bg": "#fff8f0",
+      "layers": [
+        {
+          "asset": "toran",
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 23,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 9,
+          "y": 59,
+          "w": 34,
+          "h": 38,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 51,
+          "y": 59,
+          "w": 34,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-093",
+      "name": "Marigold garden · Floral corners",
+      "category": "फूल",
+      "tags": "Marigold garden marigold floral-corner",
+      "bg": "#fff4e8",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-094",
+      "name": "Marigold garden · Garden border",
+      "category": "फूल",
+      "tags": "Marigold garden marigold floral-corner",
+      "bg": "#fff4e8",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-095",
+      "name": "Marigold garden · Bottom bouquet",
+      "category": "फूल",
+      "tags": "Marigold garden marigold floral-corner",
+      "bg": "#fff4e8",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-096",
+      "name": "Marigold garden · Botanical arch",
+      "category": "फूल",
+      "tags": "Marigold garden marigold floral-corner",
+      "bg": "#fff4e8",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "marigold",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "marigold",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-097",
+      "name": "Royal floral · Floral corners",
+      "category": "Wedding",
+      "tags": "Royal floral rose floral-corner jasmine",
+      "bg": "#f6efe6",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 0,
+          "w": 34,
+          "h": 29,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 67,
+          "y": 0,
+          "w": 34,
+          "h": 28,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -1,
+          "y": 69,
+          "w": 34,
+          "h": 32,
+          "angle": -18,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 67,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 38,
+          "y": 84,
+          "w": 28,
+          "h": 16,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-098",
+      "name": "Royal floral · Garden border",
+      "category": "Wedding",
+      "tags": "Royal floral rose floral-corner jasmine",
+      "bg": "#f6efe6",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -3,
+          "y": 2,
+          "w": 33,
+          "h": 37,
+          "angle": 10,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": -4,
+          "y": 26,
+          "w": 33,
+          "h": 29,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": -1,
+          "y": 50,
+          "w": 33,
+          "h": 33,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 28,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 72,
+          "y": 75,
+          "w": 29,
+          "h": 28,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": 42,
+          "y": 82,
+          "w": 34,
+          "h": 20,
+          "angle": 0,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 38,
+          "y": 84,
+          "w": 28,
+          "h": 16,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-099",
+      "name": "Royal floral · Bottom bouquet",
+      "category": "Wedding",
+      "tags": "Royal floral rose floral-corner jasmine",
+      "bg": "#f6efe6",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": 64,
+          "w": 42,
+          "h": 39,
+          "angle": -15,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 18,
+          "y": 76,
+          "w": 37,
+          "h": 24,
+          "angle": -12,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 48,
+          "y": 73,
+          "w": 34,
+          "h": 28,
+          "angle": 12,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 66,
+          "y": 65,
+          "w": 37,
+          "h": 38,
+          "angle": 0,
+          "flip": true
+        },
+        {
+          "asset": "jasmine",
+          "x": 38,
+          "y": 84,
+          "w": 28,
+          "h": 16,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "creative-bg-100",
+      "name": "Royal floral · Botanical arch",
+      "category": "Wedding",
+      "tags": "Royal floral rose floral-corner jasmine",
+      "bg": "#f6efe6",
+      "layers": [
+        {
+          "asset": "floral-corner",
+          "x": -4,
+          "y": -3,
+          "w": 42,
+          "h": 35,
+          "angle": 170,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 65,
+          "y": -3,
+          "w": 40,
+          "h": 35,
+          "angle": 190,
+          "flip": true
+        },
+        {
+          "asset": "rose",
+          "x": -3,
+          "y": 77,
+          "w": 32,
+          "h": 27,
+          "angle": -20,
+          "flip": false
+        },
+        {
+          "asset": "rose",
+          "x": 72,
+          "y": 77,
+          "w": 31,
+          "h": 27,
+          "angle": 20,
+          "flip": false
+        },
+        {
+          "asset": "floral-corner",
+          "x": 33,
+          "y": -2,
+          "w": 35,
+          "h": 20,
+          "angle": 180,
+          "flip": false
+        },
+        {
+          "asset": "jasmine",
+          "x": 38,
+          "y": 84,
+          "w": 28,
+          "h": 16,
+          "angle": 0,
+          "flip": false
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "creative-el-rose",
+      "asset": "rose",
+      "name": "गुलाब",
+      "category": "फूल",
+      "tags": "rose pink flower",
+      "width": 1149,
+      "height": 1369
+    },
+    {
+      "id": "creative-el-lotus",
+      "asset": "lotus",
+      "name": "कमल",
+      "category": "फूल",
+      "tags": "lotus pink flower",
+      "width": 1312,
+      "height": 1199
+    },
+    {
+      "id": "creative-el-marigold",
+      "asset": "marigold",
+      "name": "गेंदा",
+      "category": "फूल",
+      "tags": "marigold orange flower",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "creative-el-jasmine",
+      "asset": "jasmine",
+      "name": "मोगरा",
+      "category": "फूल",
+      "tags": "jasmine white flower",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "creative-el-foliage",
+      "asset": "foliage",
+      "name": "पत्तियाँ / बेल",
+      "category": "पत्तियाँ",
+      "tags": "leaves foliage fern",
+      "width": 1312,
+      "height": 1199
+    },
+    {
+      "id": "creative-el-floral-corner",
+      "asset": "floral-corner",
+      "name": "फूलों का Corner",
+      "category": "फूल",
+      "tags": "bouquet corner flowers",
+      "width": 1312,
+      "height": 1199
+    },
+    {
+      "id": "creative-el-diya",
+      "asset": "diya",
+      "name": "पीतल का दीपक",
+      "category": "Festival",
+      "tags": "diya दीपक diwali",
+      "width": 1312,
+      "height": 1199
+    },
+    {
+      "id": "creative-el-toran",
+      "asset": "toran",
+      "name": "गेंदा तोरण",
+      "category": "Festival",
+      "tags": "toran garland festival",
+      "width": 2172,
+      "height": 724
+    }
+  ]
+}
