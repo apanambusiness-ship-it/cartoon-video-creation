@@ -32,6 +32,7 @@ for c,row in enumerate(categories):
  category,*copy=row
  for variant in range(2):
   bg,ink,accent=palettes[(c+variant)%4];title,sub=copy[variant*2:variant*2+2];art=['botanical','sunrise','arch','landscape'][(c+variant)%4]
+  art={3:'lamps',9:'hearts',10:'cake',11:'book',12:'care',13:'plate',14:'home',15:'journey'}.get(c,art)
   nodes=[element('Accent frame',22,22,496,676,f'border:1px solid {accent};border-radius:{18 if variant else 0}px;z-index:1',''),element('Accent circle',365,60,110,110,f'background:{accent};opacity:.16;border-radius:50%;z-index:1','')]
   if not variant:
    nodes+=[text('Brand / संस्था','YOUR BRAND',44,45,370,16,ink,'organization'),text('Main headline',title,44,109,450,34,ink),text('Subtitle',sub,44,213,450,17,ink),element('Artwork / Photo · Replace',70,285,400,280,'z-index:2',f'<img src="./template-assets/{art}.svg" alt="Original APANAM illustration — replace with your photo" style="width:100%;height:100%;object-fit:contain">')]
