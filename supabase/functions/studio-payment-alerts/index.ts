@@ -28,7 +28,7 @@ Deno.serve(async(req:Request)=>{
     body:JSON.stringify({sender:{email:from,name:'APANAMai Studio'},to:[{email:row.recipient}],
     subject:'APANAMai: ₹'+(row.amount_paise/100).toFixed(2)+' payment सफल',
     textContent:'सफल Live payment की सूचना\nराशि: ₹'+(row.amount_paise/100).toFixed(2)+'\nयोजना: '+(row.plan==='registration'?'Registration / Trial':'Manual Membership')+'\nसमय (IST): '+when+'\nUser ID: '+row.user_id+'\nOrder ID: apn_'+row.order_id+'\nPayment ID: '+row.payment_id+'\n\nAdmin में देखें: https://apanambusiness-ship-it.github.io/cartoon-video-creation/admin.html#payments\nयह payment सफलता की सूचना है। Bank settlement अलग है।',
-    headers:{idempotencyKey:'studio-payment-'+row.order_id}}),signal:AbortSignal.timeout(10000)});
+    headers:{idempotencyKey:row.order_id}}),signal:AbortSignal.timeout(10000)});
    const answer=await response.json().catch(()=>({}));
    code='HTTP_'+response.status;
    if(response.ok&&typeof answer.messageId==='string'){outcome='accepted';messageId=answer.messageId;}
