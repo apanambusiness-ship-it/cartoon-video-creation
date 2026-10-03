@@ -35,7 +35,10 @@
 @media(min-width:1000px){
  .membership-page .admin-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
  .membership-page .admin-main>.admin-notice,.membership-page #studioMemberPlans{grid-column:1/-1}
- .membership-page #studioSupport{grid-column:1/-1}
+ .membership-page #studioBusinessMember{grid-column:1;grid-row:3 / span 2}
+ .membership-page #studioOwnPayments{grid-column:2;grid-row:3}
+ .membership-page #studioSupport{grid-column:2;grid-row:4}
+ .membership-page #studioMemberPlans{grid-row:5}
 }
 @media(max-width:600px){
  .membership-page .admin-main{padding:12px 10px 24px;gap:12px}
