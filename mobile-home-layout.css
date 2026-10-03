@@ -1,0 +1,43 @@
+/* Final mobile editor layout; desktop rules remain in their existing stylesheets. */
+@media(max-width:900px){
+ html:has(body.studio-mobile-layout){height:100%;overflow:hidden!important}
+ body.studio-mobile-layout{height:100dvh;display:flex;flex-direction:column;overflow:hidden!important;padding:0!important;min-height:0}
+ body.studio-mobile-layout>header{flex:0 0 52px;height:52px!important;min-height:52px!important;padding:4px 6px!important;gap:5px!important}
+ body.studio-mobile-layout>header .apanam-header-brand{height:44px!important;width:50px!important;min-width:50px!important;flex:0 0 50px!important;background-size:50px auto!important}
+ body.studio-mobile-layout>header>.actions{height:44px!important;flex:1 1 auto!important;min-width:0!important;overflow:hidden!important;gap:4px!important;justify-content:flex-start!important}
+ body.studio-mobile-layout>header .actions>button{display:none!important}
+ body.studio-mobile-layout>header .actions>#saveProject,body.studio-mobile-layout>header .actions>#undo,body.studio-mobile-layout>header .actions>#redo,body.studio-mobile-layout>header .actions>#apanamSocialShare{display:inline-flex!important;align-items:center;justify-content:center;width:auto!important;min-width:0!important;min-height:40px!important;height:40px!important;padding:5px 7px!important;font-size:11px!important}
+ body.studio-mobile-layout>header .actions>#undo,body.studio-mobile-layout>header .actions>#redo{font-size:0!important;width:32px!important;padding:4px!important}
+ body.studio-mobile-layout>header .actions>#undo .apanam-button-icon,body.studio-mobile-layout>header .actions>#redo .apanam-button-icon{display:none!important}
+ body.studio-mobile-layout>header .actions>#undo:after{content:'↶';font-size:20px!important}
+ body.studio-mobile-layout>header .actions>#redo:after{content:'↷';font-size:20px!important}
+ body.studio-mobile-layout #studioHeaderAccount{flex:0 0 32px!important;max-width:32px}
+ body.studio-mobile-layout #studioHeaderAccount>summary{min-height:40px}
+ body.studio-mobile-layout #studioMobileAllActions{height:40px!important;min-height:40px!important;max-width:48px;padding:4px 6px!important;font-size:11px!important;flex:none}
+ body.studio-mobile-layout #apanamCompactTools{flex:0 0 46px;height:46px!important;min-height:46px;border-bottom:1px solid #e5e7eb;overflow:hidden}
+ body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child{height:46px!important;min-height:46px!important;padding:3px 6px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none;touch-action:pan-x;gap:6px!important}
+ body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child button{height:40px!important;min-height:40px!important;font-size:12px!important;padding:6px 10px!important;flex:0 0 auto}
+ body.studio-mobile-layout #apanamCompactTools .apanam-next,body.studio-mobile-layout #apanamCompactTools .studio-format-strip{display:none!important}
+ body.studio-mobile-layout>main,body.studio-mobile-layout.studio-text-selected>main{flex:1 1 0!important;height:auto!important;min-height:0!important;width:100%!important;overflow:hidden!important}
+ body.studio-mobile-layout .workspace{height:100%;min-height:0!important;padding:8px!important;overflow:auto!important}
+ body.studio-mobile-layout #studioMobileGuide{padding:5px;margin:0 0 6px}
+ body.studio-mobile-layout .mobile-guide-steps button{min-height:38px;padding:4px 2px;font-size:11px}
+ body.studio-mobile-layout #studioMobileGuideHint{display:none}
+ body.studio-mobile-layout #studioMobileGuideHint.mobile-guide-attention{display:block}
+ body.studio-mobile-layout #studioSelectionBar{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;padding:7px 9px;margin-bottom:6px;min-height:0}
+ body.studio-mobile-layout #studioSelectionName{max-width:100%;font-size:12px}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions{display:flex;width:100%;min-width:0;flex-wrap:wrap;gap:5px}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions button,body.studio-mobile-layout .studio-layer-more summary{min-height:36px;padding:6px 8px;font-size:11px;box-sizing:border-box}
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions button{flex:1 1 auto}
+ body.studio-mobile-layout .studio-layer-more{flex:1 1 auto}
+ body.studio-mobile-layout .studio-layer-more>div{left:auto;right:0;width:min(220px,calc(100vw - 40px))}
+ body.studio-mobile-layout .zoomBar{margin:0 0 6px;gap:5px}
+ body.studio-mobile-layout .zoomBar button{min-height:34px!important;padding:5px 9px!important}
+ body.studio-mobile-layout #stageWrap{padding:8px!important}
+ body.studio-mobile-layout .apanam-mobile-bar{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;bottom:auto!important;flex:0 0 auto;margin:0 6px;padding:4px 3px calc(4px + env(safe-area-inset-bottom))!important;border-radius:10px 10px 0 0;box-shadow:0 -2px 12px #17203310;grid-template-columns:repeat(5,minmax(0,1fr))}
+ body.studio-mobile-layout .apanam-mobile-bar button{min-height:46px!important;font-size:11px!important}
+ body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){inset:98px 0 calc(60px + env(safe-area-inset-bottom))!important;min-height:0!important}
+ body.studio-mobile-layout #studioMobileSheet{max-height:calc(100dvh - 90px);margin:auto auto max(64px,env(safe-area-inset-bottom))}
+ body.studio-mobile-layout #mobileSheetBody .studio-format-strip{display:grid!important}
+}
+@media(max-width:340px){body.studio-mobile-layout>header .actions>#apanamSocialShare{display:none!important}}
