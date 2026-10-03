@@ -1,0 +1,54 @@
+begin;
+create temporary table qa_payment_users(label text primary key,id uuid default gen_random_uuid());
+insert into qa_payment_users(label) values('owner'),('other');
+insert into auth.users(id,email,email_confirmed_at) select id,id::text||'@example.invalid',now() from qa_payment_users;
+grant select on qa_payment_users to service_role,authenticated;
+create temporary table qa_payment_orders(id uuid);
+grant all on qa_payment_orders to service_role;
+grant select on qa_payment_orders to authenticated;
+set local role service_role;
+insert into qa_payment_orders select (public.studio_payment_reserve((select id from qa_payment_users where label='owner'),'sandbox','manual')->>'id')::uuid;
+do $$declare o uuid;again uuid;before_expiry timestamptz;after_expiry timestamptz;begin
+ select id into o from qa_payment_orders;
+ again:=(public.studio_payment_reserve((select id from qa_payment_users where label='owner'),'sandbox','manual')->>'id')::uuid;
+ if again<>o then raise exception 'Pending checkout not reused'; end if;
+ begin perform public.studio_payment_fulfill(o,'sandbox',1000,'INR','qa-payment');raise exception 'Wrong amount accepted';exception when raise_exception then if sqlerrm<>'Payment does not match order' then raise; end if;end;
+ perform public.studio_payment_fulfill(o,'sandbox',10000,'INR','qa-payment');
+ select expires_at into before_expiry from public.studio_paid_memberships where user_id=(select id from qa_payment_users where label='owner') and environment='sandbox';
+ perform public.studio_payment_fulfill(o,'sandbox',10000,'INR','qa-payment');
+ select expires_at into after_expiry from public.studio_paid_memberships where user_id=(select id from qa_payment_users where label='owner') and environment='sandbox';
+ if before_expiry is distinct from after_expiry then raise exception 'Duplicate extended membership'; end if;
+ if exists(select 1 from public.studio_paid_memberships where user_id=(select id from qa_payment_users where label='owner') and environment='production') then raise exception 'Sandbox activated live access';end if;
+end $$;
+reset role;
+-- Preserve a pre-existing trial if registration payment arrives after a free trial starts.
+insert into public.studio_trials(user_id,started_at,expires_at) select id,now()-interval '1 day',now()+interval '14 days' from qa_payment_users where label='owner';
+set local role service_role;
+do $$declare u uuid; o uuid; expiry timestamptz; first_expiry timestamptz;begin
+ select id into u from qa_payment_users where label='owner';
+ begin perform public.studio_payment_reserve(u,'production','registration');raise exception 'Trial reuse allowed';exception when raise_exception then if sqlerrm<>'Trial already used. Choose Manual renewal.' then raise;end if;end;
+ o:=(public.studio_payment_reserve(u,'production','manual')->>'id')::uuid;
+ perform public.studio_payment_fulfill(o,'production',10000,'INR','qa-live-first');
+ select expires_at into first_expiry from public.studio_paid_memberships where user_id=u and environment='production';
+ o:=(public.studio_payment_reserve(u,'production','manual')->>'id')::uuid;
+ perform public.studio_payment_fulfill(o,'production',10000,'INR','qa-live-second');
+ select expires_at into expiry from public.studio_paid_memberships where user_id=u and environment='production';
+ if expiry<>first_expiry+interval '30 days' then raise exception 'Renewal duration incorrect';end if;
+ select id into u from qa_payment_users where label='other';
+ o:=(public.studio_payment_reserve(u,'production','registration')->>'id')::uuid;
+ perform public.studio_payment_fulfill(o,'production',1000,'INR','qa-registration');
+ select expires_at into expiry from public.studio_trials where user_id=u;
+ perform public.studio_payment_fulfill(o,'production',1000,'INR','qa-registration');
+ if expiry is distinct from (select expires_at from public.studio_trials where user_id=u) then raise exception 'Registration duplicate reset trial';end if;
+end $$;
+reset role;
+select set_config('request.jwt.claim.sub',(select id::text from qa_payment_users where label='other'),true);
+set local role authenticated;
+do $$begin
+ if exists(select 1 from public.studio_paid_memberships where user_id<>(select id from qa_payment_users where label='other')) then raise exception 'Other user reads payment entitlement';end if;
+ begin perform public.studio_payment_order((select id from qa_payment_orders limit 1));raise exception 'User reads ledger';exception when insufficient_privilege then null;end;
+ begin insert into public.studio_paid_memberships(user_id,environment,expires_at) values(auth.uid(),'production',now()+interval '30 days');raise exception 'User grants access';exception when insufficient_privilege then null;end;
+end $$;
+reset role;
+select 'PASS: reused checkout, fixed price, duplicate fulfilment, sandbox isolation, owner RLS and blocked writes' as result;
+rollback;

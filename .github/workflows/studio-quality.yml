@@ -40,6 +40,7 @@ jobs:
           node tests/export-format-regression.cjs
           node tests/service-worker-core-regression.cjs
           node --experimental-strip-types tests/studio-business-edge-regression.cjs
+          node --experimental-strip-types tests/studio-payments-edge-regression.cjs
       - name: Check mobile and offline editing
         run: node tests/current-studio-browser.cjs
       - name: Check business and private media UI
