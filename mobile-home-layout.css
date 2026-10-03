@@ -82,9 +82,9 @@
  body.studio-mobile-layout .apanam-mobile-bar button:nth-child(4){background:#fff3dd;color:#945509;border-color:#f0dfb7}
  body.studio-mobile-layout .apanam-mobile-bar button:nth-child(5){background:#e5f6eb;color:#246c43;border-color:#bee3cc}
  body.studio-mobile-layout #studioMobilePageNav{gap:5px;padding:4px 6px}
- body.studio-mobile-layout #studioMobilePageNav button,body.studio-mobile-layout #studioMobilePageNav a{min-height:36px}
+ body.studio-mobile-layout #studioMobilePageNav button,body.studio-mobile-layout #studioMobilePageNav a{min-height:40px}
  body.studio-mobile-layout #studioMobileActionGrid{gap:7px}
- body.studio-mobile-layout #studioMobileActionGrid button{background:#f5f0fc;color:#56278f;border:1px solid #dfd1f2;font-weight:600}
+ body.studio-mobile-layout #studioMobileActionGrid button{background:#f5f0fc;color:#56278f;border:1px solid #dfd1f2;font-weight:600;min-height:44px!important}
  body.studio-mobile-layout #studioSelectionBar{box-shadow:0 2px 8px #17203306}
  body.studio-mobile-layout .studio-selection-actions button{background:#eef6ff;color:#255a92;border-color:#cbdff2}
  body.studio-mobile-layout .studio-layer-more summary{background:#f6f0ff;color:#642c9a;border-color:#e0cef3;text-align:center}
