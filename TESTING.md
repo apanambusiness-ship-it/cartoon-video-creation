@@ -100,3 +100,7 @@ WebM and MP4/M4A narration are accepted alongside existing audio formats. Edge r
 ## Voice recording recovery — 3 October 2026
 
 `node tests/voice-recording-regression.cjs` executes the actual voice button handlers with controlled microphone/recorder failures. It checks repeated clicks while permission is pending, correct M4A/WebM filenames, stopped microphone tracks, restored controls, and preservation of previous audio after failed recordings. Physical-phone microphone and sharing playback remain acceptance checks.
+
+## Export format backups — 3 October 2026
+
+Export filename preview and project summary follow the chosen MP4/WebM container. JSON backups retain `settings.exportFormat`; restoration uses a supported choice and remains compatible with older backups. Format changes invalidate the previous download signature. Node regression covers restoration and fallback; the browser suite checks real export filenames, preview text and actual downloaded JSON backups.
