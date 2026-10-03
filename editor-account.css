@@ -12,3 +12,6 @@
 .editor-header-account .header-account-menu button:disabled{color:#94a3b8}
 #studioProfileDialog{z-index:10030}#studioProfileDialog form{margin:0}#studioProfileDialog input{box-sizing:border-box}#studioProfileDialog .profile-close{color:#5b21b6}
 @media(max-width:900px){.editor-header-account .header-account-name{display:none}.editor-header-account>summary{padding:2px;border:0}.editor-header-account .account-avatar,.editor-header-account img{width:30px;height:30px}}
+
+
+.header-account-menu .account-menu-state{margin:3px 6px 7px;padding:6px 8px;border-radius:7px;background:#f0e9fc;color:#4c1d95;font-size:12px;line-height:1.4}.header-account-menu button:disabled{opacity:1!important;color:#64748b!important;background:#f1f5f9!important}.header-account-menu>a{display:block;padding:9px 12px;font-size:13px;color:#4c1d95}.header-account-menu>[hidden]{display:none!important}

@@ -31,3 +31,6 @@
 @media(min-width:1300px){#adminUserList{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 .admin-main select{display:block;width:100%;min-height:36px;padding:7px 9px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;margin-top:3px;background:#fff}#adminUserSearch label:first-child{flex:1 1 260px}@media(max-width:700px){.admin-main select{font-size:16px}#adminUserSearch label{width:100%}}
+
+
+.header-account-menu .account-menu-state{margin:3px 6px 7px;padding:6px 8px;border-radius:7px;background:#f0e9fc;color:#4c1d95;font-size:12px;line-height:1.4}.header-account-menu button:disabled{opacity:1!important;color:#64748b!important;background:#f1f5f9!important}.header-account-menu>a{display:block;padding:9px 12px;font-size:13px;color:#4c1d95}.header-account-menu>[hidden]{display:none!important}
