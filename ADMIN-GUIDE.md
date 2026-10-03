@@ -25,7 +25,7 @@ App नाम, announcement, support संपर्क, मुख्य रं�
 
 ## Free setup की बाकी स्थिति
 
-Hosting GitHub Pages है। Vercel या भुगतान का उपयोग नहीं किया गया। Email login और admin cloud catalog का code जुड़ा है; Verified owner और admin grant जुड़े हैं। Users के निजी poster cloud slots भी जुड़े हैं। Workers AI का वास्तविक generation सत्यापन बाकी है। DNS और paid services में कोई बदलाव नहीं किया गया।
+Hosting GitHub Pages है। Vercel का उपयोग नहीं है। Membership payments Cashfree से जुड़े हैं। Email login और admin cloud catalog का code जुड़ा है; Verified owner और admin grant जुड़े हैं। Users के निजी poster cloud slots भी जुड़े हैं। Workers AI का वास्तविक generation सत्यापन बाकी है। DNS में बदलाव नहीं किया गया। Paid AI generation बंद है।
 
 
 ## Uploaded template का content बदलना
@@ -71,7 +71,7 @@ Complimentary membership रिकॉर्ड जुड़ा है। Payment
 
 `membership.html` पर user Login करके अपनी User ID admin को दे। Admin Workspace → Business users में अधिकृत admin उस UUID और 1–365 दिनों की अवधि को Save कर सकता है। यह complimentary manual membership का cloud रिकॉर्ड है, admin अधिकार या AI credits नहीं। नया grant पुरानी समाप्ति तारीख को आज से चुने दिनों तक बदल देता है। User केवल अपना membership रिकॉर्ड देख सकता है।
 
-₹10 activation → 15 दिन trial और ₹100/month manual plan page पर प्रस्ताव के रूप में दिखते हैं। Payment, paid subscription और paid export enforcement अभी सक्रिय नहीं हैं; editor अभी खुला है। बिना verified payment के paid access सक्रिय न करें।
+₹10 Registration → 15 दिन trial और ₹100 Manual renewal → 30 दिन Cashfree checkout से उपलब्ध हैं। सफल production payment पर server validity देता है। Trial दोबारा नहीं मिलता; automatic debit नहीं है। Manual editor अभी launch preparation में खुला है; paid export enforcement लागू नहीं है।
 
 ## Social Share और Caption
 
@@ -107,7 +107,7 @@ Video Studio में Download format से WebM या MP4 चुनें।
 
 ## Business / Reminders और निजी media
 
-नई server limits, trial, AI लागत / margin, Email setup और phone verification के लिए [BUSINESS-SETUP.md](BUSINESS-SETUP.md) पढ़ें। Admin navigation में Business / Reminders खोलें। User Membership page में Trial, Reminder preference और मेरी Cloud Files मिलेंगे। Payment और paid AI अभी बंद हैं।
+नई server limits, trial, AI लागत / margin, Email setup और phone verification के लिए [BUSINESS-SETUP.md](BUSINESS-SETUP.md) पढ़ें। Admin navigation में Business / Reminders खोलें। User Membership page में Trial, Reminder preference और मेरी Cloud Files मिलेंगे। Membership payment और consent-bound expiry Email चालू हैं। Paid AI generation अभी बंद है।
 
 
 
