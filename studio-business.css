@@ -4,3 +4,5 @@
 
 
 .payment-record{border:1px solid #ded8ee;border-radius:12px;padding:16px;margin:12px 0}.payment-record h3{font-size:1rem;overflow-wrap:anywhere}.payment-record dd{overflow-wrap:anywhere}
+
+.payment-record{overflow-wrap:anywhere}#studioAlertHealth>div{max-height:520px;overflow:auto}#studioOwnPayments button,#studioAlertHealth button{cursor:pointer;min-height:36px}#studioSupport a{overflow-wrap:anywhere}

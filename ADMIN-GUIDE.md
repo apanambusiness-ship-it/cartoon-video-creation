@@ -108,3 +108,13 @@ Video Studio में Download format से WebM या MP4 चुनें।
 ## Business / Reminders और निजी media
 
 नई server limits, trial, AI लागत / margin, Email setup और phone verification के लिए [BUSINESS-SETUP.md](BUSINESS-SETUP.md) पढ़ें। Admin navigation में Business / Reminders खोलें। User Membership page में Trial, Reminder preference और मेरी Cloud Files मिलेंगे। Payment और paid AI अभी बंद हैं।
+
+
+
+## Account और payment tools — 3 October 2026
+
+- Profile / Membership अब production paid, trial और complimentary access की लागू अवधि दिखाते हैं। Sandbox real validity में शामिल नहीं है।
+- Membership → मेरे Payments: account के अपने records, 25 प्रति पेज; paid record से text payment confirmation डाउनलोड करें। यह Tax Invoice नहीं है।
+- Admin → Email delivery / Failures: accepted/failed/uncertain payment emails और समस्याग्रस्त expiry emails देखें। Provider acceptance और वास्तविक inbox delivery अलग हैं। Automatic retry नहीं होता।
+- Membership → सहायता / Payment या Refund समस्या: business email में draft खोलता है। यह स्वचालित refund नहीं करता; merchant समीक्षा और Cashfree dashboard का verified workflow आवश्यक है।
+- Expiry emails user opt-in और daily request cap पर चालू हैं। Paid AI provider/credit charging, बड़ी storage, real phone और cross-device acceptance अभी बाहरी जाँच पर निर्भर हैं।

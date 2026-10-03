@@ -108,3 +108,8 @@ Export filename preview and project summary follow the chosen MP4/WebM container
 ## Final server checks — 3 October 2026
 
 Rollback production-database verification passed for video backup ownership, anonymous denial, stale writes, two slots and atomic total quota. `tests/studio-download-limits-regression.sql` also passed 20-request/account/day, 100 MiB/account/day and 500 MiB/Studio/day download caps, including unchanged counters after rejected attempts. No objects were uploaded and all synthetic records rolled back. Edge dry tests check email accepted/rejected/unknown outcomes, one request only, idempotency key, invalid scheduler authentication and disabled payments/SMS/paid AI. Provider calls are mocked; these tests do not prove real inbox delivery, cross-device user login or a physical phone.
+
+
+## Account summary — 3 October 2026
+
+`tests/account-summary-rls.sql` checks own payment history isolation, excludes sandbox from real validity, omits checkout sessions and protects alert health with an admin guard. `tests/account-summary-browser.cjs` checks membership status, own receipts, logout clearing and 360/390/768/1280px layouts. The deployment suite also covers editor/offline/cloud/video flows. Receipt is a payment confirmation, not a tax invoice.

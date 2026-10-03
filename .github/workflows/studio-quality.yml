@@ -49,6 +49,8 @@ jobs:
           node tests/current-studio-browser.cjs
       - name: Check business and private media UI
         run: node tests/studio-business-browser.cjs
+      - name: Check account summary and receipts
+        run: node tests/account-summary-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
