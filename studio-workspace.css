@@ -71,3 +71,22 @@ body.studio-area-editing #templateCanvasActions .canvas-tool-group[aria-label="P
  body.studio-workspace #studioSelectionBar .zoomBar #zoomValue{font-size:11px;min-width:42px;padding:5px;border-radius:7px}
  body.studio-workspace #stageWrap{padding:10px 10px 18px}
 }
+
+@media(min-width:901px){
+ body.studio-workspace #studioQuickCreate>strong{display:none}
+ body.studio-workspace #studioQuickCreate>.organizer-video-link{margin:0 0 4px;padding:6px 7px}
+ body.studio-workspace #studioQuickCreate>input[type=search]{box-sizing:border-box;width:100%;min-width:0;padding:6px 8px;margin:0 0 3px;border:1px solid #ccd3dd;border-radius:7px;font-size:11px;background:#fff}
+}
+@media(min-width:1100px){
+ body.studio-workspace .studio-layers-pane>p{display:none}
+ body.studio-workspace .studio-layers-pane .template-layer-field{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px!important;margin-bottom:5px}
+ body.studio-workspace .studio-layers-pane .template-layer-field>label{grid-column:1/-1;min-width:0;margin:0;font-size:11px;line-height:1.35;overflow-wrap:anywhere}
+ body.studio-workspace .studio-layers-pane .template-layer-field textarea{display:block;box-sizing:border-box;min-height:38px;height:38px;margin-top:3px;padding:4px 5px;font-size:12px;line-height:1.35;resize:vertical;border:1px solid #d5ddeb;border-radius:5px}
+ body.studio-workspace .studio-layers-pane .template-layer-field input[type=file]{display:block;width:100%;min-width:0;max-width:100%;font-size:10px;margin-top:3px}
+ body.studio-workspace .studio-layers-pane .template-layer-field>button{width:100%;min-width:0;min-height:28px!important;margin:0;padding:4px!important;font-size:10px!important;line-height:1.3}
+ body.studio-workspace .studio-layers-pane .layer-tools{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;margin:0}
+ body.studio-workspace .studio-layers-pane .layer-tools button{min-width:0;min-height:27px!important;padding:3px!important;font-size:10px!important}
+ body.studio-workspace .studio-layers-pane .layer-text-options{grid-column:1/-1;gap:5px;align-items:center;margin:0}
+ body.studio-workspace .studio-layers-pane .layer-text-options input[type=number]{width:70px!important;min-width:0;height:27px;padding:3px 5px;font-size:11px}
+ body.studio-workspace .studio-layers-pane .layer-text-options input[type=color]{width:38px!important;height:27px;padding:2px}
+}

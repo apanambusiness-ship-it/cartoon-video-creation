@@ -18,6 +18,9 @@ const pane=document.createElement('aside');pane.className='studio-layers-pane';p
 const list=document.getElementById('templateLayerFields'),originalParent=list?.parentElement,originalNext=list?.nextSibling,objectDialog=document.getElementById('objectEditor');
 const quick=document.createElement('div');quick.id='studioQuickCreate';quick.innerHTML='<strong>जोड़ें</strong>';(aside.querySelector('.organizer')||aside).prepend(quick);
 document.querySelector('#apanamCompactTools .apanam-strip:nth-child(2)')?.classList.add('studio-format-strip');const strip=document.querySelector('#apanamCompactTools .apanam-strip');if(strip)quick.append(strip);
+const organizer=aside.querySelector('.organizer'),videoLink=organizer?.querySelector('.organizer-video-link'),toolSearch=organizer?.querySelector(':scope>input[type=search]');
+function quickLayout(){if(!organizer)return;if(toolbarMedia.matches){quick.prepend(...[videoLink,toolSearch].filter(Boolean));}else{const nav=organizer.querySelector('.organizer-nav');if(nav)nav.after(...[videoLink,toolSearch].filter(Boolean));}}
+toolbarMedia.addEventListener('change',quickLayout);quickLayout();
 const bar=document.getElementById('templateCanvasActions'),barParent=bar?.parentElement,barNext=bar?.nextSibling;
 const layerMore=document.createElement('details');layerMore.className='studio-layer-more';layerMore.innerHTML='<summary>Layer विकल्प</summary><div></div>';actions.append(layerMore);for(const button of Array.from(actions.children)){if(button.tagName==='BUTTON'&&button!==edit&&button!==photoText)layerMore.querySelector('div').append(button);}photoText.hidden=true;
 const media=matchMedia('(min-width:1100px)');
