@@ -44,6 +44,7 @@ jobs:
       - name: Check mobile and offline editing
         run: |
           node tests/admin-payment-browser.cjs
+          node tests/payment-return-browser.cjs
           node tests/current-studio-browser.cjs
       - name: Check business and private media UI
         run: node tests/studio-business-browser.cjs
