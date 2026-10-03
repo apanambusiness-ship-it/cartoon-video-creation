@@ -5,7 +5,7 @@ This setup applies only to cartoon-video-creation and Supabase project jruxafztu
 ## Available now
 
 - Membership page: authenticated, verified accounts may start one free pre-launch trial of exactly 15 days. Repeating the request does not extend it.
-- Registration ₹10 and Manual Studio ₹100/month remain proposed paid plans. No payment is collected, no paid entitlement is issued and the manual editor remains open while payments are unavailable.
+- Cashfree supports ₹10 Registration / 15-day trial and ₹100 Manual Studio / 30-day renewal. Production and sandbox entitlements are isolated. A previously used trial prevents repeat registration. Each payment requires an explicit checkout; no automatic debit is enabled. The manual editor currently remains open during launch preparation.
 - Existing admin complimentary Manual Access remains available separately.
 - Admin → Business / Reminders: store provider maximum per-unit cost in rupees, provider name and 25–75% margin. The estimate rounds up from `cost / (1 - margin)`. Include provider tax, exchange rate, processing and failed-generation allowance in the cost. This estimate does not buy credits or call a paid provider.
 - Membership → Reminder preference: users can opt in/out of expiry emails. No marketing subscription is implied. SMS and automatic WhatsApp remain unavailable pending a provider and verified recipient numbers.
@@ -31,17 +31,16 @@ This pool is separate from existing public catalog assets and 2 MB project backu
 2. Open Supabase → Edge Functions → Secrets for the Studio project. Add:
    - `BREVO_API_KEY`: Brevo transactional API key.
    - `STUDIO_REMINDER_FROM`: verified sender email address.
-   - `STUDIO_CRON_SECRET`: a random password of at least 32 characters, used only for the scheduler.
-3. Open Supabase → Vault → Add secret. Name: `studio_reminder_cron_secret`. Value: exactly the same `STUDIO_CRON_SECRET`. Do not put these secrets in GitHub, public HTML, user profiles or this guide.
+3. The scheduler credential is generated privately in Vault by `studio-payment-alert-auth.sql`. Both delivery routes validate it server-side. No manual credential copying is required. Never put secrets in GitHub, HTML or user profiles.
 4. Log in as the authorized Studio admin. Open Business / Reminders → Refresh. Check the provider status, then enable automatic Email and save. Default daily limit is 30 requests; the permitted maximum is 100. Check Brevo's actual remaining account quota, including login/verification emails, before enabling.
 5. The hourly preparation job runs at minute 30 UTC; delivery runs at minute 45 UTC. Only opted-in verified members at the 7/3/1/0-day stages are queued. Repeated scheduler runs do not create the same notice again. Revoked, renewed or opted-out notices are skipped.
 6. Check both the queue and Brevo delivery logs. `sent` means provider acceptance, not inbox delivery. Failed and uncertain results are not automatically retried, to prevent duplicates. An uncertain result needs provider-log review.
 
-Without these keys and the matching Vault secret, scheduled sending does nothing. No email or SMS was sent while implementing or testing this release.
+Without the provider keys and private scheduler authentication, scheduled sending does nothing. Admin payment email delivery has been verified separately with a confirmed live payment. Expiry emails are sent only for opted-in users whose effective entitlement ends in 7/3/1/0 days; a successful payment alert does not opt a user into expiry emails.
 
 ## Paid AI and SMS dependencies
 
-Paid image/audio/video generation needs a selected provider, its secret key, an actual price quote and a verified prepaid balance/charging arrangement. Generation remains server-disabled while the payment account is excluded. Professional output quality must be checked on real samples before activation. No unlimited paid generation or automatic recharge is enabled.
+Paid image/audio/video generation needs a selected provider, its secret key, an actual price quote and a verified prepaid balance/charging arrangement. Generation remains server-disabled until the paid AI provider and spending arrangement are configured. Professional output quality must be checked on real samples before activation. No unlimited paid generation or automatic recharge is enabled.
 
 Automatic SMS needs its own provider, recipient consent/verification, sender registration and an agreed per-message cost limit. A mobile/WhatsApp number typed into a profile is not verified. Do not enable chargeable SMS on that basis. Manual WhatsApp reminder drafts remain available in Users / Profiles.
 
@@ -61,6 +60,6 @@ Provider references: https://developers.brevo.com/reference/send-transac-email a
 
 - Phone: select/drag/resize/replace a photo; edit text; Save/Load; check a saved project offline. Record voice, stop, export a short video, play it with sound and share it using the actual phone app.
 - Cross-device Cloud: with the same verified account, save a small sample poster/video and its audio on device A; open it on device B, compare text/photo/audio and download a local backup. Automatic tests and rolled-back server tests are complete; this real-account acceptance is still pending.
-- Email: enter the transactional key and verified sender through Supabase Secrets, then the matching scheduler secret through Edge Secrets and Vault as described above. Enable sending only after sender/provider checks; verify acceptance logs and actual delivery to a consenting test recipient separately. Never paste API keys in chat or public code.
+- Email: keep the transactional key and verified sender in Supabase Secrets. Scheduler authentication is generated privately as described above. Enable sending only after sender/provider checks; verify acceptance logs and actual delivery to a consenting test recipient separately. Never paste API keys in chat or public code.
 - SMS and paid AI remain unavailable until their providers, verified recipients or price/credit arrangements, keys and actual output samples are configured. Estimates do not activate paid generation.
-- Payment setup stays excluded. No real provider delivery or real-phone acceptance was claimed in the final server checks.
+- Cashfree Live ₹100 checkout, server fulfilment and admin payment email delivery have been verified. ₹10 real checkout, actual bank settlement, physical-phone acceptance and real-account cross-device acceptance remain separate checks.

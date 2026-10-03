@@ -41,6 +41,7 @@ jobs:
           node tests/service-worker-core-regression.cjs
           node --experimental-strip-types tests/studio-business-edge-regression.cjs
           node --experimental-strip-types tests/studio-payments-edge-regression.cjs
+          node --experimental-strip-types tests/payment-alerts-edge.cjs
       - name: Check mobile and offline editing
         run: |
           node tests/admin-payment-browser.cjs
