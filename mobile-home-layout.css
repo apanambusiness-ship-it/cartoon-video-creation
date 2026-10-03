@@ -61,3 +61,34 @@
 
 }
 @media(max-width:340px){body.studio-mobile-layout>header .actions>#apanamSocialShare{display:none!important}}
+/* All mobile panels stay within the visible viewport, including short screens. */
+@media(max-width:900px){
+ body.studio-mobile-layout :is(#studioMobileSheet,#apanamShareDialog,#apanamInstallHelp,#studioProfileDialog){position:fixed!important;inset:10px!important;margin:auto!important;width:min(520px,calc(100vw - 20px))!important;max-width:calc(100vw - 20px)!important;max-height:calc(100dvh - 20px)!important;box-sizing:border-box;overflow:auto;overscroll-behavior:contain;border-radius:14px}
+ body.studio-mobile-layout :is(.studio-library-overlay,.apanam-hub-overlay,.apanam-help-overlay,.apanam-safety-overlay,.apanam-gallery-backdrop){padding:10px!important;box-sizing:border-box;overflow:hidden}
+ body.studio-mobile-layout :is(.studio-library,.apanam-hub,.apanam-help,.apanam-safety,.apanam-gallery-panel){width:100%!important;max-width:520px!important;max-height:calc(100dvh - 20px)!important;box-sizing:border-box;overflow:auto;overscroll-behavior:contain;border-radius:14px}
+ body.studio-mobile-layout :is(.studio-library header,.apanam-hub-head,.apanam-help>header,.apanam-safety>header,.apanam-gallery-header){height:auto!important;min-height:58px;position:sticky;top:0;z-index:3;gap:8px;padding:12px!important;align-items:flex-start;flex-wrap:nowrap;background-color:#fff}
+ body.studio-mobile-layout :is(.studio-library h2,.apanam-hub-head h2,.apanam-help header h2,.apanam-safety h2,.apanam-gallery-header h2){font-size:18px;line-height:1.35;margin:0;overflow-wrap:anywhere}
+ body.studio-mobile-layout :is(.studio-library-close,[data-hub=close],[data-help-close],[data-safety-close],.apanam-gallery-close){flex:0 0 auto;min-height:40px;min-width:40px}
+ body.studio-mobile-layout :is(.mobile-sheet-heading,.social-share-heading){position:sticky;top:0;z-index:3;background:#fff;padding:5px 0 9px}
+ body.studio-mobile-layout #apanamDownloadMenu{position:fixed!important;top:auto!important;left:50%!important;right:auto!important;bottom:calc(66px + env(safe-area-inset-bottom))!important;transform:translateX(-50%);width:min(300px,calc(100vw - 24px));display:flex;gap:8px;padding:10px;box-sizing:border-box;border-radius:12px;background:#fff;box-shadow:0 6px 24px #17203333;z-index:10050}
+ body.studio-mobile-layout #apanamDownloadMenu[hidden]{display:none!important}
+ body.studio-mobile-layout #apanamDownloadMenu button{flex:1;min-height:44px;min-width:0}
+}
+@media(max-width:900px){
+ body.studio-mobile-layout .apanam-mobile-bar button{font-weight:700;border:1px solid transparent;border-radius:9px!important}
+ body.studio-mobile-layout .apanam-mobile-bar button:nth-child(1){background:#f0e8ff;color:#6227a9;border-color:#ddcff6}
+ body.studio-mobile-layout .apanam-mobile-bar button:nth-child(2){background:#e5f6fa;color:#086b82;border-color:#c1e7ef}
+ body.studio-mobile-layout .apanam-mobile-bar button:nth-child(3){background:#edf0ff;color:#3946a2;border-color:#d3daf8}
+ body.studio-mobile-layout .apanam-mobile-bar button:nth-child(4){background:#fff3dd;color:#945509;border-color:#f0dfb7}
+ body.studio-mobile-layout .apanam-mobile-bar button:nth-child(5){background:#e5f6eb;color:#246c43;border-color:#bee3cc}
+ body.studio-mobile-layout #studioMobilePageNav{gap:5px;padding:4px 6px}
+ body.studio-mobile-layout #studioMobilePageNav button,body.studio-mobile-layout #studioMobilePageNav a{min-height:36px}
+ body.studio-mobile-layout #studioMobileActionGrid{gap:7px}
+ body.studio-mobile-layout #studioMobileActionGrid button{background:#f5f0fc;color:#56278f;border:1px solid #dfd1f2;font-weight:600}
+ body.studio-mobile-layout #studioSelectionBar{box-shadow:0 2px 8px #17203306}
+ body.studio-mobile-layout .studio-selection-actions button{background:#eef6ff;color:#255a92;border-color:#cbdff2}
+ body.studio-mobile-layout .studio-layer-more summary{background:#f6f0ff;color:#642c9a;border-color:#e0cef3;text-align:center}
+ body.studio-mobile-layout .zoomBar{gap:5px}
+ body.studio-mobile-layout .zoomBar button{background:#fff;color:#53318a;border-color:#dcd3ed}
+ body.studio-mobile-layout button:disabled{opacity:.45}
+}

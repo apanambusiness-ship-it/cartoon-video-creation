@@ -47,6 +47,7 @@ jobs:
           node tests/admin-payment-browser.cjs
           node tests/payment-return-browser.cjs
           node tests/current-studio-browser.cjs
+          node tests/mobile-panels-browser.cjs
       - name: Check business and private media UI
         run: node tests/studio-business-browser.cjs
       - name: Check account summary and receipts
