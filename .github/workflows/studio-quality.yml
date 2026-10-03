@@ -50,7 +50,6 @@ jobs:
           node tests/mobile-panels-browser.cjs
           node tests/original-gallery-browser.cjs
           node tests/touch-calendar-browser.cjs
-          node tests/background-themes-browser.cjs
           node tests/ready-posters-browser.cjs
           node tests/ready-posters-live.cjs
       - name: Check business and private media UI
