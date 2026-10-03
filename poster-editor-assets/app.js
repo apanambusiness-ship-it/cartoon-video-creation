@@ -237,68 +237,25 @@ function wire(el){
   };
 
   el.querySelectorAll('.handle').forEach(h=>{
-
-    h.onmousedown=e=>{
-
-      e.stopPropagation();
-
-      if(el.dataset.locked==='1') return;
-
-      select(el);
-
-      snap();
-
-      let d=h.dataset.dir,
-          sx=e.clientX,
-          sy=e.clientY,
-          L=el.offsetLeft,
-          T=el.offsetTop,
-          W=el.offsetWidth,
-          H=el.offsetHeight;
-
-      function mv(ev){
-
-        let dx=ev.clientX-sx,
-            dy=ev.clientY-sy,
-            nL=L,
-            nT=T,
-            nW=W,
-            nH=H;
-
-        if(d.includes('e'))
-          nW=Math.max(30,W+dx);
-
-        if(d.includes('s'))
-          nH=Math.max(25,H+dy);
-
-        if(d.includes('w')){
-
-          nW=Math.max(30,W-dx);
-
-          nL=L+(W-nW);
-        }
-
-        if(d.includes('n')){
-
-          nH=Math.max(25,H-dy);
-
-          nT=T+(H-nH);
-        }
-
-        el.style.left=nL+'px';
-        el.style.top=nT+'px';
-        el.style.width=nW+'px';
-        el.style.height=nH+'px';
+    h.onmousedown=null;
+    h.onpointerdown=e=>{
+      if(e.button!==0||e.isPrimary===false||el.dataset.locked==='1')return;
+      e.stopPropagation();e.preventDefault();select(el);
+      const id=e.pointerId,d=h.dataset.dir,sx=e.clientX,sy=e.clientY,
+        L=parseFloat(el.style.left)||0,T=parseFloat(el.style.top)||0,W=el.offsetWidth,H=el.offsetHeight,
+        box=stage.getBoundingClientRect(),fx=stage.offsetWidth/box.width,fy=stage.offsetHeight/box.height,fontSize=parseFloat(getComputedStyle(el).fontSize)||16;
+      let moved=false;try{h.setPointerCapture(id)}catch(_){}
+      function mv(ev){if(ev.pointerId!==id)return;ev.preventDefault();const dx=(ev.clientX-sx)*fx,dy=(ev.clientY-sy)*fy;
+        if(!moved){if(Math.hypot(dx,dy)<2)return;snap();moved=true;}
+        let nW=W,nH=H,nL=L,nT=T;
+        if(d.includes('e'))nW=Math.max(30,W+dx);if(d.includes('s'))nH=Math.max(25,H+dy);
+        if(d.includes('w')){nW=Math.max(30,W-dx);nL=L+W-nW;}if(d.includes('n')){nH=Math.max(25,H-dy);nT=T+H-nH;}
+        Object.assign(el.style,{left:nL+'px',top:nT+'px',width:nW+'px',height:nH+'px'});if(d.length===2&&el.dataset.text!=null)el.style.fontSize=Math.max(8,fontSize*Math.min(nW/W,nH/H))+'px';
       }
-
-      function up(){
-
-        removeEventListener('mousemove',mv);
-        removeEventListener('mouseup',up);
+      function up(ev){if(ev.pointerId!==id)return;removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up);
+        try{h.releasePointerCapture(id)}catch(_){}if(moved)window.APANAM_PROJECT?.save();
       }
-
-      addEventListener('mousemove',mv);
-      addEventListener('mouseup',up);
+      addEventListener('pointermove',mv,{passive:false});addEventListener('pointerup',up);addEventListener('pointercancel',up);
     };
   });
 

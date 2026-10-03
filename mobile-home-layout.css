@@ -136,3 +136,5 @@
 @media(max-width:900px){body.studio-mobile-layout .studio-layer-more summary{font-size:0}body.studio-mobile-layout .studio-layer-more summary:after{content:"Layer";font-size:10px}}
 
 @media(max-width:900px){body.studio-mobile-layout .mobile-typing-color{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:12px;color:#4c1d95;font-weight:600}body.studio-mobile-layout #studioMobileTypingPanel .mobile-typing-color #color{width:64px!important;min-height:32px;height:32px;padding:2px!important}}
+
+#stage .handle,#stage .rotateHandle{touch-action:none;user-select:none}#stage .handle:before{content:'';position:absolute;inset:-12px;background:transparent}@media(max-width:900px){#stage .handle:before{inset:-16px}}

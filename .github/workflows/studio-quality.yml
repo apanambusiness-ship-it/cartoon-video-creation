@@ -49,6 +49,7 @@ jobs:
           node tests/current-studio-browser.cjs
           node tests/mobile-panels-browser.cjs
           node tests/original-gallery-browser.cjs
+          node tests/touch-calendar-browser.cjs
       - name: Check business and private media UI
         run: node tests/studio-business-browser.cjs
       - name: Check account summary and receipts
