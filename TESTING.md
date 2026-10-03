@@ -96,3 +96,7 @@ Account/profile now includes daily in-app expiring/expired business-membership n
 ## Recorded audio Cloud Files — 3 October 2026
 
 WebM and MP4/M4A narration are accepted alongside existing audio formats. Edge regression checks codec-suffixed MIME normalization and rejects mismatched content before reserving quota. Rollback database regression checks both MIME types, private bucket limits and unchanged account quota rejection. Payment, paid AI and email delivery remain disabled.
+
+## Voice recording recovery — 3 October 2026
+
+`node tests/voice-recording-regression.cjs` executes the actual voice button handlers with controlled microphone/recorder failures. It checks repeated clicks while permission is pending, correct M4A/WebM filenames, stopped microphone tracks, restored controls, and preservation of previous audio after failed recordings. Physical-phone microphone and sharing playback remain acceptance checks.

@@ -2,7 +2,7 @@
   const $=id=>document.getElementById(id),canvas=$('screen'),outputCtx=canvas.getContext('2d'),drawingCanvas=document.createElement('canvas');drawingCanvas.width=1280;drawingCanvas.height=720;const ctx=drawingCanvas.getContext('2d');
   const fields=['title','caption','duration','background','photoFit','character','characterType','motion','transition','titleColor','captionColor','titleSize','captionSize','captionPosition'];
   const defaults={title:'पहला Scene',caption:'APANAM में आपका स्वागत है',duration:4,background:'#312e81',photoFit:'cover',character:'#facc15',characterType:'smile',motion:'bounce',transition:'fade',titleColor:'#ffffff',captionColor:'#ffffff',titleSize:56,captionSize:32,captionPosition:'lower'};
-  let scenes=[],current=-1,playing=false,recorder=null,raf=0,audioFile=null,sceneAudioFiles=[],audioContext=null,audioSource=null,sceneAudioSources=[],voiceRecorder=null,voiceStream=null,previewAudio=null,previewAudioUrl=null,videoPreviewAudio=null,videoPreviewUrl=null,videoPreviewSceneAudio=null,videoPreviewSceneUrl=null;
+  let scenes=[],current=-1,playing=false,recorder=null,raf=0,audioFile=null,sceneAudioFiles=[],audioContext=null,audioSource=null,sceneAudioSources=[],voiceRecorder=null,voiceStream=null,voiceStarting=false,previewAudio=null,previewAudioUrl=null,videoPreviewAudio=null,videoPreviewUrl=null,videoPreviewSceneAudio=null,videoPreviewSceneUrl=null;
   const images=new Map();
   function backgroundImage(src){if(!src)return null;if(images.has(src))return images.get(src);const image=new Image();image.onload=()=>{if(!playing&&(scene()?.backgroundImage===src||scene()?.logoImage===src||scene()?.layers?.some(layer=>layer.src===src)))draw(scene(),0)};image.src=src;images.set(src,image);return image}
   try{const saved=JSON.parse(localStorage.getItem('apanam-cartoon-scenes')||'[]');if(Array.isArray(saved))scenes=saved.slice(0,100).map(s=>({...defaults,...s}))}catch{}
@@ -63,7 +63,27 @@
   $('useBrandLogo').onclick=async()=>{const logo=localStorage.getItem('apanam_brand_logo_v1');if(!logo){$('status').textContent='पोस्टर एडिटर के Brand Kit में पहले लोगो सेव करें।';return}try{await applyVideoLogo(logo)}catch(_){$('status').textContent='ब्रांड लोगो नहीं लगा। छोटा लोगो चुनें या ब्राउज़र की जगह जाँचें।'}};
   $('useBrandColors').onclick=()=>{let kit;try{kit=JSON.parse(localStorage.getItem('apanam_brand_kit_v1')||'null')}catch(_){}if(!kit?.primary||!kit?.secondary||!/^#[0-9a-f]{6}$/i.test(kit.primary)||!/^#[0-9a-f]{6}$/i.test(kit.secondary)){$('status').textContent='पोस्टर एडिटर के Brand Kit में पहले मुख्य और दूसरा रंग सेव करें।';return}const previous={background:scene().background,character:scene().character};Object.assign(scene(),{background:kit.primary,character:kit.secondary});if(!save()){Object.assign(scene(),previous);return}select(current);$('status').textContent='ब्रांड के दोनों रंग इस सीन में लग गए।'};
   $('removeVideoLogo').onclick=()=>{scenes.forEach(s=>delete s.logoImage);save();draw(scene(),0);$('status').textContent='सभी सीन से लोगो हट गया।'};
-  $('recordVoice').onclick=async()=>{if(voiceRecorder?.state==='recording')return;if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){$('audioStatus').textContent='इस browser में माइक्रोफ़ोन रिकॉर्डिंग उपलब्ध नहीं है।';return}try{voiceStream=await navigator.mediaDevices.getUserMedia({audio:true});const chunks=[];voiceRecorder=new MediaRecorder(voiceStream);voiceRecorder.ondataavailable=event=>{if(event.data.size)chunks.push(event.data)};voiceRecorder.onstop=()=>{voiceStream?.getTracks().forEach(track=>track.stop());voiceStream=null;$('recordVoice').disabled=false;$('stopVoice').disabled=true;if(!chunks.length){$('audioStatus').textContent='आवाज़ रिकॉर्ड नहीं हुई। दोबारा कोशिश करें।';return}stopAudioPreview();audioFile=new File([new Blob(chunks,{type:voiceRecorder.mimeType||'audio/webm'})],'APANAM-recorded-voice.webm',{type:voiceRecorder.mimeType||'audio/webm'});$('audioFile').value='';$('audioStatus').textContent=`रिकॉर्ड की हुई आवाज़ तैयार है (${Math.round(audioFile.size/1024)} KB)। वीडियो डाउनलोड में जुड़ेगी।`};voiceRecorder.start();$('recordVoice').disabled=true;$('stopVoice').disabled=false;$('audioStatus').textContent='रिकॉर्डिंग चालू है। बोलें, फिर रोकें दबाएँ।'}catch(_){voiceStream?.getTracks().forEach(track=>track.stop());voiceStream=null;$('audioStatus').textContent='माइक्रोफ़ोन नहीं खुला। ब्राउज़र में अनुमति दें या ऑडियो फ़ाइल चुनें।'}};
+  $('recordVoice').onclick=async()=>{
+    if(voiceStarting||voiceRecorder?.state==='recording')return;
+    if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){$('audioStatus').textContent='इस browser में माइक्रोफ़ोन रिकॉर्डिंग उपलब्ध नहीं है।';return}
+    voiceStarting=true;$('recordVoice').disabled=true;$('audioStatus').textContent='माइक्रोफ़ोन खुल रहा है…';
+    let stream,active,released=false;
+    const release=()=>{if(released)return;released=true;stream?.getTracks().forEach(track=>track.stop());if(voiceStream===stream)voiceStream=null;if(voiceRecorder===active)voiceRecorder=null;voiceStarting=false;$('recordVoice').disabled=false;$('stopVoice').disabled=true;};
+    try{
+      stream=await navigator.mediaDevices.getUserMedia({audio:true});voiceStream=stream;const chunks=[];let failed=false;
+      active=new MediaRecorder(stream);voiceRecorder=active;
+      active.ondataavailable=event=>{if(event.data.size)chunks.push(event.data)};
+      active.onerror=()=>{failed=true;try{if(active.state==='recording')active.stop()}catch(_){}release();$('audioStatus').textContent='आवाज़ रिकॉर्ड नहीं हुई। फिर कोशिश करें।'};
+      active.onstop=()=>{
+        const mime=active.mimeType||chunks[0]?.type||'audio/webm';release();if(failed)return;
+        if(!chunks.length){$('audioStatus').textContent='आवाज़ रिकॉर्ड नहीं हुई। दोबारा कोशिश करें।';return}
+        const format=window.APANAM_VIDEO_FORMATS.recordedAudio(mime);stopAudioPreview();
+        audioFile=new File(chunks,'APANAM-recorded-voice.'+format.extension,{type:format.mime});$('audioFile').value='';
+        $('audioStatus').textContent=`रिकॉर्ड की हुई आवाज़ तैयार है (${Math.round(audioFile.size/1024)} KB)। वीडियो डाउनलोड में जुड़ेगी।`;
+      };
+      active.start();voiceStarting=false;$('stopVoice').disabled=false;$('audioStatus').textContent='रिकॉर्डिंग चालू है। बोलें, फिर रोकें दबाएँ।';
+    }catch(_){release();$('audioStatus').textContent='माइक्रोफ़ोन नहीं खुला। ब्राउज़र में अनुमति दें या ऑडियो फ़ाइल चुनें।'}
+  };
   $('stopVoice').onclick=()=>{if(voiceRecorder?.state==='recording')voiceRecorder.stop()};
   $('backupVideo').onclick=()=>{const blob=new Blob([JSON.stringify({format:'apanam-cartoon-project',version:1,scenes,settings:window.APANAM_CARTOON_PROJECT.snapshotSettings()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`${window.APANAM_VIDEO_EXPORT_BASENAME?.()||'APANAM-cartoon-video'}-project.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),60000);$('status').textContent='सीन का प्रोजेक्ट बैकअप डाउनलोड हुआ। ऑडियो फ़ाइल अलग रखें।'};
   $('backupFullVideo').onclick=async()=>{

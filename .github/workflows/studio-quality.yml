@@ -36,6 +36,7 @@ jobs:
           node tests/account-recovery-regression.cjs
           node tests/mobile-native-input-regression.cjs poster-editor-assets/touch-support.js
           node tests/video-format-regression.cjs
+          node tests/voice-recording-regression.cjs
           node tests/service-worker-core-regression.cjs
           node --experimental-strip-types tests/studio-business-edge-regression.cjs
       - name: Check mobile and offline editing
