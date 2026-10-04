@@ -10,6 +10,17 @@ await page.addScriptTag({content:fs.readFileSync(path.join(root,'studio-catalog-
 await page.addScriptTag({content:fs.readFileSync(path.join(root,'studio-calendar.js'),'utf8')});
 await page.evaluate(()=>APANAM_CALENDAR.ready);
 const originals=JSON.parse(fs.readFileSync(path.join(root,'studio-original-templates.json'),'utf8')).templates;
+const uploads=originals.filter(t=>t.id.startsWith('apanam-uploaded-'));
+assert.equal(uploads.length,59);
+for(const t of uploads){const src=t.project.html.match(/<img src="([^"]+)/)[1];assert.ok(fs.statSync(path.join(root,src)).size>0);}
+const all=await page.evaluate(templates=>{
+const titles=[...new Set(templates.filter(t=>t.id.startsWith('apanam-uploaded-')).map(t=>t.occasion))];
+for(const title of titles)APANAM_CALENDAR.add({title,date:'2026-06-01',type:'festival'});
+const posters=APANAM_CALENDAR.posters('2026-06-01',templates);
+for(const p of posters){const doc=document.createElement('template');doc.innerHTML=p.project.html;for(const name of ['अवसर का नाम','शुभकामना','तारीख','संस्था','आपका नाम'])if(!doc.content.querySelector('[data-name="'+name+'"]').dataset.text)throw Error(name);}
+return {count:posters.length,expected:titles.length*5,unique:new Set(posters.map(t=>t.id)).size};
+},originals);
+assert.equal(all.count,all.expected);assert.equal(all.unique,all.count);
 const result=await page.evaluate(templates=>{
 const posters=APANAM_CALENDAR.posters('2026-10-20',templates);
 for(const poster of posters){const t=document.createElement('template');t.innerHTML=APANAM_CATALOG.project(poster.project).html;
@@ -22,3 +33,4 @@ await page.reload();assert.equal(await page.evaluate(()=>Object.values(localStor
 await page.addScriptTag({content:fs.readFileSync(path.join(root,'studio-calendar.js'),'utf8')});await page.evaluate(()=>APANAM_CALENDAR.ready);await page.evaluate(templates=>{document.body.style.margin='0';for(const poster of APANAM_CALENDAR.posters('2026-10-20',templates).slice(0,5)){const wrap=document.createElement('div'),canvas=document.createElement('div');wrap.style.cssText='width:100%;height:540px;overflow:hidden;margin-bottom:12px';canvas.style.cssText='position:relative;width:540px;height:540px;transform-origin:top left;transform:scale('+Math.min(1,innerWidth/540)+')';canvas.innerHTML=poster.project.html;wrap.style.height=(540*Math.min(1,innerWidth/540))+'px';wrap.append(canvas);document.body.append(wrap);}},originals);fs.mkdirSync(path.join(root,'quality-artifacts'),{recursive:true});await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0));await page.screenshot({path:path.join(root,'quality-artifacts','calendar-five-'+width+'.png'),fullPage:true});await page.close();console.log('PASS '+width+'px: five designs per event, matched artwork, editable fields, persistence, invalid date and no lunar repetition');
 }
 }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1});
+

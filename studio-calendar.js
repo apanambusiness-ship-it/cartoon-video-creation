@@ -3,6 +3,7 @@ const normalize=e=>({id:String(e.id||'').slice(0,120),title:String(e.title||'').
 function personal(){try{const data=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(data)?data.filter(e=>e&&validDate(e.date)).map(normalize):[];}catch{return [];}}
 const ready=fetch('./studio-calendar-events.json',{cache:'no-store',signal:AbortSignal.timeout(8000)}).then(r=>{if(!r.ok)throw Error('Calendar unavailable');return r.json();}).then(d=>{verified=(d.events||[]).filter(e=>e&&validDate(e.date)).map(normalize);}).catch(error=>console.warn(error.message));
 function events(date){if(!validDate(date))return [];return [...verified,...personal()].filter(e=>(e.repeatYearly?e.date.slice(5)===date.slice(5):e.date===date)&&(!e.repeatYearly||date>=e.date));}
+const uploadedBackgrounds={"बैसाखी": ["./festival-assets/uploaded/baisakhi-1.webp", "./festival-assets/uploaded/baisakhi-2.webp", "./festival-assets/uploaded/baisakhi-3.webp", "./festival-assets/uploaded/baisakhi-4.webp", "./festival-assets/uploaded/baisakhi-5.webp"], "क्रिसमस": ["./festival-assets/uploaded/christmas-1.webp", "./festival-assets/uploaded/christmas-2.webp"], "छठ पूजा": ["./festival-assets/uploaded/chhath-1.webp", "./festival-assets/uploaded/chhath-2.webp"], "गुरु नानक जयंती": ["./festival-assets/uploaded/guru-nanak-jayanti-1.webp", "./festival-assets/uploaded/guru-nanak-jayanti-2.webp"], "बसंत पंचमी": ["./festival-assets/uploaded/basant-panchami-1.webp", "./festival-assets/uploaded/basant-panchami-2.webp", "./festival-assets/uploaded/basant-panchami-3.webp", "./festival-assets/uploaded/basant-panchami-4.webp", "./festival-assets/uploaded/basant-panchami-5.webp", "./festival-assets/uploaded/basant-panchami-6.webp"], "रक्षाबंधन": ["./festival-assets/uploaded/raksha-bandhan-1.webp", "./festival-assets/uploaded/raksha-bandhan-2.webp", "./festival-assets/uploaded/raksha-bandhan-3.webp", "./festival-assets/uploaded/raksha-bandhan-4.webp"], "मकर संक्रांति": ["./festival-assets/uploaded/makar-sankranti-1.webp", "./festival-assets/uploaded/makar-sankranti-2.webp", "./festival-assets/uploaded/makar-sankranti-3.webp", "./festival-assets/uploaded/makar-sankranti-4.webp", "./festival-assets/uploaded/makar-sankranti-5.webp", "./festival-assets/uploaded/makar-sankranti-6.webp"], "राम नवमी": ["./festival-assets/uploaded/ram-navami-1.webp", "./festival-assets/uploaded/ram-navami-2.webp", "./festival-assets/uploaded/ram-navami-3.webp", "./festival-assets/uploaded/ram-navami-4.webp", "./festival-assets/uploaded/ram-navami-5.webp", "./festival-assets/uploaded/ram-navami-6.webp"], "महाशिवरात्रि": ["./festival-assets/uploaded/mahashivratri-1.webp", "./festival-assets/uploaded/mahashivratri-2.webp", "./festival-assets/uploaded/mahashivratri-3.webp", "./festival-assets/uploaded/mahashivratri-4.webp", "./festival-assets/uploaded/mahashivratri-5.webp"], "होली": ["./festival-assets/uploaded/holi-1.webp", "./festival-assets/uploaded/holi-2.webp", "./festival-assets/uploaded/holi-3.webp", "./festival-assets/uploaded/holi-4.webp", "./festival-assets/uploaded/holi-5.webp", "./festival-assets/uploaded/holi-6.webp"], "नवरात्रि": ["./festival-assets/uploaded/navratri-1.webp", "./festival-assets/uploaded/navratri-2.webp"], "दशहरा": ["./festival-assets/uploaded/dussehra-1.webp", "./festival-assets/uploaded/dussehra-2.webp"], "ईद मुबारक": ["./festival-assets/uploaded/eid-1.webp", "./festival-assets/uploaded/eid-2.webp", "./festival-assets/uploaded/eid-3.webp", "./festival-assets/uploaded/eid-4.webp", "./festival-assets/uploaded/eid-5.webp"], "दीपावली": ["./festival-assets/uploaded/diwali-1.webp", "./festival-assets/uploaded/diwali-2.webp"], "जन्माष्टमी": ["./festival-assets/uploaded/janmashtami-1.webp", "./festival-assets/uploaded/janmashtami-2.webp"], "गणेश चतुर्थी": ["./festival-assets/uploaded/ganesh-chaturthi-1.webp", "./festival-assets/uploaded/ganesh-chaturthi-2.webp"]};
 const designs=[
 {name:'सुनहरा उत्सव',bg:'#fff5db',ink:'#653513',accent:'#bf791f',paint:'radial-gradient(circle at 85% 15%,#ffe69b 0 16%,transparent 17%),linear-gradient(145deg,#fff8e7,#f2cf86)',art:[36,220,468,240],headline:[34,85,472,110],greeting:[34,184,472,36],align:'center'},
 {name:'नीला आकाश',bg:'#102c52',ink:'#fff5cf',accent:'#76d8ec',paint:'radial-gradient(ellipse at 10% 90%,#146b84,transparent 60%),linear-gradient(150deg,#071c36,#20547e)',art:[280,145,230,320],headline:[30,150,240,150],greeting:[30,325,235,65],align:'left'},
@@ -18,9 +19,11 @@ function posters(date,templates){
     const matching=templates.find(t=>t.published&&t.id.startsWith('apanam-festival-')&&t.occasion===event.title);
     let art='';if(matching){const source=document.createElement('template');source.innerHTML=matching.project.html;art=source.content.querySelector('img')?.getAttribute('src')||'';}
     designs.forEach((design,index)=>{
-      if(index===0&&matching){
+      const uploaded=(uploadedBackgrounds[event.title]||[])[index-1];
+      if(matching&&(index===0||uploaded)){
         const copy=structuredClone(matching),original=document.createElement('template');
         original.innerHTML=copy.project.html;
+        if(uploaded){const image=original.content.querySelector("img");if(image)image.src=uploaded;const custom=templates.find(t=>t.id.startsWith("apanam-uploaded-")&&t.project.html.includes(uploaded));if(custom)original.innerHTML=custom.project.html;}
         const headline=original.content.querySelector('[data-name="त्योहार का नाम"]');
         if(headline)headline.dataset.name='अवसर का नाम';
         let dateLayer=original.content.querySelector('[data-name="तारीख"]');
@@ -32,7 +35,7 @@ function posters(date,templates){
         }
         dateLayer.textContent=dateLayer.dataset.text=new Intl.DateTimeFormat('hi-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(date+'T00:00:00Z'));
         copy.project.html=original.innerHTML;
-        Object.assign(copy,{id:'calendar-'+event.id+'-design-1-'+date,name:event.title+' · पहले वाला मूल Poster',category,eventDate:date,repeatYearly:false,occasion:event.title});
+        Object.assign(copy,{id:'calendar-'+event.id+'-design-'+(index+1)+'-'+date,name:event.title+(index===0?' · पहले वाला मूल Poster':' · आपका Background '+index),category,eventDate:date,repeatYearly:false,occasion:event.title});
         out.push(copy);
         return;
       }
@@ -58,3 +61,4 @@ function posters(date,templates){
 function add(value){if(!validDate(value.date)||!String(value.title||'').trim())throw Error('नाम और सही तारीख भरें।');const list=personal();if(list.length>=100)throw Error('इस device पर अधिकतम 100 निजी अवसर रखें।');const event=normalize({...value,id:crypto.randomUUID(),personal:true,source:''});list.push(event);localStorage.setItem(key,JSON.stringify(list));return event;}
 function remove(id){localStorage.setItem(key,JSON.stringify(personal().filter(e=>e.id!==id)));}
 window.APANAM_CALENDAR={ready,events,posters,add,remove,personal,validDate};})();
+
