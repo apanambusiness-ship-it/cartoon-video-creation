@@ -1,0 +1,28 @@
+name: Editable festival previews
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'studio-original-templates.json'
+      - 'festival-assets/**'
+      - '.github/workflows/festival-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.55.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/original-gallery-browser.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: editable-festival-mobile-previews
+          path: quality-artifacts/apanam-festival-*-default-360.png
+          retention-days: 30
