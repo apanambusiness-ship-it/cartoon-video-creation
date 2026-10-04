@@ -2,7 +2,7 @@ name: Import and publish political party elements
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/political-elements.yml']
+    paths: ['.github/workflows/political-elements.yml', 'scripts/import-political-logos.py']
   workflow_dispatch:
 permissions:
   contents: write
