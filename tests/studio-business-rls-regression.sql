@@ -1,5 +1,7 @@
 -- Everything, including synthetic accounts and quota changes, is rolled back.
 begin;
+-- Isolate test fixture from live reminder activation.
+update public.studio_business_settings set email_enabled=false where id;
 create temporary table qa_people(role_name text primary key,id uuid default gen_random_uuid());
 insert into qa_people(role_name) values('member'),('other'),('admin');
 grant select on qa_people to authenticated,anon,service_role;
