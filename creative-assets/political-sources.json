@@ -1,0 +1,56 @@
+[
+  {
+    "asset": "party-bjp",
+    "name": "भाजपा · BJP",
+    "source": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Bharatiya_Janata_Party.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-inc",
+    "name": "कांग्रेस · INC",
+    "source": "https://commons.wikimedia.org/wiki/File:Indian_National_Congress_hand_logo.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-aap",
+    "name": "आम आदमी पार्टी · AAP",
+    "source": "https://commons.wikimedia.org/wiki/File:Aam_Aadmi_Party_logo.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-tmc",
+    "name": "तृणमूल कांग्रेस · TMC",
+    "source": "https://commons.wikimedia.org/wiki/File:All_India_Trinamool_Congress_logo.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-cpim",
+    "name": "CPI(M)",
+    "source": "https://commons.wikimedia.org/wiki/File:Cpm_election_symbol.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-jmm",
+    "name": "झारखंड मुक्ति मोर्चा · JMM",
+    "source": "https://commons.wikimedia.org/wiki/File:Jharkhand_Mukti_Morcha_logo.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-shiv-sena",
+    "name": "शिवसेना · Logo",
+    "source": "https://commons.wikimedia.org/wiki/File:Logo_of_Shiv_Sena.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-bsp",
+    "name": "बसपा · BSP Flag",
+    "source": "https://commons.wikimedia.org/wiki/File:Bahujan_Samaj_Party_Flag.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  },
+  {
+    "asset": "party-sp",
+    "name": "समाजवादी पार्टी · SP Flag",
+    "source": "https://commons.wikimedia.org/wiki/File:Samajwadi_Party_Flag.svg",
+    "license": "See original Wikimedia Commons file description for author and license."
+  }
+]

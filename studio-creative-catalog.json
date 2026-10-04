@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": "1-political1",
   "backgrounds": [
     {
       "id": "creative-bg-roses-paper",
@@ -5789,6 +5789,96 @@
       "height": 1024,
       "format": "svg",
       "vector": true
+    },
+    {
+      "id": "creative-el-party-bjp",
+      "asset": "party-bjp",
+      "format": "png",
+      "name": "भाजपा · BJP",
+      "category": "राजनीतिक पार्टी",
+      "tags": "bjp भाजपा · BJP political party logo symbol राजनीति",
+      "width": 960,
+      "height": 1029
+    },
+    {
+      "id": "creative-el-party-inc",
+      "asset": "party-inc",
+      "format": "png",
+      "name": "कांग्रेस · INC",
+      "category": "राजनीतिक पार्टी",
+      "tags": "inc कांग्रेस · INC political party logo symbol राजनीति",
+      "width": 960,
+      "height": 960
+    },
+    {
+      "id": "creative-el-party-aap",
+      "asset": "party-aap",
+      "format": "png",
+      "name": "आम आदमी पार्टी · AAP",
+      "category": "राजनीतिक पार्टी",
+      "tags": "aap आम आदमी पार्टी · AAP political party logo symbol राजनीति",
+      "width": 960,
+      "height": 445
+    },
+    {
+      "id": "creative-el-party-tmc",
+      "asset": "party-tmc",
+      "format": "png",
+      "name": "तृणमूल कांग्रेस · TMC",
+      "category": "राजनीतिक पार्टी",
+      "tags": "tmc तृणमूल कांग्रेस · TMC political party logo symbol राजनीति",
+      "width": 960,
+      "height": 1037
+    },
+    {
+      "id": "creative-el-party-cpim",
+      "asset": "party-cpim",
+      "format": "png",
+      "name": "CPI(M)",
+      "category": "राजनीतिक पार्टी",
+      "tags": "cpim CPI(M) political party logo symbol राजनीति",
+      "width": 960,
+      "height": 848
+    },
+    {
+      "id": "creative-el-party-jmm",
+      "asset": "party-jmm",
+      "format": "png",
+      "name": "झारखंड मुक्ति मोर्चा · JMM",
+      "category": "राजनीतिक पार्टी",
+      "tags": "jmm झारखंड मुक्ति मोर्चा · JMM political party logo symbol राजनीति",
+      "width": 960,
+      "height": 960
+    },
+    {
+      "id": "creative-el-party-shiv-sena",
+      "asset": "party-shiv-sena",
+      "format": "png",
+      "name": "शिवसेना · Logo",
+      "category": "राजनीतिक पार्टी",
+      "tags": "shiv-sena शिवसेना · Logo political party logo symbol राजनीति",
+      "width": 960,
+      "height": 960
+    },
+    {
+      "id": "creative-el-party-bsp",
+      "asset": "party-bsp",
+      "format": "png",
+      "name": "बसपा · BSP Flag",
+      "category": "राजनीतिक पार्टी",
+      "tags": "bsp बसपा · BSP Flag political party logo symbol राजनीति",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "id": "creative-el-party-sp",
+      "asset": "party-sp",
+      "format": "png",
+      "name": "समाजवादी पार्टी · SP Flag",
+      "category": "राजनीतिक पार्टी",
+      "tags": "sp समाजवादी पार्टी · SP Flag political party logo symbol राजनीति",
+      "width": 960,
+      "height": 640
     }
   ]
 }
