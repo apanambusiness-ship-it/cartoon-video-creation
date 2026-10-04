@@ -58,6 +58,7 @@ jobs:
         run: |
           node tests/studio-business-browser.cjs
           node tests/ai-balance-browser.cjs
+          node tests/poster-logo-export.cjs
       - name: Check account summary and receipts
         run: node tests/account-summary-browser.cjs
       - uses: actions/upload-artifact@v4
