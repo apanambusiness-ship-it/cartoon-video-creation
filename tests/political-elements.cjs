@@ -9,7 +9,7 @@ await page.waitForFunction(()=>window.APANAM_CREATIVE&&window.APANAM_PROJECT);
 await page.evaluate(()=>window.APANAM_CREATIVE.open('elements'));
 await page.locator('#studioCreativeDialog [data-category="राजनीतिक पार्टी"]').click();
 assert.equal(await page.locator('#studioCreativeDialog .creative-card').count(),9);
-for(const image of await page.locator('#studioCreativeDialog .creative-card img').all())assert(await image.evaluate(i=>i.complete&&i.naturalWidth>0));
+for(const image of await page.locator('#studioCreativeDialog .creative-card img').all()){await image.scrollIntoViewIfNeeded();assert(await image.evaluate(async i=>{await i.decode();return i.naturalWidth>0}));}
 await page.locator('[data-creative-id="creative-el-party-bjp"]').click();
 await page.locator('#studioCreativeDialog [data-apply]').click();
 await page.waitForFunction(()=>!document.querySelector('#studioCreativeDialog').open);
