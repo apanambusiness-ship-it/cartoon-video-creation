@@ -12,3 +12,8 @@ Generation prompt: “Create ONE premium realistic photographic cutout element f
 Original vector files: creative-assets/*.svg. Categories: decorative frames, borders, ribbons, stickers, nature graphics, festival graphics and lines/arrows. Frames are decorative overlays; they do not automatically clip an uploaded photo. SVG thumbnails stay scalable; insertion rasterizes at 1024 pixels for existing safe project persistence and export.
 
 Canva official documentation was consulted for category organization only. No Canva artwork was copied.
+
+
+Year-round festival collection: 16 separately generated original portrait scenes, stored in festival-assets/*.webp at 1024 × 1536. Built-in ImageGen mode. Initial prompt: “ONE premium realistic Indian festival greeting poster, [festival and appropriate objects], distinctive composition, quiet greeting space, respectful religious imagery, no date/year/watermark.” A subsequent ImageGen edit removed headline, greeting, footer typography and logo holder, reconstructing calm background while preserving the scene. No third-party festival posters copied.
+
+Final templates use these text-free scenes plus five native editable text layers (festival title, greeting, organization, person and contact) and a separate footer panel. Regenerate catalog entries with scripts/build-festival-template-pack.py. Selecting a festival embeds its WebP into the project for portable Save/export. Template dates are intentionally unspecified; these are reusable designs, not a verified annual festival calendar.
