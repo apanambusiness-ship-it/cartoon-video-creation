@@ -18,6 +18,24 @@ function posters(date,templates){
     const matching=templates.find(t=>t.published&&t.id.startsWith('apanam-festival-')&&t.occasion===event.title);
     let art='';if(matching){const source=document.createElement('template');source.innerHTML=matching.project.html;art=source.content.querySelector('img')?.getAttribute('src')||'';}
     designs.forEach((design,index)=>{
+      if(index===0&&matching){
+        const copy=structuredClone(matching),original=document.createElement('template');
+        original.innerHTML=copy.project.html;
+        const headline=original.content.querySelector('[data-name="त्योहार का नाम"]');
+        if(headline)headline.dataset.name='अवसर का नाम';
+        let dateLayer=original.content.querySelector('[data-name="तारीख"]');
+        if(!dateLayer){
+          dateLayer=document.createElement('div');
+          dateLayer.className='element text';dateLayer.dataset.type='text';dateLayer.dataset.name='तारीख';
+          Object.assign(dateLayer.style,{position:'absolute',left:'28px',top:'28px',width:'456px',height:'30px',boxSizing:'border-box',fontFamily:'Arial,sans-serif',fontSize:'17px',fontWeight:'700',textAlign:'center',color:headline?.style.color||'#5d301b',zIndex:'4'});
+          original.content.append(dateLayer);
+        }
+        dateLayer.textContent=dateLayer.dataset.text=new Intl.DateTimeFormat('hi-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(date+'T00:00:00Z'));
+        copy.project.html=original.innerHTML;
+        Object.assign(copy,{id:'calendar-'+event.id+'-design-1-'+date,name:event.title+' · पहले वाला मूल Poster',category,eventDate:date,repeatYearly:false,occasion:event.title});
+        out.push(copy);
+        return;
+      }
       const doc=document.createElement('template');
       function layer(name,rect,css,text,slot){const node=document.createElement('div');node.className='element'+(text!==undefined?' text':' locked');node.dataset.name=name;Object.assign(node.style,{position:'absolute',left:rect[0]+'px',top:rect[1]+'px',width:rect[2]+'px',height:rect[3]+'px',boxSizing:'border-box',...css});if(text!==undefined){node.dataset.type='text';node.dataset.text=text;node.textContent=text;if(slot)node.dataset.brandSlot=slot;}else{node.dataset.locked='1';}doc.content.append(node);return node;}
       layer('Background · '+design.name,[0,0,540,540],{background:design.paint,zIndex:'0'});
