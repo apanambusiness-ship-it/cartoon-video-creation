@@ -31,6 +31,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install exported media verifier
         run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Check photo stories and clip export
+        run: node tests/video-photo-clip-browser.cjs
       - name: Check contracts and cache
         run: |
           node tests/account-recovery-regression.cjs
