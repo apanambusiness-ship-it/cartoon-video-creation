@@ -1,6 +1,5 @@
 import json, hashlib, urllib.request, time, io
 from pathlib import Path
-import cairosvg
 from PIL import Image
 parties = [["bjp","भाजपा · BJP","Logo of the Bharatiya Janata Party.svg"],["inc","कांग्रेस · INC","Indian National Congress hand logo.svg"],["aap","आम आदमी पार्टी · AAP","Aam Aadmi Party logo.svg"],["tmc","तृणमूल कांग्रेस · TMC","All India Trinamool Congress logo.svg"],["cpim","CPI(M)","Cpm election symbol.svg"],["jmm","झारखंड मुक्ति मोर्चा · JMM","Jharkhand Mukti Morcha logo.svg"],["shiv-sena","शिवसेना · Logo","Logo of Shiv Sena.svg"],["bsp","बसपा · BSP Flag","Bahujan Samaj Party Flag.svg"],["sp","समाजवादी पार्टी · SP Flag","Samajwadi Party Flag.svg"]]
 catalog_path = Path('studio-creative-catalog.json')
