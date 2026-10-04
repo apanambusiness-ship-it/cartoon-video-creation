@@ -29,7 +29,7 @@ def text(name, value, x, y, width, size, color, slot=None):
         attrs += f' data-brand-slot="{slot}"'
     height = size * (2.7 if name == 'त्योहार का नाम' else 1.65)
     style = f'position:absolute;left:{x}px;top:{y}px;width:{width}px;height:{height}px;box-sizing:border-box;font-family:"Noto Sans Devanagari",Arial,sans-serif;font-size:{size}px;font-weight:700;line-height:1.25;color:{color};text-align:center;white-space:pre-wrap;overflow-wrap:break-word;z-index:4'
-    return f'<div {attrs} style="{style}">{html.escape(value)}</div>'
+    return f'<div {attrs} style="{html.escape(style, quote=True)}">{html.escape(value)}</div>'
 
 def build():
     path = ROOT / 'studio-original-templates.json'

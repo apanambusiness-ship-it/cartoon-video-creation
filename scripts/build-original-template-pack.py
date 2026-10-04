@@ -42,4 +42,7 @@ for c,row in enumerate(categories):
   item={'id':f'apanam-original-{c+1:02}-{variant+1}','name':title+' · '+('Editorial' if variant==0 else 'Art Card'),'category':category,'published':True,'occasion':'Daily greeting' if c==0 else category,'project':{'version':2,'width':1080,'height':1440,'bgColor':bg,'bgImage':'','transparent':False,'html':''.join(nodes)}}
   if c==3: item.update(eventDate='2026-11-08' if variant==0 else '',repeatYearly=False)
   items.append(item)
+existing=ROOT/'studio-original-templates.json'
+if existing.exists():
+ items=[t for t in json.loads(existing.read_text()).get('templates',[]) if t.get('id','').startswith('apanam-festival-')]+items
 (ROOT/'studio-original-templates.json').write_text(json.dumps({'format':'apanam-studio-catalog','version':1,'settings':{},'templates':items},ensure_ascii=False,indent=2)+'\n')
