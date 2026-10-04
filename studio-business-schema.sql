@@ -44,14 +44,14 @@ alter table studio_private.reminder_queue enable row level security;
 alter table studio_private.reminder_day enable row level security;
 revoke all on studio_private.reminder_queue,studio_private.reminder_day from public,anon,authenticated;
 
-create function studio_private.start_trial() returns jsonb language plpgsql security definer set search_path='' as $$
+create function studio_private.start_trial() returns jsonb language plpgsql security definer set search_path='' as $
 declare u uuid:=auth.uid(); r public.studio_trials;
 begin
- if u is null or not exists(select 1 from auth.users where id=u and email_confirmed_at is not null and not coalesce(is_anonymous,false)) then raise exception 'Verified account required'; end if;
- insert into public.studio_trials(user_id) values(u) on conflict(user_id) do nothing;
+ if u is null then raise exception 'Login required'; end if;
  select * into r from public.studio_trials where user_id=u;
+ if not found then raise exception '₹10 Registration payment confirmation required for 15-day trial'; end if;
  return to_jsonb(r);
-end $$;
+end $;
 revoke all on function studio_private.start_trial() from public,anon; grant execute on function studio_private.start_trial() to authenticated;
 grant usage on schema studio_private to authenticated;
 create function public.studio_start_trial() returns jsonb language sql security invoker set search_path='' as 'select studio_private.start_trial()';
@@ -61,7 +61,7 @@ create function public.studio_business_overview() returns jsonb language plpgsql
 declare u uuid:=auth.uid();
 begin
  if u is null then raise exception 'Login required'; end if;
- return jsonb_build_object('settings',(select to_jsonb(s) from public.studio_business_settings s where id),'trial',(select to_jsonb(t) from public.studio_trials t where user_id=u),'preferences',(select to_jsonb(p) from public.studio_notification_preferences p where user_id=u),'membership',(select to_jsonb(m) from public.studio_memberships m where user_id=u),'rates',(select jsonb_agg(to_jsonb(r)||jsonb_build_object('sale_paise',ceil(provider_cost_paise::numeric*100/(100-margin_percent)))) from public.studio_ai_rates r),'manual_open',true);
+ return jsonb_build_object('settings',(select to_jsonb(s) from public.studio_business_settings s where id),'trial',(select to_jsonb(t) from public.studio_trials t where user_id=u),'preferences',(select to_jsonb(p) from public.studio_notification_preferences p where user_id=u),'membership',(select to_jsonb(m) from public.studio_memberships m where user_id=u),'rates',(select jsonb_agg(to_jsonb(r)||jsonb_build_object('sale_paise',ceil(provider_cost_paise::numeric*100/(100-margin_percent)))) from public.studio_ai_rates r),'manual_open',coalesce((public.studio_member_access()->>'active')::boolean,false));
 end $$;
 revoke all on function public.studio_business_overview() from public,anon; grant execute on function public.studio_business_overview() to authenticated;
 
@@ -208,4 +208,5 @@ create policy "No direct client access" on studio_private.media_budget for all t
 create policy "No direct client access" on studio_private.media_transfer for all to authenticated using(false) with check(false);
 create policy "No direct client access" on studio_private.reminder_queue for all to authenticated using(false) with check(false);
 create policy "No direct client access" on studio_private.reminder_day for all to authenticated using(false) with check(false);
+
 

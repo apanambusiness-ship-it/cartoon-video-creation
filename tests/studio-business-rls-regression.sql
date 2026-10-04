@@ -11,7 +11,11 @@ create function pg_temp.assert_true(ok boolean,label text) returns void language
 create function pg_temp.expect_error(command text,pattern text) returns void language plpgsql as $$declare failed boolean:=false; begin begin execute command; exception when others then if position(pattern in sqlerrm)>0 then failed:=true; else raise; end if; end; if not failed then raise exception 'Expected rejection: %',command; end if; end $$;
 set local role authenticated;
 select set_config('request.jwt.claims',jsonb_build_object('sub',(select id from qa_people where role_name='member'),'role','authenticated')::text,true);
-select pg_temp.assert_true((public.studio_business_overview()->>'manual_open')::boolean,'pre-launch manual remains open');
+select pg_temp.assert_true(not (public.studio_business_overview()->>'manual_open')::boolean,'unpaid manual access is not active');
+select pg_temp.expect_error('select public.studio_start_trial()','Registration payment confirmation required');
+reset role;
+insert into public.studio_trials(user_id) select id from qa_people where role_name='member';
+set local role authenticated;
 insert into qa_values(name,value) select 'trial',public.studio_start_trial()->>'started_at';
 select pg_temp.assert_true(public.studio_start_trial()->>'started_at'=(select value from qa_values where name='trial'),'trial repeat does not extend expiry');
 select pg_temp.assert_true((public.studio_start_trial()->>'expires_at')::timestamptz-(select value::timestamptz from qa_values where name='trial')=interval '15 days','trial exactly fifteen days');
@@ -68,4 +72,5 @@ reset role;
 select pg_temp.assert_true((select not public and file_size_limit=10485760 and allowed_mime_types @> array['audio/webm','audio/mp4'] from storage.buckets where id='studio-private-media'),'recorded audio bucket stays private and size limited');
 select 'PASS: trial, margin, consent, queue deduplication, media quotas, ownership and blocked payments' as result;
 rollback;
+
 
