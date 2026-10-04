@@ -60,12 +60,15 @@ jobs:
           node tests/ai-balance-browser.cjs
           node tests/poster-logo-export.cjs
       - name: Check account summary and receipts
-        run: node tests/account-summary-browser.cjs
+        run: |
+          node tests/account-summary-browser.cjs
+          node tests/video-ready-stories-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: studio-quality-screenshots
           path: quality-artifacts/
           retention-days: 7
+
 
 

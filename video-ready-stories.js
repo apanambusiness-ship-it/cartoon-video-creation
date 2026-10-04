@@ -1,0 +1,9 @@
+(()=>{
+  const api=window.APANAM_CARTOON_PROJECT,button=document.getElementById('appendStarterStory');if(!api||!button)return;
+  const stories={
+    kindness:[['मदद का हाथ','आरव रोज़ पार्क में खेलने जाता था।','park'],['एक छोटी परेशानी','एक बच्चा अपनी गेंद ढूँढ रहा था।','park'],['साथ मिलकर खोजें','आरव ने कहा: चलो, मैं तुम्हारी मदद करता हूँ।','park'],['गेंद मिल गई!','दोनों ने मिलकर गेंद खोज ली और खेल शुरू किया।','park'],['आज की सीख','छोटी सी मदद भी बड़ी खुशी देती है।','park']],
+    shop:[['आपकी दुकान','दुकान का नाम और अपना परिचय यहाँ लिखें।','shop'],['आपके उत्पाद','अपने उत्पाद की फोटो और सही जानकारी जोड़ें।','shop'],['खास बात','अपने उत्पाद का एक वास्तविक लाभ बताएँ।','shop'],['कीमत और समय','सही कीमत, दुकान का समय और उपलब्धता लिखें।','shop'],['हमसे जुड़ें','अपना फोन नंबर और पता यहाँ लिखें।','shop']],
+    lesson:[['पानी बचाएँ','हर बूंद हमारे जीवन के लिए जरूरी है।','classroom'],['नल बंद करें','ब्रश करते समय नल खुला न छोड़ें।','classroom'],['रिसाव रोकें','टपकता नल दिखे तो घर के बड़े को बताएँ।','classroom'],['समझदारी से इस्तेमाल','जितना पानी चाहिए, उतना ही लें।','park'],['मिलकर बचाएँ','आज से पानी बचाने की एक अच्छी आदत शुरू करें।','park']]
+  };
+  button.onclick=()=>{const key=document.getElementById('starterStory').value,source=stories[key];if(!source)return;const scenes=source.map(([title,caption,sceneSetting],i)=>({title,caption,sceneSetting,duration:6,background:sceneSetting==='park'?'#075985':'#312e81',character:'#facc15',characterType:'person',motion:i===0||i===4?'wave':'bounce',transition:'fade',titleColor:'#ffffff',captionColor:'#ffffff',titleSize:48,captionSize:32,captionPosition:'bottom'}));document.getElementById('starterStoryStatus').textContent=api.append(scenes,[])?'30 सेकंड के 5 scenes जुड़ गए। अपनी आवाज़ रिकॉर्ड करें या हर scene की अलग audio चुनें।':'Scenes नहीं जुड़े। प्रोजेक्ट में अधिकतम 100 scenes और browser storage जाँचें।';};
+})();
