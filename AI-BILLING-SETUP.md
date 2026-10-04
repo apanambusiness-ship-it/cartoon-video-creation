@@ -15,3 +15,31 @@ Admin AI figures show revenue, provider cost and **gross margin**, not net profi
 `tests/ai-billing-rls.sql` creates temporary synthetic identities and uses ROLLBACK; it does not change real user balances. `tests/ai-payments-edge.cjs` mocks all providers. `tests/ai-balance-browser.cjs` verifies UI account isolation and membership export checks. The manual editor's export gate is a browser UI/license check; it is not DRM against users who rewrite downloaded client code. Sensitive AI funds and provider access are enforced on the server.
 
 `studio-ai-billing.sql` records the applied additive schema; do not re-run it wholesale over existing tables. Use a migration for later changes.
+
+## Selected launch provider and tariff — 2026-10-04
+
+The owner delegated provider and price selection. Runway is selected as one API account for the initial paid services:
+
+| Ledger kind | Provider model | Billing unit | App price |
+| --- | --- | --- | --- |
+| poster | gen4_image_turbo | One generated background image | ₹5 |
+| audio | eleven_multilingual_v2 | Each started block of 100 text characters | ₹5 |
+| video | gen4_turbo | Each output second, image-to-video without generated audio | ₹10 |
+
+Poster Hindi text stays editable in the local editor; this price buys the generated bitmap background, not editable text within that bitmap. Video does not include voice; voice is quoted separately. A 5-second video is ₹50 and a 10-second video is ₹100. A longer reel must show the combined price for all component jobs before any reservation. Do not silently retry billed generations.
+
+Official reference: https://docs.dev.runwayml.com/guides/pricing/
+As checked on 2026-10-04, credits cost $0.01. gen4_image_turbo costs 2 credits/image; gen4_turbo costs 5 credits/second; eleven_multilingual_v2 costs 1 credit/50 characters. Account access and output quality still require validation.
+
+The existing 30% gross-margin formula is retained: sale = ceil(budget ceiling × 100 / 70), in paise. The configured ceilings are ₹3.50/image, ₹3.50/100-character block and ₹7/output second, producing exactly ₹5/₹5/₹10. These are conservative app cost allowances, NOT measured provider invoice costs or live FX rates. The provider worker must record actual invoiced/provider cost separately. FX, applicable taxes, payment fees and storage must be reconciled before reporting profit. Suspend the affected tariff if actual total costs exceed its allowance; never change a user's approved quote retroactively.
+
+Registration ₹10, first trial 15 days and monthly membership ₹100 are unchanged. Selected rates do not activate payments or generation. No real balance is credited or charged by this configuration.
+
+### Remaining activation prerequisites
+
+1. The owner creates/signs in to their own Runway developer account and funds API credits. The official setup guide states a $10 minimum initial credit purchase: https://docs.dev.runwayml.com/guides/setup/
+2. Store RUNWAYML_API_SECRET in Supabase Edge Function secrets for project jruxafztuvenabqlzefz; never in a public file, chat message or browser storage.
+3. Implement and validate the authenticated asynchronous provider worker, private output storage, cost/duration/character validation, uncertain-job reconciliation and result retrieval against that account. The ledger and checkout functions alone do not perform generation.
+4. Test real poster output, Hindi voice, video, account isolation, timeout recovery and duplicate requests. Keep STUDIO_PAID_AI_READY and topups disabled until this passes.
+
+The API account/key is not available through the current connectors. Provider activation and end-to-end real generation are unfinished.
