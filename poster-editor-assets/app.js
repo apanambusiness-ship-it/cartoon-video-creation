@@ -9,6 +9,7 @@ resizeCSS.textContent=`#stage .element>.handle{width:var(--resize-hit,14px)!impo
 document.head.append(resizeCSS);
 function updateResizeTargets(el){
   const scale=Math.max(.1,stage.getBoundingClientRect().width/stage.offsetWidth||1),touch=matchMedia('(pointer:coarse)').matches||navigator.maxTouchPoints>0;
+  for(const handle of el.querySelectorAll('.handle')){if(touch&&handle.dataset.dir?.length===1)handle.style.setProperty('display','none','important');else handle.style.removeProperty('display');}
   for(const [name,value] of [['--resize-hit',(touch?36:16)/scale+'px'],['--resize-dot',10/scale+'px'],['--resize-border',1.5/scale+'px']])if(el.style.getPropertyValue(name)!==value)el.style.setProperty(name,value);
 }
 let resizeTargetFrame;
@@ -758,7 +759,9 @@ window.APANAM_EDITOR_WIRE=wire;
 function restore(html){
 
   if(typeof html==='object'&&html){
-    window.APANAM_PROJECT?.restore(html);
+    const current=window.APANAM_PROJECT?.snapshot?.();
+    if(current&&current.width===html.width&&current.height===html.height&&current.bgColor===html.bgColor&&current.bgImage===html.bgImage&&current.transparent===html.transparent)restore(html.html);
+    else window.APANAM_PROJECT?.restore(html);
     select(null);
     window.APANAM_PROJECT?.save();
     return;

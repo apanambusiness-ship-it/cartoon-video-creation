@@ -4,7 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'studio-calendar.js'
+      - '**.js'
+      - '**.html'
+      - '**.css'
+      - '**.json'
+      - 'festival-assets/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -40,3 +44,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
