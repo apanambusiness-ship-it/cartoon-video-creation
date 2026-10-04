@@ -9,6 +9,7 @@
 .membership-page #studioOwnPayments{order:4}
 .membership-page #studioMemberPlans{order:5}
 .membership-page #studioSupport{order:6}
+.membership-page #studioAiBalance{order:7}
 .membership-page .admin-main h2{font-size:19px;line-height:1.4;margin:0 0 10px;color:#43216c}
 .membership-page .admin-main>section p{font-size:14px;line-height:1.6;margin:8px 0;color:#465269}
 .membership-page .admin-main label{font-size:14px;line-height:1.5;margin:6px 0}
@@ -35,6 +36,9 @@
 @media(min-width:1000px){
  .membership-page .admin-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
  .membership-page .admin-main>.admin-notice,.membership-page #studioMemberPlans{grid-column:1/-1}
+ .membership-page #studioMemberAccount{grid-column:1;grid-row:2}
+ .membership-page #studioPayments{grid-column:2;grid-row:2}
+ .membership-page #studioAiBalance{grid-column:1/-1;grid-row:6}
  .membership-page #studioBusinessMember{grid-column:1;grid-row:3 / span 2}
  .membership-page #studioOwnPayments{grid-column:2;grid-row:3}
  .membership-page #studioSupport{grid-column:2;grid-row:4}
