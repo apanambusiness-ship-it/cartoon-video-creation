@@ -10,12 +10,12 @@ for key, name, filename in parties:
     filename=filename.replace(' ', '_')
     digest=hashlib.md5(filename.encode()).hexdigest()
     url='https://upload.wikimedia.org/wikipedia/commons/'+digest[0]+'/'+digest[:2]+'/'+urllib.parse.quote(filename)
-    for attempt in range(5):
+    url=url.replace('/commons/', '/commons/thumb/')+'/960px-'+urllib.parse.quote(filename)+'.png'
+    time.sleep(2)
+    for attempt in range(3):
         try:
             req=urllib.request.Request(url, headers={'User-Agent':'APANAM-CreativeStudio/1.0 (public political symbol library)'})
-            svg=urllib.request.urlopen(req, timeout=45).read()
-            if b'<svg' not in svg: raise ValueError('Expected SVG: '+filename)
-            png=cairosvg.svg2png(bytestring=svg, output_width=700)
+            png=urllib.request.urlopen(req, timeout=45).read()
             im=Image.open(io.BytesIO(png))
             im.verify()
             im=Image.open(io.BytesIO(png))
@@ -28,7 +28,7 @@ for key, name, filename in parties:
             print('VERIFIED', name, im.size)
             break
         except Exception:
-            if attempt==4: raise
+            if attempt==2: raise
             time.sleep(5*(attempt+1))
 catalog['version']=str(catalog.get('version','1'))+'-political1'
 catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n')
