@@ -1,6 +1,11 @@
 name: Deploy APANAM Creative Studio to GitHub Pages
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'studio-calendar.js'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
