@@ -176,8 +176,7 @@ function add(type,src){
 
 function wire(el){
 
-  if(!el.querySelector('.handle'))
-    addHandles(el);
+  addHandles(el);
   updateResizeTargets(el);
 
   el.style.pointerEvents='auto';
