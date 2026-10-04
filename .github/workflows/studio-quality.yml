@@ -31,6 +31,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install exported media verifier
         run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Check Hindi text audio and video
+        run: node tests/video-text-audio-browser.cjs
       - name: Check photo stories and clip export
         run: node tests/video-photo-clip-browser.cjs
       - name: Check contracts and cache
