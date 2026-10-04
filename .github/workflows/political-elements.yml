@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install cairosvg pillow
+      - run: pip install pillow
       - run: python scripts/import-political-logos.py
       - uses: actions/setup-node@v4
         with:
