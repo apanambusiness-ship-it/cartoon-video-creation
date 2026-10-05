@@ -15,6 +15,8 @@ let group=groupFor(el);if(el.tagName==='H2'&&el.textContent.trim()==='Scenes')gr
 if(el.tagName==='P'&&el.textContent.includes('सारा काम')){el.hidden=true;group='more';}
 panels.get(group).append(el);
 }
+// Export progress and the finished download stay visible in every workspace.
+const status=document.getElementById('status');if(status){status.setAttribute('aria-live','polite');quick.append(status);const link=document.getElementById('videoDownloadLink');if(link)status.after(link);}
 const note=document.createElement('p');note.className='video-workspace-hint';note.textContent='Scenes में कहानी / फोटो रखें → आवाज़ जोड़ें → Preview → Video डाउनलोड करें।';panels.get('scene').prepend(note);
 function show(id){for(const [key,panel] of panels)panel.hidden=key!==id;for(const b of nav.querySelectorAll('button'))b.setAttribute('aria-pressed',String(b.dataset.workspace===id));root.scrollTop=0;}
 // Keep the chosen natural voice immediately visible; other audio tools remain available below.
