@@ -20,4 +20,6 @@ function show(id){for(const [key,panel] of panels)panel.hidden=key!==id;for(cons
 // Keep the chosen natural voice immediately visible; other audio tools remain available below.
 const shubh=document.getElementById('shubhStatus')?.closest('section');if(shubh){panels.get('voice').prepend(shubh);shubh.hidden=false;shubh.classList.remove('collapsed');shubh.querySelector('h2')?.setAttribute('aria-expanded','true');}
 window.APANAM_VIDEO_WORKSPACE={show};show('scene');
+function placeHeaderNavigation(){const header=document.querySelector('body>header');if(!header)return;const row=document.createElement('div');row.className='video-header-workspace-row';const files=[...header.querySelectorAll('button')].find(b=>/Files/.test(b.textContent));const share=document.getElementById('apanamSocialShare');for(const el of [files,share])if(el)row.append(el);row.append(nav);header.append(row);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',placeHeaderNavigation,{once:true});else placeHeaderNavigation();
 })();
