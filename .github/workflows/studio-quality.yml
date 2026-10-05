@@ -42,7 +42,6 @@ jobs:
       - name: Check photo stories and clip export
         run: |
           node tests/video-photo-clip-browser.cjs
-          node tests/video-long-export-browser.cjs
       - name: Check contracts and cache
         run: |
           node tests/account-recovery-regression.cjs
@@ -75,6 +74,8 @@ jobs:
         run: |
           node tests/account-summary-browser.cjs
           node tests/video-ready-stories-browser.cjs
+      - name: Check full-length audible video
+        run: node tests/video-long-export-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
