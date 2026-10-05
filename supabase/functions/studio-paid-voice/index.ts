@@ -40,7 +40,7 @@ Deno.serve(async(req:Request)=>{
    const path=user.id+'/'+job.id+'.wav',saved=await fetch(base+'/storage/v1/object/studio-paid-voices/'+path,{method:'POST',headers:{...serverHeaders,'Content-Type':'audio/wav'},body:bytes,signal:AbortSignal.timeout(15000)});if(!saved.ok)throw Error('Storage failed');
    await rpc('studio_paid_voice_finish',{job_id:job.id,outcome:'ready'});
    return new Response(bytes,{headers:{...headers,'Content-Type':'audio/wav'}});
-  }catch(e){const unusable=e instanceof Error&&e.message==='UnusableAudio';await rpc('studio_paid_voice_finish',{job_id:job.id,outcome:unusable?'failed':'uncertain'}).catch(()=>{});return json({error:unusable?'Provider audio नहीं चली; reserved राशि वापस की गई।':'Provider outcome की जाँच जरूरी; राशि reserve है। इसी कहानी को retry करें, नई request न बनाएँ।'},502);}
+  }catch(e){const unusable=e instanceof Error&&e.message==='UnusableAudio';let settled=false;try{await rpc('studio_paid_voice_finish',{job_id:job.id,outcome:unusable?'failed':'uncertain'});settled=true;}catch{}return json({error:unusable&&settled?'Provider audio नहीं चली; reserved राशि वापस की गई।':'Provider / balance reconciliation की जाँच जरूरी; राशि reserve है। इसी कहानी को retry करें, नई request न बनाएँ।'},502);}
  }catch(e){return json({error:e instanceof Error?e.message:'Voice unavailable'},400);}
 });
 async function audio(job:any,owner:string){if(job.user_id!==owner||job.result_path!==owner+'/'+job.id+'.wav')throw Error('Result ownership mismatch');const r=await fetch(base+'/storage/v1/object/authenticated/studio-paid-voices/'+job.result_path,{headers:serverHeaders,signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('Stored audio unavailable');return new Response(r.body,{headers:{...headers,'Content-Type':'audio/wav'}});}
