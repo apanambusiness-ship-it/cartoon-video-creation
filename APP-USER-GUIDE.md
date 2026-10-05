@@ -41,11 +41,22 @@ Background editing में background layer और foreground/photo अलग 
 
 ## Cartoon video / Reel
 
-Scene में शीर्षक, dialogue/caption, duration, background, character, animation और transition बदलें। + नया Scene जोड़ता है; Duplicate Scene कॉपी बनाता है; Scene हटाएँ चुना scene हटाता है। Photo और logo को अलग upload/replace कर सकते हैं।
+ऊपर Files, Share और विभागों की navigation है। Preview, Stop, Video, Save, पूरा Backup और Gallery सामने रहते हैं।
 
-Dialogue सुनें preview है। अपना audio upload करें या Record Voice से अनुमति देकर आवाज़ रिकॉर्ड करें; Stop Voice से रोकें। फोन में microphone permission और browser recording support जरूरी है।
+1. **Scenes** में कहानी / फोटो रखें। हर scene का Dialogue / Caption और समय देखें। समूह बार-बार जोड़ने से duplicate scenes बनेंगे; अपना काम पहले backup करें।
+2. **आवाज़ → Shubh** में भाषा और Scene 1–5, 6–10 जैसे समूह चुनें। Text उसी भाषा में लिखें; automatic translation नहीं होती। पहली बार केवल एक समूह बनाकर Preview सुनें।
+3. Credits वाला checkbox चुनें, फिर आवाज़ बनाएँ। यह अभी Admin pilot है: मालिक के Sarvam credits लगते हैं, user के AI Balance से शुल्क नहीं कटता। 220 अक्षर/scene और रोज़ 20 नए server jobs/Admin की सीमा है। 35 अलग scenes की नई आवाज़ एक दिन में पूरी नहीं होगी; तैयार requests फिर लेने पर नया provider call नहीं जाता। Failed/uncertain request का नया ID बनाकर बार-बार भुगतान न करें।
+4. Text से हिंदी आवाज़ वाला दूसरा विकल्प मुफ्त basic eSpeak है; उसकी आवाज़ मशीन जैसी है। Dialogue सुनें/browser speech केवल text की जाँच है, उससे export audio नहीं बनती। अपनी audio file या microphone recording भी जोड़ सकते हैं।
+5. ऊपर audio की स्थिति देखें: मुख्य audio और कितने scenes की अलग आवाज़ जुड़ी है। Preview में सुनें। केवल आखिरी 5 scenes की आवाज़ बनाई है तो पहले 30 अपने-आप Shubh में नहीं बदलेंगे।
+6. **पूरा Backup (ऑडियो सहित)** लें। केवल सामान्य project backup में audio नहीं होती। Gallery का Save भी audio रखता है। पूरा backup की कुल audio सीमा 20 MB; Gallery और वर्तमान browser audio draft की सीमा 30 MB है।
+7. **Video** दबाएँ। Recording के बीच scene बदलने से बचें और tab सामने रखें। 2 मिनट 48 सेकंड की कहानी को रिकॉर्ड होने में लगभग उतना समय लगेगा। MP4/WebM उपलब्धता browser के अनुसार है। तैयार download में “आवाज़ के साथ” देखें और डाउनलोड की फ़ाइल चलाकर जाँचें।
+8. कहानी, आवाज़ या settings बदलने पर पिछला Video link हट जाएगा; नया Video बनाएँ।
 
-Preview से scenes देखें, Stop से रोकें। Video तैयार करें browser में recording/export बनाता है; format browser के support के अनुसार MP4/WebM होगा। Video Gallery/पूरा backup में scenes और audio सुरक्षित रखें। केवल सामान्य backup में क्या शामिल है, app का विकल्प पढ़ें।
+नई व्यवस्था में वर्तमान कहानी की आवाज़ उसी browser में अपने-आप सेव होती है और उसी scenes वाले draft को refresh के बाद लौटती है। यह अलग device पर नहीं जाती; browser data साफ करने से हट सकती है। पहले से खोई आवाज़ केवल audio सहित backup/Gallery या उसी सुरक्षित Shubh request से वापस मिल सकती है। पूरा Backup हमेशा रखें।
+
+यदि आवाज़ नहीं है: ऊपर audio count देखें → audio सहित backup/Gallery खोलें या चुने scenes की आवाज़ बनाएँ → Preview सुनें → नया Video बनाकर नई file डाउनलोड करें। पुरानी file को नया export न समझें। Microphone के लिए browser permission जरूरी है।
+
+नया Scene जोड़ता है; Duplicate Scene कॉपी बनाता है; Scene हटाएँ चुना scene हटाता है। Design में आकार, रंग और transition बदलें; Download में format और timeline हैं। Phone पर sections बदलकर काम करें।
 
 ## Admin
 

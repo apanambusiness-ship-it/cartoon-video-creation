@@ -86,7 +86,7 @@
         const mime=active.mimeType||chunks[0]?.type||'audio/webm';release();if(failed)return;
         if(!chunks.length){$('audioStatus').textContent='आवाज़ रिकॉर्ड नहीं हुई। दोबारा कोशिश करें।';return}
         const format=window.APANAM_VIDEO_FORMATS.recordedAudio(mime);stopAudioPreview();
-        audioFile=new File(chunks,'APANAM-recorded-voice.'+format.extension,{type:format.mime});$('audioFile').value='';
+        audioFile=new File(chunks,'APANAM-recorded-voice.'+format.extension,{type:format.mime});$('audioFile').value='';notifySceneChange();
         $('audioStatus').textContent=`रिकॉर्ड की हुई आवाज़ तैयार है (${Math.round(audioFile.size/1024)} KB)। वीडियो डाउनलोड में जुड़ेगी।`;
       };
       active.start();voiceStarting=false;$('stopVoice').disabled=false;$('audioStatus').textContent='रिकॉर्डिंग चालू है। बोलें, फिर रोकें दबाएँ।';

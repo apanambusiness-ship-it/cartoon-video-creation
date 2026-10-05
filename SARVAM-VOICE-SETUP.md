@@ -26,3 +26,7 @@ Customer activation still requires Sarvam pricing in the existing ledger, a user
 
 ## Languages
 Supported provider API languages: Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu and Indian English. The editor sends the selected code; the server enforces an allowlist. Text must already be in that language; this does not translate it. Language is included in both retry identity and server input hash. Existing Hindi retry IDs and hashes remain unchanged. Other languages can use uploaded/recorded narration. Actual pronunciation in each language requires owner review before customer launch.
+
+## Editor/export completion — 2026-10-06
+
+The owner confirmed the real Shubh voice sounds correct. Generation supports selected groups of up to 5 scenes inside a larger project and preserves other scene audio/photos. The 20-new-jobs/day server cap is unchanged. Current browser audio drafts are persisted in IndexedDB (30 MB cap); full backups remain necessary. Export starts sound and frame production immediately after MediaRecorder.start. Browser regression tests verify decoded audio signal after generation, refresh and actual export; provider mocks are used and are not evidence of real multilingual pronunciation or provider billing.

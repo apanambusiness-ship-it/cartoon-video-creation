@@ -16,9 +16,9 @@ Admin AI figures show revenue, provider cost and **gross margin**, not net profi
 
 `studio-ai-billing.sql` records the applied additive schema; do not re-run it wholesale over existing tables. Use a migration for later changes.
 
-## Selected launch provider and tariff — 2026-10-04
+## Earlier Runway tariff configuration — retained, not launched (2026-10-04)
 
-The owner delegated provider and price selection. Runway is selected as one API account for the initial paid services:
+The earlier delegated selection configured the following Runway budget ceilings. These rows remain in the database, but generation and AI payments have not launched. The owner subsequently chose low-cost local photo stories with Shubh narration; do not apply the Runway audio row to Sarvam or treat these values as the current public Shubh tariff:
 
 | Ledger kind | Provider model | Billing unit | App price |
 | --- | --- | --- | --- |
@@ -43,3 +43,13 @@ Registration ₹10, first trial 15 days and monthly membership ₹100 are unchan
 4. Test real poster output, Hindi voice, video, account isolation, timeout recovery and duplicate requests. Keep STUDIO_PAID_AI_READY and topups disabled until this passes.
 
 The API account/key is not available through the current connectors. Provider activation and end-to-end real generation are unfinished.
+
+## Current verified position — 2026-10-06
+
+- Database membership values: 1000 paise registration, 15 trial days, 10000 paise monthly. Business payment and AI enable flags are false.
+- Admin Shubh pilot is a separate active Edge Function. Provider-credit use is separate from user AI Balance. A successful Admin pilot is not public paid-AI activation.
+- Public Shubh still needs an approved Sarvam-specific tariff, authenticated quote/reserve/generate/result adapter, actual-cost accounting, uncertain reconciliation and private-output retention. Those parts are not implemented by the Admin pilot or this document.
+- Existing membership checkout is a one-time Cashfree order. It does not create a subscription mandate. ₹100 AutoPay is not implemented or active; do not label manual checkout AutoPay.
+- AutoPay implementation requires an enabled merchant subscription service, explicit customer mandate authorization, verified subscription webhooks, recurring-payment idempotency, cancellation and failed-renewal handling. Existing membership periods must remain valid when a mandate is cancelled.
+
+Before production activation, run provider sandbox and one authorized real-account transaction end to end. No real charge, tariff replacement or production flag change was made during the 2026-10-06 verification.
