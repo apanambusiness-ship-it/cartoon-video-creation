@@ -23,3 +23,6 @@ No new key creation is necessary. These connectors cannot set secrets. Test the 
 - This pilot does not perform phoneme alignment or animate mouths. Private pilot audio requires an explicit future retention/deletion policy before customer launch.
 
 Customer activation still requires Sarvam pricing in the existing ledger, a user-approved full quote, balance reservation, verified delivery, failure/uncertain reconciliation, real generation testing and payment readiness. Do not turn `STUDIO_PAID_AI_READY` on because this pilot alone exists.
+
+## Languages
+Supported provider API languages: Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu and Indian English. The editor sends the selected code; the server enforces an allowlist. Text must already be in that language; this does not translate it. Language is included in both retry identity and server input hash. Existing Hindi retry IDs and hashes remain unchanged. Other languages can use uploaded/recorded narration. Actual pronunciation in each language requires owner review before customer launch.

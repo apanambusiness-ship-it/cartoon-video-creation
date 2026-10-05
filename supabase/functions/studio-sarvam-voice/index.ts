@@ -22,15 +22,16 @@ Deno.serve(async(req:Request)=>{
   if(action!=='generate')return json({error:'Unknown action'},400);
   if(!enabled)return json({error:'Shubh voice pilot अभी active नहीं है।'},403);
   const raw=await req.text();if(new TextEncoder().encode(raw).length>4096)return json({error:'Request too large'},413);
-  const body=JSON.parse(raw),text=String(body.text||'').trim(),requestId=String(body.request_id||'');
+  const body=JSON.parse(raw),text=String(body.text||'').trim(),requestId=String(body.request_id||''),language=body.language_code===undefined?'hi-IN':String(body.language_code);
+  if(!['hi-IN','bn-IN','gu-IN','kn-IN','ml-IN','mr-IN','od-IN','pa-IN','ta-IN','te-IN','en-IN'].includes(language))return json({error:'यह voice भाषा अभी उपलब्ध नहीं है।'},400);
   if(!text||[...text].length>220||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(requestId))return json({error:'Scene text 1–220 अक्षर रखें।'},400);
-  const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('shubh|hi-IN|1|'+text)))).map(b=>b.toString(16).padStart(2,'0')).join('');
+  const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('shubh|'+language+'|1|'+text)))).map(b=>b.toString(16).padStart(2,'0')).join('');
   const job=await rpc('studio_voice_pilot_claim',{owner:u.id,request_uuid:requestId,digest:hash}),path=u.id+'/'+job.id+'.wav';
   if(!job.claimed){if(job.state==='ready'){const r=await fetch(base+'/storage/v1/object/authenticated/studio-voice-pilots/'+path,{headers:serverHeaders,signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('Stored audio unavailable');return new Response(r.body,{headers:{...headers,'Content-Type':'audio/wav'}})}return json({error:'यह request '+job.state+' है। Provider को दोबारा request नहीं भेजी गई।'},409);}
   let sent=false;
   try{
    sent=true;
-   const r=await fetch('https://api.sarvam.ai/text-to-speech',{method:'POST',headers:{'api-subscription-key':key!,'Content-Type':'application/json'},body:JSON.stringify({text,language_code:'hi-IN',speaker:'shubh',model:'bulbul:v3',pace:1,speech_sample_rate:24000,output_audio_codec:'wav'}),signal:AbortSignal.timeout(45000)});
+   const r=await fetch('https://api.sarvam.ai/text-to-speech',{method:'POST',headers:{'api-subscription-key':key!,'Content-Type':'application/json'},body:JSON.stringify({text,language_code:language,speaker:'shubh',model:'bulbul:v3',pace:1,speech_sample_rate:24000,output_audio_codec:'wav'}),signal:AbortSignal.timeout(45000)});
    if(!r.ok){await rpc('studio_voice_pilot_finish',{pilot_id:job.id,outcome:r.status>=500?'uncertain':'failed'});return json({error:'Sarvam request असफल ('+r.status+')। Automatic retry नहीं हुई।'},502);}
    const answer=await r.json(),encoded=answer.audios?.[0];if(typeof encoded!=='string'||encoded.length>2700000)throw Error('Invalid audio');
    const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
