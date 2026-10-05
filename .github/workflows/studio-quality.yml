@@ -39,7 +39,9 @@ jobs:
       - name: Check Hindi text audio and video
         run: node tests/video-text-audio-browser.cjs
       - name: Check photo stories and clip export
-        run: node tests/video-photo-clip-browser.cjs
+        run: |
+          node tests/video-photo-clip-browser.cjs
+          node tests/video-long-export-browser.cjs
       - name: Check contracts and cache
         run: |
           node tests/account-recovery-regression.cjs
