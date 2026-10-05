@@ -1,5 +1,10 @@
 # Shubh Hindi voice — Admin pilot
 
+
+## नया भुगतान integration · 5 अक्टूबर 2026
+
+Public Shubh के लिए ₹1 प्रति शुरू हुए 100 अक्षर प्रति scene का quote, सहमति और अलग AI balance ledger जोड़ दिया गया है। ₹100 हर 30 दिन AutoPay की अनुमति, स्थिति जाँच और बंद करने की सुविधा भी तैयार है। दोनों का live activation अभी बंद है; वास्तविक merchant checkout / provider जाँच बाकी है। पुराने Admin Shubh परीक्षण और manual membership सुरक्षित हैं। विस्तृत activation स्थिति: [Paid Shubh / AutoPay guide](PAID-VOICE-AUTOPAY-SETUP.md)।
+
 The selected Bulbul v3/Shubh sample was approved by the owner. The editor now offers a separate Shubh voice section. Basic local eSpeak remains available. Membership registration ₹10, first 15 days, monthly ₹100 and all existing AI tariff rows are unchanged.
 
 `studio-sarvam-voice` authenticates the bearer token against Auth, requires verified email and a database Admin entry. It never accepts user IDs, provider URLs, voice names or prices from the client. This initial pilot consumes the owner's Sarvam account credits only; it neither charges nor credits a user AI wallet. Public customer generation and topups remain OFF.
@@ -30,3 +35,4 @@ Supported provider API languages: Hindi, Bengali, Gujarati, Kannada, Malayalam, 
 ## Editor/export completion — 2026-10-06
 
 The owner confirmed the real Shubh voice sounds correct. Generation supports selected groups of up to 5 scenes inside a larger project and preserves other scene audio/photos. The 20-new-jobs/day server cap is unchanged. Current browser audio drafts are persisted in IndexedDB (30 MB cap); full backups remain necessary. Export starts sound and frame production immediately after MediaRecorder.start. Browser regression tests verify decoded audio signal after generation, refresh and actual export; provider mocks are used and are not evidence of real multilingual pronunciation or provider billing.
+

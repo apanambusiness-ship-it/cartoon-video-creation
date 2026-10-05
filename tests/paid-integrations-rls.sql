@@ -1,0 +1,47 @@
+begin;
+insert into auth.users(id,email,email_confirmed_at) values('f623a490-664c-44c0-9900-000000000001','paid-qa@example.invalid',now()),('f623a490-664c-44c0-9900-000000000002','paid-other@example.invalid',now());
+insert into public.studio_admins(user_id) values('f623a490-664c-44c0-9900-000000000001');
+insert into studio_private.ai_balances(user_id,environment,available_paise) values('f623a490-664c-44c0-9900-000000000001','sandbox',5000);
+set local role service_role;
+do $$
+declare u uuid:='f623a490-664c-44c0-9900-000000000001';other uuid:='f623a490-664c-44c0-9900-000000000002'; j jsonb;j2 jsonb;s jsonb;r jsonb;expiry timestamptz;
+begin
+ if (public.studio_paid_voice_quote(101)->>'charge_paise')::integer<>200 then raise exception 'Quote wrong';end if;
+ begin perform public.studio_paid_voice_claim(other,'sandbox',gen_random_uuid(),repeat('a',64),100,'hi-IN',100);raise exception 'Public sandbox allowed';exception when others then if sqlerrm='Public sandbox allowed' then raise;end if;end;
+ begin perform public.studio_paid_voice_claim(u,'production',gen_random_uuid(),repeat('a',64),100,'hi-IN',100);raise exception 'Disabled live allowed';exception when others then if sqlerrm='Disabled live allowed' then raise;end if;end;
+ begin perform public.studio_paid_voice_claim(u,'sandbox',gen_random_uuid(),repeat('a',64),101,'hi-IN',100);raise exception 'Budget ignored';exception when others then if sqlerrm='Budget ignored' then raise;end if;end;
+ j:=public.studio_paid_voice_claim(u,'sandbox','f623a490-664c-44c0-9900-000000000010',repeat('a',64),101,'hi-IN',200);
+ j2:=public.studio_paid_voice_claim(u,'sandbox','f623a490-664c-44c0-9900-000000000010',repeat('a',64),101,'hi-IN',200);
+ if (j2->>'claimed')::boolean or (j->>'id')<>(j2->>'id') then raise exception 'Duplicate provider claim';end if;
+ begin perform public.studio_paid_voice_claim(u,'sandbox','f623a490-664c-44c0-9900-000000000010',repeat('b',64),101,'hi-IN',200);raise exception 'Input hash ignored';exception when others then if sqlerrm='Input hash ignored' then raise;end if;end;
+ perform public.studio_paid_voice_finish((j->>'id')::uuid,'uncertain');
+ if (select held_paise from studio_private.ai_balances where user_id=u)<>200 then raise exception 'Uncertain reserve lost';end if;
+ perform public.studio_paid_voice_finish((j->>'id')::uuid,'failed');perform public.studio_paid_voice_finish((j->>'id')::uuid,'failed');
+ if (select available_paise from studio_private.ai_balances where user_id=u)<>5000 then raise exception 'Refund incorrect';end if;
+ j:=public.studio_paid_voice_claim(u,'sandbox',gen_random_uuid(),repeat('c',64),20,'hi-IN',100);perform public.studio_paid_voice_finish((j->>'id')::uuid,'ready');perform public.studio_paid_voice_finish((j->>'id')::uuid,'ready');
+ if (select available_paise from studio_private.ai_balances where user_id=u)<>4900 or (select provider_cost_paise from studio_private.ai_jobs where id=(j->>'id')::uuid) is not null then raise exception 'Duplicate charge or fictional invoice';end if;
+ if public.studio_paid_voice_existing(other,'sandbox',(j->>'request_key')::uuid,repeat('c',64)) is not null then raise exception 'Audio owner leak';end if;
+ begin perform public.studio_subscription_reserve(u,'sandbox','bad');raise exception 'Consent ignored';exception when others then if sqlerrm='Consent ignored' then raise;end if;end;
+ s:=public.studio_subscription_reserve(u,'sandbox','100-per-30-days-v1');r:=public.studio_subscription_reserve(u,'sandbox','100-per-30-days-v1');if s->>'id'<>r->>'id' then raise exception 'Duplicate mandate';end if;
+ perform public.studio_subscription_sync((s->>'id')::uuid,'cf-qa','ACTIVE','session-qa');
+ if exists(select 1 from public.studio_paid_memberships where user_id=u) then raise exception 'Authorization granted membership';end if;
+ update studio_private.subscriptions set first_charge_at=now()-interval '1 day' where id=(s->>'id')::uuid;
+ begin perform public.studio_subscription_fulfill((s->>'id')::uuid,'sandbox','qa-payment','cf-qa',10000,'INR','AUTH','SUCCESS',now());raise exception 'Auth charge accepted';exception when others then if sqlerrm='Auth charge accepted' then raise;end if;end;
+ begin perform public.studio_subscription_fulfill((s->>'id')::uuid,'production','qa-payment','cf-qa',10000,'INR','CHARGE','SUCCESS',now());raise exception 'Environment ignored';exception when others then if sqlerrm='Environment ignored' then raise;end if;end;
+ begin perform public.studio_subscription_fulfill((s->>'id')::uuid,'sandbox','qa-payment','cf-qa',1000,'INR','CHARGE','SUCCESS',now());raise exception 'Amount ignored';exception when others then if sqlerrm='Amount ignored' then raise;end if;end;
+ r:=public.studio_subscription_fulfill((s->>'id')::uuid,'sandbox','qa-payment','cf-qa',10000,'INR','CHARGE','SUCCESS',now());expiry:=(r->>'expires_at')::timestamptz;
+ r:=public.studio_subscription_fulfill((s->>'id')::uuid,'sandbox','qa-payment','cf-qa',10000,'INR','CHARGE','SUCCESS',now());if (r->>'expires_at')::timestamptz<>expiry or not (r->>'duplicate')::boolean then raise exception 'Double entitlement';end if;
+ begin perform public.studio_subscription_fulfill((s->>'id')::uuid,'sandbox','qa-payment-two','cf-qa',10000,'INR','CHARGE','SUCCESS',now());raise exception 'Cycle double credit';exception when others then if sqlerrm='Cycle double credit' then raise;end if;end;
+ perform public.studio_subscription_sync((s->>'id')::uuid,'cf-qa','CANCELLED',null,true);
+ if (select expires_at from public.studio_paid_memberships where user_id=u and environment='sandbox')<>expiry then raise exception 'Cancellation erased access';end if;
+ if exists(select 1 from public.studio_paid_memberships where user_id=u and environment='production') then raise exception 'Sandbox live leak';end if;
+end $$;
+reset role;
+set local role authenticated;
+do $$begin
+ if has_function_privilege('authenticated','public.studio_subscription_fulfill(uuid,text,text,text,integer,text,text,text,timestamptz)','EXECUTE') or has_function_privilege('authenticated','public.studio_paid_voice_claim(uuid,text,uuid,text,integer,text,bigint)','EXECUTE') then raise exception 'Client can charge or extend membership';end if;
+ if has_table_privilege('authenticated','studio_private.paid_voice_inputs','SELECT') or has_table_privilege('authenticated','studio_private.subscriptions','UPDATE') then raise exception 'Private table exposed';end if;
+end $$;
+reset role;
+select 'PASS: paid voice prices, budget, input binding, reserve/release/charge, invoice honesty, mandate consent/idempotency, AUTH exclusion, cancel/access preservation, sandbox isolation, RLS' as result;
+rollback;

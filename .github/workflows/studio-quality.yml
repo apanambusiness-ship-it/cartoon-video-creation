@@ -33,6 +33,8 @@ jobs:
         run: sudo apt-get install --no-install-recommends -y ffmpeg
       - name: Check Shubh voice integration
         run: |
+          node tests/paid-integrations-edge.cjs
+          node tests/paid-integrations-browser.cjs
           node tests/sarvam-voice-edge.cjs
           node tests/sarvam-voice-browser.cjs
           node tests/video-audio-draft-browser.cjs
@@ -82,3 +84,4 @@ jobs:
           name: studio-quality-screenshots
           path: quality-artifacts/
           retention-days: 7
+

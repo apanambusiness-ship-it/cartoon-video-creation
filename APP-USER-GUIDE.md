@@ -1,5 +1,10 @@
 # APANAMai Studio — उपयोग guide
 
+
+## नया भुगतान integration · 5 अक्टूबर 2026
+
+Public Shubh के लिए ₹1 प्रति शुरू हुए 100 अक्षर प्रति scene का quote, सहमति और अलग AI balance ledger जोड़ दिया गया है। ₹100 हर 30 दिन AutoPay की अनुमति, स्थिति जाँच और बंद करने की सुविधा भी तैयार है। दोनों का live activation अभी बंद है; वास्तविक merchant checkout / provider जाँच बाकी है। पुराने Admin Shubh परीक्षण और manual membership सुरक्षित हैं। विस्तृत activation स्थिति: [Paid Shubh / AutoPay guide](PAID-VOICE-AUTOPAY-SETUP.md)।
+
 ## Membership और AI शुल्क
 
 - पहली Registration ₹10: सफल Live payment की पुष्टि पर पहली बार 15 दिन की अवधि। पुराने वैध trial बने रहेंगे; अवधि दोबारा शुरू नहीं होगी।
@@ -71,3 +76,4 @@ Background editing में background layer और foreground/photo अलग 
 ## अंतिम वास्तविक-phone जाँच
 
 उँगली से text/photo resize, Phonetic panel drag, microphone recording और video download असली Android/iPhone पर जाँचें। Browser emulation असली phone की अनुमति और hardware व्यवहार का प्रमाण नहीं है।
+

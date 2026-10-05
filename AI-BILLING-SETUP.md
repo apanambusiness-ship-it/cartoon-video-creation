@@ -1,5 +1,10 @@
 # AI billing status and activation
 
+
+## नया भुगतान integration · 5 अक्टूबर 2026
+
+Public Shubh के लिए ₹1 प्रति शुरू हुए 100 अक्षर प्रति scene का quote, सहमति और अलग AI balance ledger जोड़ दिया गया है। ₹100 हर 30 दिन AutoPay की अनुमति, स्थिति जाँच और बंद करने की सुविधा भी तैयार है। दोनों का live activation अभी बंद है; वास्तविक merchant checkout / provider जाँच बाकी है। पुराने Admin Shubh परीक्षण और manual membership सुरक्षित हैं। विस्तृत activation स्थिति: [Paid Shubh / AutoPay guide](PAID-VOICE-AUTOPAY-SETUP.md)।
+
 Membership remains ₹10 registration → first 15-day trial, followed by ₹100 per 30 days. Paid AI usage is separate. Existing valid trial and membership records are retained. `studio_start_trial` can read an existing trial, but cannot create an unpaid one.
 
 The deployed `studio-ai-payments` Edge Function uses the existing Cashfree server credentials. Its `status`, `create`, `confirm`, and signed `webhook` actions operate on a separate AI service-credit ledger. `aic_` order IDs cannot fulfill `apn_` membership orders. ₹50/100/200/500 topups are validated server-side. Production and sandbox balances are isolated. Confirmation independently retrieves order and successful payment from Cashfree; SQL settlement is idempotent.
@@ -23,7 +28,7 @@ The earlier delegated selection configured the following Runway budget ceilings.
 | Ledger kind | Provider model | Billing unit | App price |
 | --- | --- | --- | --- |
 | poster | gen4_image_turbo | One generated background image | ₹5 |
-| audio | eleven_multilingual_v2 | Each started block of 100 text characters | ₹5 |
+| audio | Sarvam bulbul:v3 / shubh | Each started block of 100 Unicode text characters per scene | ₹1 |
 | video | gen4_turbo | Each output second, image-to-video without generated audio | ₹10 |
 
 Poster Hindi text stays editable in the local editor; this price buys the generated bitmap background, not editable text within that bitmap. Video does not include voice; voice is quoted separately. A 5-second video is ₹50 and a 10-second video is ₹100. A longer reel must show the combined price for all component jobs before any reservation. Do not silently retry billed generations.
@@ -31,7 +36,7 @@ Poster Hindi text stays editable in the local editor; this price buys the genera
 Official reference: https://docs.dev.runwayml.com/guides/pricing/
 As checked on 2026-10-04, credits cost $0.01. gen4_image_turbo costs 2 credits/image; gen4_turbo costs 5 credits/second; eleven_multilingual_v2 costs 1 credit/50 characters. Account access and output quality still require validation.
 
-The existing 30% gross-margin formula is retained: sale = ceil(budget ceiling × 100 / 70), in paise. The configured ceilings are ₹3.50/image, ₹3.50/100-character block and ₹7/output second, producing exactly ₹5/₹5/₹10. These are conservative app cost allowances, NOT measured provider invoice costs or live FX rates. The provider worker must record actual invoiced/provider cost separately. FX, applicable taxes, payment fees and storage must be reconciled before reporting profit. Suspend the affected tariff if actual total costs exceed its allowance; never change a user's approved quote retroactively.
+The existing 30% gross-margin formula is retained: sale = ceil(budget ceiling × 100 / 70), in paise. The configured ceilings are ₹3.50/image, ₹0.70/100-character block and ₹7/output second, producing exactly ₹5/₹1/₹10. These are conservative app cost allowances, NOT measured provider invoice costs or live FX rates. The provider worker must record actual invoiced/provider cost separately. FX, applicable taxes, payment fees and storage must be reconciled before reporting profit. Suspend the affected tariff if actual total costs exceed its allowance; never change a user's approved quote retroactively.
 
 Registration ₹10, first trial 15 days and monthly membership ₹100 are unchanged. Selected rates do not activate payments or generation. No real balance is credited or charged by this configuration.
 
@@ -48,8 +53,9 @@ The API account/key is not available through the current connectors. Provider ac
 
 - Database membership values: 1000 paise registration, 15 trial days, 10000 paise monthly. Business payment and AI enable flags are false.
 - Admin Shubh pilot is a separate active Edge Function. Provider-credit use is separate from user AI Balance. A successful Admin pilot is not public paid-AI activation.
-- Public Shubh still needs an approved Sarvam-specific tariff, authenticated quote/reserve/generate/result adapter, actual-cost accounting, uncertain reconciliation and private-output retention. Those parts are not implemented by the Admin pilot or this document.
-- Existing membership checkout is a one-time Cashfree order. It does not create a subscription mandate. ₹100 AutoPay is not implemented or active; do not label manual checkout AutoPay.
+- Public Shubh now has its Sarvam-specific tariff, authenticated quote/claim/generate/private-result adapter and input-bound idempotency. Actual provider invoice reconciliation and controlled real provider testing remain; see PAID-VOICE-AUTOPAY-SETUP.md.
+- Existing manual checkout stays a one-time order. The separate studio-subscriptions function/UI now implements consent, ₹100/30-day periodic mandates, independent payment verification and cancellation. Live AutoPay remains OFF pending merchant activation and real end-to-end testing.
 - AutoPay implementation requires an enabled merchant subscription service, explicit customer mandate authorization, verified subscription webhooks, recurring-payment idempotency, cancellation and failed-renewal handling. Existing membership periods must remain valid when a mandate is cancelled.
 
 Before production activation, run provider sandbox and one authorized real-account transaction end to end. No real charge, tariff replacement or production flag change was made during the 2026-10-06 verification.
+
