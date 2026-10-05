@@ -35,6 +35,7 @@ jobs:
         run: |
           node tests/sarvam-voice-edge.cjs
           node tests/sarvam-voice-browser.cjs
+          node tests/video-audio-draft-browser.cjs
           node tests/video-simple-workspace-browser.cjs
       - name: Check Hindi text audio and video
         run: node tests/video-text-audio-browser.cjs
