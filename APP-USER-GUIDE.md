@@ -81,3 +81,5 @@ Background editing में background layer और foreground/photo अलग 
 
 ### सामान्य AI Chat
 Account menu → 💬 AI Chat खोलें। Verified account से login और Sarvam को सवाल तथा हाल की बातचीत भेजने की स्पष्ट अनुमति जरूरी है। कहानी, पढ़ाई, लेखन, अनुवाद, सामान्य जानकारी और code पूछ सकते हैं। पिछले 3 सवाल-जवाब का सीमित संदर्भ जाता है; स्थायी chat history सेव नहीं होती। Clear और account बदलने पर संदर्भ मिटता है। अभी 10 सवाल/account/day और पूरे app में 50/day की included सीमा है; failed requests भी quota में गिने जाते हैं। Wallet से automatic कटौती नहीं होती। App सहायता shortcuts स्थानीय guide से चलते हैं। AI के पास live web, bank, ticket या account access नहीं है। Provider probe सफल होने पर ही server chat चालू करता है; Admin API Health में उसका sanitized result दिखता है।
+
+AI Chat के जवाब पर 🔊 सुनें दबाकर browser/device की उपलब्ध आवाज़ सुनें; ■ रोकें से रोकें। Chat बंद करने, account बदलने या बातचीत साफ करने पर आवाज़ रुकती है। भाषा की voice device में न हो तो संदेश दिखेगा। आवाज़ की गुणवत्ता browser/device पर निर्भर है और कुछ voices को Internet चाहिए। App इस playback के लिए कोई नया paid AI request या wallet debit नहीं भेजता।

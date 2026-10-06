@@ -6,3 +6,5 @@
 body>header .header-utility-actions #studioSupportOpen{width:34px!important;min-width:34px!important;padding:2px 0!important;font-size:0!important}body>header .header-utility-actions #studioSupportOpen::before{content:"💬";font-size:15px!important}
 
 @media(min-width:701px){body>header>.actions{overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;scrollbar-width:none!important}body>header>.actions::-webkit-scrollbar{display:none}}
+
+.support-reply{min-width:0}.studio-support-dialog .support-listen{font-size:12px;padding:5px 9px;margin-top:5px;background:#f5f3ff;color:#4c1d95}.studio-support-dialog button:disabled{opacity:.55;cursor:default}#supportSpeechStatus{flex-basis:100%;font-size:12px;line-height:1.4;color:#475569}
