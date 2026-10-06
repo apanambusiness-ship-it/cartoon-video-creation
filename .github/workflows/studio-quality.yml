@@ -31,6 +31,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install exported media verifier
         run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Inspect every app page and popup
+        run: node tests/app-layout-audit.cjs
       - name: Check Shubh voice integration
         run: |
           node tests/paid-voice-edit-race.cjs
