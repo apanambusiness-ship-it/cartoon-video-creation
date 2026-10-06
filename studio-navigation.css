@@ -1,0 +1,14 @@
+/* Main poster navigation: stable arrows, visible scroll track and equal controls. */
+@media(min-width:901px){
+ body.studio-workspace>header>.apanam-header-brand{order:0!important}
+ body.studio-workspace>header>#studioHeaderPrev{order:1!important}
+ body.studio-workspace>header>.actions{order:2!important;flex:1 1 0!important;min-width:0!important;flex-wrap:nowrap!important;justify-content:flex-start!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin!important;scrollbar-color:#a78bfa #ede9fe!important;padding-bottom:4px!important}
+ body.studio-workspace>header>.actions::-webkit-scrollbar{display:block!important;height:6px!important}
+ body.studio-workspace>header>.actions::-webkit-scrollbar-track{background:#ede9fe;border-radius:8px}
+ body.studio-workspace>header>.actions::-webkit-scrollbar-thumb{background:#a78bfa;border-radius:8px}
+ body.studio-workspace>header>#studioHeaderNext{order:3!important}
+ body.studio-workspace>header>:is(button:not(.studio-header-arrow),a){order:4!important}
+ body.studio-workspace>header>#studioHeaderAccount{order:5!important}
+ body.studio-workspace>header>:is(#studioHeaderPrev,#studioHeaderNext){display:block!important;flex:0 0 28px!important;width:28px!important;min-width:28px!important;height:36px!important;min-height:36px!important;padding:0!important;line-height:1!important;font-size:24px!important;position:static!important}
+ body.studio-workspace>header>.actions>button{box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 120px!important;width:120px!important;min-width:120px!important;max-width:120px!important;height:34px!important;min-height:34px!important;padding:5px 7px!important;font-size:12px!important;line-height:1.2!important;white-space:nowrap!important;margin:0!important}
+}
