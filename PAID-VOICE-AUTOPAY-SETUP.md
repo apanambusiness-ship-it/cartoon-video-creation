@@ -41,3 +41,7 @@ Official references:
 - https://www.cashfree.com/docs/payments/subscription/hosted-checkout
 - https://www.cashfree.com/docs/payments/subscription/create
 - https://www.cashfree.com/docs/api-reference/payments/latest/subscription/webhook-signature
+
+## संयुक्त Registration flow
+नई Registration में unchecked consent: ₹10 registration, payment सत्यापन से 15 दिन, फिर ₹100 हर 30 दिन। `studio-registration-autopay.sql` को मौजूदा payment/subscription schema के बाद लागू करें। पहली checkout ₹10 order है; सफल return या refresh पर उसी account का server record मिलने के बाद बटन AutoPay completion में बदलता है। दूसरा चरण Cashfree bank mandate है (₹1 refundable authorization निर्देश)। Interrupted flow में registration दोबारा नहीं बिकता। Consent का version और समय private order पर रहते हैं। Subscriptions बंद हों तो नई registration भी बंद है।
+पहली debit वर्तमान trial/access expiry से पहले नहीं है; setup बहुत देर से पूरा होने पर तीन दिन की तैयारी के कारण दिखाई गई debit तारीख आगे हो सकती है। Bank mandate confirm हुए बिना automatic debit चालू नहीं है। User नीचे AutoPay cancel कर सकता है; paid access नहीं मिटता। उत्पादन activation अभी बंद है; Cashfree ticket 8529363 का acknowledgment activation नहीं है।

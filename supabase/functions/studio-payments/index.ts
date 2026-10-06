@@ -28,13 +28,15 @@ Deno.serve(async(req:Request)=>{
   const token=(req.headers.get('authorization')||'').replace(/^Bearer /i,'');if(!token)return json({error:'Login required'},401);
   let user:any;try{user=await cloud('/auth/v1/user',{},token);}catch{return json({error:'Session invalid. Login again.'},401);}
   if(!user?.id||user.is_anonymous||!user.email_confirmed_at)return json({error:'Verified email account required'},403);
-  if(action==='status')return json({environment:c.mode,configured:!!c.id&&!!c.secret,enabled:c.enabled&&!!c.id&&!!c.secret,plans:{registration:1000,manual:10000}});
+  const liveReady=c.mode==='sandbox'||!!(await cloud('/rest/v1/studio_business_settings?id=eq.true&select=payments_enabled'))?.[0]?.payments_enabled;
+  if(action==='status')return json({environment:c.mode,configured:!!c.id&&!!c.secret,enabled:c.enabled&&!!c.id&&!!c.secret&&liveReady,registration_enabled:c.enabled&&!!c.id&&!!c.secret&&liveReady&&Deno.env.get('STUDIO_SUBSCRIPTIONS_ENABLED')==='true',registration:await rpc('studio_registration_status',{owner_id:user.id,env:c.mode}),plans:{registration:1000,manual:10000}});
   if(!c.id||!c.secret)return json({error:'Cashfree server keys जोड़ना बाकी है।'},503);
   const body=JSON.parse(await bounded(req)||'{}');
   if(action==='create'){
-   if(!c.enabled)return json({error:'Checkout अभी बंद है।'},403);
+   if(!c.enabled||!liveReady)return json({error:'Checkout अभी बंद है।'},403);
    const phone=String(body.phone||'').replace(/[\s+()-]/g,'').replace(/^91(?=\d{10}$)/,'');if(!/^[6-9]\d{9}$/.test(phone))return json({error:'सही 10 अंकों का मोबाइल नंबर भरें।'},400);
-   const row=await rpc('studio_payment_reserve',{owner_id:user.id,env:c.mode,requested_plan:body.plan});
+   if(body.plan==='registration'&&(Deno.env.get('STUDIO_SUBSCRIPTIONS_ENABLED')!=='true'||body.consent!==true||body.consent_version!=='registration-10-trial15-autopay100-30-v1'))return json({error:'₹10 registration के साथ ₹100 हर 30 दिन AutoPay की स्पष्ट अनुमति और Subscriptions activation जरूरी है।'},400);
+   const row=body.plan==='registration'?await rpc('studio_registration_reserve',{owner_id:user.id,env:c.mode,consent:body.consent_version}):await rpc('studio_payment_reserve',{owner_id:user.id,env:c.mode,requested_plan:body.plan});
    const orderId='apn_'+row.id;
    if(row.session_id)return json({order_id:orderId,payment_session_id:row.session_id,environment:c.mode,amount_paise:row.amount_paise});
    const order=await cashfree(c,'/orders',{method:'POST',headers:{'x-idempotency-key':row.id},body:JSON.stringify({order_id:orderId,order_amount:row.amount_paise/100,order_currency:'INR',order_expiry_time:new Date(Date.parse(row.created_at)+30*60000).toISOString(),customer_details:{customer_id:user.id,customer_email:user.email,customer_phone:phone},order_meta:{return_url:origin+'/cartoon-video-creation/membership.html?order_id='+orderId,notify_url:base+'/functions/v1/studio-payments?action=webhook'}})});
@@ -49,3 +51,4 @@ Deno.serve(async(req:Request)=>{
   return json({error:'Unknown action'},400);
  }catch(error){return json({error:error instanceof Error?error.message:'Payment check failed'},action==='webhook'?503:400);}
 });
+

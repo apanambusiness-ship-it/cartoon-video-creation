@@ -30,6 +30,7 @@ begin
  -- Cashfree handles pre-debit notifications. Allow three days to set up the first debit.
  first_at:=date_trunc('second',now()+interval '3 days');
  select greatest(first_at,coalesce(max(expires_at),first_at)) into first_at from public.studio_paid_memberships where user_id=owner_id and environment=env;
+ select greatest(first_at,coalesce(max(fulfilled_at + interval '15 days'),first_at)) into first_at from studio_private.payment_orders where user_id=owner_id and environment=env and plan='registration' and status='paid';
  if env='production' then
   select greatest(first_at,coalesce(max(expires_at),first_at)) into first_at from public.studio_trials where user_id=owner_id;
   select greatest(first_at,coalesce(max(expires_at),first_at)) into first_at from public.studio_memberships where user_id=owner_id and not revoked;

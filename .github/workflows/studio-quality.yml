@@ -34,6 +34,8 @@ jobs:
       - name: Check Shubh voice integration
         run: |
           node tests/paid-voice-edit-race.cjs
+          node tests/registration-autopay-edge.cjs
+          node tests/registration-autopay-browser.cjs
           node tests/paid-integrations-edge.cjs
           node tests/paid-integrations-browser.cjs
           node tests/sarvam-voice-edge.cjs
