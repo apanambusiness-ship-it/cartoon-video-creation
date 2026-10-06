@@ -4,3 +4,5 @@
 @media(max-width:700px){body>header .header-utility-actions #studioSupportOpen::before{content:'💬';font-size:15px!important}}
 
 body>header .header-utility-actions #studioSupportOpen{width:34px!important;min-width:34px!important;padding:2px 0!important;font-size:0!important}body>header .header-utility-actions #studioSupportOpen::before{content:"💬";font-size:15px!important}
+
+@media(min-width:701px){body>header>.actions{overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;scrollbar-width:none!important}body>header>.actions::-webkit-scrollbar{display:none}}
