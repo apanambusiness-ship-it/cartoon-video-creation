@@ -31,6 +31,10 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install exported media verifier
         run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Check support and admin diagnostics
+        run: |
+          node tests/support-health-edge.cjs
+          node tests/support-health-browser.cjs
       - name: Inspect every app page and popup
         run: node tests/app-layout-audit.cjs
       - name: Check Shubh voice integration
@@ -90,3 +94,12 @@ jobs:
           path: quality-artifacts/
           retention-days: 7
 
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-layout-audit
+          path: |
+            quality-artifacts/audit-*.png
+            quality-artifacts/app-layout-audit.json
+          retention-days: 7

@@ -1,0 +1,412 @@
+[
+  {
+    "id": "plan",
+    "title": "कीमत और योजना",
+    "keywords": [
+      "कीमत",
+      "price",
+      "registration",
+      "रजिस्ट्रेशन",
+      "monthly",
+      "महीना",
+      "100",
+      "10rs"
+    ],
+    "answer": "Registration ₹10 पर पहली बार 15 दिन की अवधि है। नई registration में ₹100 हर 30 दिन AutoPay की स्पष्ट सहमति और बैंक mandate का अगला चरण है। Paid AI/आवाज़ का शुल्क अलग है। वर्तमान checkout उपलब्धता Membership पेज पर देखें।",
+    "english": "Registration is ₹10 with a first 15-day trial. New registration includes explicit consent and bank authorization for ₹100 every 30 days. Paid AI and voice costs are separate. Check Membership for current availability.",
+    "link": "membership.html"
+  },
+  {
+    "id": "autopay",
+    "title": "AutoPay और cancellation",
+    "keywords": [
+      "autopay",
+      "auto pay",
+      "कटौती",
+      "cancel",
+      "रद्द",
+      "mandate",
+      "मैंडेट"
+    ],
+    "answer": "Membership → AutoPay में mandate/भुगतान जाँचें और AutoPay बंद करें विकल्प हैं। केवल checkbox या ₹10 payment से बैंक mandate मंजूर नहीं होता। पहली ₹100 debit trial/access समाप्ति से पहले नहीं होगी; देर से setup होने पर तारीख आगे हो सकती है। Mandate की ₹1 अस्थायी जाँच वापस करने का निर्देश दिया जाता है। Cancel करने से पहले से मिली paid अवधि नहीं मिटती।",
+    "english": "Membership → AutoPay shows mandate status and cancellation. Checking a box or paying ₹10 alone does not authorize the bank mandate. The first ₹100 debit is no earlier than trial/access expiry; late setup can move it later. The temporary ₹1 mandate authorization is instructed to be refunded. Cancellation preserves existing paid access.",
+    "link": "membership.html"
+  },
+  {
+    "id": "payment",
+    "title": "Payment हुआ पर access नहीं",
+    "keywords": [
+      "payment",
+      "भुगतान",
+      "पैसे",
+      "paid",
+      "paisa",
+      "पैसा",
+      "refund",
+      "रिफंड"
+    ],
+    "answer": "Membership में आखिरी payment जाँचें / Payment स्थिति Refresh दबाएँ। Payment सफल हो चुका हो तो दोबारा पैसे भेजने से पहले server की पुष्टि देखें। सहायता के लिए order ID और समय दें; OTP, card या API key न भेजें। यह chat आपका bank settlement या refund स्वयं नहीं कर सकता।",
+    "english": "Use Check last payment or Refresh payment status in Membership. Avoid paying again until the server checks an already-successful payment. Contact support with order ID and time, never OTP/card/API keys. This chat cannot issue a bank refund or inspect settlement.",
+    "link": "membership.html"
+  },
+  {
+    "id": "expiry",
+    "title": "Membership समाप्त हो गई",
+    "keywords": [
+      "validity",
+      "expiry",
+      "समाप्त",
+      "अवधि",
+      "membership",
+      "सदस्यता"
+    ],
+    "answer": "Membership पेज में अपने account की अवधि देखें। Manual ₹100 payment पर 30 दिन मिलते हैं; AutoPay में verified सफल ₹100 debit पर अवधि जुड़ती है। Sandbox अवधि असली paid access नहीं देती। पुराने वैध trial/access की तारीख सुरक्षित रहती है।",
+    "english": "Check your account validity in Membership. Manual ₹100 purchases add 30 days; verified successful ₹100 AutoPay debits add access. Sandbox validity never grants live paid access.",
+    "link": "membership.html"
+  },
+  {
+    "id": "login",
+    "title": "Login / नया account",
+    "keywords": [
+      "login",
+      "loging",
+      "लॉगिन",
+      "account",
+      "अकाउंट",
+      "signup",
+      "sign up"
+    ],
+    "answer": "Membership में email और password से Login करें। नया Account बनाएँ के बाद verification email देखें। Admin और user account अलग भूमिका हैं; login होने से admin अधिकार नहीं मिलते। Password/OTP किसी से साझा न करें।",
+    "english": "Sign in with email/password on Membership. For a new account, check the verification email. Signing in does not grant admin rights. Never share passwords or OTPs.",
+    "link": "membership.html"
+  },
+  {
+    "id": "password",
+    "title": "Password भूल गए",
+    "keywords": [
+      "password",
+      "पासवर्ड",
+      "forgot",
+      "भूल"
+    ],
+    "answer": "Membership में Password भूल गए / Email verify करें सहायता खोलें। अपने email पर आए नए reset link का उपयोग करें। लिंक पुराना/expired हो तो नया reset email लें। Password यहाँ chat में न लिखें।",
+    "english": "Open Password forgotten / Email verification help in Membership and use the newest reset email. Request a new link if the old one expired. Never type your password into this chat.",
+    "link": "membership.html"
+  },
+  {
+    "id": "verify",
+    "title": "Email verify नहीं हुआ",
+    "keywords": [
+      "verify",
+      "verification",
+      "ईमेल",
+      "email",
+      "spam"
+    ],
+    "answer": "Verification email के लिए Inbox और Spam देखें। Membership की email सहायता से verification दोबारा भेजें। उसी email account और सबसे नए link का उपयोग करें। बार-बार तुरंत request करने के बजाय provider rate limit संदेश देखें।",
+    "english": "Check Inbox and Spam, resend verification through Membership help, and use the latest link with the same email account. Observe any provider rate-limit message.",
+    "link": "membership.html"
+  },
+  {
+    "id": "text",
+    "title": "Poster का text कैसे बदलें",
+    "keywords": [
+      "text",
+      "टेक्स्ट",
+      "लिखना",
+      "font",
+      "फॉन्ट",
+      "phonetic",
+      "हिंदी",
+      "likhna"
+    ],
+    "answer": "Poster में text layer चुनें → Text Edit खोलें। Font/Phonetic panel में भाषा, रंग और shadow बदल सकते हैं। Layer lock हो तो पहले unlock करें। बदलाव के बाद Save करें और जरूरत पर पूरा JSON backup लें।",
+    "english": "Select a text layer and open Text Edit. The Font/Phonetic panel controls language, color and shadow. Unlock a locked layer first; save and back up your changes.",
+    "link": "index.html"
+  },
+  {
+    "id": "photo",
+    "title": "Photo बदलना / drag",
+    "keywords": [
+      "photo",
+      "फोटो",
+      "image",
+      "चित्र",
+      "replace",
+      "drag",
+      "खींच"
+    ],
+    "answer": "Photo layer चुनें, फिर photo बदलने का विकल्प लें। केवल चुनी layer बदलें; पूरी background हटाने से बचें। Drag/resize के लिए layer unlock करें। Video Scene में फोटो लगाने का विकल्प scene की background photo बदलता है।",
+    "english": "Select the photo layer, replace its image, and unlock it before dragging/resizing. In video, the scene photo control changes that scene background image.",
+    "link": "index.html"
+  },
+  {
+    "id": "resize",
+    "title": "आकार और social size",
+    "keywords": [
+      "resize",
+      "size",
+      "आकार",
+      "reel",
+      "shorts",
+      "youtube",
+      "square"
+    ],
+    "answer": "Poster Size में platform preset चुनें। Video Guides में सामान्य, YouTube, Reel/Shorts और Square आकार उपलब्ध हैं। Guides केवल editor में दिखते हैं। Photo के लिए frame भरें या पूरा फोटो दिखाएँ चुनें।",
+    "english": "Choose a platform preset in Poster Size. Video supports general, YouTube, Reel/Shorts and Square guides. Guides are editor-only. Use Fill frame or Show full photo for photo fitting.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "calendar",
+    "title": "Calendar और festival posters",
+    "keywords": [
+      "calendar",
+      "कैलेंडर",
+      "festival",
+      "त्योहार",
+      "तारीख",
+      "occasion"
+    ],
+    "answer": "Calendar में तारीख/अवसर चुनें और उस अवसर के designs देखें। Designs के text और अपने photo/logo बदल सकते हैं। Admin नए posters और अवसर की तारीख प्रकाशित कर सकता है; चंद्र कैलेंडर की तारीख हर साल सही करनी होती है।",
+    "english": "Choose a date/occasion in Calendar, select a design and edit its text/photo/logo. Admins can publish more designs. Lunar festival dates need annual verification.",
+    "link": "index.html"
+  },
+  {
+    "id": "elements",
+    "title": "Elements / राजनीतिक logo",
+    "keywords": [
+      "element",
+      "एलिमेंट",
+      "logo",
+      "लोगो",
+      "राजनीतिक",
+      "party"
+    ],
+    "answer": "Elements library में category चुनकर design जोड़ें, फिर उसकी layer का आकार और स्थान बदलें। अपना logo लगाने के लिए photo/logo upload विकल्प लें। केवल वैध अनुमति वाली सामग्री इस्तेमाल करें।",
+    "english": "Choose a category in Elements, add a design and adjust its layer size/position. Upload your own logo through photo/logo controls and use authorized content.",
+    "link": "index.html"
+  },
+  {
+    "id": "save",
+    "title": "Save और Gallery",
+    "keywords": [
+      "save",
+      "सेव",
+      "gallery",
+      "गैलरी",
+      "load",
+      "project"
+    ],
+    "answer": "Save वर्तमान project को इसी browser की gallery/storage में रखता है। Gallery / Load से उसे वापस खोलें। दूसरे device या browser data मिटने के लिए JSON backup जरूरी है। केवल Save को स्थायी cloud backup न मानें।",
+    "english": "Save stores the project in this browser. Reopen it through Gallery/Load. Keep a JSON backup for other devices or browser-data loss; local Save is not a permanent cloud backup.",
+    "link": "APP-USER-GUIDE.md"
+  },
+  {
+    "id": "backup",
+    "title": "पूरा backup वापस खोलें",
+    "keywords": [
+      "backup",
+      "back up",
+      "बैकअप",
+      "bachup",
+      "json"
+    ],
+    "answer": "Video के लिए पूरा Backup लें ताकि scene की अलग आवाज़ भी रहे। वापस खोलने के लिए backup/import खोलें और APANAM JSON file चुनें। PNG/JPG अंतिम image है, editable project backup नहीं। पहले से खुले काम का backup लेकर ही दूसरा project खोलें।",
+    "english": "Use Full Backup for video to preserve individual scene audio. Import the APANAM JSON backup to restore it. PNG/JPG is a final image, not an editable project backup. Back up current work before loading another project.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "cloud",
+    "title": "Cloud backup / file",
+    "keywords": [
+      "cloud",
+      "क्लाउड",
+      "storage",
+      "स्टोरेज"
+    ],
+    "answer": "Login के बाद Cloud Posters/Video Projects या मेरी निजी Cloud Files उपयोग करें। Upload पर दिखाई गई file और कुल storage सीमाएँ लागू हैं। बड़ी media के लिए local पूरा backup रखें। Cloud file delete करने से पहले backup/download जाँचें।",
+    "english": "After login, use Cloud Posters/Video Projects or Private Cloud Files. Observe the displayed file and total-storage limits. Keep full local backups for large media and download before deleting cloud files.",
+    "link": "membership.html"
+  },
+  {
+    "id": "story",
+    "title": "Photo से कहानी/video",
+    "keywords": [
+      "story",
+      "कहानी",
+      "kahani",
+      "सीन",
+      "scene",
+      "cartoon"
+    ],
+    "answer": "Video खोलें → हर scene में कहानी/caption और photo रखें। फिर Text से आवाज़ या अपनी audio जोड़ें → Preview सुनें → Video डाउनलोड करें। Ready story दोबारा जोड़ने से नए scenes बढ़ सकते हैं; Scenes की सूची में अतिरिक्त scenes हटाने से पहले backup लें।",
+    "english": "Open Video, put story/caption and photo in each scene, add text-to-audio or your own audio, preview and export. Adding a ready story again may append scenes; back up before removing extras.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "voice",
+    "title": "आवाज़ कैसे जोड़ें",
+    "keywords": [
+      "voice",
+      "आवाज़",
+      "आवाज",
+      "audio",
+      "audeo",
+      "sound",
+      "साउंड",
+      "बोल",
+      "shubh",
+      "machine"
+    ],
+    "answer": "Video में Text से आवाज़ / Shubh आवाज़ वाला विभाग खोलें। Scene में बोलने वाला text भरें और आवाज़ तैयार करें, फिर Preview में सुनें। मशीन जैसी local आवाज़ और provider की Shubh आवाज़ अलग विकल्प हैं। Paid आवाज़ में कीमत/अनुमति देखकर ही Generate करें; उपलब्धता status देखें।",
+    "english": "Open Text-to-audio / Shubh voice in Video, enter scene narration, generate and listen in Preview. Local synthetic voice and provider Shubh voice are separate options. For paid voice, check price, consent and availability before generating.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "silent",
+    "title": "Export में आवाज़ नहीं",
+    "keywords": [
+      "silent",
+      "आवाज़ नहीं",
+      "आवाज नहीं",
+      "sound nahi",
+      "audio nahi",
+      "आवाज नही",
+      "बिना आवाज"
+    ],
+    "answer": "पहले Preview सुनें और scene audio मौजूद होने की पुष्टि करें। केवल browser की live speech हर browser में export में नहीं जुड़ती; तैयार audio clip या recording इस्तेमाल करें। पूरा Backup लें, फिर छोटे scene का Video export जाँचें। Media autoplay permission और phone volume भी देखें।",
+    "english": "Listen to Preview and confirm scene audio exists. Live browser speech is not reliably captured in every export; use generated audio clips or recordings. Back up and test a short scene export, and check autoplay permission and volume.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "export",
+    "title": "Export नहीं बन पाया",
+    "keywords": [
+      "export",
+      "डाउनलोड",
+      "download",
+      "नहीं बन",
+      "nahi ban"
+    ],
+    "answer": "पहले पूरा project backup लें। वैध trial/membership, scene photo/audio और खाली device storage जाँचें। छोटे 1–2 scene का export आजमाएँ; tab खुला रखें। MP4 न बने तो WebM लें। Error फिर आए तो कौन-सा format, device और step था—यह support को बताएँ।",
+    "english": "Back up first. Check valid trial/membership, scene media and free device storage. Test 1–2 scenes, keep the tab open, and use WebM if MP4 is unavailable. Tell support the format/device/step if it still fails.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "format",
+    "title": "MP4 और WebM",
+    "keywords": [
+      "mp4",
+      "webm",
+      "format",
+      "फॉर्मेट"
+    ],
+    "answer": "Video format browser की recording क्षमता पर निर्भर है। MP4 उपलब्ध न हो तो WebM चुनें। File का नाम बदलकर .mp4 करने से format नहीं बदलता। दोनों में आवाज़ के लिए तैयार audio clips जरूरी हैं।",
+    "english": "Video format depends on browser recording support. Choose WebM if MP4 is unavailable; renaming a file to .mp4 does not convert it. Use audio clips for audible exports.",
+    "link": "cartoon-video.html"
+  },
+  {
+    "id": "offline",
+    "title": "Offline उपयोग",
+    "keywords": [
+      "offline",
+      "ऑफलाइन",
+      "internet",
+      "नेट",
+      "नेटवर्क"
+    ],
+    "answer": "पहली बार Internet से app खुलने और cache बनने के बाद saved local projects offline खुल सकते हैं। Login, cloud, payment, provider AI और नए model download को Internet चाहिए। Browser data हटाने से local cache/projects मिट सकते हैं।",
+    "english": "Saved local projects can work offline after the app is loaded/cached. Login, cloud, payments, provider AI and new model downloads need internet. Clearing browser data can remove local projects/cache.",
+    "link": "APP-USER-GUIDE.md"
+  },
+  {
+    "id": "ai",
+    "title": "Paid AI balance",
+    "keywords": [
+      "ai balance",
+      "wallet",
+      "credits",
+      "credit",
+      "balance",
+      "बैलेंस",
+      "ai शुल्क"
+    ],
+    "answer": "Membership और AI balance अलग हैं। काम से पहले दिखी कीमत और स्पष्ट अनुमति के बाद ही paid request होती है। सफल काम पर charge और पुष्टि हुए failure पर refund/release लागू है; unknown timeout में provider outcome की जाँच जरूरी है। Top-up बंद दिखे तो payment न करें।",
+    "english": "Membership and AI balance are separate. Paid requests require a displayed price and consent. Success is charged, confirmed failure is released/refunded, and uncertain timeouts need provider reconciliation. Do not pay when top-up is disabled.",
+    "link": "membership.html"
+  },
+  {
+    "id": "share",
+    "title": "Poster/video साझा करें",
+    "keywords": [
+      "share",
+      "शेयर",
+      "whatsapp",
+      "instagram",
+      "facebook"
+    ],
+    "answer": "पहले अंतिम PNG/JPG/video डाउनलोड करें। Share विकल्प में device sharing या चुने platform के लिए उपलब्ध विकल्प उपयोग करें। Platform login और upload उसकी अपनी प्रक्रिया हैं; Share दबाने से हर platform पर अपने-आप post नहीं होता।",
+    "english": "Download the final image/video and use device/platform sharing options. The platform handles its own login/upload; pressing Share does not automatically publish everywhere.",
+    "link": "index.html"
+  },
+  {
+    "id": "buttons",
+    "title": "Button काम नहीं कर रहा",
+    "keywords": [
+      "button",
+      "बटन",
+      "butten",
+      "click",
+      "क्लिक",
+      "काम नहीं",
+      "kam nahi",
+      "cut",
+      "कट"
+    ],
+    "answer": "काम का backup लें, app refresh करें और देखें कि button disabled है या login/selection/permission माँग रहा है। Poster में पहले layer और Video में scene चुनें। Panel के navigation से सही विभाग खोलें। समस्या रहे तो button का नाम, device और screenshot support को दें।",
+    "english": "Back up, refresh, and check whether the button is disabled or needs login/selection/permission. Select a poster layer or video scene first. If it persists, send support the button name, device and screenshot.",
+    "link": "APP-USER-GUIDE.md"
+  },
+  {
+    "id": "admin",
+    "title": "Admin कहाँ / API error",
+    "keywords": [
+      "admin",
+      "एडमिन",
+      "api",
+      "key",
+      "error",
+      "त्रुटि"
+    ],
+    "answer": "Admin Workspace केवल अधिकृत account के लिए है। API Health विभाग में configuration, activation और recorded app error categories दिखेंगी। Key मौजूद होने से उसकी वैधता/credit या bank activation सिद्ध नहीं होते। User कभी API key, password या OTP support chat में न लिखें।",
+    "english": "Admin Workspace is for authorized accounts. API Health shows configuration, activation and recorded app error categories. Key presence is not proof of validity, credit or bank activation. Never paste API keys/passwords/OTPs into chat.",
+    "link": "admin.html"
+  },
+  {
+    "id": "install",
+    "title": "Install App",
+    "keywords": [
+      "install",
+      "इंस्टॉल",
+      "app install"
+    ],
+    "answer": "Install App विकल्प browser/device के अनुसार दिखता है। पहली बार HTTPS पर app खोलें। विकल्प न मिले तो browser के Add to Home screen / Install menu को देखें। यह web app है; APK डाउनलोड जरूरी नहीं।",
+    "english": "Install availability depends on the browser/device. Open the HTTPS app and check Install / Add to Home screen in the browser menu if needed. This is a web app, not a required APK download.",
+    "link": "index.html"
+  },
+  {
+    "id": "help",
+    "title": "Support से बात करें",
+    "keywords": [
+      "support",
+      "सपोर्ट",
+      "help",
+      "मदद",
+      "contact",
+      "संपर्क"
+    ],
+    "answer": "App सहायता के लिए apanambusiness@gmail.com पर समस्या का step, button नाम और device बताएँ। Payment में order ID दें; card/OTP/password/API key न दें। यह assistant app guide से उत्तर देता है; live account/payment जानकारी के लिए Membership status या admin जाँच चाहिए।",
+    "english": "Contact apanambusiness@gmail.com with the step/button/device and order ID for payment issues, never card/OTP/password/API keys. This assistant uses app guidance; live account/payment details require Membership status or an admin check.",
+    "link": "mailto:apanambusiness@gmail.com"
+  }
+]

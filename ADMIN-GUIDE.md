@@ -118,3 +118,7 @@ Video Studio में Download format से WebM या MP4 चुनें।
 - Admin → Email delivery / Failures: accepted/failed/uncertain payment emails और समस्याग्रस्त expiry emails देखें। Provider acceptance और वास्तविक inbox delivery अलग हैं। Automatic retry नहीं होता।
 - Membership → सहायता / Payment या Refund समस्या: business email में draft खोलता है। यह स्वचालित refund नहीं करता; merchant समीक्षा और Cashfree dashboard का verified workflow आवश्यक है।
 - Expiry emails user opt-in और daily request cap पर चालू हैं। Paid AI provider/credit charging, बड़ी storage, real phone और cross-device acceptance अभी बाहरी जाँच पर निर्भर हैं।
+
+
+## API और App Health
+अधिकृत Admin login के बाद **API Health** खोलें। Database की वास्तविक read और provider configuration अलग दिखते हैं। Missing key का केवल नाम दिखता है, value नहीं। पिछली 24 घंटे की signed-in app errors category/code में दिखेंगी; raw message/prompt/payment विवरण नहीं। हर 5 मिनट refresh केवल पेज खुले रहने पर होता है; background email/push monitoring नहीं। Provider balance/key validity और Cashfree activation configuration-only जाँच से साबित नहीं होते। Supporting AI switch बंद रखकर guide help उपयोग करें; activation से पहले provider लागत और limits जाँचें।

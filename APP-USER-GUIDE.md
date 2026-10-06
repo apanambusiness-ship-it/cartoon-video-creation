@@ -77,3 +77,7 @@ Background editing में background layer और foreground/photo अलग 
 
 उँगली से text/photo resize, Phonetic panel drag, microphone recording और video download असली Android/iPhone पर जाँचें। Browser emulation असली phone की अनुमति और hardware व्यवहार का प्रमाण नहीं है।
 
+
+
+## सहायता chat
+ऊपर **💬 सहायता** से Backup, आवाज़, Export, AutoPay और editing के सवाल पूछें। Guide के जवाब बिना provider AI request मिलते हैं। Unknown सवाल पर assistant जानकारी माँगेगा; account/payment/ticket की live स्थिति नहीं देखता। Password, OTP, card या API keys न लिखें। उन्नत Sarvam chat अभी बंद है; सक्रिय होने पर सवाल बाहर भेजने की अलग अनुमति जरूरी है।
