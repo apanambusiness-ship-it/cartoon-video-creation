@@ -76,6 +76,13 @@ style.textContent+=`#professionalDesignDialog .pd-design-gallery{display:grid;gr
 designPicker('certificate',certificates,buildCertificate);designPicker('card',cards,i=>buildCard(i,false));
 $('#pdCreateCertificate').onclick=cert;$('#pdCardFront').onclick=()=>card(false);$('#pdCardBack').onclick=()=>card(true);
 window.APANAM_PROFESSIONAL={open,certificate:cert,card,designs:{certificates,cards},buildCertificate,buildCard,printSize(){const e=stage.querySelector('[data-print-width-mm]');if(!e||+$('#cw').value!==+e.dataset.printPixelWidth||+$('#ch').value!==+e.dataset.printPixelHeight)return null;const w=+e.dataset.printWidthMm,h=+e.dataset.printHeightMm;return w>0&&w<1000&&h>0&&h<1000?{width:w*72/25.4,height:h*72/25.4}:null}};
-function entry(host,id){if(!host||$('#'+id))return;const b=document.createElement('button');b.id=id;b.textContent='Professional · Certificate · Card';b.onclick=()=>open();host.append(b)}
-entry(document.querySelector('main aside'),'professionalDesignOpen');entry($('#studioQuickCreate'),'professionalDesignQuick');setTimeout(()=>{entry(document.querySelector('.studio-library-tools'),'professionalDesignLibrary');entry($('#studioMobileActionGrid'),'professionalDesignMobile')},600);
+function entry(host,id,label,tab,prepend=false){if(!host||document.getElementById(id))return;const b=document.createElement('button');b.id=id;b.type='button';b.textContent=label;b.onclick=()=>{b.closest('dialog')?.close();open(tab)};if(prepend)host.prepend(b);else host.append(b)}
+function mountEntries(){
+ const actions=document.getElementById('studioMobilePrimaryActions')||document.querySelector('body>header .actions');
+ entry(actions,'professionalCertificateOpen','Certificate','certificate',true);entry(actions,'professionalCardOpen','Visiting Card','card',true);
+ entry(document.getElementById('studioQuickCreate'),'professionalDesignQuick','Photo पट्टी / Blend','strip');
+ const library=document.querySelector('.studio-library');if(library&&!document.getElementById('professionalLibraryEntries')){const row=document.createElement('div');row.id='professionalLibraryEntries';row.className='pd-actions';row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding:12px 0';library.querySelector('header')?.after(row);entry(row,'professionalCertificateLibrary','Certificate · 10 designs','certificate');entry(row,'professionalCardLibrary','Visiting Card · 10 designs','card');entry(row,'professionalPhotoLibrary','Photo पट्टी / Blend','strip')}
+ entry(document.getElementById('studioMobileActionGrid'),'professionalCertificateMobile','Certificate','certificate');entry(document.getElementById('studioMobileActionGrid'),'professionalCardMobile','Visiting Card','card');
+}
+mountEntries();document.addEventListener('apanam-library-ready',mountEntries);const entryObserver=new MutationObserver(mountEntries);entryObserver.observe(document.body,{childList:true,subtree:true});
 })();
