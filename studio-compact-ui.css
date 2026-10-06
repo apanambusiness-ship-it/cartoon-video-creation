@@ -33,3 +33,5 @@
 #templateContentEditor{padding:8px!important;margin:6px 0!important}
 .template-layer-field{padding:6px 0!important}.layer-tools{gap:4px!important;margin-top:4px!important}
 @media(max-width:560px){.admin-main{padding:10px!important}.admin-main>section{padding:11px!important}.admin-main button,.admin-main nav a,.admin-main .admin-actions a,:where(dialog,.apanam-hub,.apanam-help,.apanam-gallery) button{min-height:40px!important}.admin-header h1{font-size:19px!important}#studioMemberNavigation{top:0}.admin-main input:not([type=checkbox]),.admin-main select{min-height:40px!important}}
+
+.admin-header{position:relative;z-index:40}#studioMemberNavigation{z-index:2}

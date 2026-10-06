@@ -37,6 +37,10 @@ jobs:
           node tests/support-health-browser.cjs
       - name: Check professional designs and photo blend
         run: node tests/professional-design-browser.cjs
+      - name: Check account summary and receipts
+        run: |
+          node tests/account-summary-browser.cjs
+          node tests/video-ready-stories-browser.cjs
       - name: Inspect every app page and popup
         run: node tests/app-layout-audit.cjs
       - name: Check Shubh voice integration
@@ -83,10 +87,6 @@ jobs:
           node tests/studio-business-browser.cjs
           node tests/ai-balance-browser.cjs
           node tests/poster-logo-export.cjs
-      - name: Check account summary and receipts
-        run: |
-          node tests/account-summary-browser.cjs
-          node tests/video-ready-stories-browser.cjs
       - name: Check full-length audible video
         run: node tests/video-long-export-browser.cjs
       - uses: actions/upload-artifact@v4
