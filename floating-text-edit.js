@@ -22,7 +22,7 @@ function init(){
    const words={aapka:'आपका',aapki:'आपकी',aapke:'आपके',aap:'आप',naam:'नाम',kya:'क्या',hai:'है',hain:'हैं',mera:'मेरा',meri:'मेरी',mere:'मेरे',bahut:'बहुत',achha:'अच्छा',accha:'अच्छा',ghar:'घर',ke:'के',ki:'की',ka:'का',liye:'लिए',sundar:'सुंदर',aur:'और',main:'मैं',me:'में',mein:'में',se:'से',ko:'को',nahi:'नहीं',namaste:'नमस्ते'};
    result=value.replace(/[A-Za-z]+/g,word=>words[word.toLowerCase()]||window.APANAM_TEXT_FIX?.translit?.(word,lang)||window.APANAM_TRANSLITERATE_HI?.(word)||word);
   }
-  else try{const response=await fetch('https://inputtools.google.com/request?text='+encodeURIComponent(value)+'&itc='+encodeURIComponent(lang+'-t-i0-und')+'&num=1&cp=0&cs=1&ie=utf-8&oe=utf-8',{signal:AbortSignal.timeout(2500)});const data=await response.json();result=data?.[1]?.[0]?.[1]?.[0]||'';}catch{}
+  try{const response=await fetch('https://inputtools.google.com/request?text='+encodeURIComponent(value)+'&itc='+encodeURIComponent(lang+'-t-i0-und')+'&num=1&cp=0&cs=1&ie=utf-8&oe=utf-8',{signal:AbortSignal.timeout(2500)});const data=await response.json();result=data?.[1]?.[0]?.[1]?.[0]||result;}catch{}
   if(request!==sequence||target!==active||panel.hidden)return;if(result){text(result);status.textContent='✓ '+result;}else status.textContent='इस भाषा की phonetic service उपलब्ध नहीं है। सीधे canvas पर लिख सकते हैं।';
  }
  roman.oninput=()=>{sequence++;clearTimeout(timer);timer=setTimeout(convert,180);};language.onchange=()=>{sequence++;clearTimeout(timer);roman.value='';status.textContent=language.value==='off'?'यहाँ सीधे text लिखें':'English अक्षरों में उच्चारण लिखें';};
