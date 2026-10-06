@@ -35,6 +35,8 @@ jobs:
         run: |
           node tests/support-health-edge.cjs
           node tests/support-health-browser.cjs
+      - name: Check phonetic fields and dialog drag
+        run: node tests/phonetic-fields-browser.cjs
       - name: Check professional designs and photo blend
         run: node tests/professional-design-browser.cjs
       - name: Check account summary and receipts
