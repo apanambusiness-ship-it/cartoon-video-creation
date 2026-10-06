@@ -10,7 +10,7 @@
 .admin-main .admin-actions,.admin-main nav,.admin-main .admin-checks{gap:6px!important}
 .admin-header{padding-top:12px!important;padding-bottom:12px!important;gap:9px!important}
 .admin-header h1{font-size:21px!important}
-.membership-page .admin-main{gap:10px!important}
+.membership-page .admin-main{gap:10px!important}.membership-page .admin-main>section{margin:0!important}
 .membership-page .plan{padding:12px!important}.membership-page .plans{gap:8px!important}
 #studioMemberNavigation{position:sticky;top:0;z-index:25;grid-column:1/-1;order:-1;background:#f5f3fa;padding:7px 0;display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;gap:6px}
 #studioMemberNavigation a{flex:0 0 auto;white-space:nowrap;min-height:36px}
