@@ -32,7 +32,7 @@ Deno.serve(async(req:Request)=>{
   try{
    sent=true;
    const r=await fetch('https://api.sarvam.ai/text-to-speech',{method:'POST',headers:{'api-subscription-key':key!,'Content-Type':'application/json'},body:JSON.stringify({text,language_code:language,speaker:'shubh',model:'bulbul:v3',pace:1,speech_sample_rate:24000,output_audio_codec:'wav'}),signal:AbortSignal.timeout(45000)});
-   if(!r.ok){await rpc('studio_voice_pilot_finish',{pilot_id:job.id,outcome:r.status>=500?'uncertain':'failed'});return json({error:'Sarvam request असफल ('+r.status+')। Automatic retry नहीं हुई।'},502);}
+   if(!r.ok){await rpc('studio_health_report',{owner_id:u.id,service_name:'voice',error_code:[401,403,429].includes(r.status)?'http'+r.status:r.status>=500?'http500':'validation'}).catch(()=>{});await rpc('studio_voice_pilot_finish',{pilot_id:job.id,outcome:r.status>=500?'uncertain':'failed'});return json({error:'Sarvam request असफल ('+r.status+')। Automatic retry नहीं हुई।'},502);}
    const answer=await r.json(),encoded=answer.audios?.[0];if(typeof encoded!=='string'||encoded.length>2700000)throw Error('Invalid audio');
    const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
    if(new TextDecoder().decode(bytes.slice(0,4))!=='RIFF'||new TextDecoder().decode(bytes.slice(8,12))!=='WAVE')throw Error('Invalid WAV');
