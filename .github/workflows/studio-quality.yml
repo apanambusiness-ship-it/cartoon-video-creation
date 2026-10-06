@@ -35,6 +35,8 @@ jobs:
         run: |
           node tests/support-health-edge.cjs
           node tests/support-health-browser.cjs
+      - name: Check professional designs and photo blend
+        run: node tests/professional-design-browser.cjs
       - name: Inspect every app page and popup
         run: node tests/app-layout-audit.cjs
       - name: Check Shubh voice integration

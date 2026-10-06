@@ -57,16 +57,17 @@
     const render=window.APANAM_RENDER_CANVAS;if(!render)throw Error('Renderer unavailable');
     const canvas=await render(),raw=atob(canvas.toDataURL('image/jpeg',.92).split(',')[1]);
     const width=canvas.width,height=canvas.height,enc=new TextEncoder();
+    const print=window.APANAM_PROFESSIONAL?.printSize(),pageWidth=print?.width||width,pageHeight=print?.height||height;
     const parts=[],offsets=[0];let length=0;
     function append(data){const bytes=typeof data==='string'?enc.encode(data):data;parts.push(bytes);length+=bytes.length}
     append('%PDF-1.4\n');
     function object(n,body){offsets[n]=length;append(n+' 0 obj\n'+body+'\nendobj\n')}
     object(1,'<< /Type /Catalog /Pages 2 0 R >>');
     object(2,'<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
-    object(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+width+' '+height+'] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
+    object(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+pageWidth+' '+pageHeight+'] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
     offsets[4]=length;append('4 0 obj\n<< /Type /XObject /Subtype /Image /Width '+width+' /Height '+height+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+raw.length+' >>\nstream\n');
     const img=Uint8Array.from(raw,c=>c.charCodeAt(0));append(img);append('\nendstream\nendobj\n');
-    const commands='q '+width+' 0 0 '+height+' 0 0 cm /Im0 Do Q\n';
+    const commands='q '+pageWidth+' 0 0 '+pageHeight+' 0 0 cm /Im0 Do Q\n';
     object(5,'<< /Length '+enc.encode(commands).length+' >>\nstream\n'+commands+'endstream');
     const xref=length;append('xref\n0 6\n0000000000 65535 f \n');
     for(let i=1;i<=5;i++)append(String(offsets[i]).padStart(10,'0')+' 00000 n \n');
