@@ -79,5 +79,5 @@ Background editing में background layer और foreground/photo अलग 
 
 
 
-## सहायता chat
-ऊपर **💬 सहायता** से Backup, आवाज़, Export, AutoPay और editing के सवाल पूछें। Guide के जवाब बिना provider AI request मिलते हैं। Unknown सवाल पर assistant जानकारी माँगेगा; account/payment/ticket की live स्थिति नहीं देखता। Password, OTP, card या API keys न लिखें। उन्नत Sarvam chat अभी बंद है; सक्रिय होने पर सवाल बाहर भेजने की अलग अनुमति जरूरी है।
+### सामान्य AI Chat
+Account menu → 💬 AI Chat खोलें। Verified account से login और Sarvam को सवाल तथा हाल की बातचीत भेजने की स्पष्ट अनुमति जरूरी है। कहानी, पढ़ाई, लेखन, अनुवाद, सामान्य जानकारी और code पूछ सकते हैं। पिछले 3 सवाल-जवाब का सीमित संदर्भ जाता है; स्थायी chat history सेव नहीं होती। Clear और account बदलने पर संदर्भ मिटता है। अभी 10 सवाल/account/day और पूरे app में 50/day की included सीमा है; failed requests भी quota में गिने जाते हैं। Wallet से automatic कटौती नहीं होती। App सहायता shortcuts स्थानीय guide से चलते हैं। AI के पास live web, bank, ticket या account access नहीं है। Provider probe सफल होने पर ही server chat चालू करता है; Admin API Health में उसका sanitized result दिखता है।

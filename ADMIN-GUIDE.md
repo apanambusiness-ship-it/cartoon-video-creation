@@ -122,3 +122,7 @@ Video Studio में Download format से WebM या MP4 चुनें।
 
 ## API और App Health
 अधिकृत Admin login के बाद **API Health** खोलें। Database की वास्तविक read और provider configuration अलग दिखते हैं। Missing key का केवल नाम दिखता है, value नहीं। पिछली 24 घंटे की signed-in app errors category/code में दिखेंगी; raw message/prompt/payment विवरण नहीं। हर 5 मिनट refresh केवल पेज खुले रहने पर होता है; background email/push monitoring नहीं। Provider balance/key validity और Cashfree activation configuration-only जाँच से साबित नहीं होते। Supporting AI switch बंद रखकर guide help उपयोग करें; activation से पहले provider लागत और limits जाँचें।
+
+
+### सामान्य AI Chat
+Account menu → 💬 AI Chat खोलें। Verified account से login और Sarvam को सवाल तथा हाल की बातचीत भेजने की स्पष्ट अनुमति जरूरी है। कहानी, पढ़ाई, लेखन, अनुवाद, सामान्य जानकारी और code पूछ सकते हैं। पिछले 3 सवाल-जवाब का सीमित संदर्भ जाता है; स्थायी chat history सेव नहीं होती। Clear और account बदलने पर संदर्भ मिटता है। अभी 10 सवाल/account/day और पूरे app में 50/day की included सीमा है; failed requests भी quota में गिने जाते हैं। Wallet से automatic कटौती नहीं होती। App सहायता shortcuts स्थानीय guide से चलते हैं। AI के पास live web, bank, ticket या account access नहीं है। Provider probe सफल होने पर ही server chat चालू करता है; Admin API Health में उसका sanitized result दिखता है।
