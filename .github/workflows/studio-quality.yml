@@ -31,6 +31,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Install exported media verifier
         run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Check account deletion request controls
+        run: node tests/account-deletion-browser.cjs
       - name: Check support and admin diagnostics
         run: |
           node tests/support-health-edge.cjs
