@@ -1,5 +1,5 @@
 (()=>{
-  const main=document.querySelector('.admin-main'),nav=main.querySelector('nav'),sections=[...main.querySelectorAll(':scope > section')];
+  const main=document.querySelector('.admin-main'),nav=main.querySelector(':scope > nav'),sections=[...main.querySelectorAll(':scope > section')];
   const member=document.createElement('a');member.href='#memberships';member.textContent='मुफ्त Access';nav.insertBefore(member,nav.children[2]);nav.setAttribute('aria-label','Admin विभाग');
   const links=[...nav.querySelectorAll('a')];
   function select(id){const sections=[...main.querySelectorAll(':scope > section')];for(const section of sections){if(!section.id||[...nav.querySelectorAll('a')].some(a=>a.hash==='#'+section.id))continue;const a=document.createElement('a');a.href='#'+section.id;a.textContent=({studioAlertHealth:'Email स्थिति',studioSupport:'Payment सहायता',studioAiAdmin:'AI Balance'})[section.id]||section.querySelector('h2')?.textContent||section.id;nav.append(a);}const links=[...nav.querySelectorAll('a')];if(!sections.some(s=>s.id===id))id='cloud';for(const s of sections)s.hidden=s.id!==id;for(const a of links){const active=a.hash==='#'+id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');} }
