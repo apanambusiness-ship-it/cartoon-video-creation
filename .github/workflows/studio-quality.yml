@@ -39,6 +39,8 @@ jobs:
         run: node tests/phonetic-fields-browser.cjs
       - name: Check professional designs and photo blend
         run: node tests/professional-design-browser.cjs
+      - name: Check mobile and desktop tool parity
+        run: node tests/mobile-tool-parity-browser.cjs
       - name: Check account summary and receipts
         run: |
           node tests/account-summary-browser.cjs
