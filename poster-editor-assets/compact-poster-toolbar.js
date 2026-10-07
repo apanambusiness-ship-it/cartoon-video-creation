@@ -32,7 +32,7 @@
       if(fmt==='PDF')try{await pdfExport()}catch(e){alert('PDF export में समस्या आई: '+e.message)}
     };menu.append(button)});
     document.body.append(menu);
-    download.addEventListener('click',e=>{e.stopImmediatePropagation();e.preventDefault();const r=download.getBoundingClientRect();menu.style.top=r.bottom+4+'px';menu.style.left=Math.min(r.left,innerWidth-90)+'px';menu.hidden=!menu.hidden},true);
+    download.addEventListener('click',e=>{e.stopImmediatePropagation();e.preventDefault();const r=download.getBoundingClientRect();menu.style.top=r.bottom+4+'px';menu.style.left=Math.min(r.left,innerWidth-90)+'px';const nav=document.querySelector('.apanam-mobile-bar');if(document.body.classList.contains('studio-mobile-layout')&&nav){const n=nav.getBoundingClientRect();menu.style.setProperty('--download-bottom',Math.max(66,innerHeight-n.top+8)+'px')}menu.hidden=!menu.hidden},true);
     document.addEventListener('click',e=>{const trigger=e.target.closest('button');if(trigger===download||trigger?.dataset.action==='download'||trigger?.getAttribute('aria-label')==='Download')return;if(!menu.contains(e.target))menu.hidden=true});
     const shell=document.createElement('div');shell.id='apanamCompactTools';
     const elementRow=document.createElement('div');elementRow.className='apanam-strip';

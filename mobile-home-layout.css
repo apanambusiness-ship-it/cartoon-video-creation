@@ -71,7 +71,7 @@
  body.studio-mobile-layout :is(.studio-library h2,.apanam-hub-head h2,.apanam-help header h2,.apanam-safety h2,.apanam-gallery-header h2){font-size:18px;line-height:1.35;margin:0;overflow-wrap:anywhere}
  body.studio-mobile-layout :is(.studio-library-close,[data-hub=close],[data-help-close],[data-safety-close],.apanam-gallery-close){flex:0 0 auto;min-height:40px;min-width:40px}
  body.studio-mobile-layout :is(.mobile-sheet-heading,.social-share-heading){position:sticky;top:0;z-index:3;background:#fff;padding:5px 0 9px}
- body.studio-mobile-layout #apanamDownloadMenu{position:fixed!important;top:auto!important;left:50%!important;right:auto!important;bottom:calc(66px + env(safe-area-inset-bottom))!important;transform:translateX(-50%);width:min(300px,calc(100vw - 24px));display:flex;gap:8px;padding:10px;box-sizing:border-box;border-radius:12px;background:#fff;box-shadow:0 6px 24px #17203333;z-index:10050}
+ body.studio-mobile-layout #apanamDownloadMenu{position:fixed!important;top:auto!important;left:50%!important;right:auto!important;bottom:var(--download-bottom,calc(66px + env(safe-area-inset-bottom)))!important;transform:translateX(-50%);width:min(300px,calc(100vw - 24px));display:flex;gap:8px;padding:10px;box-sizing:border-box;border-radius:12px;background:#fff;box-shadow:0 6px 24px #17203333;z-index:10050}
  body.studio-mobile-layout #apanamDownloadMenu[hidden]{display:none!important}
  body.studio-mobile-layout #apanamDownloadMenu button{flex:1;min-height:44px;min-width:0}
 }
