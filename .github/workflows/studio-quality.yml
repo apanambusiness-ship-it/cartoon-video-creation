@@ -37,6 +37,12 @@ jobs:
           node tests/support-health-browser.cjs
       - name: Check admin operations and recovery
         run: node tests/admin-operations-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: admin-operations-review
+          path: quality-artifacts/admin-operations-*.png
+          retention-days: 7
       - name: Check phonetic fields and dialog drag
         run: node tests/phonetic-fields-browser.cjs
       - name: Check professional designs and photo blend
@@ -103,12 +109,6 @@ jobs:
           retention-days: 7
 
 
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: admin-operations-review
-          path: quality-artifacts/admin-operations-*.png
-          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
