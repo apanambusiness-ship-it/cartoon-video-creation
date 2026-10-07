@@ -1,0 +1,40 @@
+name: Studio automatic source backup
+on:
+  schedule:
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/source-backup.py
+      - .github/workflows/studio-source-backup.yml
+permissions:
+  contents: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive source with commit and checksum
+        run: python3 scripts/source-backup.py
+      - name: Verify archive checksum and contents
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,tarfile
+          from pathlib import Path
+          root=Path('source-backup-output')
+          meta=json.loads((root/'backup-manifest.json').read_text())
+          archive=root/meta['archive']
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()==meta['sha256']
+          with tarfile.open(archive) as saved:
+              names=saved.getnames()
+              assert 'index.html' in names and 'admin.html' in names
+              assert not any(n=='.git' or n.startswith('.git/') for n in names)
+          print('Source checksum and essential files verified')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: APANAMai-source-${{ github.run_id }}
+          path: source-backup-output/
+          retention-days: 30
+          if-no-files-found: error
