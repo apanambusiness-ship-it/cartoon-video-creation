@@ -28,7 +28,7 @@ jobs:
           mkdir -p android/app/src/main/res/drawable
           cp apanam-app-icon-192.png android/app/src/main/res/drawable/studio_icon.png
       - name: Build and lint test app
-        run: gradle -p android assembleDebug bundleRelease lintDebug --no-daemon
+        run: gradle -p android assembleDebug bundleRelease lintDebug testDebugUnitTest --no-daemon
       - uses: actions/upload-artifact@v4
         if: success()
         with:

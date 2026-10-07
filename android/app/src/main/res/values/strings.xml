@@ -1,4 +1,4 @@
 <resources>
- <string name="app_name">APANAMai Studio Test</string>
+ <string name="app_name">APANAMai Studio Test 2</string>
  <string name="asset_statements" translatable="false">[{\"relation\":[\"delegate_permission/common.handle_all_urls\"],\"target\":{\"namespace\":\"web\",\"site\":\"https://apanambusiness-ship-it.github.io\"}}]</string>
 </resources>

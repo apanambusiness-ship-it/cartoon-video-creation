@@ -10,3 +10,5 @@ Without origin-root Digital Asset Links it falls back to a Custom Tab with a bro
 Build: JDK17, Gradle8.13, Android SDK36, AGP8.13.2. Before local build copy `../apanam-app-icon-192.png` to `app/src/main/res/drawable/studio_icon.png`, then `gradle assembleDebug bundleRelease lintDebug` from this directory.
 
 Before Play submission: owner-controlled signing, origin association using Play app-signing certificate, eligible billing solution for digital membership/AI, actual device/export/share tests, deletion cleanup rehearsal, current Play Console target/test/Data Safety requirements. Debug APK is for private testing only. Unsigned AAB cannot be uploaded as a finished release.
+
+Test 2 uses a visible native start screen and Custom Tabs/plain browser fallback. It does not claim verified TWA fullscreen. Package `in.apanam.studio.test2` installs separately because the original debug signing key is not retained; do not remove the working PWA. Startup failure states are tested with Robolectric.
