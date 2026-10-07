@@ -75,6 +75,7 @@ jobs:
           node tests/video-photo-clip-browser.cjs
       - name: Check contracts and cache
         run: |
+          node tests/cloud-network-concurrency.cjs
           node tests/account-recovery-regression.cjs
           node tests/mobile-native-input-regression.cjs poster-editor-assets/touch-support.js
           node tests/video-format-regression.cjs

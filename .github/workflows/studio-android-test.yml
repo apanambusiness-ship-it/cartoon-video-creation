@@ -1,0 +1,38 @@
+name: Android test build
+on:
+  push:
+    branches: [main]
+    paths: ['android/**', '.github/workflows/studio-android-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Prepare SDK and app icon
+        run: |
+          sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
+          mkdir -p android/app/src/main/res/drawable
+          cp apanam-app-icon-192.png android/app/src/main/res/drawable/studio_icon.png
+      - name: Build and lint test app
+        run: gradle -p android assembleDebug bundleRelease lintDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: APANAMai-Android-TEST-ONLY
+          path: |
+            android/app/build/outputs/apk/debug/*.apk
+            android/app/build/outputs/bundle/release/*.aab
+            android/app/build/reports/lint-results-debug.html
+          retention-days: 14
