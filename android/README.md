@@ -1,6 +1,6 @@
 # Android test build
 This is a browser-backed Android test launcher, not a Play Store release.
-Package: `in.apanam.studio`, Android 6+ (API 23), target API 36.
+Package: `in.apanam.studio`, Android 7+ (API 24), target API 36.
 The Android workflow creates a debug-signed APK and an **unsigned** release AAB. No owner upload key is generated, requested or placed in source.
 
 The launcher uses Google's Android Browser Helper. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
