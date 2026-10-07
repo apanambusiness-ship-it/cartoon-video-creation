@@ -1,0 +1,31 @@
+name: Build spoken video demo
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/studio-audio-demo.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.55.1
+      - run: npx playwright install --with-deps chromium
+      - run: sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Generate real Hindi speech and video through Studio
+        run: |
+          node tests/video-text-audio-browser.cjs
+          ffmpeg -y -i quality-artifacts/hindi-voice-video.webm -c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart quality-artifacts/APANAM-Hindi-Demo.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: APANAM-spoken-video-demo
+          path: |
+            quality-artifacts/APANAM-Hindi-Demo.mp4
+            quality-artifacts/hindi-voice.wav
+          retention-days: 14
