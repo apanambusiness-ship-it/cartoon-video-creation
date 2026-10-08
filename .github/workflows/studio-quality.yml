@@ -29,8 +29,6 @@ jobs:
         run: npm install --no-save --package-lock=false playwright@1.55.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Install exported media verifier
-        run: sudo apt-get install --no-install-recommends -y ffmpeg
       - name: Check account deletion request controls
         run: node tests/account-deletion-browser.cjs
       - name: Check support and admin diagnostics
@@ -57,6 +55,14 @@ jobs:
           node tests/video-ready-stories-browser.cjs
       - name: Inspect every app page and popup
         run: node tests/app-layout-audit.cjs
+      - name: Install exported media verifier
+        timeout-minutes: 3
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install --no-install-recommends -y ffmpeg
+          fi
+          ffmpeg -version
+          ffprobe -version
       - name: Check Shubh voice integration
         run: |
           node tests/paid-voice-edit-race.cjs
