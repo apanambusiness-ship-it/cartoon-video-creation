@@ -23,3 +23,20 @@ do $$ declare rows jsonb;r jsonb;begin
  if r->>'status'<>'reviewing' then raise exception 'Review failed';end if;
 end $$;
 rollback;
+
+begin;
+insert into studio_private.deletion_requests(user_id) select user_id from public.studio_admins order by created_at limit 1 on conflict(user_id) do nothing;
+select set_config('request.jwt.claim.sub',(select user_id::text from public.studio_admins order by created_at limit 1),true);
+set local role authenticated;
+do $$ declare uid uuid:=auth.uid(); r jsonb; check_result jsonb; begin
+ check_result:=public.studio_account_deletion('admin_preflight',jsonb_build_object('user_id',uid));
+ if (check_result->>'completion_ready')::boolean or (check_result->'counts'->>'auth_accounts')::int<>1 then raise exception 'Live account not blocked';end if;
+ r:=public.studio_account_deletion('status');
+ begin
+ perform public.studio_account_deletion('admin_update',jsonb_build_object('user_id',uid,'status','completed','admin_note','Rollback-only verification','expected_updated_at',r->>'updated_at','identity_checked',true,'autopay_checked',true,'balance_checked',true,'data_checked',true,'sessions_checked',true));
+ raise exception 'LIVE_ACCOUNT_COMPLETED';
+ exception when others then if sqlerrm='LIVE_ACCOUNT_COMPLETED' then raise;end if;if sqlerrm not like 'Account/data/sessions%' then raise;end if;end;
+end $$;
+reset role;
+select 'PASS: existing account completion blocked despite every checkbox; transaction rolled back' as result;
+rollback;
