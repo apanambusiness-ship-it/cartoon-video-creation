@@ -1,0 +1,61 @@
+name: Studio encrypted database and media backup
+on:
+  schedule:
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/private-backup.py
+      - tests/private-backup-test.py
+      - .github/workflows/studio-private-backup.yml
+permissions:
+  contents: read
+concurrency:
+  group: studio-private-backup
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify encrypted recovery with synthetic data
+        run: python3 tests/private-backup-test.py
+      - name: Verify isolated PostgreSQL dump and restore
+        run: |
+          docker run -d --name backup-test -e POSTGRES_PASSWORD=synthetic-test postgres:17
+          for attempt in $(seq 1 30); do
+            if docker exec backup-test pg_isready -U postgres; then break; fi
+            sleep 1
+          done
+          docker exec backup-test psql -U postgres -v ON_ERROR_STOP=1 -c "CREATE TABLE backup_probe(id integer primary key, caption text); INSERT INTO backup_probe VALUES(1,'Hindi voice sample');"
+          docker exec backup-test pg_dump -U postgres --format=custom --no-owner --no-acl > /tmp/probe.dump
+          docker exec backup-test createdb -U postgres restored
+          docker exec -i backup-test pg_restore -U postgres --dbname=restored --exit-on-error < /tmp/probe.dump
+          test "$(docker exec backup-test psql -U postgres -d restored -t -A -c 'select caption from backup_probe where id=1')" = "Hindi voice sample"
+          docker rm -f backup-test
+      - name: Always clean synthetic container
+        if: always()
+        run: docker rm -f backup-test || true
+  backup:
+    needs: validate
+    if: vars.STUDIO_PRIVATE_BACKUP_ENABLED == 'true' && github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create encrypted database and media archive
+        env:
+          STUDIO_BACKUP_DATABASE_URL: ${{ secrets.STUDIO_BACKUP_DATABASE_URL }}
+          STUDIO_BACKUP_SERVICE_KEY: ${{ secrets.STUDIO_BACKUP_SERVICE_KEY }}
+          STUDIO_BACKUP_PASSWORD: ${{ secrets.STUDIO_BACKUP_PASSWORD }}
+        run: python3 scripts/private-backup.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: APANAMai-private-encrypted-${{ github.run_id }}
+          path: |
+            private-backup-output/APANAMai-private-backup.tar.gpg
+            private-backup-output/SHA256SUMS
+          retention-days: 30
+          if-no-files-found: error
