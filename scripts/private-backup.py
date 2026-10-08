@@ -21,9 +21,23 @@ def postgres(args,env,output):
  command=["docker","run","--rm"]
  for key in env:command+=["--env",key]
  command+=["postgres:17"]+args
- with open(output,"wb") as f:subprocess.run(command,env={**os.environ,**env},stdout=f,stderr=subprocess.DEVNULL,check=True,timeout=1200)
+ with open(output,"wb") as f:subprocess.run(command,env={**os.environ,**env},stdout=f,stderr=subprocess.PIPE,check=True,timeout=1200)
 def object_url(bucket,name):
  return "https://"+PROJECT+".supabase.co/storage/v1/object/"+urllib.parse.quote(bucket,safe="")+"/"+urllib.parse.quote(name,safe="/")
+class BackupFailure(Exception):pass
+def database_error(raw):
+ text=raw.decode("utf-8",errors="replace").lower()
+ for phrase,label in [
+  ("password authentication failed","DATABASE_PASSWORD_REJECTED"),
+  ("tenant or user not found","DATABASE_USER_OR_PROJECT_INVALID"),
+  ("permission denied","DATABASE_PERMISSION_DENIED"),
+  ("server version mismatch","DATABASE_CLIENT_VERSION_MISMATCH"),
+  ("could not translate host name","DATABASE_HOST_NOT_FOUND"),
+  ("connection refused","DATABASE_CONNECTION_REFUSED"),
+  ("timeout","DATABASE_CONNECTION_TIMEOUT"),
+  ("network is unreachable","DATABASE_NETWORK_UNREACHABLE")]:
+  if phrase in text:return label
+ return "DATABASE_DUMP_OR_CONNECTION_FAILED"
 class NoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,*args,**kwargs):return None
 def main():
@@ -66,6 +80,15 @@ def main():
  print("Encrypted backup created; temporary plaintext removed.")
 if __name__=="__main__":
  try:main()
- except Exception:
-  print("Backup failed. Check secrets, connection, quota and storage changes. No complete backup uploaded.")
+ except Exception as error:
+  if isinstance(error,subprocess.CalledProcessError):
+   reason=database_error(error.stderr or b"") if error.cmd and error.cmd[0]=="docker" else "ENCRYPTION_FAILED"
+  elif isinstance(error,subprocess.TimeoutExpired):reason="DATABASE_OPERATION_TIMEOUT"
+  elif isinstance(error,urllib.error.HTTPError):reason="STORAGE_HTTP_"+str(error.code)
+  elif isinstance(error,urllib.error.URLError):reason="STORAGE_NETWORK_FAILED"
+  elif isinstance(error,ValueError):
+   safe={"Configure the three Actions secrets","Weak backup password","Invalid connection","Use a Studio direct or session-pooler connection on port 5432","Wrong project","Media count exceeds backup safety limit","Media exceeds 1 GiB safety limit","Media size changed","Storage changed during backup"}
+   reason=str(error) if str(error) in safe else "BACKUP_CONFIGURATION_OR_DATA_INVALID"
+  else:reason="BACKUP_INTERNAL_ERROR"
+  print("Backup failed: "+reason+". No complete backup uploaded.")
   raise SystemExit(1)
