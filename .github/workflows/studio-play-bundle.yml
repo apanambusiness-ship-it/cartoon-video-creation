@@ -1,0 +1,71 @@
+name: Studio Play signed review bundle
+on:
+  workflow_dispatch:
+    inputs:
+      application_id:
+        description: Permanent package ID (confirm before first Play upload)
+        required: true
+        type: string
+      version_code:
+        description: Positive integer; increase for each Play release
+        required: true
+        type: string
+      version_name:
+        description: Release version shown to users
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  signed-review-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      STUDIO_PLAY_BUILD: 'true'
+      STUDIO_PLAY_APPLICATION_ID: ${{ inputs.application_id }}
+      STUDIO_PLAY_VERSION_CODE: ${{ inputs.version_code }}
+      STUDIO_PLAY_VERSION_NAME: ${{ inputs.version_name }}
+      STUDIO_UPLOAD_STORE_PASSWORD: ${{ secrets.STUDIO_UPLOAD_STORE_PASSWORD }}
+      STUDIO_UPLOAD_KEY_ALIAS: ${{ secrets.STUDIO_UPLOAD_KEY_ALIAS }}
+      STUDIO_UPLOAD_KEY_PASSWORD: ${{ secrets.STUDIO_UPLOAD_KEY_PASSWORD }}
+      STUDIO_UPLOAD_KEYSTORE: ${{ runner.temp }}/studio-upload.jks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Restore private owner upload key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.STUDIO_UPLOAD_KEYSTORE_BASE64 }}
+        run: |
+          python3 - <<'PY'
+          import os, base64
+          from pathlib import Path
+          names = ['KEYSTORE_BASE64', 'STUDIO_UPLOAD_STORE_PASSWORD', 'STUDIO_UPLOAD_KEY_ALIAS', 'STUDIO_UPLOAD_KEY_PASSWORD']
+          if any(not os.environ.get(n) for n in names):
+              raise SystemExit('Owner upload signing secrets are required; no key generated.')
+          path = Path(os.environ['STUDIO_UPLOAD_KEYSTORE'])
+          path.write_bytes(base64.b64decode(os.environ['KEYSTORE_BASE64'], validate=True))
+          path.chmod(0o600)
+          PY
+      - name: Build signed bundle for review
+        run: |
+          sdkmanager "platforms;android-36" "build-tools;35.0.0"
+          mkdir -p android/app/src/main/res/drawable
+          cp apanam-app-icon-192.png android/app/src/main/res/drawable/studio_icon.png
+          gradle -p android bundleRelease lintRelease testReleaseUnitTest --no-daemon
+          jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab
+      - uses: actions/upload-artifact@v4
+        with:
+          name: APANAMai-SIGNED-REVIEW-NOT-UPLOADED
+          path: android/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
+          retention-days: 7
+      - name: Remove private signing file
+        if: always()
+        run: rm -f "$STUDIO_UPLOAD_KEYSTORE"

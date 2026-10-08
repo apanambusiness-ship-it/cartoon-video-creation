@@ -7,3 +7,27 @@ android {
  buildTypes { release { minifyEnabled false } }
 }
 dependencies { implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.4'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.robolectric:robolectric:4.17' }
+
+def playBuild = System.getenv('STUDIO_PLAY_BUILD') == 'true'
+if (playBuild) {
+ def required = ['STUDIO_PLAY_APPLICATION_ID', 'STUDIO_PLAY_VERSION_CODE', 'STUDIO_PLAY_VERSION_NAME', 'STUDIO_UPLOAD_KEYSTORE', 'STUDIO_UPLOAD_STORE_PASSWORD', 'STUDIO_UPLOAD_KEY_ALIAS', 'STUDIO_UPLOAD_KEY_PASSWORD']
+ required.each { if (!System.getenv(it)) throw new GradleException("Missing Play release setting: " + it) }
+ def appId = System.getenv('STUDIO_PLAY_APPLICATION_ID')
+ if (!(appId ==~ /[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*){2,}/) || appId.endsWith('.test2')) throw new GradleException('Choose a permanent production application ID')
+ def code = System.getenv('STUDIO_PLAY_VERSION_CODE').toInteger()
+ if (code < 1) throw new GradleException('Version code must be positive')
+ android.defaultConfig {
+  applicationId appId
+  versionCode code
+  versionName System.getenv('STUDIO_PLAY_VERSION_NAME')
+ }
+ android.signingConfigs {
+  playUpload {
+   storeFile file(System.getenv('STUDIO_UPLOAD_KEYSTORE'))
+   storePassword System.getenv('STUDIO_UPLOAD_STORE_PASSWORD')
+   keyAlias System.getenv('STUDIO_UPLOAD_KEY_ALIAS')
+   keyPassword System.getenv('STUDIO_UPLOAD_KEY_PASSWORD')
+  }
+ }
+ android.buildTypes.release.signingConfig = android.signingConfigs.playUpload
+}

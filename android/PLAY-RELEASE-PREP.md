@@ -103,3 +103,7 @@ Automated browser checks do not replace these real-device checks.
 
 Testing reference:
 https://support.google.com/googleplay/android-developer/answer/14151465
+
+
+## Prepared store assets and owner-signed review workflow
+See [listing text and assets](play-store/LISTING.md) and [signing setup](play-store/SIGNING.md). The manual `Studio Play signed review bundle` workflow requires owner-controlled signing secrets and final package/version inputs. It neither uploads to Play nor makes the current Test 2 launcher production-ready.
