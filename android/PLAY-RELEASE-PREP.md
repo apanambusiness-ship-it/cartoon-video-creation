@@ -55,6 +55,7 @@ This table is an inventory, not completed Play Console answers. Include website 
 | Local editing | Drafts/gallery/assets in browser storage | Distinguish local-only processing from cloud upload; device/browser storage loss |
 | AI chat/voice | Consented questions, recent limited context and narration text may go to Sarvam | Provider processing/retention and Play sharing definitions; no permanent app transcript is not proof of no provider collection |
 | AI suggestions | Product/category/brand information may go to configured Cloudflare Worker | Check actual provider routing and enabled feature flags |
+| Voice typing | Phonetic microphone uses browser speech recognition after explicit confirmation; browser may send audio to its own service | Review audio processing/provider collection and microphone disclosure; app does not save a dictation recording; supported languages and online availability vary |
 | Payments | Cashfree handles checkout; server stores orders, amounts, status and membership | Financial/payment data categories; final Android billing provider; cancellation |
 | Diagnostics | Account ID, category, error code, timestamp; counters | Privacy page describes 30-day cleanup on subsequent reports/requests; verify enforcement |
 | Reminder email | Verified email sent to configured provider with consent | Privacy page describes completed queue cleanup around 90 days; check enabled provider |
