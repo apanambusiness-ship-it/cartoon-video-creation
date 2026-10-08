@@ -6,7 +6,7 @@ trap 'rm -rf "$fixture_dir"; rm -f android/app/build/outputs/bundle/release/app-
 if STUDIO_PLAY_BUILD=true gradle -p android help --no-daemon >"$fixture_dir/missing.log" 2>&1; then
   echo "Missing signing inputs were wrongly accepted"; exit 1
 fi
-if ! rg -q 'Missing Play release setting:' "$fixture_dir/missing.log"; then
+if ! grep -q 'Missing Play release setting:' "$fixture_dir/missing.log"; then
   echo "Expected missing-signing guard did not run"; exit 1
 fi
 keytool -genkeypair -alias ci-fixture-only -keyalg RSA -keysize 2048 -validity 30 \
