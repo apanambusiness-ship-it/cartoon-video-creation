@@ -28,7 +28,7 @@ jobs:
       STUDIO_UPLOAD_STORE_PASSWORD: ${{ secrets.STUDIO_UPLOAD_STORE_PASSWORD }}
       STUDIO_UPLOAD_KEY_ALIAS: ${{ secrets.STUDIO_UPLOAD_KEY_ALIAS }}
       STUDIO_UPLOAD_KEY_PASSWORD: ${{ secrets.STUDIO_UPLOAD_KEY_PASSWORD }}
-      STUDIO_UPLOAD_KEYSTORE: ${{ runner.temp }}/studio-upload.jks
+      STUDIO_UPLOAD_KEYSTORE: /tmp/studio-upload.jks
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
