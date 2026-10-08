@@ -38,3 +38,6 @@ jobs:
             android/app/build/outputs/bundle/release/*.aab
             android/app/build/reports/lint-results-debug.html
           retention-days: 14
+
+      - name: Verify release signing with disposable CI fixture
+        run: bash android/scripts/signing-smoke.sh

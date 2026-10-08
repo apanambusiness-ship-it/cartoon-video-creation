@@ -59,7 +59,7 @@ jobs:
           mkdir -p android/app/src/main/res/drawable
           cp apanam-app-icon-192.png android/app/src/main/res/drawable/studio_icon.png
           gradle -p android bundleRelease lintRelease testReleaseUnitTest --no-daemon
-          jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab
+          python3 android/scripts/verify-bundle.py android/app/build/outputs/bundle/release/app-release.aab
       - uses: actions/upload-artifact@v4
         with:
           name: APANAMai-SIGNED-REVIEW-NOT-UPLOADED

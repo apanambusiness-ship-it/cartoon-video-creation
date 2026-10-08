@@ -12,6 +12,7 @@ def playBuild = System.getenv('STUDIO_PLAY_BUILD') == 'true'
 if (playBuild) {
  def required = ['STUDIO_PLAY_APPLICATION_ID', 'STUDIO_PLAY_VERSION_CODE', 'STUDIO_PLAY_VERSION_NAME', 'STUDIO_UPLOAD_KEYSTORE', 'STUDIO_UPLOAD_STORE_PASSWORD', 'STUDIO_UPLOAD_KEY_ALIAS', 'STUDIO_UPLOAD_KEY_PASSWORD']
  required.each { if (!System.getenv(it)) throw new GradleException("Missing Play release setting: " + it) }
+ if (System.getenv('STUDIO_UPLOAD_KEY_ALIAS').equalsIgnoreCase('androiddebugkey')) throw new GradleException('Android debug key is not an upload key')
  def appId = System.getenv('STUDIO_PLAY_APPLICATION_ID')
  if (!(appId ==~ /[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*){2,}/) || appId.endsWith('.test2')) throw new GradleException('Choose a permanent production application ID')
  def code = System.getenv('STUDIO_PLAY_VERSION_CODE').toInteger()
