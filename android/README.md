@@ -1,6 +1,6 @@
 # Android test build
 This is a browser-backed Android test launcher, not a Play Store release.
-Package: `in.apanam.studio`, Android 7+ (API 24), target API 36.
+Test application ID: `in.apanam.studio.test2`; Java namespace: `in.apanam.studio`. Android 7+ (API 24), target API 36.
 The Android workflow creates a debug-signed APK and an **unsigned** release AAB. No owner upload key is generated, requested or placed in source.
 
 The launcher uses Google's Android Browser Helper. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
@@ -12,3 +12,5 @@ Build: JDK17, Gradle8.13, Android SDK36, AGP8.13.2. Before local build copy `../
 Before Play submission: owner-controlled signing, origin association using Play app-signing certificate, eligible billing solution for digital membership/AI, actual device/export/share tests, deletion cleanup rehearsal, current Play Console target/test/Data Safety requirements. Debug APK is for private testing only. Unsigned AAB cannot be uploaded as a finished release.
 
 Test 2 uses a visible native start screen and Custom Tabs/plain browser fallback. It does not claim verified TWA fullscreen. Package `in.apanam.studio.test2` installs separately because the original debug signing key is not retained; do not remove the working PWA. Startup failure states are tested with Robolectric.
+
+Release preparation, store listing draft, Data Safety inventory and real-phone checklist: [PLAY-RELEASE-PREP.md](PLAY-RELEASE-PREP.md).
