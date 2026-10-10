@@ -23,13 +23,25 @@ jobs:
       - name: Verify encrypted recovery with synthetic data
         run: python3 tests/private-backup-test.py
       - name: Verify isolated PostgreSQL dump and restore
+        shell: bash
         run: |
+          set -euo pipefail
           docker run -d --name backup-test -e POSTGRES_PASSWORD=synthetic-test postgres:17
-          for attempt in $(seq 1 30); do
-            if docker exec backup-test pg_isready -U postgres; then break; fi
+          # pg_isready can briefly report the temporary init server as ready.
+          # Retry a real SQL operation until the final server is stable.
+          ready=false
+          for attempt in $(seq 1 60); do
+            if docker exec backup-test psql -U postgres -v ON_ERROR_STOP=1 -c "CREATE TABLE IF NOT EXISTS backup_probe(id integer primary key, caption text); INSERT INTO backup_probe VALUES(1,'Hindi voice sample') ON CONFLICT (id) DO UPDATE SET caption=EXCLUDED.caption;" >/dev/null 2>&1; then
+              ready=true
+              break
+            fi
             sleep 1
           done
-          docker exec backup-test psql -U postgres -v ON_ERROR_STOP=1 -c "CREATE TABLE backup_probe(id integer primary key, caption text); INSERT INTO backup_probe VALUES(1,'Hindi voice sample');"
+          if [ "$ready" != true ]; then
+            docker logs backup-test
+            echo "PostgreSQL did not become stable for the backup/restore test." >&2
+            exit 1
+          fi
           docker exec backup-test pg_dump -U postgres --format=custom --no-owner --no-acl > /tmp/probe.dump
           docker exec backup-test createdb -U postgres restored
           docker exec -i backup-test pg_restore -U postgres --dbname=restored --exit-on-error < /tmp/probe.dump
