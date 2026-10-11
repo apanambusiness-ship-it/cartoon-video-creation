@@ -10,6 +10,8 @@ on:
       - '**.html'
       - '**.css'
       - '.github/workflows/studio-quality.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read

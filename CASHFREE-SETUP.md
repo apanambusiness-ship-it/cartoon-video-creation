@@ -40,3 +40,10 @@ Registration ₹10 grants the original 15-day trial, never restarts an existing 
 The private order ledger fixes prices on the server, reuses a pending checkout for 30 minutes and limits creation to 10 orders/account/day. SQL transaction locking prevents duplicate fulfilment. The user cannot write payment records or paid entitlements.
 
 Official references: https://www.cashfree.com/docs/payments/online/web/redirect and https://www.cashfree.com/docs/payments/online/webhooks/signature-verification .
+
+
+## Manual registration flow (11 October 2026)
+
+₹10 registration is a one-time Cashfree PG order for the first 15 days. It does not require a subscription mandate. Afterward, a user chooses a one-time ₹100 order for each 30-day renewal. Keep `STUDIO_SUBSCRIPTIONS_ENABLED` false for new signups. Existing mandates must remain queryable and cancellable; review any active mandate with the merchant before assuming it stopped.
+
+Deploy `studio-registration-manual.sql` before deploying the changed `studio-payments` Edge Function. The migration makes the registration status lookup include new orders without AutoPay consent. Check a sandbox ₹10 registration, repeat checkout (no second ₹10), a ₹100 renewal, payment return and signed webhook retry before publishing the new registration flow. Preserve the existing live one-time ₹100 checkout throughout the rollout; do not reset its credentials or enabled flags. Existing paid entitlements must remain valid. Real AI topups/generation stay disabled until a provider can be funded safely after verified user payment; provider-billed API calls cannot promise zero owner float.

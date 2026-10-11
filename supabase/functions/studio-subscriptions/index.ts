@@ -34,6 +34,8 @@ Deno.serve(async(req:Request)=>{
   if(!user?.id||user.is_anonymous||!user.email_confirmed_at)return json({error:'Verified account required'},403);
   const liveReady=c.mode==='sandbox'||(await cloud('/rest/v1/studio_business_settings?select=payments_enabled&id=eq.true'))[0]?.payments_enabled===true;
   if(action==='status')return json({enabled:c.enabled&&liveReady&&!!c.id&&!!c.secret,configured:!!c.id&&!!c.secret,environment:c.mode,amount_paise:10000,interval_days:30,consent_version:'100-per-30-days-v1',subscriptions:await rpc('studio_subscription_list',{owner_id:user.id,env:c.mode})});
+  // New mandates are disabled for the one-time membership plan; existing ones can still be checked/cancelled.
+  if(action==='create')return json({error:'नई AutoPay अनुमति बंद है। ₹100 का एक बार भुगतान करें।'},403);
   if(!c.id||!c.secret)return json({error:'Cashfree server keys जोड़ना बाकी है।'},503);
   const body=JSON.parse(await bounded(req)||'{}');
   if(action==='create'){

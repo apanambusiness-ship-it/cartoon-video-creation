@@ -31,13 +31,15 @@ const sub=boot('supabase/functions/studio-subscriptions/index.ts',env,async(url,
  if(url.endsWith('/subscriptions/aps_'+row.id))return R(p);throw Error(url);
 });
 const consent={name:'Test Owner',phone:'9876543210',consent:true,consent_version:'100-per-30-days-v1'},id={subscription_id:'aps_'+row.id};
-assert.equal((await sub('status',{},'bad')).status,401);assert.equal((await sub('create',{...consent,consent:false})).status,400);assert.equal(created,0);
-assert.equal((await sub('create',consent)).status,200);assert.equal((await sub('create',consent)).status,200);assert.equal(created,1);assert.equal(charged,0);
+assert.equal((await sub('status',{},'bad')).status,401);
+assert.equal((await sub('create',consent)).status,403,'new mandates disabled even with old flag');assert.equal(created,0);
+p={subscription_id:'aps_'+row.id,cf_subscription_id:'cf-s',subscription_tags:{account_id:owner},subscription_first_charge_time:row.first_charge_at,plan_details:{plan_type:'PERIODIC',plan_currency:'INR',plan_recurring_amount:100,plan_max_amount:100,plan_interval_type:'DAY',plan_intervals:30},authorisation_details:{authorization_amount:1,authorization_amount_refund:true},subscription_status:'INITIALIZED'};
+assert.equal(charged,0);
 assert.equal((await sub('confirm',id)).status,200);assert.equal(charged,0);p.subscription_status='ACTIVE';assert.equal((await sub('confirm',id)).status,200);assert.equal(charged,1);
 amount=999;assert.equal((await sub('confirm',id)).status,400);assert.equal(charged,1);amount=100;p.plan_details.plan_recurring_amount=999;assert.equal((await sub('confirm',id)).status,400);p.plan_details.plan_recurring_amount=100;
 assert.equal((await sub('webhook',{type:'SUBSCRIPTION_PAYMENT_SUCCESS',data:id})).status,401);assert.equal(charged,1);
 env.STUDIO_SUBSCRIPTIONS_ENABLED='false';assert.equal((await sub('create',consent)).status,403);assert.equal((await sub('cancel',id)).status,200);assert.equal((await sub('cancel',id)).status,200);assert.equal(cancelled,1);
 p.subscription_status='ACTIVE';const event={type:'SUBSCRIPTION_PAYMENT_SUCCESS',data:{subscription_id:'aps_'+row.id,payment_id:'signed-payment',payment_amount:999}},ts=String(Date.now()),key=await webcrypto.subtle.importKey('raw',new TextEncoder().encode('secret'),{name:'HMAC',hash:'SHA-256'},false,['sign']),signature=Buffer.from(await webcrypto.subtle.sign('HMAC',key,new TextEncoder().encode(ts+JSON.stringify(event)))).toString('base64');assert.equal((await sub('webhook',event,'good',{'x-webhook-timestamp':ts,'x-webhook-signature':signature})).status,200);assert.equal(charged,2);
  row.user_id=uuid(2);assert.equal((await sub('cancel',id)).status,404);
-console.log('PASS AutoPay Edge: consent, server ₹100/30-day plan, reuse, AUTH exclusion, provider mismatch, fake webhook, cancel while disabled, account isolation');
+console.log('PASS legacy mandate Edge: new create blocked, old mandate reconciliation and cancellation, AUTH exclusion, provider mismatch, fake webhook, account isolation');
 })().catch(e=>{console.error(e);process.exitCode=1;});
