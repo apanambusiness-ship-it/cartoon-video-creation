@@ -1245,7 +1245,7 @@ history=[];
     const s=document.createElement('script');
 
     s.src=
-      'poster-editor-assets/ecommerce-template-pack-18-v2.js?v=20261001-preserve';
+      'poster-editor-assets/ecommerce-template-pack-18-v2.js?v=20261011-palette';
 
     s.dataset.apanamEcommercePack18V2='1';
 
