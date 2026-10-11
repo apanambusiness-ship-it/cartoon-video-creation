@@ -20,6 +20,7 @@ Actions → Studio Play signed review bundle → Run workflow:
 - application_id: your final permanent Android package ID (not in.apanam.studio.test2).
 - version_code: a positive integer, increasing with each submitted version.
 - version_name: user-visible release version, for example 1.0.0.
+- studio_url: the exact HTTPS Studio site URL, ending in `/`. The existing GitHub Pages URL remains a review default; choosing a different URL requires that site to be deployed and tested first. This input does not establish Digital Asset Links or Play billing compliance.
 
 The workflow fails when signing secrets are missing. It generates no key, prints no credentials, stores no private key in artifacts and removes its temporary key file. A successful run provides APANAMai-SIGNED-REVIEW-NOT-UPLOADED for seven days. Save the reviewed AAB privately.
 
