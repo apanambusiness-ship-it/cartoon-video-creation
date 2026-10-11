@@ -6,6 +6,8 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
+import android.os.Looper;
+import org.robolectric.Shadows;
 import static org.junit.Assert.*;
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 34)
@@ -27,6 +29,13 @@ public class StartActivityTest {
  @Test public void blockedBrowserShowsReasonInsteadOfClosing() {
   BlockedBrowser a=Robolectric.buildActivity(BlockedBrowser.class).setup().get();
   a.openStudio(true); assertFalse(a.isFinishing()); assertTrue(a.status.getText().toString().contains("अनुमति नहीं"));
+ }
+ @Test public void releaseAutomaticallyOpensStudioOnce() {
+  if (BuildConfig.DEBUG) return;
+  WorkingBrowser a=Robolectric.buildActivity(WorkingBrowser.class).setup().get();
+  Shadows.shadowOf(Looper.getMainLooper()).idle();
+  assertNotNull(a.opened);
+  assertEquals(StartActivity.STUDIO,a.opened.getData().toString());
  }
  @Test public void bothButtonsOpenOnlyTheStudioUrl() {
   WorkingBrowser a=Robolectric.buildActivity(WorkingBrowser.class).setup().get();
