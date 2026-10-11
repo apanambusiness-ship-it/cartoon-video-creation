@@ -58,13 +58,17 @@
     g.dataset.kind='shape';
     g.dataset.name='Original Product Visual';
     Object.assign(g.style,{position:'absolute',left:x+'px',top:y+'px',width:w+'px',height:h+'px',zIndex:'3',overflow:'hidden',borderRadius:'20px',background:pale,boxSizing:'border-box'});
-    g.innerHTML = artSVG(type,w,h,accent,dark);
+    const img=document.createElement('img');
+    img.alt=type+' product illustration';
+    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(artSVG(type,w,h,accent,dark,pale));
+    Object.assign(img.style,{width:'100%',height:'100%',objectFit:'contain',display:'block'});
+    g.appendChild(img);
     stage.appendChild(g); wire?.(g); return g;
   }
 
-  function artSVG(type,w,h,a,d){
+  function artSVG(type,w,h,a,d,pale){
     const common=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="100%" height="100%">
-      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs>`;
+      <rect width="${w}" height="${h}" fill="${pale}"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs>`;
     let s='';
     if(type==='FASHION') s=`<rect x="0" y="0" width="${w}" height="${h}" fill="#fff"/><circle cx="${w*.5}" cy="${h*.28}" r="${h*.18}" fill="#fde68a"/><path d="M${w*.28} ${h*.9} Q${w*.3} ${h*.5} ${w*.42} ${h*.38} L${w*.5} ${h*.55} L${w*.58} ${h*.38} Q${w*.7} ${h*.5} ${w*.72} ${h*.9}Z" fill="url(#g)"/>`;
     if(type==='PHONE') s=`<rect x="${w*.32}" y="${h*.06}" width="${w*.36}" height="${h*.88}" rx="${w*.05}" fill="${d}"/><rect x="${w*.345}" y="${h*.13}" width="${w*.31}" height="${h*.68}" rx="8" fill="${a}"/><circle cx="${w*.5}" cy="${h*.87}" r="7" fill="#fff"/>`;
