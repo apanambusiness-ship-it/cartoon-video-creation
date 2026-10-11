@@ -31,7 +31,7 @@ jobs:
           cp apanam-app-icon-192.png android/app/src/main/res/drawable/studio_icon.png
       - name: Validate Digital Asset Links generator
         run: |
-          python3 android/scripts/assetlinks.py in.apanam.studio "$(python3 -c 'print(\":\".join([\"AA\"]*32))')" > /tmp/studio-assetlinks.json
+          python3 android/scripts/assetlinks.py in.apanam.studio "$(python3 -c 'print(":".join(["AA"]*32))')" > /tmp/studio-assetlinks.json
           python3 -m json.tool /tmp/studio-assetlinks.json > /dev/null
           if python3 android/scripts/assetlinks.py in.apanam.studio INVALID > /dev/null 2>&1; then exit 1; fi
       - name: Build and lint test app
