@@ -7,7 +7,7 @@ import urllib.error
 from pathlib import Path
 from unittest.mock import patch
 
-spec = importlib.util.spec_from_file_location("drive_backup", Path(__file__).with_name("drive-upload.py"))
+spec = importlib.util.spec_from_file_location("drive_backup", Path(__file__).resolve().parents[1] / "scripts" / "drive-backup-upload.py")
 drive = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(drive)
 
