@@ -12,4 +12,13 @@ const productFile=await (await productPending).path(),productData='data:image/pn
 const illustratedPixels=await p.evaluate(async data=>{const image=new Image();image.src=data;await image.decode();const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const ctx=c.getContext('2d');ctx.drawImage(image,0,0);const pixels=ctx.getImageData(70,390,520,320).data;let colored=0;for(let i=0;i<pixels.length;i+=4)if(pixels[i]>170&&pixels[i+1]>65&&pixels[i+2]<220&&pixels[i]>pixels[i+2]+30)colored++;return colored;},productData);
 assert(illustratedPixels>1000,'E-commerce product illustration is visible in exported PNG, got '+illustratedPixels+' pixels');
 console.log('PASS e-commerce template product illustration in exported PNG:',illustratedPixels);
+await p.locator('#stage [data-name="Original Product Visual"]').click();
+await p.waitForFunction(()=>!!window.APANAM_PHOTO_CLEANUP?.bright);
+await p.evaluate(()=>window.APANAM_PHOTO_CLEANUP.bright());
+await p.locator('#download').click();const filteredPending=p.waitForEvent('download');
+await p.locator('#apanamDownloadMenu button').filter({hasText:'PNG'}).click();
+const filteredData='data:image/png;base64,'+fs.readFileSync(await (await filteredPending).path()).toString('base64');
+const values=await p.evaluate(async ([before,after])=>{async function mean(data){const image=new Image();image.src=data;await image.decode();const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const ctx=c.getContext('2d');ctx.drawImage(image,0,0);const pixels=ctx.getImageData(230,520,250,190).data;let total=0;for(let i=0;i<pixels.length;i+=4)total+=pixels[i]+pixels[i+1]+pixels[i+2];return total/pixels.length*4}return [await mean(before),await mean(after)]},[productData,filteredData]);
+assert(values[1]>values[0]+4,'Photo cleanup brightness must appear in exported PNG: '+values);
+console.log('PASS exported product photo cleanup brightens pixels:',values);
 await context.close();}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;server.close()});
