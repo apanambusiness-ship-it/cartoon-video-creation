@@ -15,9 +15,16 @@ keytool -genkeypair -alias ci-fixture-only -keyalg RSA -keysize 2048 -validity 3
 export STUDIO_PLAY_BUILD=true
 export STUDIO_PLAY_APPLICATION_ID=in.apanam.studio.cifixture
 export STUDIO_PLAY_VERSION_CODE=1 STUDIO_PLAY_VERSION_NAME=ci-fixture-only
+export STUDIO_PLAY_START_URL=https://apanambusiness-ship-it.github.io/cartoon-video-creation/
 export STUDIO_UPLOAD_KEYSTORE="$fixture_dir/fixture.jks"
 export STUDIO_UPLOAD_STORE_PASSWORD=fixture-only-123 STUDIO_UPLOAD_KEY_PASSWORD=fixture-only-123
 export STUDIO_UPLOAD_KEY_ALIAS=ci-fixture-only
+if STUDIO_PLAY_START_URL=http://example.com/ gradle -p android help --no-daemon >"$fixture_dir/insecure-url.log" 2>&1; then
+  echo "Insecure Studio URL was wrongly accepted"; exit 1
+fi
+if ! grep -q 'Studio URL must be an HTTPS site URL' "$fixture_dir/insecure-url.log"; then
+  echo "Expected HTTPS URL guard did not run"; exit 1
+fi
 gradle -p android bundleRelease --no-daemon
 python3 android/scripts/verify-bundle.py android/app/build/outputs/bundle/release/app-release.aab
 echo "PASS: missing signing inputs rejected; disposable signed build verified; fixture removed."

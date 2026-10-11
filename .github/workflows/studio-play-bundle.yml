@@ -14,6 +14,11 @@ on:
         description: Release version shown to users
         required: true
         type: string
+      studio_url:
+        description: HTTPS Studio site URL ending in / (domain ownership must be verified separately)
+        required: true
+        default: https://apanambusiness-ship-it.github.io/cartoon-video-creation/
+        type: string
 permissions:
   contents: read
 jobs:
@@ -25,6 +30,7 @@ jobs:
       STUDIO_PLAY_APPLICATION_ID: ${{ inputs.application_id }}
       STUDIO_PLAY_VERSION_CODE: ${{ inputs.version_code }}
       STUDIO_PLAY_VERSION_NAME: ${{ inputs.version_name }}
+      STUDIO_PLAY_START_URL: ${{ inputs.studio_url }}
       STUDIO_UPLOAD_STORE_PASSWORD: ${{ secrets.STUDIO_UPLOAD_STORE_PASSWORD }}
       STUDIO_UPLOAD_KEY_ALIAS: ${{ secrets.STUDIO_UPLOAD_KEY_ALIAS }}
       STUDIO_UPLOAD_KEY_PASSWORD: ${{ secrets.STUDIO_UPLOAD_KEY_PASSWORD }}

@@ -3,7 +3,7 @@ This is a browser-backed Android test launcher, not a Play Store release.
 Test application ID: `in.apanam.studio.test2`; Java namespace: `in.apanam.studio`. Android 7+ (API 24), target API 36.
 The Android workflow creates a debug-signed APK and an **unsigned** release AAB. No owner upload key is generated, requested or placed in source.
 
-The launcher uses a Custom Tab through Android Browser Helper. The manifest does not claim verified TWA ownership. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
+The default test launcher opens `https://apanambusiness-ship-it.github.io/cartoon-video-creation/`; owner-signed review builds require an explicit validated HTTPS site URL. The launcher uses a Custom Tab through Android Browser Helper. The manifest does not claim verified TWA ownership. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
 
 The current launcher deliberately opens a Custom Tab with a browser toolbar; it does not attempt a verified TWA. GitHub Pages uses a project subpath; putting assetlinks under this project's subpath does not establish root ownership. No DNS or separate root repository is changed by this build.
 

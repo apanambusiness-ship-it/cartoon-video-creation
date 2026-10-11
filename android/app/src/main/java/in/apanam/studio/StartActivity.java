@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.browser.customtabs.CustomTabsIntent;
 
 public class StartActivity extends Activity {
-    static final String STUDIO = "https://apanambusiness-ship-it.github.io/cartoon-video-creation/";
+    static final String STUDIO = BuildConfig.STUDIO_URL;
     TextView status;
     @Override public void onCreate(Bundle savedState) {
         super.onCreate(savedState);
