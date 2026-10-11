@@ -151,6 +151,9 @@
       addText('YOUR BRAND',28,380,200,25,12,accent,900,'left','Brand Name');
       addText('PRODUCT NAME',28,410,240,30,18,'#fff',900,'left','Product Name');
       addText('₹799',28,447,130,32,25,accent,900,'left','Price');
+      addText('MRP ₹999',165,450,120,24,11,'#cbd5e1',500,'left','MRP');
+      addText('FREE DELIVERY',28,481,235,24,11,'#cbd5e1',700,'left','Offer');
+      pill('SHOP NOW',370,447,130,accent,dark,12);
     }
 
     if(v===3){
