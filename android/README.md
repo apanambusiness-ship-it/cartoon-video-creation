@@ -3,9 +3,9 @@ This is a browser-backed Android test launcher, not a Play Store release.
 Test application ID: `in.apanam.studio.test2`; Java namespace: `in.apanam.studio`. Android 7+ (API 24), target API 36.
 The Android workflow creates a debug-signed APK and an **unsigned** release AAB. No owner upload key is generated, requested or placed in source.
 
-The launcher uses Google's Android Browser Helper. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
+The launcher uses a Custom Tab through Android Browser Helper. The manifest does not claim verified TWA ownership. Website changes remain available through the browser, with the same download, audio, login and offline behavior to verify on a real device. A supporting browser is required.
 
-Without origin-root Digital Asset Links it falls back to a Custom Tab with a browser toolbar. GitHub Pages uses a project subpath; putting assetlinks under this project's subpath does not establish root ownership. No DNS or separate root repository is changed by this build.
+The current launcher deliberately opens a Custom Tab with a browser toolbar; it does not attempt a verified TWA. GitHub Pages uses a project subpath; putting assetlinks under this project's subpath does not establish root ownership. No DNS or separate root repository is changed by this build.
 
 Build: JDK17, Gradle8.13, Android SDK36, AGP8.13.2. Before local build copy `../apanam-app-icon-192.png` to `app/src/main/res/drawable/studio_icon.png`, then `gradle assembleDebug bundleRelease lintDebug` from this directory.
 
