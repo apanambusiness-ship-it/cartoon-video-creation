@@ -1,6 +1,6 @@
 # Signed review bundle setup
 
-This prepares an owner-signed review AAB; it does not upload to Play, enable billing or remove launch blockers. The existing Test 2 browser launcher remains the current Android product. Its test label and browser-based experience must be reviewed/replaced before public release.
+This prepares an owner-signed review AAB; it does not upload to Play, enable billing or remove launch blockers. The Android product is still browser-backed. Release review builds use the `APANAMai Studio` label and open the configured Studio URL on first launch; debug builds retain the Test 2 label. The Custom Tab toolbar and Play billing blockers remain, so the review AAB is not a public release.
 
 ## Owner-controlled signing
 Use your existing upload key, if one exists. Otherwise create and securely retain an upload keystore outside this public repository, following Android's app-signing guide. Never put the keystore or passwords in source files.
