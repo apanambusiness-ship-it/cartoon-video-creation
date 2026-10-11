@@ -26,6 +26,7 @@ function snap(){
   if(history.length>40) history.shift();
   redo=[];
 }
+window.APANAM_EDITOR_SNAP=snap;
 
 function cleanHandles(el){
   el.querySelectorAll('.handle,.rotateHandle,.resize').forEach(x=>x.remove());
