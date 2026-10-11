@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths: ['android/**', '.github/workflows/studio-android-test.yml']
+  pull_request:
+    paths: ['android/**', '.github/workflows/studio-android-test.yml']
   workflow_dispatch:
 permissions:
   contents: read
