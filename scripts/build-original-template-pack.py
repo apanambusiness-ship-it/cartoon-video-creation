@@ -44,5 +44,5 @@ for c,row in enumerate(categories):
   items.append(item)
 existing=ROOT/'studio-original-templates.json'
 if existing.exists():
- items=[t for t in json.loads(existing.read_text()).get('templates',[]) if t.get('id','').startswith('apanam-festival-')]+items
+ items=[t for t in json.loads(existing.read_text()).get('templates',[]) if t.get('id','').startswith('apanam-festival-') or (t.get('id','').startswith('apanam-original-') and t.get('id','').rsplit('-',1)[-1] in {'4','5','6'})]+items
 (ROOT/'studio-original-templates.json').write_text(json.dumps({'format':'apanam-studio-catalog','version':1,'settings':{},'templates':items},ensure_ascii=False,indent=2)+'\n')
