@@ -1,5 +1,12 @@
 # AI billing status and activation
 
+## Updated business requirement · 11 October 2026
+
+The owner chose one-time ₹10 registration for 15 days and manual one-time ₹100 renewals for each 30 days. The older AutoPay and Runway instructions below document previous work and must not be used to enable new mandates. `studio-registration-manual.sql` plus the changed payment Edge Function implement the one-time flow after deployment.
+
+For AI audio/video, users must see a provider-verified quote and pay separately before a job starts. No live AI topup, job creation, or misleading price promise is enabled by the membership changes. If a provider charges the Studio API account before/during generation, prepaid user credit still leaves settlement and dispute exposure with the owner. To meet the strict goal that provider usage never bills the owner, use an approved provider direct billing/BYOK flow and a separately disclosed Studio service charge. Provider selection, key custody/terms, user consent, price, billing and production tests remain to be designed before enabling generation.
+
+
 
 ## नया भुगतान integration · 5 अक्टूबर 2026
 
