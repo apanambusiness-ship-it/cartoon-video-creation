@@ -9,6 +9,11 @@ Before release the owner must confirm the permanent application ID, retain an ow
 ## Verified CI evidence
 The Android test workflow [completed successfully on 8 October 2026](https://github.com/apanambusiness-ship-it/cartoon-video-creation/actions/runs/37817719018): debug APK, unsigned AAB, lint and unit tests, plus disposable signing fixture. This establishes a working test build only. The owner-signed review workflow has no verified successful artifact, and no Play Console submission has been verified. The Android CI also runs for Android pull requests so release preparation changes are checked before merge.
 
+## Verified-domain preparation
+Use `python3 android/scripts/assetlinks.py FINAL_PACKAGE_ID PLAY_APP_SIGNING_SHA256` to generate the JSON after Play Console shows the **app signing** certificate fingerprint. Publish that output as `https://YOUR-STUDIO-DOMAIN/.well-known/assetlinks.json` at the domain root, not below the GitHub Pages project path. The upload-key fingerprint is different. Verify the exact HTTPS URL and actual fullscreen behavior on a device; the current launcher is still a Custom Tab and needs TWA launch code before fullscreen is possible.
+
+A new site origin also needs Supabase Auth redirect allowlisting, Edge Function CORS review, payment return URLs and the site's own deployment tested. Changing the Android start URL alone does not migrate these services. Keep Cashfree checkout out of a Play-distributed paid flow until Play billing is resolved.
+
 ## Work that can proceed now
 - Review the listing draft below and prepare screenshots from the actual release on a phone.
 - Run the device checklist and record phone model, Android/browser version, build, date and result.
