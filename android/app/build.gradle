@@ -2,7 +2,8 @@ plugins { id 'com.android.application' }
 android {
  namespace 'in.apanam.studio'
  compileSdk 36
- defaultConfig { applicationId 'in.apanam.studio.test2'; minSdk 24; targetSdk 36; versionCode 2; versionName '0.2-test' }
+ buildFeatures { buildConfig true }
+ defaultConfig { applicationId 'in.apanam.studio.test2'; minSdk 24; targetSdk 36; versionCode 2; versionName '0.2-test'; buildConfigField 'String', 'STUDIO_URL', '"https://apanambusiness-ship-it.github.io/cartoon-video-creation/"' }
  testOptions { unitTests.includeAndroidResources = true }
  buildTypes { release { minifyEnabled false } }
 }
@@ -15,12 +16,18 @@ if (playBuild) {
  if (System.getenv('STUDIO_UPLOAD_KEY_ALIAS').equalsIgnoreCase('androiddebugkey')) throw new GradleException('Android debug key is not an upload key')
  def appId = System.getenv('STUDIO_PLAY_APPLICATION_ID')
  if (!(appId ==~ /[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*){2,}/) || appId.endsWith('.test2')) throw new GradleException('Choose a permanent production application ID')
+ def studioUrl = System.getenv('STUDIO_PLAY_START_URL')
+ if (!studioUrl) throw new GradleException('Studio URL is required for owner-signed review builds')
+ def studioUri
+ try { studioUri = new java.net.URI(studioUrl) } catch (Exception ignored) { throw new GradleException('Invalid Studio URL') }
+ if (studioUri.scheme != 'https' || !studioUri.host || studioUri.userInfo || studioUri.query || studioUri.fragment || studioUri.port != -1 || !studioUrl.endsWith('/')) throw new GradleException('Studio URL must be an HTTPS site URL ending in /, without credentials, query, fragment or port')
  def code = System.getenv('STUDIO_PLAY_VERSION_CODE').toInteger()
  if (code < 1) throw new GradleException('Version code must be positive')
  android.defaultConfig {
   applicationId appId
   versionCode code
   versionName System.getenv('STUDIO_PLAY_VERSION_NAME')
+  buildConfigField 'String', 'STUDIO_URL', groovy.json.JsonOutput.toJson(studioUrl)
  }
  android.signingConfigs {
   playUpload {
