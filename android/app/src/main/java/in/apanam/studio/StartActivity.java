@@ -24,12 +24,15 @@ public class StartActivity extends Activity {
             return insets;
         });
         TextView title = new TextView(this);
-        title.setText("APANAMai Studio Test 2"); title.setTextSize(24); root.addView(title);
+        title.setText(getString(R.string.app_name)); title.setTextSize(24); root.addView(title);
         status = new TextView(this);
         status.setText("Poster और video बनाने के लिए Studio खोलें।"); status.setTextSize(16); root.addView(status);
         Button open = new Button(this); open.setText("Studio खोलें"); open.setOnClickListener(v -> openStudio(false)); root.addView(open);
         Button fallback = new Button(this); fallback.setText("Browser में खोलें"); fallback.setOnClickListener(v -> openStudio(true)); root.addView(fallback);
         setContentView(root);
+        if (!BuildConfig.DEBUG && savedState == null) {
+            root.post(() -> { if (!isFinishing()) openStudio(false); });
+        }
     }
     void openStudio(boolean plain) {
         try {
