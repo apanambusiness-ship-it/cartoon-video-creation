@@ -11,6 +11,6 @@ Build: JDK17, Gradle8.13, Android SDK36, AGP8.13.2. Before local build copy `../
 
 Before Play submission: owner-controlled signing, origin association using Play app-signing certificate, eligible billing solution for digital membership/AI, actual device/export/share tests, deletion cleanup rehearsal, current Play Console target/test/Data Safety requirements. Debug APK is for private testing only. Unsigned AAB cannot be uploaded as a finished release.
 
-Test 2 uses a visible native start screen and Custom Tabs/plain browser fallback. It does not claim verified TWA fullscreen. Package `in.apanam.studio.test2` installs separately because the original debug signing key is not retained; do not remove the working PWA. Startup failure states are tested with Robolectric.
+Debug Test 2 keeps a visible native start screen. Release review builds display `APANAMai Studio` and open the configured Studio URL on first launch; after returning from the browser, the native screen provides an explicit reopen or plain-browser fallback. A browser toolbar remains until a separately verified TWA is implemented. Custom Tabs/plain browser fallback It does not claim verified TWA fullscreen. Package `in.apanam.studio.test2` installs separately because the original debug signing key is not retained; do not remove the working PWA. Startup failure states are tested with Robolectric.
 
 Release preparation, store listing draft, Data Safety inventory and real-phone checklist: [PLAY-RELEASE-PREP.md](PLAY-RELEASE-PREP.md).
