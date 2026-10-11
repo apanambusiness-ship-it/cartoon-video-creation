@@ -93,16 +93,16 @@
   }
 
   function brand(d){
-    addText('YOUR BRAND',24,20,160,24,12,d[1],900,'left','Brand Name');
+    addText('YOUR BRAND',24,20,160,24,12,d[2][1],900,'left','Brand Name');
   }
 
   function footer(d,price='₹699',mrp='₹999',offer='FREE DELIVERY'){
-    addText('PRODUCT NAME',28,400,285,36,20,d[0],900,'left','Product Name');
-    addText(price,28,440,150,38,27,d[0],900,'left','Price');
+    addText('PRODUCT NAME',28,400,285,36,20,d[2][0],900,'left','Product Name');
+    addText(price,28,440,150,38,27,d[2][0],900,'left','Price');
     addText('MRP '+mrp,180,447,125,24,12,'#64748b',500,'left','MRP');
-    addText(offer,28,480,250,26,12,d[0],800,'left','Offer');
-    rect(380,438,130,48,d[1],24,4);
-    addText('SHOP NOW',388,448,114,28,13,d[0],900,'center','CTA');
+    addText(offer,28,480,250,26,12,d[2][0],800,'left','Offer');
+    rect(380,438,130,48,d[2][1],24,4);
+    addText('SHOP NOW',388,448,114,28,13,d[2][0],900,'center','CTA');
   }
 
   function layout(i,d){
