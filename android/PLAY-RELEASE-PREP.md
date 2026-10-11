@@ -4,7 +4,10 @@ Prepared 8 October 2026. This is a preparation checklist, not a release approval
 ## Current build
 The current application ID is `in.apanam.studio.test2`; Java namespace is `in.apanam.studio`. Version 0.2-test (code 2) is a private test launcher. CI produces a debug APK and an unsigned release AAB. Neither is a finished Play release. The visible start screen opens the website in a Custom Tab or browser. A browser toolbar is expected; fullscreen TWA is not verified.
 
-Before release the owner must confirm the permanent application ID, retain an owner-controlled upload key securely outside source, enrol in Play App Signing, configure signed release builds, and test the resulting artifact. Do not reuse an ephemeral CI debug key. Origin-root Digital Asset Links would need separate ownership work; the project subpath does not prove origin ownership.
+Before release the owner must confirm the permanent application ID, retain an owner-controlled upload key securely outside source, enrol in Play App Signing, configure signed release builds, and test the resulting artifact. Do not reuse an ephemeral CI debug key. Origin-root Digital Asset Links would need separate ownership work; the project subpath does not prove origin ownership. The test manifest no longer declares a TWA asset statement or trusted default URL; the actual launcher uses Custom Tabs.
+
+## Verified CI evidence
+The Android test workflow [completed successfully on 8 October 2026](https://github.com/apanambusiness-ship-it/cartoon-video-creation/actions/runs/37817719018): debug APK, unsigned AAB, lint and unit tests, plus disposable signing fixture. This establishes a working test build only. The owner-signed review workflow has no verified successful artifact, and no Play Console submission has been verified. The Android CI also runs for Android pull requests so release preparation changes are checked before merge.
 
 ## Work that can proceed now
 - Review the listing draft below and prepare screenshots from the actual release on a phone.
@@ -13,7 +16,7 @@ Before release the owner must confirm the permanent application ID, retain an ow
 - Determine Play account type and the applicable testing requirements.
 - Decide a compliant Android billing design before enabling paid checkout in a Play-distributed app.
 
-Support blockers remain separate: Supabase ticket SU-499243 (no successful complete private backup yet), Cashfree activation review (no confirmed real AutoPay test), and paid AI activation/cost approval.
+Support blockers remain separate: Supabase ticket SU-499243, Cashfree activation review (no confirmed real AutoPay test), and paid AI activation/cost approval. On 11 October 2026 the owner verified a newer encrypted backup's checksum, successful GPG decryption and archive manifest/database hash. Its manifest reported zero media objects. A restore of the real dump into an isolated PostgreSQL database and expected-media inventory are still unverified; do not equate archive integrity with a complete restore.
 
 ## Listing draft
 App name: APANAMai Studio
