@@ -22,6 +22,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify encrypted recovery with synthetic data
         run: python3 tests/private-backup-test.py
+      - name: Verify Google Drive upload protocol without account access
+        run: python3 tests/drive-backup-upload-test.py
       - name: Verify isolated PostgreSQL dump and restore
         shell: bash
         run: |
