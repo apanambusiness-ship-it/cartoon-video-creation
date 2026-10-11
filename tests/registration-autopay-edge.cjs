@@ -5,6 +5,7 @@ function boot(path,env,fetch){let handler;vm.runInNewContext(stripTypeScriptType
 const env={SUPABASE_URL:'https://db.invalid',SUPABASE_SERVICE_ROLE_KEY:'service',SUPABASE_ANON_KEY:'anon',CASHFREE_TEST_APP_ID:'key',CASHFREE_TEST_SECRET_KEY:'secret',STUDIO_PAYMENTS_ENABLED:'true',STUDIO_SUBSCRIPTIONS_ENABLED:'false'};
 const pay=boot('supabase/functions/studio-payments/index.ts',env,async(url,o={})=>{
  if(url.endsWith('/auth/v1/user'))return R({id:owner,email:'qa@example.invalid',email_confirmed_at:'now'});
+ if(url.includes('/studio_business_settings?'))return R([{payments_enabled:false}]);
  if(url.endsWith('/studio_registration_status'))return R(registration);
  if(url.endsWith('/studio_payment_reserve')){const b=JSON.parse(o.body);assert.equal(b.owner_id,owner);assert.equal(b.requested_plan,'registration');reserved++;return R({id,user_id:owner,created_at:new Date().toISOString(),amount_paise:1000});}
  if(url.endsWith('/studio_payment_order'))return R({id,user_id:owner,environment:'sandbox',amount_paise:1000});
