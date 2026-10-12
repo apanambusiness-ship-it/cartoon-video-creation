@@ -170,3 +170,5 @@
 .membership-page .member-signed-in #memberValidity:empty{display:none}
 .membership-page .member-signed-in #memberStatus{margin:5px 0!important}
 @media(max-width:600px){.membership-page #memberSignedIn .admin-actions{width:100%;margin-left:0}}
+
+.membership-page:not(.member-registered) #memberId,.membership-page:not(.member-registered) #memberCopyId{display:none!important}
