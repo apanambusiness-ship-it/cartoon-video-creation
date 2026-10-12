@@ -222,3 +222,9 @@
 .membership-page #studioMemberNavigation small{color:#40334e;font-weight:500}
 .membership-page #memberVerticalMenu>summary{color:#35145e;font-size:15px}
 .membership-page #studioMemberAccount .member-status-grid dt{color:#3e3061}
+
+/* Membership header chat action uses a crisp vector icon instead of a faint emoji. */
+.membership-page #studioSupportOpen{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#35145e;border:1px solid #c4b5fd;font-weight:700}
+.membership-page #studioSupportOpen svg{width:19px;height:19px;flex:none;color:#5b21b6}
+.membership-page #studioSupportOpen::before{content:none!important}
+@media(max-width:700px){.membership-page #studioSupportOpen{gap:0}.membership-page #studioSupportOpen span{display:none}}
