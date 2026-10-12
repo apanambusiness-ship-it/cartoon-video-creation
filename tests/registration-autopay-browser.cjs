@@ -27,6 +27,6 @@ const {chromium}=require('playwright'),assert=require('assert/strict'),path=requ
  await page.waitForFunction(()=>document.querySelector('#studioPaymentForm select').value==='manual');
  assert.equal(await page.evaluate(()=>calls.filter(x=>x.a==='create').length),1,'paid status does not buy registration twice');
  await page.evaluate(()=>document.dispatchEvent(new Event('apanam-cloud-session')));
- assert.equal(await page.locator('#studioPaymentForm input[name=phone]').inputValue(),'');
+ assert.equal(await page.locator('#studioPaymentForm input[name=phone]').inputValue(),'');await page.waitForFunction(()=>document.querySelector('#studioPaymentStatus').textContent.includes('पहले ही मिली है'));assert(await page.evaluate(()=>calls.filter(x=>x.a==='status').length>=3),'session change refreshes payment automatically');
  console.log('PASS one-time registration UI: no mandate consent, ₹10 checkout, paid state moves to manual renewal, account reset');
 }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
