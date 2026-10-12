@@ -9,7 +9,10 @@ const localStorage={getItem:key=>store.get(key)||null,setItem:(key,value)=>store
 class CustomEvent{constructor(type,options){this.type=type;this.detail=options.detail}}
 const context={window,document,localStorage,CustomEvent,RangeError,Error,Set,Object};
 vm.runInNewContext(fs.readFileSync('studio-ui-language.js','utf8'),context);
+vm.runInNewContext(fs.readFileSync('studio-ui-catalog.js','utf8'),context);
 const lang=window.APANAM_UI_LANG;
+assert.equal(lang.complete(window.APANAM_UI_CATALOG),true);
+assert.equal(Object.keys(window.APANAM_UI_CATALOG).length,12);
 assert.equal(lang.languages.length,14);
 assert.equal(new Set(lang.languages.map(row=>row[0])).size,14);
 assert.equal(lang.get(),'hi');
@@ -29,3 +32,4 @@ assert.equal(document.documentElement.dir,'ltr');
 assert.equal(events.length,2);
 assert.throws(()=>lang.set('xx'),/Unsupported UI language/);
 console.log('UI language foundation checks passed');
+
