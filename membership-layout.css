@@ -98,3 +98,55 @@
 .membership-page:not(.member-registered) #memberMore,
 .membership-page:not(.member-registered) #studioMemberNavigation a[href="#studioBusinessMember"],
 .membership-page:not(.member-registered) #studioMemberNavigation a[href="#studioSupport"]{display:none!important}
+
+/* Desktop account and payment overview without a long first screen. */
+@media(min-width:900px){
+.membership-page .admin-main{max-width:1180px!important;display:grid!important;grid-template-columns:minmax(0,1.35fr) minmax(350px,.85fr)!important;gap:10px 14px!important;padding:12px 18px!important}
+.membership-page #studioMemberNavigation,.membership-page .admin-main>.admin-notice{grid-column:1/-1}
+.membership-page #studioMemberAccount{grid-column:1;grid-row:auto}
+.membership-page #studioPayments{grid-column:2;grid-row:auto}
+.membership-page #studioSupport,.membership-page #memberMore,.membership-page #studioBusinessMember{grid-column:1/-1}
+.membership-page #memberRegister{max-width:none;grid-template-columns:1fr 1fr;gap:5px 10px}
+.membership-page #memberRegister .member-name-row{grid-column:1/-1}
+.membership-page #memberRegister>button{align-self:end}
+.membership-page #memberRegisterStatus{grid-column:1/-1}
+.membership-page #studioPaymentForm{grid-template-columns:1fr}
+.membership-page #studioPaymentForm>.admin-actions{grid-column:1}
+.membership-page .admin-main>section{padding:14px 16px!important}
+.membership-page .admin-header{padding-top:7px!important;padding-bottom:7px!important}
+.membership-page .admin-header h1{font-size:18px!important}
+.membership-page .admin-brand-logo{width:42px;height:42px}
+.membership-page .member-tabs{margin:8px 0}
+.membership-page .admin-main label{margin:2px 0!important}
+.membership-page .admin-main input:not([type=checkbox]),.membership-page .admin-main select{min-height:34px!important;padding:6px 9px!important}
+.membership-page .admin-main button{min-height:34px!important;padding:6px 10px!important}
+.membership-page #studioPayments>p{margin:4px 0!important}
+.membership-page #studioPaymentForm{gap:4px;margin-top:8px}
+.membership-page #studioMemberNavigation{padding:2px 0}
+.membership-page .admin-main>.admin-notice{padding:8px 12px}
+}
+@media(max-width:899px){
+.membership-page .admin-main{max-width:680px!important;display:flex!important;flex-direction:column!important;padding:10px!important}
+.membership-page .admin-main>section{padding:14px!important}
+.membership-page #memberRegister{max-width:none;gap:6px}
+.membership-page #studioPaymentForm{grid-template-columns:1fr}
+.membership-page #studioPaymentForm>.admin-actions{grid-column:1}
+.membership-page #studioMemberNavigation{flex-wrap:nowrap;overflow-x:auto}
+}
+@media(max-width:480px){
+.membership-page .member-name-row{grid-template-columns:1fr 1fr}
+.membership-page .admin-main>.admin-notice{display:block}
+.membership-page .admin-main>.admin-notice span{display:block}
+.membership-page #studioPaymentForm .admin-actions{display:grid;grid-template-columns:1fr 1fr}
+.membership-page #studioPaymentForm .admin-actions button{width:100%}
+.membership-page #studioPaymentRefresh{grid-column:1/-1;grid-row:2}
+}
+
+.membership-page:not(.member-registered) #studioSupport{display:none!important}
+
+@media(min-width:900px){
+.membership-page .admin-main>section,.membership-page #memberMore{grid-row:auto!important}
+.membership-page #studioMemberAccount{grid-column:1!important}
+.membership-page #studioPayments{grid-column:2!important}
+.membership-page #studioSupport,.membership-page #studioBusinessMember,.membership-page #memberMore{grid-column:1/-1!important}
+}
