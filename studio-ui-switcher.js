@@ -17,9 +17,10 @@
     function apply(code){
       // Validate every translation before changing any text or saving preference.
       const values=nodes.map(node=>language.translate(catalog,node.dataset.uiKey,code));
-      nodes.forEach((node,index)=>{node.textContent=values[index]});
+      nodes.forEach((node,index)=>{node.textContent=values[index];node.dir=code==='ur'?'rtl':'ltr'});
       language.set(code);
       select.value=code;
+      select.dir=code==='ur'?'rtl':'ltr';
     }
     try{apply(language.get())}catch{return false}
     select.addEventListener('change',()=>{
