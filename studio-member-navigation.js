@@ -2,6 +2,11 @@
 if(!document.body.classList.contains('membership-page'))return;
 const root=document.querySelector('.admin-main');
 if(!root)return;
+const chatButton=document.getElementById('studioSupportOpen');
+if(chatButton){
+ chatButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4.6A2.5 2.5 0 0 1 4 14.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 8h8M8 12h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>AI Chat</span>';
+ chatButton.setAttribute('aria-label','AI Chat');
+}
 const groups=[
  ['studioMemberAccount','Account','Login और profile'],
  ['studioPayments','भुगतान','₹10 registration या ₹100 renewal'],
