@@ -39,7 +39,7 @@ assert.throws(()=>lang.translate({title},'title','xx'),/Missing UI translation/)
 lang.set('ur');
 assert.equal(lang.get(),'ur');
 assert.equal(document.documentElement.lang,'ur');
-assert.equal(document.documentElement.dir,'rtl');
+assert.equal(document.documentElement.dir,'ltr');
 lang.set('en');
 assert.equal(document.documentElement.dir,'ltr');
 assert.equal(events.length,2);
@@ -57,7 +57,8 @@ const select=container.children[0];
 assert.equal(select.children.length,14);
 select.value='ur';select.onChange();
 assert.equal(nodes[0].textContent,'محفوظ کریں');
-assert.equal(document.documentElement.dir,'rtl');
+assert.equal(nodes[0].dir,'rtl');
+assert.equal(document.documentElement.dir,'ltr');
 assert.equal(window.APANAM_UI_SWITCHER.mount({container,root:{querySelectorAll(){return [{dataset:{uiKey:'unknown'}}]}},catalogs:[window.APANAM_UI_EDITOR_CATALOG]}),false);
 assert.equal(container.children.length,1);
 console.log('UI language foundation checks passed');
