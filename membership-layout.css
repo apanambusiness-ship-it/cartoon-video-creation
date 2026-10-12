@@ -141,3 +141,5 @@
 .membership-page #studioPaymentForm .admin-actions button{width:100%}
 .membership-page #studioPaymentRefresh{grid-column:1/-1;grid-row:2}
 }
+
+.membership-page:not(.member-registered) #studioSupport{display:none!important}
