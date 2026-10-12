@@ -203,3 +203,13 @@
  .membership-page #studioSupport{grid-column:2!important;grid-row:2!important}
  .membership-page #memberVerticalMenu{min-width:0;max-width:100%;box-sizing:border-box}
 }
+
+/* Compact desktop navigation so all actions fit a laptop viewport. */
+@media(min-width:900px){
+ .membership-page .admin-main{grid-template-columns:minmax(180px,210px) minmax(0,1fr)!important}
+ .membership-page #memberVerticalMenu{max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ .membership-page #memberVerticalMenu>summary{padding:5px 7px}
+ .membership-page #studioMemberNavigation{gap:2px!important;padding:2px 0!important}
+ .membership-page #studioMemberNavigation button{min-height:38px!important;padding:7px 9px!important;line-height:1.2!important}
+ .membership-page #studioMemberNavigation small{display:none}
+}
