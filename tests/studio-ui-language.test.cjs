@@ -60,6 +60,7 @@ assert.equal(nodes[0].textContent,'محفوظ کریں');
 assert.equal(nodes[0].dir,'rtl');
 assert.equal(document.documentElement.dir,'ltr');
 assert.equal(window.APANAM_UI_SWITCHER.mount({container,root:{querySelectorAll(){return [{dataset:{uiKey:'unknown'}}]}},catalogs:[window.APANAM_UI_EDITOR_CATALOG]}),false);
+assert.equal(window.APANAM_UI_SWITCHER.mount({container,root:{querySelectorAll(){return [{dataset:{uiKey:'save'},childElementCount:1}]}},catalogs:[window.APANAM_UI_EDITOR_CATALOG]}),false);
 assert.equal(container.children.length,1);
 console.log('UI language foundation checks passed');
 
