@@ -1,9 +1,54 @@
-(()=>{'use strict';if(!document.body.classList.contains('membership-page'))return;const root=document.querySelector('.admin-main');if(!root)return;
-const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership navigation');root.prepend(nav);
-const items=[['studioMemberAccount','Account'],['studioPayments','₹10 / ₹100 भुगतान'],['studioBusinessMember','मेरी अवधि'],['studioSupport','सहायता']];
-for(const [id,label] of items){const a=document.createElement('a');a.href='#'+id;a.textContent=label;nav.append(a)}
-const advanced=document.createElement('details');advanced.className='member-advanced';advanced.id='memberMore';const summary=document.createElement('summary');summary.textContent='और विकल्प · पुराने भुगतान, योजनाएँ और account';advanced.append(summary);root.append(advanced);
-document.addEventListener('apanam-registration-status',event=>document.body.classList.toggle('member-registered',!!event.detail?.registered));
-const ids=['studioOwnPayments','studioMemberPlans','studioAiBalance','studioAutoPay','accountDeletion'];function arrange(){for(const id of ids){const el=document.getElementById(id);if(el&&el.parentNode!==advanced)advanced.append(el)}}arrange();new MutationObserver(arrange).observe(root,{childList:true,subtree:true});
-nav.addEventListener('click',e=>{const link=e.target.closest('a');if(!link)return;const target=document.querySelector(link.getAttribute('href'));if(target?.closest('#memberMore'))advanced.open=true});
+(()=>{'use strict';
+if(!document.body.classList.contains('membership-page'))return;
+const root=document.querySelector('.admin-main');
+if(!root)return;
+const groups=[
+ ['studioMemberAccount','👤 Account','Login और profile'],
+ ['studioPayments','💳 भुगतान','₹10 registration या ₹100 renewal'],
+ ['studioBusinessMember','📅 मेरी अवधि','सदस्यता और reminder'],
+ ['studioOwnPayments','🧾 पुराने भुगतान','रसीद और history'],
+ ['studioMemberPlans','📋 योजनाएँ','शुल्क और सुविधाएँ'],
+ ['studioAiBalance','✨ AI लागत','सिर्फ अनुमान'],
+ ['studioAutoPay','🔁 पुराने AutoPay','मौजूदा mandate की स्थिति'],
+ ['accountDeletion','⚙️ Account settings','Account प्रबंधन'],
+ ['studioSupport','❔ सहायता','Payment या refund समस्या']
+];
+const menu=document.createElement('details');menu.id='memberVerticalMenu';menu.className='member-vertical-menu';
+const summary=document.createElement('summary');summary.textContent='विकल्प चुनें';
+const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
+menu.append(summary,nav);root.prepend(menu);
+const notice=root.querySelector('.admin-notice');
+let current='',registered=false,manualMenu=false;
+function available(id){const section=document.getElementById(id);return !!section&&section.parentElement===root&&(registered||id==='studioMemberAccount'||id==='studioPayments');}
+function choose(id,{focus=false}={}){
+ if(!available(id))id=registered&&available('studioBusinessMember')?'studioBusinessMember':'studioMemberAccount';
+ current=id;
+ for(const [key] of groups){const section=document.getElementById(key);if(section&&section.parentElement===root)section.hidden=key!==id;}
+ for(const button of nav.querySelectorAll('button[data-target]')){const active=button.dataset.target===id;button.setAttribute('aria-current',active?'page':'false');button.setAttribute('aria-pressed',String(active));}
+ summary.textContent='विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account');
+ if(notice)notice.hidden=registered&&id!=='studioPayments';
+ if(window.matchMedia('(max-width:899px)').matches)menu.open=false;
+ if(focus){const section=document.getElementById(id);section?.scrollIntoView({block:'start',behavior:'smooth'});section?.querySelector('h2')?.setAttribute('tabindex','-1');section?.querySelector('h2')?.focus({preventScroll:true});}
+}
+function render(){
+ const existing=new Map([...nav.querySelectorAll('button[data-target]')].map(b=>[b.dataset.target,b]));
+ for(const [id,label,description] of groups){
+  let b=existing.get(id);
+  if(!b){b=document.createElement('button');b.type='button';b.dataset.target=id;b.setAttribute('aria-controls',id);b.innerHTML='<strong></strong><small></small>';nav.append(b);}
+  b.querySelector('strong').textContent=label;b.querySelector('small').textContent=description;
+  b.hidden=!available(id);
+ }
+ if(!available(current))choose(registered&&available('studioBusinessMember')?'studioBusinessMember':'studioMemberAccount');
+ else choose(current);
+}
+nav.addEventListener('click',e=>{const button=e.target.closest('button[data-target]');if(button&&!button.hidden)choose(button.dataset.target,{focus:true});});
+menu.addEventListener('toggle',()=>{manualMenu=true;});
+document.addEventListener('apanam-registration-status',e=>{registered=!!e.detail?.registered;document.body.classList.toggle('member-registered',registered);render();});
+document.addEventListener('apanam-cloud-session',()=>{if(!window.APANAM_CLOUD?.user()){registered=false;document.body.classList.remove('member-registered');choose('studioMemberAccount');render();}});
+new MutationObserver(()=>render()).observe(root,{childList:true});
+const hasOrder=new URLSearchParams(location.search).has('order_id');
+render();if(hasOrder&&available('studioPayments'))choose('studioPayments');
+const desktop=window.matchMedia('(min-width:900px)');
+menu.open=desktop.matches;
+desktop.addEventListener('change',e=>{if(!manualMenu)menu.open=e.matches;});
 })();
