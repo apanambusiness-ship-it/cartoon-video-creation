@@ -172,3 +172,34 @@
 @media(max-width:600px){.membership-page #memberSignedIn .admin-actions{width:100%;margin-left:0}}
 
 .membership-page:not(.member-registered) #memberId,.membership-page:not(.member-registered) #memberCopyId{display:none!important}
+
+/* One task at a time: a vertical menu on desktop and a compact menu on mobile. */
+.membership-page .admin-main{max-width:1120px!important;display:grid!important;grid-template-columns:minmax(190px,230px) minmax(0,1fr)!important;gap:12px 18px!important;align-items:start}
+.membership-page .admin-main>.admin-notice{grid-column:1/-1!important;grid-row:1!important}
+.membership-page #memberVerticalMenu{grid-column:1!important;grid-row:2 / span 2!important;position:sticky;top:12px;align-self:start;border:1px solid #e4def1;border-radius:14px;background:#fff;padding:10px;box-shadow:0 6px 20px #35105f0b}
+.membership-page #memberVerticalMenu>summary{font-weight:700;color:#43216c;padding:8px;cursor:pointer}
+.membership-page #studioMemberNavigation{position:static!important;display:flex!important;flex-direction:column!important;overflow:visible!important;background:none!important;padding:4px 0!important;gap:5px!important}
+.membership-page #studioMemberNavigation button{width:100%;text-align:left;background:#fff;color:#43216c;border:1px solid transparent;border-radius:10px;padding:10px!important;white-space:normal;cursor:pointer}
+.membership-page #studioMemberNavigation button:hover,.membership-page #studioMemberNavigation button[aria-current=page]{background:#ede9fe;border-color:#c4b5fd}
+.membership-page #studioMemberNavigation small{display:block;color:#615b72;margin-top:2px;font-weight:400}
+.membership-page #studioMemberNavigation button[hidden]{display:none!important}
+.membership-page .admin-main>section{grid-column:2!important;grid-row:2!important;width:100%;min-width:0}
+.membership-page .admin-main>section[hidden],.membership-page .admin-main>.admin-notice[hidden]{display:none!important}
+.membership-page #studioMemberAccount,.membership-page #studioPayments{grid-column:2!important;grid-row:2!important}
+.membership-page #studioQuoteForm{grid-template-columns:minmax(0,1fr) 100px auto}
+@media(max-width:899px){
+ .membership-page .admin-main{display:flex!important;flex-direction:column!important;max-width:680px!important}
+ .membership-page #memberVerticalMenu{width:100%;position:static;box-sizing:border-box;padding:6px 10px}
+ .membership-page #memberVerticalMenu>summary{min-height:40px;display:flex;align-items:center}
+ .membership-page .admin-main>section{width:100%}
+ .membership-page #studioMemberNavigation{flex-direction:column!important;overflow:visible!important}
+}
+
+/* Override legacy full-width card placements in the desktop grid. */
+@media(min-width:900px){
+ .membership-page #studioBusinessMember,.membership-page #studioOwnPayments,
+ .membership-page #studioMemberPlans,.membership-page #studioAiBalance,
+ .membership-page #studioAutoPay,.membership-page #accountDeletion,
+ .membership-page #studioSupport{grid-column:2!important;grid-row:2!important}
+ .membership-page #memberVerticalMenu{min-width:0;max-width:100%;box-sizing:border-box}
+}
