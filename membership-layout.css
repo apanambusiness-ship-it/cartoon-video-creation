@@ -194,3 +194,12 @@
  .membership-page .admin-main>section{width:100%}
  .membership-page #studioMemberNavigation{flex-direction:column!important;overflow:visible!important}
 }
+
+/* Override legacy full-width card placements in the desktop grid. */
+@media(min-width:900px){
+ .membership-page #studioBusinessMember,.membership-page #studioOwnPayments,
+ .membership-page #studioMemberPlans,.membership-page #studioAiBalance,
+ .membership-page #studioAutoPay,.membership-page #accountDeletion,
+ .membership-page #studioSupport{grid-column:2!important;grid-row:2!important}
+ .membership-page #memberVerticalMenu{min-width:0;max-width:100%;box-sizing:border-box}
+}
