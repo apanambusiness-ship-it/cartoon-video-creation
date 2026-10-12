@@ -213,3 +213,12 @@
  .membership-page #studioMemberNavigation button{min-height:38px!important;padding:7px 9px!important;line-height:1.2!important}
  .membership-page #studioMemberNavigation small{display:none}
 }
+
+/* Membership navigation: consistent high-contrast icons and readable labels. */
+.membership-page #studioMemberNavigation button strong{display:flex;align-items:center;gap:10px;color:#35145e;font-size:15px;font-weight:750;line-height:1.4}
+.membership-page #studioMemberNavigation .member-nav-icon{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none;width:27px;height:27px;border-radius:8px;background:#5b21b6;color:#fff;font:700 17px/1 Arial,sans-serif;box-shadow:0 1px 3px #32145e35}
+.membership-page #studioMemberNavigation button[aria-current=page] .member-nav-icon{background:#45118f}
+.membership-page #studioMemberNavigation button:hover,.membership-page #studioMemberNavigation button[aria-current=page]{color:#35145e;border-color:#a78bfa;background:#ede9fe}
+.membership-page #studioMemberNavigation small{color:#40334e;font-weight:500}
+.membership-page #memberVerticalMenu>summary{color:#35145e;font-size:15px}
+.membership-page #studioMemberAccount .member-status-grid dt{color:#3e3061}

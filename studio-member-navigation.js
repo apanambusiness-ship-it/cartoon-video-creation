@@ -3,16 +3,17 @@ if(!document.body.classList.contains('membership-page'))return;
 const root=document.querySelector('.admin-main');
 if(!root)return;
 const groups=[
- ['studioMemberAccount','👤 Account','Login और profile'],
- ['studioPayments','💳 भुगतान','₹10 registration या ₹100 renewal'],
- ['studioBusinessMember','📅 मेरी अवधि','सदस्यता और reminder'],
- ['studioOwnPayments','🧾 पुराने भुगतान','रसीद और history'],
- ['studioMemberPlans','📋 योजनाएँ','शुल्क और सुविधाएँ'],
- ['studioAiBalance','✨ AI लागत','सिर्फ अनुमान'],
- ['studioAutoPay','🔁 पुराने AutoPay','मौजूदा mandate की स्थिति'],
- ['accountDeletion','⚙️ Account settings','Account प्रबंधन'],
- ['studioSupport','❔ सहायता','Payment या refund समस्या']
+ ['studioMemberAccount','Account','Login और profile'],
+ ['studioPayments','भुगतान','₹10 registration या ₹100 renewal'],
+ ['studioBusinessMember','मेरी अवधि','सदस्यता और reminder'],
+ ['studioOwnPayments','पुराने भुगतान','रसीद और history'],
+ ['studioMemberPlans','योजनाएँ','शुल्क और सुविधाएँ'],
+ ['studioAiBalance','AI लागत','सिर्फ अनुमान'],
+ ['studioAutoPay','पुराने AutoPay','मौजूदा mandate की स्थिति'],
+ ['accountDeletion','Account settings','Account प्रबंधन'],
+ ['studioSupport','सहायता','Payment या refund समस्या']
 ];
+const icons={studioMemberAccount:'●',studioPayments:'₹',studioBusinessMember:'▦',studioOwnPayments:'▤',studioMemberPlans:'≡',studioAiBalance:'✦',studioAutoPay:'↻',accountDeletion:'⚙',studioSupport:'?'};
 const menu=document.createElement('details');menu.id='memberVerticalMenu';menu.className='member-vertical-menu';
 const summary=document.createElement('summary');summary.textContent='विकल्प चुनें';
 const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
@@ -35,7 +36,11 @@ function render(){
  for(const [id,label,description] of groups){
   let b=existing.get(id);
   if(!b){b=document.createElement('button');b.type='button';b.dataset.target=id;b.setAttribute('aria-controls',id);b.innerHTML='<strong></strong><small></small>';nav.append(b);}
-  b.querySelector('strong').textContent=label;b.querySelector('small').textContent=description;
+  const strong=b.querySelector('strong');
+  let icon=strong.querySelector('.member-nav-icon');
+  if(!icon){icon=document.createElement('span');icon.className='member-nav-icon';icon.setAttribute('aria-hidden','true');strong.append(icon,document.createElement('span'));}
+  icon.textContent=icons[id]||'•';strong.lastElementChild.textContent=label;
+  b.querySelector('small').textContent=description;
   b.hidden=!available(id);
  }
  if(!available(current))choose(registered&&available('studioBusinessMember')?'studioBusinessMember':'studioMemberAccount');
