@@ -157,3 +157,16 @@
 .membership-page .member-password-field input{padding-right:48px!important}
 .membership-page .member-password-eye,.membership-page .admin-main .member-password-eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:38px;min-height:32px!important;padding:4px!important;border:0!important;background:transparent!important;color:#5b21b6!important;font-size:19px!important;box-shadow:none!important;cursor:pointer}
 .membership-page .member-password-eye:hover{background:#eee8fb!important}
+
+/* A signed-in user needs one compact account summary, not another login form. */
+.membership-page #memberSignedIn[hidden]{display:none!important}
+.membership-page #memberSignedIn{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #ddd6ed;background:#f8f5ff;border-radius:10px;padding:8px 10px;margin:8px 0}
+.membership-page #memberSignedIn .admin-actions{margin-left:auto}
+.membership-page .member-signed-in .member-tabs,
+.membership-page .member-signed-in .member-intro,
+.membership-page .member-signed-in #memberRegister,
+.membership-page .member-signed-in .account-login-layout,
+.membership-page .member-signed-in details:has(>form.profile-form){display:none!important}
+.membership-page .member-signed-in #memberValidity:empty{display:none}
+.membership-page .member-signed-in #memberStatus{margin:5px 0!important}
+@media(max-width:600px){.membership-page #memberSignedIn .admin-actions{width:100%;margin-left:0}}
