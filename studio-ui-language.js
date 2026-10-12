@@ -6,7 +6,7 @@
     ['gu','ગુજરાતી'],['ta','தமிழ்'],['te','తెలుగు'],['kn','ಕನ್ನಡ'],
     ['ml','മലയാളം'],['pa','ਪੰਜਾਬੀ'],['or','ଓଡ଼ିଆ'],['as','অসমীয়া'],
     ['ur','اردو'],['ne','नेपाली']
-  ]);
+  ].map(item=>Object.freeze(item)));
   const storageKey='apanamai-ui-language';
   const valid=new Set(languages.map(item=>item[0]));
   function get(){
@@ -23,12 +23,14 @@
   // Every user-visible string requires an approved translation in every language.
   // A page must register its complete catalog before it exposes its language switch.
   function complete(catalog){
-    if(!catalog||typeof catalog!=='object')return false;
-    return Object.values(catalog).every(row=>valid.size===Object.keys(row).filter(code=>valid.has(code)&&typeof row[code]==='string'&&row[code].trim()).length);
+    if(!catalog||typeof catalog!=='object'||Array.isArray(catalog))return false;
+    const rows=Object.values(catalog);
+    return rows.length>0&&rows.every(row=>row&&typeof row==='object'&&!Array.isArray(row)&&
+      [...valid].every(code=>typeof row[code]==='string'&&row[code].trim().length>0));
   }
   function translate(catalog,key,code=get()){
-    const row=catalog[key];
-    if(!row||!row[code])throw new Error('Missing UI translation: '+key+' / '+code);
+    const row=catalog?.[key];
+    if(!valid.has(code)||!row||typeof row[code]!=='string'||!row[code].trim())throw new Error('Missing UI translation: '+key+' / '+code);
     return row[code];
   }
   global.APANAM_UI_LANG=Object.freeze({languages,storageKey,get,set,complete,translate});
