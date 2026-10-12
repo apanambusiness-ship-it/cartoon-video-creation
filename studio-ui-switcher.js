@@ -7,7 +7,8 @@
     if(catalogs.some(catalog=>!language.complete(catalog)))return false;
     const catalog=Object.assign({},...catalogs);
     const nodes=[...root.querySelectorAll('[data-ui-key]')];
-    if(!nodes.length||nodes.some(node=>!Object.hasOwn(catalog,node.dataset.uiKey)))return false;
+    // Translate only leaf labels; replacing a parent would erase icons or form controls.
+    if(!nodes.length||nodes.some(node=>node.childElementCount>0||!Object.hasOwn(catalog,node.dataset.uiKey)))return false;
     const select=document.createElement('select');
     select.setAttribute('aria-label','Interface language');
     select.className='apanam-language-select';
