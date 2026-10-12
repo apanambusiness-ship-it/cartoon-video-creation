@@ -150,3 +150,10 @@
 .membership-page #studioPayments{grid-column:2!important}
 .membership-page #studioSupport,.membership-page #studioBusinessMember,.membership-page #memberMore{grid-column:1/-1!important}
 }
+
+/* Keep only the chosen account tab visible. */
+.membership-page #memberRegister[hidden],.membership-page #memberLogin[hidden]{display:none!important}
+.membership-page .member-password-field{position:relative;display:block;width:100%}
+.membership-page .member-password-field input{padding-right:48px!important}
+.membership-page .member-password-eye,.membership-page .admin-main .member-password-eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:38px;min-height:32px!important;padding:4px!important;border:0!important;background:transparent!important;color:#5b21b6!important;font-size:19px!important;box-shadow:none!important;cursor:pointer}
+.membership-page .member-password-eye:hover{background:#eee8fb!important}
