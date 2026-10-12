@@ -24,6 +24,10 @@ class Controls(HTMLParser):
         self.items = []
 
     def handle_starttag(self, tag, attrs):
+        if tag not in {"script", "style"}:
+            for name, value in attrs:
+                if name in {"placeholder", "aria-label", "title"} and value and value.strip():
+                    self.items.append((name, " ".join(value.split())))
         if tag in {"script", "style"}:
             self.stack.append((tag, None))
         elif tag in CONTROLS:
@@ -32,9 +36,12 @@ class Controls(HTMLParser):
             self.stack.append((tag, None))
 
     def handle_data(self, data):
-        for tag, parts in self.stack:
+        if any(tag in {"script", "style"} for tag, _ in self.stack):
+            return
+        for tag, parts in reversed(self.stack):
             if parts is not None:
                 parts.append(data)
+                break
 
     def handle_endtag(self, tag):
         for index in range(len(self.stack) - 1, -1, -1):
