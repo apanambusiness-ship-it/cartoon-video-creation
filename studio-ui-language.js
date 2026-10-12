@@ -17,7 +17,6 @@
     if(!valid.has(code))throw new RangeError('Unsupported UI language');
     try{localStorage.setItem(storageKey,code)}catch{}
     document.documentElement.lang=code;
-    document.documentElement.dir=code==='ur'?'rtl':'ltr';
     global.dispatchEvent(new CustomEvent('apanamai-language-change',{detail:{language:code}}));
   }
   // Every user-visible string requires an approved translation in every language.
@@ -35,3 +34,4 @@
   }
   global.APANAM_UI_LANG=Object.freeze({languages,storageKey,get,set,complete,translate});
 })(window);
+
