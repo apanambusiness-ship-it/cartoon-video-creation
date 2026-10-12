@@ -143,3 +143,10 @@
 }
 
 .membership-page:not(.member-registered) #studioSupport{display:none!important}
+
+@media(min-width:900px){
+.membership-page .admin-main>section,.membership-page #memberMore{grid-row:auto!important}
+.membership-page #studioMemberAccount{grid-column:1!important}
+.membership-page #studioPayments{grid-column:2!important}
+.membership-page #studioSupport,.membership-page #studioBusinessMember,.membership-page #memberMore{grid-column:1/-1!important}
+}
