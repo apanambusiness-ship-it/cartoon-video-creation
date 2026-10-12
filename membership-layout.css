@@ -57,3 +57,33 @@
  .membership-page .plans{grid-template-columns:minmax(0,1fr)}
  .membership-page #studioSupport a{display:block;margin:8px 0 0!important;text-align:center}
 }
+
+/* Focused membership flow */
+.membership-page .admin-main{max-width:840px!important;display:flex!important;flex-direction:column;gap:12px!important;margin:auto}
+.membership-page .admin-main>*{width:100%;box-sizing:border-box}
+.membership-page .admin-main>.admin-notice{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;background:#ede9fe;color:#35205c;border-radius:12px}
+.membership-page .admin-main>section{padding:18px!important;border-radius:14px;box-shadow:0 6px 20px #35105f0b}
+.membership-page .admin-header{padding:10px max(16px,calc((100vw - 840px)/2))!important}
+.membership-page .admin-brand-logo{width:56px;height:56px;object-fit:contain}
+.membership-page .member-tabs{display:flex;gap:8px;margin:12px 0}
+.membership-page .member-tabs button{flex:1;background:#f4f0fb;color:#43216c;border:1px solid #d8caee}
+.membership-page .member-tabs button[aria-pressed=true],.membership-page #memberRegister>button{background:#5b21b6;color:white}
+.membership-page .member-register{display:grid;gap:8px;max-width:560px}
+.membership-page .member-name-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.membership-page #memberLogin{max-width:560px}
+.membership-page #studioMemberAccount .account-login-layout:not([open]){margin:0}
+.membership-page #studioMemberAccount .account-login-details{display:contents}
+.membership-page #studioMemberAccount .account-login-details>summary{display:none}
+.membership-page #studioMemberAccount .account-login-details:not([open]) #memberLogin{display:none}
+.membership-page #studioMemberAccount details:has(>form.profile-form){max-width:560px;margin:10px 0}
+.membership-page #studioMemberPlans,.membership-page #studioBusinessMember,.membership-page #studioOwnPayments,.membership-page #studioSupport,.membership-page #studioAiBalance,.membership-page #studioAutoPay,.membership-page #accountDeletion{margin-top:0!important}
+.membership-page .member-advanced{border:1px solid #e4def1;border-radius:14px;background:white;padding:12px 16px}
+.membership-page .member-advanced>summary{font-weight:700;color:#43216c;cursor:pointer}
+.membership-page .member-advanced>section{padding:16px 0;border-bottom:1px solid #eee8f5;box-shadow:none}
+.membership-page #studioMemberNavigation{position:static;order:0;flex-wrap:wrap;background:transparent;overflow:visible}
+.membership-page #studioMemberNavigation a{border-radius:999px;text-decoration:none;background:#fff;color:#43216c;border:1px solid #ddd6ed;font-weight:600}
+.membership-page #studioMemberNavigation a:hover{background:#ede9fe}
+.membership-page .member-success-dialog{border:0;border-radius:18px;max-width:min(400px,calc(100vw - 32px));padding:24px;box-shadow:0 20px 60px #21143e50;color:#253047}
+.membership-page .member-success-dialog::backdrop{background:#17102b88}
+.membership-page .member-success-dialog button{background:#5b21b6;color:white;border:0;border-radius:9px;padding:10px 18px}
+@media(max-width:600px){.membership-page .admin-main{padding:10px!important}.membership-page .member-name-row{grid-template-columns:1fr}.membership-page .admin-main>section{padding:14px!important}}
