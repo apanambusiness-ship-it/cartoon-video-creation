@@ -11,11 +11,14 @@ const context={window,document,localStorage,CustomEvent,RangeError,Error,Set,Obj
 vm.runInNewContext(fs.readFileSync('studio-ui-language.js','utf8'),context);
 vm.runInNewContext(fs.readFileSync('studio-ui-catalog.js','utf8'),context);
 vm.runInNewContext(fs.readFileSync('studio-ui-editor-catalog.js','utf8'),context);
+vm.runInNewContext(fs.readFileSync('studio-ui-account-catalog.js','utf8'),context);
 const lang=window.APANAM_UI_LANG;
 assert.equal(lang.complete(window.APANAM_UI_CATALOG),true);
 assert.equal(Object.keys(window.APANAM_UI_CATALOG).length,12);
 assert.equal(lang.complete(window.APANAM_UI_EDITOR_CATALOG),true);
 assert.equal(Object.keys(window.APANAM_UI_EDITOR_CATALOG).length,14);
+assert.equal(lang.complete(window.APANAM_UI_ACCOUNT_CATALOG),true);
+assert.equal(Object.keys(window.APANAM_UI_ACCOUNT_CATALOG).length,12);
 assert.equal(lang.languages.length,14);
 assert.equal(new Set(lang.languages.map(row=>row[0])).size,14);
 assert.equal(lang.get(),'hi');
