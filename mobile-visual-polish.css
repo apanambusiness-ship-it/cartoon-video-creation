@@ -1,0 +1,67 @@
+/* APANAMai mobile visual hierarchy. Desktop layouts and artwork remain untouched. */
+@media (max-width:900px){
+  body.studio-mobile-layout{background:#f5f3fb;color:#22263b}
+  body.studio-mobile-layout>header{background:#fff!important;border-bottom:1px solid #e3d8f2!important;box-shadow:0 2px 8px #30204c12}
+  body.studio-mobile-layout>header #studioMobilePageNav>*{font-weight:750!important;text-shadow:none;box-shadow:0 1px 3px #32145e22}
+  body.studio-mobile-layout #studioMobilePrimaryActions{background:#faf8fe!important;border-bottom:1px solid #e4dcf0!important;gap:5px!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#download,#undo,#redo,#apanamSocialShare){border-width:1px!important;font-weight:750!important;box-shadow:0 1px 3px #28345c18}
+  body.studio-mobile-layout #studioMobilePrimaryActions #saveProject{background:#dff4e8!important;color:#155b37!important;border-color:#a9d9bc!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions #loadProject{background:#ffedda!important;color:#82400b!important;border-color:#ebc89f!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions #download{background:#6530ae!important;color:#fff!important;border-color:#542398!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions #undo{background:#fff0c7!important;color:#794508!important;border-color:#e9d08d!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions #redo{background:#daf3fa!important;color:#075d74!important;border-color:#a6dbe8!important}
+  body.studio-mobile-layout #studioMobilePrimaryActions #apanamSocialShare{background:#e7ebff!important;color:#303d8d!important;border-color:#c5cff4!important}
+  body.studio-mobile-layout #apanamCompactTools{background:#fff!important;border-bottom:1px solid #e2d8ee!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child{background:#fff!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child>button{font-weight:750!important;border:1px solid #d4c4ec!important;background:#f0e9fc!important;color:#4c1d83!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child>button:nth-child(2){background:#e5f3fb!important;color:#145b7d!important;border-color:#b8dcf1!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child>button:nth-child(3){background:#e8f7ed!important;color:#23613a!important;border-color:#bde2c9!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child>#studioMobileTyping{background:#fff0d9!important;color:#805010!important;border-color:#eed1a2!important}
+  body.studio-mobile-layout .workspace{background:#f5f3fb!important}
+  body.studio-mobile-layout #studioSelectionBar{background:#fff!important;border:1px solid #ded4ed!important;box-shadow:0 2px 8px #30204c12!important}
+  body.studio-mobile-layout #studioSelectionBar .studio-selection-actions :is(button,summary){font-weight:700;color:#3f236c;border-color:#cfc0e4;background:#f1eafb}
+  body.studio-mobile-layout #studioSelectionBar #studioMobileLayerDelete{background:#fff0f1!important;color:#95283d!important;border-color:#e9bac5!important}
+  body.studio-mobile-layout .zoomBar{background:#fff;border:1px solid #e4dcf0;border-radius:9px;padding:3px 5px;box-shadow:0 1px 4px #30204c0c}
+  body.studio-mobile-layout .zoomBar button{color:#43216d!important;background:#f6f0ff!important;border-color:#d6c7e9!important}
+  body.studio-mobile-layout .apanam-mobile-bar{background:#fff!important;border-top:1px solid #e0d5ed!important;box-shadow:0 -3px 12px #30204c17!important}
+  body.studio-mobile-layout .apanam-mobile-bar button{font-weight:750!important;box-shadow:0 1px 3px #30204c13}
+  body.studio-mobile-layout :is(#studioMobileSheet,#studioPosterSizeDialog,#professionalDesignDialog,#studioCreativeDialog){background:#fff;color:#25233b;border:1px solid #d7c8e9;box-shadow:0 12px 34px #29154335}
+  body.studio-mobile-layout #studioMobileSheet .mobile-sheet-heading{border-bottom:1px solid #e6ddf0;padding-bottom:8px}
+  body.studio-mobile-layout #studioMobileActionTabs{border-bottom:1px solid #e6ddf0}
+  body.studio-mobile-layout #studioMobileActionTabs button{background:#f2ebfa;color:#492075;border-color:#d4c1e9;font-weight:700}
+  body.studio-mobile-layout #studioMobileActionTabs button[aria-pressed=true]{background:#5a269f!important;color:#fff!important;border-color:#4b188c!important}
+  body.studio-mobile-layout #studioMobileActionGrid button{background:#f4edfb!important;color:#4c237f!important;border-color:#d7c7eb!important;font-weight:700!important}
+  body.studio-mobile-layout #studioMobileActionGrid :is(.danger,[data-action=delete]){background:#fff0f1!important;color:#92283d!important;border-color:#eab9c4!important}
+  body.studio-mobile-layout button:disabled{opacity:.62!important;box-shadow:none!important}
+  body.studio-mobile-layout #studioMobileActionGrid a{background:#e9f7f4!important;color:#175c53!important;border-color:#b9dfd5!important;font-weight:700}
+  body.studio-mobile-layout :is(button,a,summary):focus-visible{outline:3px solid #a855f7!important;outline-offset:2px}
+}
+@media (max-width:899px){
+  .membership-page{background:#f5f3fb}
+  .membership-page .admin-main{gap:10px!important}
+  .membership-page .admin-main>section,.membership-page #memberVerticalMenu{border:1px solid #e1d5ef!important;border-radius:13px!important;box-shadow:0 3px 12px #32145e10!important}
+  .membership-page .admin-main h2{color:#3c176e!important}
+  .membership-page #studioMemberNavigation button{background:#f7f2fd!important;border:1px solid #dfd1ed!important;color:#35145e!important}
+  .membership-page #studioMemberNavigation button[aria-current=page]{background:#e7dcf7!important;border-color:#a785d4!important}
+  .membership-page .admin-main :is(button,.admin-actions a){font-weight:700}
+  .membership-page #memberRegister>button,.membership-page #studioPayButton{background:#5a259f!important;color:#fff!important;border:1px solid #491989!important}
+  .membership-page #studioPaymentRefresh,.membership-page #memberRefresh{background:#e5f4fb!important;color:#165a78!important;border:1px solid #b8dce9!important}
+  .membership-page .admin-main button:disabled{opacity:.58;box-shadow:none}
+  .membership-page #studioPaymentConfirm{background:#e6f5eb!important;color:#1c6240!important;border:1px solid #b6ddc3!important}
+  .membership-page #studioPaymentHistory{border:1px solid #e1d5ee;border-radius:9px;padding:9px 11px;background:#faf7fe;overflow-wrap:anywhere}
+  .membership-page #studioPaymentHistory summary{font-weight:750;color:#43216c}
+  .membership-page #studioPaymentHistoryRows p{padding:8px 0;border-top:1px solid #e9e0f2}
+  .membership-page :is(button,a,summary):focus-visible{outline:3px solid #a855f7;outline-offset:2px}
+}
+@media (max-width:750px){
+  body:has(>main>.controls){background:#f5f3fb}
+  body:has(>main>.controls)>header{background:#fff;border-bottom:1px solid #e2d7ee}
+  body:has(>main>.controls) .canvas-area{background:#f5f3fb;border-bottom:1px solid #e2d7ee}
+  body:has(>main>.controls) .controls{padding:12px;background:#f5f3fb}
+  body:has(>main>.controls) .controls>section{margin:10px 0;padding:12px;border:1px solid #e0d4ee;border-radius:12px;background:#fff;box-shadow:0 2px 9px #32145e0d}
+  body:has(>main>.controls) .controls h2{color:#43216c}
+  body:has(>main>.controls) .controls button{min-height:42px;border-color:#c9b7e3;background:#f2ebfa;color:#492077;font-weight:700}
+  body:has(>main>.controls) .controls :is(#add,#export){background:#5d269f;color:#fff;border-color:#4c1a89}
+  body:has(>main>.controls) .controls button.selected{background:#e8def8;color:#38166f}
+  body:has(>main>.controls) :is(button,a,input,select,textarea):focus-visible{outline:3px solid #a855f7;outline-offset:2px}
+}
