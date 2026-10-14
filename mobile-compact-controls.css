@@ -23,3 +23,22 @@ body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){top:11
 
 #studioMobileGuide,#studioMobilePhotoActions{display:none}
 @media(max-width:900px){body.studio-mobile-layout #studioMobileGuide{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:9px;padding:6px;margin-bottom:6px}.mobile-guide-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.mobile-guide-steps button{min-height:32px;padding:4px 2px;font-size:11px;border-radius:6px;background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe}#studioMobileGuideHint{font-size:11px;line-height:1.35;color:#475569;margin:5px 1px 0}.mobile-guide-attention{color:#7c2d12!important;background:#fff7ed;padding:4px;border-radius:5px}body.studio-mobile-layout #studioMobilePhotoActions:not([hidden]){display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0 0 6px}#studioMobilePhotoActions button{min-height:34px;padding:4px 5px;font-size:11px;border-radius:6px;background:#ede9fe;color:#5b21b6;border-color:#ddd6fe}.mobile-finish-grid{display:grid;gap:7px}.mobile-finish-grid button{width:100%;min-height:38px;text-align:left}}
+
+/* Mobile template-layer editor: common controls stay compact; advanced controls appear only when a layer is active. */
+@media(max-width:900px){
+  #templateContentEditor{margin:6px 0!important;border-radius:12px!important}
+  #templateContentEditor>summary{font-size:15px!important;font-weight:800!important;padding:9px 10px!important}
+  #templateLayerFields{display:grid!important;gap:7px!important}
+  .template-layer-field{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:5px!important;padding:8px!important;border:1px solid #ddd6fe!important;border-radius:10px!important;background:#fff!important;box-sizing:border-box!important}
+  .template-layer-field>label{grid-column:1 / -1!important;margin:0!important;font-size:12px!important;font-weight:700!important;line-height:1.25!important}
+  .template-layer-field>label input[type="text"],.template-layer-field>label textarea,.template-layer-field>label input[type="file"]{width:100%!important;box-sizing:border-box!important;margin-top:4px!important;font-size:14px!important;min-height:38px!important}
+  .template-layer-field>button{width:100%!important;min-height:36px!important;padding:5px 7px!important;font-size:11px!important;font-weight:700!important;margin:0!important}
+  .template-layer-field>button.danger{font-size:11px!important}
+  .template-layer-field>.layer-text-options{grid-column:1 / -1!important;display:grid!important;grid-template-columns:1fr 46px!important;gap:5px!important;align-items:center!important;margin:0!important}
+  .template-layer-field>.layer-text-options input[type="number"]{min-height:34px!important;width:100%!important;box-sizing:border-box!important}
+  .template-layer-field>.layer-text-options input[type="color"]{width:46px!important;height:34px!important;padding:2px!important}
+  .template-layer-field>.layer-tools{grid-column:1 / -1!important;display:none!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;margin-top:2px!important;padding-top:6px!important;border-top:1px dashed #ddd6fe!important}
+  .template-layer-field:focus-within>.layer-tools{display:grid!important}
+  .template-layer-field:focus-within>.layer-text-options{display:grid!important}
+  .template-layer-field>.layer-tools button{min-height:32px!important;padding:4px 3px!important;font-size:10px!important;border-radius:6px!important;white-space:normal!important}
+}
