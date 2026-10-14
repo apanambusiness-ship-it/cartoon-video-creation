@@ -58,21 +58,21 @@ const server = http.createServer((request, response) => {
           }
           const search = page.getByRole('searchbox', { name: 'Search tools', exact: true });
           await search.waitFor({ state: 'visible' });
-          await page.evaluate(() => { window.originalFontControl = document.getElementById('fontFamily'); });
+          await page.evaluate(() => { window.originalFontControl = document.getElementById('apanamEditFont'); });
           const before = await page.locator('.organizer-section').evaluateAll(sections => sections.filter(section => section.open).map(section => section.dataset.title));
           await search.fill('Text');
           await page.waitForFunction(() => [...document.querySelectorAll('.organizer-section')].filter(section => !section.hidden).length > 1);
           await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
           assert(await page.locator('.organizer-section').evaluateAll(sections => sections.filter(section => !section.hidden).every(section => section.open)), 'All matching sections stay expanded during search');
           await search.fill('फ़ॉन्ट');
-          assert(await page.locator('#fontFamily').isVisible(), 'Hindi search finds the real font control');
+          assert(await page.locator('#apanamEditFont').isVisible(), 'Hindi search finds the sidebar font control');
           await search.fill('no-such-tool-7319');
           assert(await page.locator('.organizer-empty').isVisible());
           assert.equal(await page.locator('.organizer-panel:visible').count(), 0, 'Do not leave blank category panels in search results');
           await page.locator('.organizer-clear').click();
           await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
           assert.deepEqual(await page.locator('.organizer-section').evaluateAll(sections => sections.filter(section => section.open).map(section => section.dataset.title)), before, 'Clearing search restores the open sections');
-          assert(await page.evaluate(() => window.originalFontControl === document.getElementById('fontFamily')), 'Keep original inputs and event handlers');
+          assert(await page.evaluate(() => window.originalFontControl === document.getElementById('apanamEditFont')), 'Keep original inputs and event handlers');
           assert.equal(await page.locator('.organizer-nav [aria-pressed=true]').count(), 1);
           if (!mobile) {
             await page.locator('.organizer-nav [data-group=Text]').focus();
