@@ -37,6 +37,7 @@ const server = http.createServer((request, response) => {
             const search = page.locator('#studioMobileActionSearch');
             await search.waitFor({ state: 'visible' });
             await search.fill('प्रमाणपत्र');
+            assert(await page.locator('#studioFloatingText').isHidden(), 'Search should not be covered by the phonetic editor');
             await page.locator('#studioMobileActionGrid [data-action=professionalCertificateOpen]').waitFor({ state: 'visible', timeout: 5000 });
             assert.equal(await page.locator('#studioMobileActionGrid > :visible').count(), 1);
             await search.fill('Font रंग');
@@ -65,6 +66,7 @@ const server = http.createServer((request, response) => {
           await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
           assert(await page.locator('.organizer-section').evaluateAll(sections => sections.filter(section => !section.hidden).every(section => section.open)), 'All matching sections stay expanded during search');
           await search.fill('फ़ॉन्ट');
+          assert(await page.locator('#studioFloatingText').isHidden(), 'Tool search keeps categories and results unobstructed');
           assert(await page.locator('#apanamEditFont').isVisible(), 'Hindi search finds the sidebar font control');
           await search.fill('no-such-tool-7319');
           assert(await page.locator('.organizer-empty').isVisible());

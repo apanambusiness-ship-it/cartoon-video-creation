@@ -8,7 +8,7 @@
   const searchTools=window.APANAM_TOOL_SEARCH;
   const shell=document.createElement('div');shell.className='organizer';
   const nav=document.createElement('nav');nav.className='organizer-nav';nav.setAttribute('aria-label','Editor tools');
-  const search=document.createElement('input');search.type='search';search.placeholder='Tools खोजें · फोटो, Font, रंग';search.setAttribute('aria-label','Search tools');search.setAttribute('aria-describedby','organizerStatus');
+  const search=document.createElement('input');search.type='search';search.dataset.studioToolSearch='1';search.placeholder='Tools खोजें · फोटो, Font, रंग';search.setAttribute('aria-label','Search tools');search.setAttribute('aria-describedby','organizerStatus');
   const feedback=document.createElement('div');feedback.className='organizer-feedback';
   const status=document.createElement('p');status.id='organizerStatus';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
   const clear=document.createElement('button');clear.type='button';clear.className='organizer-clear';clear.textContent='खोज हटाएँ';clear.hidden=true;
