@@ -42,3 +42,20 @@ body.studio-mobile-layout main>aside:not(.right):not(.studio-layers-pane){top:11
   .template-layer-field:focus-within>.layer-text-options{display:grid!important}
   .template-layer-field>.layer-tools button{min-height:32px!important;padding:4px 3px!important;font-size:10px!important;border-radius:6px!important;white-space:normal!important}
 }
+
+/* V2: remove duplicate persistent tool rows. Keep actions contextual in Edit/Layers/Tools. */
+@media(max-width:900px){
+  body.studio-mobile-layout #studioMobilePrimaryActions{display:none!important}
+  body.studio-mobile-layout .studio-selection-actions{display:none!important}
+  body.studio-mobile-layout #studioSelectionBar{min-height:34px!important;margin:4px 0!important;padding:5px 8px!important;box-sizing:border-box!important}
+  body.studio-mobile-layout #studioSelectionBar>div:first-child{min-height:20px!important;font-size:11px!important}
+  body.studio-mobile-layout #studioSelectionBar #studioSelectionName{font-size:12px!important}
+  body.studio-mobile-layout #templateCanvasActions{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;margin:5px 0!important;padding:5px!important;border-radius:10px!important}
+  body.studio-mobile-layout #templateCanvasActions strong,body.studio-mobile-layout #templateCanvasHint{display:none!important}
+  body.studio-mobile-layout #templateCanvasActions button{min-height:38px!important;padding:5px 4px!important;font-size:11px!important;border-radius:7px!important}
+  body.studio-mobile-layout .workspace{padding-bottom:72px!important}
+  body.studio-mobile-layout .apanam-mobile-bar{position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:10000!important;min-height:60px!important;height:60px!important;padding:4px 6px!important;display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:4px!important;background:#fff!important;border-top:1px solid #ddd!important;border-radius:12px 12px 0 0!important}
+  body.studio-mobile-layout .apanam-mobile-bar button{min-height:48px!important;height:48px!important;width:auto!important;min-width:0!important;flex:1 1 0!important;font-size:11px!important;padding:3px 2px!important}
+  body.studio-mobile-layout .apanam-mobile-bar button small{font-size:10px!important}
+  body.studio-mobile-layout .apanam-mobile-bar svg{width:18px!important;height:18px!important}
+}
