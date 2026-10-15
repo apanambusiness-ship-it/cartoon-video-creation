@@ -142,3 +142,6 @@ body.studio-workspace .studio-layers-pane .layer-tools{grid-template-columns:rep
 /* Membership selected nav must stay readable over the purple active fill. */
 body.membership-page #studioMemberNavigation button[aria-current="page"],body.membership-page #studioMemberNavigation button[aria-pressed="true"]{background-color:#552496!important;color:#fff!important;border-color:#421a78!important}
 body.membership-page #studioMemberNavigation button[aria-current="page"] *,body.membership-page #studioMemberNavigation button[aria-pressed="true"] *{color:#fff!important}
+
+/* Preserve text for the labelled AI Chat header action. */
+body .header-utility-actions button#studioSupportOpen{font-size:15px!important}body .header-utility-actions button#studioSupportOpen .support-chat-label{display:inline!important;font-size:15px!important;visibility:visible!important}
