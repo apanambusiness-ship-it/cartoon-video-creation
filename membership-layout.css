@@ -327,3 +327,13 @@
 .member-admin-attention h3{margin:0 0 5px;color:#92400e;font-size:15px}
 .member-admin-attention p{margin:0!important;color:#78350f!important}
 @media(max-width:600px){.member-admin-kpis{grid-template-columns:1fr}}
+
+/* Admin mode: customer purchase controls are not admin operations. */
+.membership-page.member-admin-mode #studioPayments form,
+.membership-page.member-admin-mode #studioPayments #studioPaymentConfirm,
+.membership-page.member-admin-mode #studioAiBalance form,
+.membership-page.member-admin-mode #studioAutoPay form{display:none!important}
+.membership-page.member-admin-mode #studioPayments>p:first-of-type::after{content:" Admin mode में नया customer checkout नहीं बनाया जाएगा; यहाँ payment status और records जाँचें।";font-weight:700;color:#5b21b6}
+.membership-page.member-admin-mode #studioAutoPay>p:first-of-type::after{content:" Admin केवल पुराने mandates की स्थिति देखेगा; नया AutoPay नहीं बनेगा।";font-weight:700;color:#5b21b6}
+.membership-page.member-admin-mode #studioAiBalance>p:first-of-type::after{content:" Admin mode में user top-up controls बंद हैं।";font-weight:700;color:#5b21b6}
+.membership-page.member-admin-mode #studioMemberPlans .plan{border-color:#ddd6fe;background:#faf8ff}
