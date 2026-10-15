@@ -301,3 +301,18 @@
 .membership-page #studioSupport .support-ticket-inline label{display:grid!important;gap:6px!important;font-weight:700!important}
 .membership-page #studioSupport .support-ticket-inline input,
 .membership-page #studioSupport .support-ticket-inline textarea{width:100%!important;box-sizing:border-box!important;margin:0!important}
+
+/* 2026-10-16: polished admin membership account summary. */
+.membership-page.member-admin-mode #studioMemberAccount>h2{font-size:20px!important;line-height:1.25!important;margin:0 0 12px!important;padding:0!important;border:0!important;color:#2e1065!important}
+.membership-page.member-admin-mode #memberSignedIn{padding:12px 14px!important;border:1px solid #ddd6fe!important;background:linear-gradient(135deg,#faf8ff,#f4efff)!important;border-radius:14px!important;box-shadow:0 4px 14px rgba(76,29,149,.06)!important}
+.membership-page.member-admin-mode #memberSignedIn>strong{color:#2e1065!important;font-size:15px!important}
+.membership-page.member-admin-mode #memberSignedInEmail{color:#475569!important;font-weight:600!important}
+.membership-page.member-admin-mode #memberStatus{display:inline-flex!important;align-items:center!important;gap:6px!important;margin:8px 0 12px!important;padding:6px 10px!important;border-radius:999px!important;background:#ecfdf5!important;color:#166534!important;border:1px solid #bbf7d0!important;font-weight:700!important}
+.membership-page.member-admin-mode #memberValidity{display:grid!important;grid-template-columns:minmax(150px,220px) minmax(0,1fr)!important;gap:9px 16px!important;padding:16px!important;margin:0!important;border:1px solid #ede9fe!important;border-radius:14px!important;background:#faf9ff!important}
+.membership-page.member-admin-mode #memberValidity dt{color:#64748b!important;font-weight:600!important}
+.membership-page.member-admin-mode #memberValidity dd{margin:0!important;color:#334155!important;font-weight:600!important}
+.membership-page.member-admin-mode #memberId{margin:12px 0 8px!important;padding:8px 10px!important;border-radius:9px!important;background:#f8fafc!important;color:#64748b!important;font-size:12px!important;overflow-wrap:anywhere!important}
+.membership-page.member-admin-mode #memberCopyId{min-height:38px!important;border-radius:9px!important}
+.membership-page.member-admin-mode #memberVerticalMenu{border-color:#ddd6fe!important;box-shadow:0 10px 28px rgba(76,29,149,.08)!important}
+.membership-page.member-admin-mode #memberVerticalMenu>summary{background:#f5f3ff!important;border-radius:9px!important;margin-bottom:5px!important}
+@media(max-width:600px){.membership-page.member-admin-mode #memberValidity{grid-template-columns:1fr!important;gap:4px!important}.membership-page.member-admin-mode #memberValidity dd{margin:0 0 8px!important}}
