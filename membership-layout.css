@@ -246,3 +246,7 @@
 .membership-page #studioMemberNavigation button[aria-pressed="true"] strong>span:last-child{color:#fff!important}
 .membership-page #studioMemberNavigation button[aria-current="page"] .member-nav-icon,
 .membership-page #studioMemberNavigation button[aria-pressed="true"] .member-nav-icon{background:#45118f!important;color:#fff!important}
+
+.membership-page .member-history-nav{grid-column:1!important;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.membership-page .member-history-nav button{min-height:38px!important;padding:6px 8px!important;border-radius:9px!important;font-weight:700!important}
+@media(max-width:899px){.membership-page .member-history-nav{width:100%;margin:0 0 4px}}
