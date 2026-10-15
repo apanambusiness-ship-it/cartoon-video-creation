@@ -163,3 +163,23 @@
   body:has(>main>.controls) .controls button:nth-of-type(4n){background:#ffedd5;color:#9a3412;border-color:#fdba74}
   body:has(>main>.controls) .controls :is(#add,#export,#preview){background:#5b21b6!important;color:#fff!important;border-color:#4c1d95!important}
 }
+
+
+/* Admin phone layout: navigation and actions stay readable without wasting space. */
+@media(max-width:750px){
+  .admin-header{padding:10px 12px!important;gap:8px!important;align-items:center!important}
+  .admin-header h1{font-size:20px!important;line-height:1.15!important;margin:2px 0!important}
+  .admin-header>a{padding:8px 10px!important;border-radius:9px!important;background:#ede9fe!important;color:#5b21b6!important;text-decoration:none!important;font-weight:700}
+  .admin-main{padding:10px!important;max-width:100%!important}
+  .admin-main>nav{display:flex!important;overflow-x:auto!important;gap:6px!important;padding:5px 0 9px!important;scrollbar-width:none}
+  .admin-main>nav::-webkit-scrollbar{display:none}
+  .admin-main>nav a{flex:0 0 auto!important;padding:8px 10px!important;border-radius:9px!important;background:#f0e9fc!important;color:#4c1d95!important;border:1px solid #d7c5ec!important;text-decoration:none!important;font-size:12px!important;font-weight:700}
+  .admin-main>section{padding:12px!important;margin:9px 0!important;border-radius:12px!important}
+  .admin-main .admin-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+  .admin-main .admin-actions :is(button,a){width:100%!important;min-width:0!important;min-height:42px!important;white-space:normal!important;line-height:1.2!important}
+  .admin-main .admin-actions :is(button,a):nth-child(3n+1){background:#ede9fe!important;color:#5b21b6!important;border-color:#c4b5fd!important}
+  .admin-main .admin-actions :is(button,a):nth-child(3n+2){background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  .admin-main .admin-actions :is(button,a):nth-child(3n){background:#dcfce7!important;color:#166534!important;border-color:#86efac!important}
+  .admin-main :is(input,select,textarea){width:100%!important;max-width:100%!important}
+  .admin-main :is(table,.table-wrap){max-width:100%!important;overflow-x:auto!important}
+}
