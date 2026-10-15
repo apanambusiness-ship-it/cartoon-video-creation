@@ -236,3 +236,13 @@
 .membership-page #studioMemberNavigation .member-nav-icon{flex:0 0 27px}
 .membership-page .admin-main button{height:auto;overflow:visible;text-overflow:clip}
 @media(min-width:900px){.membership-page #studioMemberNavigation button{min-height:46px!important;height:auto!important;padding:8px 9px!important}}
+
+/* Active membership menu: white label on purple selected button. */
+.membership-page #studioMemberNavigation button[aria-current="page"],
+.membership-page #studioMemberNavigation button[aria-pressed="true"]{background:#5b21b6!important;color:#fff!important;border-color:#45118f!important}
+.membership-page #studioMemberNavigation button[aria-current="page"] strong,
+.membership-page #studioMemberNavigation button[aria-pressed="true"] strong,
+.membership-page #studioMemberNavigation button[aria-current="page"] strong>span:last-child,
+.membership-page #studioMemberNavigation button[aria-pressed="true"] strong>span:last-child{color:#fff!important}
+.membership-page #studioMemberNavigation button[aria-current="page"] .member-nav-icon,
+.membership-page #studioMemberNavigation button[aria-pressed="true"] .member-nav-icon{background:#45118f!important;color:#fff!important}
