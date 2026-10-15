@@ -316,3 +316,14 @@
 .membership-page.member-admin-mode #memberVerticalMenu{border-color:#ddd6fe!important;box-shadow:0 10px 28px rgba(76,29,149,.08)!important}
 .membership-page.member-admin-mode #memberVerticalMenu>summary{background:#f5f3ff!important;border-radius:9px!important;margin-bottom:5px!important}
 @media(max-width:600px){.membership-page.member-admin-mode #memberValidity{grid-template-columns:1fr!important;gap:4px!important}.membership-page.member-admin-mode #memberValidity dd{margin:0 0 8px!important}}
+
+/* Admin business dashboard */
+.membership-page #studioAdminOverview{padding:18px!important}
+.member-admin-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.member-admin-kpis article{padding:14px;border:1px solid #e4def1;border-radius:12px;background:#faf8ff}
+.member-admin-kpis strong{display:block;color:#3b176b;font-size:16px;margin-bottom:4px}
+.member-admin-kpis span{display:block;color:#64748b;font-size:13px;line-height:1.45}
+.member-admin-attention{padding:14px;border-radius:12px;border:1px solid #fde68a;background:#fffbeb}
+.member-admin-attention h3{margin:0 0 5px;color:#92400e;font-size:15px}
+.member-admin-attention p{margin:0!important;color:#78350f!important}
+@media(max-width:600px){.member-admin-kpis{grid-template-columns:1fr}}
