@@ -69,3 +69,7 @@ body>header .header-utility-actions #studioSupportOpen{width:auto!important;min-
 .membership-page .support-ticket-item .admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;padding-bottom:8px}
 .membership-page .support-ticket-item .admin-actions button{min-height:44px;padding:10px 16px;margin:0!important}
 .membership-page #memberInlineSupportStatus{margin:10px 0 12px}
+
+/* Admin mode: customer request composer must never render. */
+.membership-page .support-ticket-box.admin-support-mode #memberInlineSupportForm,
+.membership-page .support-ticket-box.admin-support-mode .support-request-intro{display:none!important}
