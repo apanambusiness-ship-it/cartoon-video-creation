@@ -277,3 +277,5 @@
 
 /* Brand label only: slightly larger beside logo. */
 .membership-page .member-brand small{font-size:13px!important;font-weight:700!important;line-height:1.1!important}
+
+.membership-page .header-utility-actions>a[href="index.html"]{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:42px!important;padding:0 16px!important;border-radius:12px!important;background:#f59e0b!important;color:#2e1065!important;border:2px solid #fbbf24!important;font-weight:800!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:0 3px 10px rgba(245,158,11,.28)!important}.membership-page .header-utility-actions>a[href="index.html"]:hover,.membership-page .header-utility-actions>a[href="index.html"]:focus-visible{background:#fbbf24!important;border-color:#fde68a!important}@media(max-width:700px){.membership-page .header-utility-actions>a[href="index.html"]{padding:0 10px!important;font-size:13px!important}}
