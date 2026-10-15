@@ -15,7 +15,7 @@ async function signOut(){const owner=session;try{if(owner)await request('/auth/v
 
 let authLinkError='';
 function authRedirect(){return new URL('membership.html',location.href).href.split('#')[0].split('?')[0];}
-async function resetPasswordEmail(email){return request('/auth/v1/otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,create_user:false})});}
+async function resetPasswordEmail(email){return request('/auth/v1/otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,create_user:false,options:{emailRedirectTo:authRedirect()}})});}
 async function verifyRecoveryOtp(email,token){const value=await request('/auth/v1/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,token,type:'email'})});remember({...value,recovery:true});return value.user;}
 async function resendVerification(email){return request('/auth/v1/resend?redirect_to='+encodeURIComponent(authRedirect()),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,type:'signup'})});}
 async function changeRecoveredPassword(password){if(!session?.recovery)throw Error('पहले email का नया password reset link खोलें।');if(password.length<8)throw Error('कम से कम 8 अक्षर रखें।');const user=await request('/auth/v1/user',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({password})},await access());remember({...session,user,recovery:false});return user;}
