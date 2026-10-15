@@ -34,7 +34,7 @@ function choose(id,{focus=false}={}){
  summary.textContent='विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account');
  if(notice)notice.hidden=registered&&id!=='studioPayments';
  if(window.matchMedia('(max-width:899px)').matches)menu.open=false;
- if(focus){const section=document.getElementById(id);section?.scrollIntoView({block:'start',behavior:'smooth'});section?.querySelector('h2')?.setAttribute('tabindex','-1');section?.querySelector('h2')?.focus({preventScroll:true});if(id==='studioSupport')setTimeout(()=>section?.querySelector('#memberSupportRequestOpen')?.click(),0);}
+ if(focus){const section=document.getElementById(id);section?.scrollIntoView({block:'start',behavior:'smooth'});section?.querySelector('h2')?.setAttribute('tabindex','-1');section?.querySelector('h2')?.focus({preventScroll:true});}
 }
 function render(){
  const existing=new Map([...nav.querySelectorAll('button[data-target]')].map(b=>[b.dataset.target,b]));
