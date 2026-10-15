@@ -31,6 +31,10 @@ jobs:
         run: npm install --no-save --package-lock=false playwright@1.55.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Check organized tools and bilingual search
+        run: |
+          node tests/tool-search-regression.cjs
+          node tests/tool-organization-browser.cjs
       - name: Check account deletion request controls
         run: node tests/account-deletion-browser.cjs
       - name: Check support and admin diagnostics

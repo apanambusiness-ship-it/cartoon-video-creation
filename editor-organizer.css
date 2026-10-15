@@ -9,6 +9,12 @@ main>aside.right{display:none!important}
 .organizer>input{width:100%;padding:8px 10px;border:1px solid #ccd3dd;border-radius:8px;flex:none;background:#fff}
 .organizer-panels{min-height:0;overflow:auto;flex:1}
 .organizer-panel[hidden],.organizer-section[hidden]{display:none!important}
+.organizer-feedback{display:flex;align-items:center;gap:6px;min-width:0;flex:none}
+.organizer-feedback p{flex:1;min-width:0;margin:0;font-size:12px;line-height:1.5;color:#4b4165}
+.organizer-feedback .organizer-clear{flex:none;width:auto;min-height:32px;padding:5px 8px;margin:0;font-size:12px}
+.organizer-group-label{font-size:12px;font-weight:700;margin:9px 0 6px;color:#4c1d95}
+.organizer-empty{padding:14px;border:1px dashed #b9a5d9;border-radius:9px;background:#faf7ff;line-height:1.6;font-size:13px}
+.organizer :is(.organizer-clear,.organizer-empty,.organizer-group-label)[hidden]{display:none!important}
 .organizer-section{border:1px solid #e1e4ed;border-radius:10px;margin:0 0 9px;padding:0 9px;background:#fff;overflow:hidden}
 .organizer-section[open]{padding-bottom:10px;border-color:#c4b5fd;box-shadow:0 4px 14px #4c1d9510}
 .organizer-section>summary{font-weight:700;cursor:pointer;padding:12px 2px;color:#4c1d95;list-style-position:inside}

@@ -1,5 +1,12 @@
 # Browser regression checks
 
+## Organized editor tools
+
+`node tests/tool-search-regression.cjs` checks the shared Hindi/English search without a browser. `node tests/tool-organization-browser.cjs` uses Playwright to check both poster entry points at 320, 390, 768 and 1280 px: matching sections stay open, Hindi queries reach the sidebar controls, clearing restores the previous sections, mobile results open the original tools, empty states are visible, keyboard category navigation works, and the page does not overflow horizontally. External service calls are stubbed; this is an interface check, not a live login or payment test.
+
+The mobile parity regression expects the current compact **two-row selection bar**: the layer label above one row of action buttons. It checks the rows do not overlap and remain bounded. Menu icons must not alter accessible button names, and Certificate/Visiting Card each have one entry in the shared tools menu.
+
+
 Install Playwright in your development environment and its Chromium browser, then run:
 
 ```sh
