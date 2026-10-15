@@ -23,6 +23,10 @@ const menu=document.createElement('details');menu.id='memberVerticalMenu';menu.c
 const summary=document.createElement('summary');summary.textContent='विकल्प चुनें';
 const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
 menu.append(summary,nav);root.prepend(menu);
+const historyNav=document.createElement('div');historyNav.className='member-history-nav';historyNav.innerHTML='<button type="button" data-back aria-label="पिछले पेज पर जाएँ">← पीछे</button><button type="button" data-forward aria-label="अगले पेज पर जाएँ">आगे →</button>';
+menu.after(historyNav);
+historyNav.querySelector('[data-back]').onclick=()=>history.back();
+historyNav.querySelector('[data-forward]').onclick=()=>history.forward();
 const notice=root.querySelector('.admin-notice');
 let current='',registered=false,manualMenu=false;
 function available(id){const section=document.getElementById(id);return !!section&&section.parentElement===root&&(registered||id==='studioMemberAccount'||id==='studioPayments');}
