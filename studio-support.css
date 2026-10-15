@@ -31,3 +31,17 @@ body.membership-page dialog#studioSupportDialog.ticket-only .support-body>p,body
 
 /* Header AI Chat is a normal labelled action; compact icon-only mode removed. */
 body>header .header-utility-actions #studioSupportOpen{width:auto!important;min-width:108px!important;padding:0 12px!important;font-size:15px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important}body>header .header-utility-actions #studioSupportOpen::before{content:none!important}
+
+/* Membership inline support form polish */
+.membership-page #studioSupport .support-ticket-inline{margin-top:18px;padding:18px 20px 20px;border:1px solid #ddd6fe;border-radius:14px;background:#faf9ff;overflow:visible}
+.membership-page #studioSupport .support-ticket-inline h3{margin:0 0 14px;color:#35145e;font-size:18px}
+.membership-page #memberInlineSupportForm{display:grid;gap:14px}
+.membership-page #memberInlineSupportForm label{display:grid;gap:7px;font-size:15px;font-weight:700;color:#35145e}
+.membership-page #memberInlineSupportForm input,.membership-page #memberInlineSupportForm textarea{width:100%;min-width:0;max-width:100%;box-sizing:border-box;border:1px solid #b8a8d6;border-radius:10px;background:#fff;color:#172033;padding:11px 13px;font:16px/1.45 sans-serif;outline:none}
+.membership-page #memberInlineSupportForm input:focus,.membership-page #memberInlineSupportForm textarea:focus{border-color:#6d28d9;box-shadow:0 0 0 3px #ede9fe}
+.membership-page #memberInlineSupportForm textarea{min-height:112px;resize:vertical}
+.membership-page #memberInlineSupportForm button{justify-self:start;min-height:44px;border:0;border-radius:10px;padding:10px 18px;background:#5b21b6;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.membership-page #memberInlineSupportForm button:hover{background:#4c1d95}
+.membership-page #memberInlineSupportStatus{margin:10px 0 0;font-size:14px}
+.membership-page #memberInlineSupportList{display:grid;gap:10px;margin-top:10px}
+@media(max-width:600px){.membership-page #studioSupport .support-ticket-inline{padding:14px;margin-top:14px}.membership-page #memberInlineSupportForm button{width:100%}}
