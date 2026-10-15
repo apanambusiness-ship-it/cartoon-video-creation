@@ -1,8 +1,8 @@
 (()=>{'use strict';
 const config=window.APANAM_CLOUD_CONFIG;if(!config?.url||!config?.key)return;
 const KEY='apanam-studio-cloud-session-v1';let session=null,refreshing=null;const versions={};
-try{session=JSON.parse(sessionStorage.getItem(KEY)||'null')}catch{}
-function remember(value){session=value;try{if(value)sessionStorage.setItem(KEY,JSON.stringify(value));else sessionStorage.removeItem(KEY)}catch{}document.dispatchEvent(new Event('apanam-cloud-session'));}
+try{session=JSON.parse(localStorage.getItem(KEY)||sessionStorage.getItem(KEY)||'null')}catch{}
+function remember(value){session=value;try{if(value){localStorage.setItem(KEY,JSON.stringify(value));sessionStorage.setItem(KEY,JSON.stringify(value));}else{localStorage.removeItem(KEY);sessionStorage.removeItem(KEY);}}catch{}document.dispatchEvent(new Event('apanam-cloud-session'));}
 
 function serviceFor(path){return path.includes('/auth/')?'auth':path.includes('subscriptions')?'subscriptions':path.includes('payments')?'payments':path.includes('voice')?'voice':path.includes('studio-support')?'support':path.includes('/storage/')?'storage':path.includes('ai_')?'ai':path.includes('business')?'cloud':'database';}
 function recordFailure(path,code,owner){if(path.includes('studio-diagnostics')||!owner||owner!==session?.user?.id)return;document.dispatchEvent(new CustomEvent('apanam-service-error',{detail:{service:serviceFor(path),code}}));}
