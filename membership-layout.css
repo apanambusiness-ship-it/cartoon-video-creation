@@ -327,22 +327,3 @@
 .member-admin-attention h3{margin:0 0 5px;color:#92400e;font-size:15px}
 .member-admin-attention p{margin:0!important;color:#78350f!important}
 @media(max-width:600px){.member-admin-kpis{grid-template-columns:1fr}}
-
-/* 2026-10-16: complete Admin Control Panel structure */
-.membership-page.member-admin-mode .admin-notice{display:none!important}
-.membership-page .admin-structure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
-.membership-page .admin-structure-grid article{min-width:0;padding:15px;border:1px solid #e5def0;border-radius:13px;background:linear-gradient(145deg,#fff,#faf8ff);box-shadow:0 3px 12px rgba(76,29,149,.04)}
-.membership-page .admin-structure-grid h3{margin:0 0 5px;color:#3b176b;font-size:15px}
-.membership-page .admin-structure-grid p{margin:0!important;color:#64748b!important;font-size:13px!important}
-.membership-page.member-admin-mode #studioAdminOverview,
-.membership-page.member-admin-mode #studioAdminUsers,
-.membership-page.member-admin-mode #studioAdminMemberships,
-.membership-page.member-admin-mode #studioAdminPayments,
-.membership-page.member-admin-mode #studioAdminPaymentHistory,
-.membership-page.member-admin-mode #studioAdminPlans,
-.membership-page.member-admin-mode #studioAdminAiCost,
-.membership-page.member-admin-mode #studioAdminAutoPay,
-.membership-page.member-admin-mode #studioAdminSupport,
-.membership-page.member-admin-mode #studioAdminSettings,
-.membership-page.member-admin-mode #studioAdminActivity{grid-column:2!important;grid-row:2!important}
-@media(max-width:899px){.membership-page .admin-structure-grid{grid-template-columns:1fr}.membership-page.member-admin-mode #studioAdminOverview,.membership-page.member-admin-mode #studioAdminUsers,.membership-page.member-admin-mode #studioAdminMemberships,.membership-page.member-admin-mode #studioAdminPayments,.membership-page.member-admin-mode #studioAdminPaymentHistory,.membership-page.member-admin-mode #studioAdminPlans,.membership-page.member-admin-mode #studioAdminAiCost,.membership-page.member-admin-mode #studioAdminAutoPay,.membership-page.member-admin-mode #studioAdminSupport,.membership-page.member-admin-mode #studioAdminSettings,.membership-page.member-admin-mode #studioAdminActivity{width:100%}}
