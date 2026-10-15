@@ -19,6 +19,7 @@ const userGroups=[
  ['studioSupport','सहायता','Payment या refund समस्या']
 ];
 const adminGroups=[
+ ['studioAdminOverview','Dashboard','Business overview और जरूरी actions'],
  ['studioMemberAccount','Admin Account','Admin login और profile'],
  ['studioPayments','भुगतान','सभी payment operations'],
  ['studioBusinessMember','Memberships','सदस्यता और expiry नियंत्रण'],
@@ -76,7 +77,7 @@ async function detectRole(){
  groups=adminMode?adminGroups:userGroups;
  document.body.classList.toggle('member-admin-mode',adminMode);
  render();
- if(adminMode&&current==='accountDeletion')choose('studioMemberAccount');
+ if(adminMode&&(current==='accountDeletion'||current==='studioMemberAccount'))choose('studioAdminOverview');
 }
 render();Promise.resolve(window.APANAM_CLOUD?.authReady).then(detectRole);if(hasOrder&&available('studioPayments'))choose('studioPayments');
 const desktop=window.matchMedia('(min-width:900px)');
