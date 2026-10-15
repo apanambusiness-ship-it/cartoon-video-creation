@@ -261,3 +261,5 @@
 .membership-page .admin-header>div:first-child{gap:10px!important;margin:0!important}
 .membership-page .admin-header h1{margin:1px 0 0!important;line-height:1.05!important}
 .membership-page .admin-header .header-utility-actions{margin-left:auto!important;gap:8px!important}
+
+.membership-page .admin-header{display:flex!important;align-items:center!important;min-height:68px!important;padding-top:6px!important;padding-bottom:6px!important}.membership-page .member-brand{display:flex!important;align-items:center!important;gap:9px!important}.membership-page .member-brand>img{display:block!important;width:48px!important;height:48px!important;object-fit:contain!important;flex:0 0 48px!important}.membership-page .member-brand>div{display:block!important}.membership-page .header-utility-actions{display:flex!important;align-items:center!important;gap:8px!important;margin-left:auto!important}.membership-page .header-utility-actions .apanam-history-nav{order:99!important}
