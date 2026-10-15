@@ -227,7 +227,7 @@
 .membership-page #studioSupportOpen{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#35145e;border:1px solid #c4b5fd;font-weight:700}
 .membership-page #studioSupportOpen svg{width:19px;height:19px;flex:none;color:#5b21b6}
 .membership-page #studioSupportOpen::before{content:none!important}
-@media(max-width:700px){.membership-page #studioSupportOpen{gap:0}.membership-page #studioSupportOpen span{display:none}}
+@media(max-width:700px){.membership-page #studioSupportOpen{gap:7px}}
 
 /* 2026-10-15: prevent membership button labels from clipping at browser zoom/font scaling. */
 .membership-page #studioMemberNavigation button{height:auto!important;min-height:46px!important;overflow:visible!important;white-space:normal!important;padding:8px 10px!important}
