@@ -264,3 +264,7 @@
 .membership-page #studioSupportOpen{width:auto!important;min-width:106px!important;height:42px!important;min-height:42px!important;padding:0 12px!important}
 .membership-page .apanam-history-nav button{width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important}
 @media(max-width:700px){.membership-page .admin-header{padding:5px 10px!important;min-height:58px!important}.membership-page .member-brand h1{font-size:20px!important}.membership-page .member-brand small{font-size:10px!important}.membership-page .header-utility-actions{gap:4px!important}}
+
+/* Membership header: keep AI Chat label visible without changing layout. */
+.membership-page #studioSupportOpen{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;width:auto!important;min-width:112px!important;height:42px!important;min-height:42px!important;padding:0 13px!important;font-size:15px!important;white-space:nowrap!important;overflow:visible!important;color:#35145e!important}
+@media(max-width:700px){.membership-page #studioSupportOpen{min-width:96px!important;padding:0 10px!important;font-size:14px!important}}
