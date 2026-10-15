@@ -37,6 +37,13 @@ const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setA
 menu.append(summary,nav);root.prepend(menu);
 const notice=root.querySelector('.admin-notice');
 let adminMode=false;
+function adminize(){
+ if(!adminMode)return;
+ const copy={studioMemberAccount:['Admin Account','Admin login, profile और security'],studioBusinessMember:['Memberships','सदस्यता और expiry control'],studioPayments:['Payments','Live payment operations'],studioOwnPayments:['Payment History','Transaction records और receipts'],studioMemberPlans:['Plans','Registration और membership plans'],studioAiBalance:['AI Cost','AI usage, balance और लागत'],studioAutoPay:['Legacy AutoPay','पुराने mandates'],studioSupport:['Support Requests','Tickets, reply और resolve']};
+ for(const [id,[title]] of Object.entries(copy)){const s=document.getElementById(id);if(!s)continue;const h=s.querySelector(':scope>h2');if(h)h.textContent=title;}
+ const support=document.getElementById('studioSupport');if(support){const p=support.querySelector(':scope>p');if(p)p.textContent='Users के Support Requests देखें, जवाब Save करें और ticket को Resolved या Open करें।';}
+ const plans=document.getElementById('studioMemberPlans');if(plans){const h=plans.querySelector(':scope>h2');if(h)h.textContent='Plans';}
+}
 let current='',registered=false,manualMenu=false;
 function available(id){const section=document.getElementById(id);return !!section&&section.parentElement===root;}
 function choose(id,{focus=false}={}){
@@ -76,6 +83,7 @@ async function detectRole(){
  try{adminMode=!!(window.APANAM_CLOUD?.user()&&await window.APANAM_CLOUD.isAdmin());}catch{adminMode=false;}
  groups=adminMode?adminGroups:userGroups;
  document.body.classList.toggle('member-admin-mode',adminMode);
+ adminize();
  render();
  if(adminMode&&(current==='accountDeletion'||current==='studioMemberAccount'))choose('studioAdminOverview');
 }
