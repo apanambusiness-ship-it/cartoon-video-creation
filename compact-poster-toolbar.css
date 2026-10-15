@@ -128,3 +128,72 @@ body>header .actions #apanamSafetyButton{background:#d1fae5!important;color:#065
   #apanamTextBar #apanamPhoneticInput{grid-column:4 / span 8!important;grid-row:3!important;width:100%!important;min-width:0!important;max-width:none!important;height:30px!important;font-size:12px!important}
   #apanamTextBar #apanamPhoneticPreviewFinal{grid-column:1 / -1!important;grid-row:4!important}
 }
+
+
+/* Mobile Studio toolbar polish: compact widths, no clipped controls, clearer colors. */
+@media (max-width:700px){
+  #apanamCompactTools{overflow:visible!important}
+  #apanamCompactTools .apanam-strip{
+    min-height:40px!important;
+    height:auto!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    align-items:center!important;
+    padding:4px 6px!important;
+    gap:5px!important;
+  }
+  #apanamCompactTools .apanam-strip > button,
+  #apanamCompactTools .apanam-strip > select,
+  #apanamCompactTools .apanam-strip > input,
+  #apanamCompactTools .apanam-strip > .apanam-inline-control{
+    flex:0 0 auto!important;
+    width:auto!important;
+    max-width:132px!important;
+    min-width:0!important;
+    height:34px!important;
+    min-height:34px!important;
+    box-sizing:border-box!important;
+    white-space:nowrap!important;
+  }
+  #apanamCompactTools .apanam-strip:first-child > button:not(.apanam-next){
+    min-width:64px!important;
+    max-width:112px!important;
+    padding:4px 9px!important;
+  }
+  #apanamCompactTools .apanam-strip:nth-child(2) > button:not(.apanam-next){
+    min-width:58px!important;
+    max-width:108px!important;
+  }
+  #apanamCompactTools .apanam-strip:nth-child(2) > select{
+    min-width:84px!important;
+    max-width:118px!important;
+    text-overflow:ellipsis!important;
+  }
+  #apanamCompactTools #apanamTypingLanguage{min-width:96px!important;max-width:118px!important}
+  #apanamCompactTools #fontFamily{min-width:88px!important;max-width:112px!important}
+  #apanamCompactTools #apanamRomanInput{width:118px!important;min-width:118px!important;max-width:118px!important;flex:0 0 118px!important}
+  #apanamCompactTools .apanam-inline-control{
+    max-width:118px!important;
+    padding:3px 6px!important;
+  }
+  #apanamCompactTools .apanam-inline-control input[type=range]{width:62px!important}
+  #apanamCompactTools .apanam-next{
+    flex:0 0 36px!important;
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+  }
+
+  /* Keep all compact actions visually distinct and readable. */
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(1){background:#ede9fe!important;color:#5b21b6!important;border-color:#c4b5fd!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(2){background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(3){background:#ffedd5!important;color:#c2410c!important;border-color:#fdba74!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(4){background:#d1fae5!important;color:#047857!important;border-color:#6ee7b7!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(5){background:#fce7f3!important;color:#be185d!important;border-color:#f9a8d4!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(6){background:#fef3c7!important;color:#92400e!important;border-color:#fcd34d!important}
+  #apanamCompactTools .apanam-strip:first-child > button:nth-child(7){background:#cffafe!important;color:#0e7490!important;border-color:#67e8f9!important}
+  #apanamCompactTools .apanam-strip:nth-child(2) > button:nth-of-type(1){background:#fef3c7!important;color:#92400e!important;border-color:#fcd34d!important}
+  #apanamCompactTools .apanam-strip:nth-child(2) > button:nth-of-type(2){background:#ede9fe!important;color:#5b21b6!important;border-color:#c4b5fd!important}
+  #apanamCompactTools .apanam-strip:nth-child(2) > button:nth-of-type(3){background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  #apanamCompactTools .apanam-strip:nth-child(2) > select{background:#f8fafc!important;color:#334155!important;border-color:#cbd5e1!important}
+}
