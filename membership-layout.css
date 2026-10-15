@@ -274,3 +274,6 @@
 
 /* Slightly rounded AI Chat button only. */
 .membership-page #studioSupportOpen{border-radius:12px!important}
+
+/* Brand label only: slightly larger beside logo. */
+.membership-page .member-brand small{font-size:13px!important;font-weight:700!important;line-height:1.1!important}
