@@ -93,3 +93,73 @@
   body.studio-mobile-layout #studioMobileActionGrid a{min-height:48px!important}
   body.studio-mobile-layout>footer{flex:0 0 auto;padding:5px 8px!important;font-size:10px!important;line-height:1.25;white-space:nowrap;overflow-x:auto;background:#fff;border-top:1px solid #ebe2f2}
 }
+
+
+/* 2026-10-15 unified phone polish: compact, colorful, no clipping. */
+@media (max-width:900px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body.studio-mobile-layout :is(button,a,summary,select,input){box-sizing:border-box}
+  body.studio-mobile-layout #studioMobilePageNav{
+    position:sticky!important;top:0;z-index:9990;
+    padding:4px 6px!important;background:#fff!important;border-bottom:1px solid #e5dcef!important;
+  }
+  body.studio-mobile-layout #studioMobilePageNav>*{
+    overflow:hidden!important;text-overflow:ellipsis!important;
+    border-radius:10px!important;border:1px solid #d7c5ec!important;
+  }
+  body.studio-mobile-layout #studioMobilePageNav>*:nth-child(1){background:#ede9fe!important;color:#5b21b6!important}
+  body.studio-mobile-layout #studioMobilePageNav>*:nth-child(2){background:#dcfce7!important;color:#166534!important}
+  body.studio-mobile-layout #studioMobilePageNav>*:nth-child(3){background:#dbeafe!important;color:#1d4ed8!important}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child{
+    display:flex!important;overflow-x:auto!important;overflow-y:hidden!important;
+    scroll-snap-type:x proximity;scrollbar-width:none!important;padding:4px 6px!important;gap:5px!important;
+  }
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child::-webkit-scrollbar{display:none}
+  body.studio-mobile-layout #apanamCompactTools .apanam-strip:first-child>button{
+    flex:0 0 auto!important;width:auto!important;min-width:66px!important;max-width:116px!important;
+    padding:4px 8px!important;overflow:hidden!important;text-overflow:ellipsis!important;scroll-snap-align:start;
+  }
+  body.studio-mobile-layout #apanamCompactTools #studioMobileTyping{min-width:72px!important;max-width:88px!important}
+  body.studio-mobile-layout #apanamCompactTools #studioMobileCreateMore{min-width:54px!important;max-width:68px!important}
+  body.studio-mobile-layout #studioSelectionBar{max-height:none!important;overflow:visible!important}
+  body.studio-mobile-layout #studioSelectionBar .studio-selection-actions{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  body.studio-mobile-layout #studioSelectionBar .studio-selection-actions :is(button,summary){
+    overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;
+  }
+  body.studio-mobile-layout #studioMobileActionGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body.studio-mobile-layout #studioMobileActionGrid :is(button,a){
+    width:100%!important;min-width:0!important;max-width:none!important;overflow:hidden!important;
+    text-overflow:ellipsis!important;border-radius:11px!important;
+  }
+  body.studio-mobile-layout #studioMobileActionTabs{
+    display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%!important;
+  }
+  body.studio-mobile-layout #studioMobileActionTabs button{min-width:0!important;width:100%!important;padding:7px 3px!important}
+  body.studio-mobile-layout .apanam-mobile-bar{padding-bottom:max(4px,env(safe-area-inset-bottom))!important}
+  body.studio-mobile-layout .apanam-mobile-bar button{overflow:hidden!important;text-overflow:ellipsis!important}
+  body.studio-mobile-layout #stageWrap{max-width:100%!important;overflow:auto!important}
+  body.studio-mobile-layout :is(dialog,#studioMobileSheet){max-width:calc(100vw - 16px)!important}
+}
+@media(max-width:420px){
+  body.studio-mobile-layout #studioMobileActionGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
+  body.studio-mobile-layout #studioMobileActionGrid :is(button,a){min-height:44px!important;font-size:11px!important;padding:7px!important}
+  body.studio-mobile-layout #studioMobilePageNav>*{font-size:10px!important}
+}
+
+/* Shared compact polish for supporting pages loaded on phones. */
+@media(max-width:750px){
+  body:not(.studio-mobile-layout) :is(button,.admin-actions a,.backup-label){
+    border-radius:10px!important;min-height:40px;
+  }
+  body:not(.studio-mobile-layout) main{max-width:100%;overflow-x:hidden}
+  body:not(.studio-mobile-layout) :is(input,select,textarea){max-width:100%;box-sizing:border-box}
+  body:has(>main>.controls) .controls .pair{gap:7px!important}
+  body:has(>main>.controls) .controls .pair>*{min-width:0!important}
+  body:has(>main>.controls) .controls button:nth-of-type(4n+1){background:#ede9fe;color:#5b21b6;border-color:#c4b5fd}
+  body:has(>main>.controls) .controls button:nth-of-type(4n+2){background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}
+  body:has(>main>.controls) .controls button:nth-of-type(4n+3){background:#dcfce7;color:#166534;border-color:#86efac}
+  body:has(>main>.controls) .controls button:nth-of-type(4n){background:#ffedd5;color:#9a3412;border-color:#fdba74}
+  body:has(>main>.controls) .controls :is(#add,#export,#preview){background:#5b21b6!important;color:#fff!important;border-color:#4c1d95!important}
+}
