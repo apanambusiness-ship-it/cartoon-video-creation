@@ -138,3 +138,7 @@ body.studio-workspace .studio-layers-pane .layer-tools{grid-template-columns:rep
    font-size:12px!important;
  }
 }
+
+/* Membership selected nav must stay readable over the purple active fill. */
+body.membership-page #studioMemberNavigation button[aria-current="page"],body.membership-page #studioMemberNavigation button[aria-pressed="true"]{background-color:#552496!important;color:#fff!important;border-color:#421a78!important}
+body.membership-page #studioMemberNavigation button[aria-current="page"] *,body.membership-page #studioMemberNavigation button[aria-pressed="true"] *{color:#fff!important}
