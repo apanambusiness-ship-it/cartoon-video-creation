@@ -51,7 +51,7 @@ function render(){
  if(!available(current))choose(registered&&available('studioBusinessMember')?'studioBusinessMember':'studioMemberAccount');
  else choose(current);
 }
-nav.addEventListener('click',e=>{const button=e.target.closest('button[data-target]');if(button&&!button.hidden)choose(button.dataset.target,{focus:true});});
+nav.addEventListener('click',e=>{const button=e.target.closest('button[data-target]');if(!button||button.hidden)return;e.preventDefault();e.stopPropagation();if(button.dataset.target==='studioSupport'){document.getElementById('studioSupportDialog')?.close();}choose(button.dataset.target,{focus:true});});
 menu.addEventListener('toggle',()=>{manualMenu=true;});
 document.addEventListener('apanam-registration-status',e=>{registered=!!e.detail?.registered;document.body.classList.toggle('member-registered',registered);render();});
 document.addEventListener('apanam-cloud-session',()=>{if(!window.APANAM_CLOUD?.user()){registered=false;document.body.classList.remove('member-registered');choose('studioMemberAccount');render();}});
