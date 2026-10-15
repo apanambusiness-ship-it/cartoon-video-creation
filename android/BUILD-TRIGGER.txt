@@ -1,0 +1,3 @@
+APANAMai Studio Android test APK build trigger
+Updated: 2026-10-15
+Purpose: trigger studio-android-test.yml after login-gate and mobile UI updates.
