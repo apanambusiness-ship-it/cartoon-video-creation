@@ -268,3 +268,6 @@
 /* Membership header: keep AI Chat label visible without changing layout. */
 .membership-page #studioSupportOpen{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;width:auto!important;min-width:112px!important;height:42px!important;min-height:42px!important;padding:0 13px!important;font-size:15px!important;white-space:nowrap!important;overflow:visible!important;color:#35145e!important}
 @media(max-width:700px){.membership-page #studioSupportOpen{min-width:96px!important;padding:0 10px!important;font-size:14px!important}}
+
+/* AI Chat label only: do not alter header geometry. */
+.membership-page #studioSupportOpen .support-chat-icon,.membership-page #studioSupportOpen .support-chat-label{display:inline!important;visibility:visible!important;opacity:1!important}.membership-page #studioSupportOpen .support-chat-label{font-size:15px!important;font-weight:700!important;color:#35145e!important;white-space:nowrap!important}
