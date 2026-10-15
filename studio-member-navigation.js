@@ -20,17 +20,14 @@ const userGroups=[
 ];
 const adminGroups=[
  ['studioAdminOverview','Dashboard','Business overview और जरूरी actions'],
- ['studioMemberAccount','Admin Account','Admin login, profile और security'],
- ['studioAdminUsers','Users','Users, profile और search'],
- ['studioAdminMemberships','Memberships','Active, expiry और access control'],
- ['studioAdminPayments','Payments','Live, pending, failed और refund'],
- ['studioAdminPaymentHistory','Payment History','Transaction ledger और filters'],
- ['studioAdminPlans','Plans','Price, duration और availability'],
- ['studioAdminAiCost','AI Cost','Provider cost, usage और margin'],
- ['studioAdminAutoPay','Legacy AutoPay','पुराने mandates का control'],
- ['studioAdminSupport','Support Requests','Tickets, reply और resolve'],
- ['studioAdminSettings','Settings','Business और system settings'],
- ['studioAdminActivity','Activity & Security','Admin activity और security log']
+ ['studioMemberAccount','Admin Account','Admin login और profile'],
+ ['studioBusinessMember','Memberships','सदस्यता और expiry नियंत्रण'],
+ ['studioPayments','Payments','Live payment operations'],
+ ['studioOwnPayments','Payment History','भुगतान और receipts'],
+ ['studioMemberPlans','Plans','₹10 / ₹100 plan जानकारी'],
+ ['studioAiBalance','AI Cost','AI balance, usage और लागत'],
+ ['studioAutoPay','Legacy AutoPay','पुराने mandate की स्थिति'],
+ ['studioSupport','Support Requests','User tickets, reply और resolve']
 ];
 let groups=userGroups;
 const icons={studioAdminOverview:'▦',studioMemberAccount:'●',studioAdminUsers:'♙',studioAdminMemberships:'◆',studioAdminPayments:'₹',studioAdminPaymentHistory:'▤',studioAdminPlans:'≡',studioAdminAiCost:'✦',studioAdminAutoPay:'↻',studioAdminSupport:'?',studioAdminSettings:'⚙',studioAdminActivity:'✓',studioPayments:'₹',studioBusinessMember:'▦',studioOwnPayments:'▤',studioMemberPlans:'≡',studioAiBalance:'✦',studioAutoPay:'↻',accountDeletion:'⚙',studioSupport:'?'};
