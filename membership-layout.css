@@ -250,3 +250,7 @@
 .membership-page .member-history-nav{grid-column:1!important;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
 .membership-page .member-history-nav button{min-height:38px!important;padding:6px 8px!important;border-radius:9px!important;font-weight:700!important}
 @media(max-width:899px){.membership-page .member-history-nav{width:100%;margin:0 0 4px}}
+
+/* Keep membership content compact after global history controls. */
+.membership-page .admin-main{margin-top:0!important;padding-top:0!important}
+.membership-page .member-vertical-menu{margin-top:0!important}
