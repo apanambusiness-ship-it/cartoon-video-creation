@@ -183,3 +183,45 @@
   .admin-main :is(input,select,textarea){width:100%!important;max-width:100%!important}
   .admin-main :is(table,.table-wrap){max-width:100%!important;overflow-x:auto!important}
 }
+
+
+/* Final phone interaction pass: reachable controls, clear tap targets, no accidental page overflow. */
+@media(max-width:900px){
+  body.studio-mobile-layout{padding-bottom:calc(64px + env(safe-area-inset-bottom))!important}
+  body.studio-mobile-layout :is(button,a,summary,[role=button]){touch-action:manipulation}
+  body.studio-mobile-layout #studioMobileSheet{
+    overscroll-behavior:contain!important;
+    padding-bottom:max(12px,env(safe-area-inset-bottom))!important;
+  }
+  body.studio-mobile-layout #studioMobileSheet .mobile-sheet-heading{
+    position:sticky!important;top:0!important;z-index:4!important;background:#fff!important;
+  }
+  body.studio-mobile-layout #mobileSheetClose{
+    min-width:72px!important;min-height:36px!important;background:#fff0f1!important;color:#92283d!important;border-color:#eab9c4!important;
+  }
+  body.studio-mobile-layout #studioMobileAddRow{
+    display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;
+  }
+  body.studio-mobile-layout #studioMobileAddRow button{
+    min-width:0!important;width:100%!important;min-height:42px!important;padding:5px!important;white-space:normal!important;line-height:1.15!important;
+  }
+  body.studio-mobile-layout #studioMobileAddRow button:nth-child(1){background:#ede9fe!important;color:#5b21b6!important;border-color:#c4b5fd!important}
+  body.studio-mobile-layout #studioMobileAddRow button:nth-child(2){background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  body.studio-mobile-layout #studioMobileAddRow button:nth-child(3){background:#dcfce7!important;color:#166534!important;border-color:#86efac!important}
+  body.studio-mobile-layout .mobile-guide-steps{
+    display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;
+  }
+  body.studio-mobile-layout .mobile-guide-steps button{
+    width:100%!important;min-width:0!important;min-height:38px!important;padding:4px!important;font-size:10px!important;white-space:normal!important;line-height:1.15!important;
+  }
+  body.studio-mobile-layout .mobile-guide-steps button:nth-child(1){background:#ede9fe!important;color:#5b21b6!important}
+  body.studio-mobile-layout .mobile-guide-steps button:nth-child(2){background:#dbeafe!important;color:#1d4ed8!important}
+  body.studio-mobile-layout .mobile-guide-steps button:nth-child(3){background:#dcfce7!important;color:#166534!important}
+  body.studio-mobile-layout .mobile-finish-grid{
+    display:grid!important;grid-template-columns:1fr!important;gap:8px!important;
+  }
+  body.studio-mobile-layout .mobile-finish-grid button{min-height:46px!important;border-radius:11px!important;font-weight:750!important}
+  body.studio-mobile-layout .mobile-finish-grid button:nth-child(1){background:#dcfce7!important;color:#166534!important;border-color:#86efac!important}
+  body.studio-mobile-layout .mobile-finish-grid button:nth-child(2){background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  body.studio-mobile-layout .mobile-finish-grid button:nth-child(3){background:#5b21b6!important;color:#fff!important;border-color:#4c1d95!important}
+}
