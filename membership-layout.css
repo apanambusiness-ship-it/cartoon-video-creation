@@ -251,25 +251,16 @@
 .membership-page .member-history-nav button{min-height:38px!important;padding:6px 8px!important;border-radius:9px!important;font-weight:700!important}
 @media(max-width:899px){.membership-page .member-history-nav{width:100%;margin:0 0 4px}}
 
-/* Keep membership content compact after global history controls. */
-.membership-page .admin-main{margin-top:0!important;padding-top:0!important}
+/* Membership final header and content layout. */
+.membership-page .admin-main{margin-top:0!important;padding-top:12px!important}
 .membership-page .member-vertical-menu{margin-top:0!important}
-
-/* Compact membership header: tighter logo/title spacing. */
-.membership-page .admin-header{min-height:72px!important;padding:7px max(16px,calc((100vw - 1160px)/2))!important;gap:14px!important}
-.membership-page .admin-header img{width:54px!important;height:54px!important;object-fit:contain!important;margin:0!important}
-.membership-page .admin-header>div:first-child{gap:10px!important;margin:0!important}
-.membership-page .admin-header h1{margin:1px 0 0!important;line-height:1.05!important}
-.membership-page .admin-header .header-utility-actions{margin-left:auto!important;gap:8px!important}
-
-.membership-page .admin-header{display:flex!important;align-items:center!important;min-height:68px!important;padding-top:6px!important;padding-bottom:6px!important}.membership-page .member-brand{display:flex!important;align-items:center!important;gap:9px!important}.membership-page .member-brand>img{display:block!important;width:48px!important;height:48px!important;object-fit:contain!important;flex:0 0 48px!important}.membership-page .member-brand>div{display:block!important}.membership-page .header-utility-actions{display:flex!important;align-items:center!important;gap:8px!important;margin-left:auto!important}.membership-page .header-utility-actions .apanam-history-nav{order:99!important}
-
-/* Final compact membership brand typography/header spacing. */
-.membership-page .admin-header{min-height:62px!important;padding-top:3px!important;padding-bottom:3px!important}
-.membership-page .member-brand{gap:7px!important}
-.membership-page .member-brand>img{width:44px!important;height:44px!important;flex-basis:44px!important}
-.membership-page .member-brand small{font-size:11px!important;line-height:1!important;letter-spacing:.2px!important}
-.membership-page .member-brand h1{font-size:25px!important;line-height:1!important;margin-top:3px!important}
-
-/* Emergency header normalization after duplicate logo regression. */
-.membership-page .admin-header{min-height:72px!important;padding:8px 30px!important;display:flex!important;align-items:center!important;gap:16px!important}.membership-page .member-brand{display:flex!important;align-items:center!important;gap:0!important;margin:0!important}.membership-page .member-brand>div{display:block!important}.membership-page .member-brand small{display:block!important;font-size:12px!important;line-height:1.15!important}.membership-page .member-brand h1{font-size:24px!important;line-height:1.1!important;margin:5px 0 0!important}.membership-page .header-utility-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;margin-left:auto!important;flex-wrap:nowrap!important}.membership-page .header-utility-actions>*{flex:0 0 auto!important}.membership-page #studioSupportOpen{width:auto!important;min-width:110px!important;padding:0 14px!important}.membership-page .apanam-history-nav button{width:42px!important;min-width:42px!important}
+.membership-page .admin-header{min-height:66px!important;padding:6px 30px!important;display:flex!important;align-items:center!important;gap:14px!important}
+.membership-page .member-brand{display:flex!important;align-items:center!important;margin:0!important}
+.membership-page .member-brand>div{display:block!important}
+.membership-page .member-brand small{display:block!important;font-size:11px!important;line-height:1.1!important;letter-spacing:.2px!important}
+.membership-page .member-brand h1{font-size:24px!important;line-height:1.05!important;margin:4px 0 0!important}
+.membership-page .header-utility-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:7px!important;margin-left:auto!important;flex-wrap:nowrap!important}
+.membership-page .header-utility-actions>*{flex:0 0 auto!important}
+.membership-page #studioSupportOpen{width:auto!important;min-width:106px!important;height:42px!important;min-height:42px!important;padding:0 12px!important}
+.membership-page .apanam-history-nav button{width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important}
+@media(max-width:700px){.membership-page .admin-header{padding:5px 10px!important;min-height:58px!important}.membership-page .member-brand h1{font-size:20px!important}.membership-page .member-brand small{font-size:10px!important}.membership-page .header-utility-actions{gap:4px!important}}
