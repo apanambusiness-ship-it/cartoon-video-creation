@@ -45,3 +45,21 @@ body>header .header-utility-actions #studioSupportOpen{width:auto!important;min-
 .membership-page #memberInlineSupportStatus{margin:10px 0 0;font-size:14px}
 .membership-page #memberInlineSupportList{display:grid;gap:10px;margin-top:10px}
 @media(max-width:600px){.membership-page #studioSupport .support-ticket-inline{padding:14px;margin-top:14px}.membership-page #memberInlineSupportForm button{width:100%}}
+
+/* Membership support request: single clean card, no nested/clipped box */
+.membership-page #studioSupport{overflow:visible!important}
+.membership-page #studioSupport .support-ticket-inline{margin:24px 0 0!important;padding:16px!important;border:1px solid #ddd6fe!important;border-radius:16px!important;background:#fff!important;overflow:visible!important;box-shadow:0 8px 24px rgba(76,29,149,.06)}
+.membership-page .support-request-intro{display:flex;align-items:center;gap:14px;margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#f7f4ff}
+.membership-page .support-request-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:50%;background:#6d28d9;color:#fff;font-size:22px}
+.membership-page .support-request-intro h3{margin:0 0 4px!important;font-size:21px!important;color:#35145e}
+.membership-page .support-request-intro p{margin:0;color:#526079;font-size:14px;line-height:1.45}
+.membership-page #memberInlineSupportForm{display:grid;gap:14px;padding:0 2px}
+.membership-page #memberInlineSupportForm label{position:relative;display:grid;gap:7px;font-size:15px;font-weight:800;color:#35145e}
+.membership-page #memberInlineSupportForm .required{color:#dc2626}
+.membership-page #memberInlineSupportForm input,.membership-page #memberInlineSupportForm textarea{width:100%;min-width:0;max-width:100%;box-sizing:border-box;border:1px solid #a78bfa!important;border-radius:12px!important;background:#fff;color:#172033;padding:12px 14px;font:16px/1.45 sans-serif;outline:none}
+.membership-page #memberInlineSupportForm textarea{min-height:140px!important;resize:vertical;padding-bottom:30px}
+.membership-page .support-char-count{position:absolute;right:12px;bottom:8px;color:#64748b;font-size:12px;font-weight:500}
+.membership-page #memberInlineSupportForm button{justify-self:start;display:inline-flex;align-items:center;gap:8px;min-height:46px;border:0!important;border-radius:12px!important;padding:11px 20px!important;background:#6d28d9!important;color:#fff!important;font-weight:800;font-size:15px;cursor:pointer}
+.membership-page #memberInlineSupportStatus{margin:8px 2px 0!important}
+.membership-page #memberInlineSupportList{margin-top:10px}
+@media(max-width:600px){.membership-page #studioSupport .support-ticket-inline{margin-top:16px!important;padding:12px!important}.membership-page .support-request-intro{align-items:flex-start;padding:11px}.membership-page .support-request-icon{flex-basis:40px;width:40px;height:40px}.membership-page .support-request-intro h3{font-size:19px!important}.membership-page #memberInlineSupportForm button{width:100%;justify-content:center}}
