@@ -271,3 +271,6 @@
 
 /* AI Chat label only: do not alter header geometry. */
 .membership-page #studioSupportOpen .support-chat-icon,.membership-page #studioSupportOpen .support-chat-label{display:inline!important;visibility:visible!important;opacity:1!important}.membership-page #studioSupportOpen .support-chat-label{font-size:15px!important;font-weight:700!important;color:#35145e!important;white-space:nowrap!important}
+
+/* Slightly rounded AI Chat button only. */
+.membership-page #studioSupportOpen{border-radius:12px!important}
