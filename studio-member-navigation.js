@@ -24,6 +24,7 @@ const summary=document.createElement('summary');summary.textContent='विक�
 const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
 menu.append(summary,nav);root.prepend(menu);
 const notice=root.querySelector('.admin-notice');
+const sectionHeadings=new Map([...groups.map(row=>[row[0],row[1]])]);
 let current='',registered=false,manualMenu=false;
 function available(id){const section=document.getElementById(id);return !!section&&section.parentElement===root;}
 function choose(id,{focus=false}={}){
@@ -33,6 +34,7 @@ function choose(id,{focus=false}={}){
  for(const button of nav.querySelectorAll('button[data-target]')){const active=button.dataset.target===id;button.setAttribute('aria-current',active?'page':'false');button.setAttribute('aria-pressed',String(active));button.style.setProperty('background-color',active?'#552496':'','important');button.style.setProperty('color',active?'#ffffff':'','important');for(const el of button.querySelectorAll('strong,strong span'))el.style.setProperty('color',active?'#ffffff':'','important');}
  summary.textContent='विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account');
  if(notice)notice.hidden=id!=='studioPayments';
+ document.body.dataset.memberSection=id;
  if(window.matchMedia('(max-width:899px)').matches)menu.open=false;
  if(focus){const section=document.getElementById(id);section?.scrollIntoView({block:'start',behavior:'smooth'});section?.querySelector('h2')?.setAttribute('tabindex','-1');section?.querySelector('h2')?.focus({preventScroll:true});}
 }
