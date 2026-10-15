@@ -63,3 +63,9 @@ body>header .header-utility-actions #studioSupportOpen{width:auto!important;min-
 .membership-page #memberInlineSupportStatus{margin:8px 2px 0!important}
 .membership-page #memberInlineSupportList{margin-top:10px}
 @media(max-width:600px){.membership-page #studioSupport .support-ticket-inline{margin-top:16px!important;padding:12px!important}.membership-page .support-request-intro{align-items:flex-start;padding:11px}.membership-page .support-request-icon{flex-basis:40px;width:40px;height:40px}.membership-page .support-request-intro h3{font-size:19px!important}.membership-page #memberInlineSupportForm button{width:100%;justify-content:center}}
+
+/* Admin support ticket spacing */
+.membership-page .support-ticket-item textarea{display:block;width:100%;box-sizing:border-box;margin:12px 0 14px;min-height:100px}
+.membership-page .support-ticket-item .admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;padding-bottom:8px}
+.membership-page .support-ticket-item .admin-actions button{min-height:44px;padding:10px 16px;margin:0!important}
+.membership-page #memberInlineSupportStatus{margin:10px 0 12px}
