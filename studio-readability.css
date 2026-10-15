@@ -82,3 +82,59 @@ body.studio-workspace .studio-layers-pane .layer-tools{grid-template-columns:rep
  body.studio-mobile-layout #studioMobileNudge select{max-width:68px!important}
 }
 }
+
+/* Mobile final override: Templates and Font/Layer controls remain compact. */
+@media(max-width:900px){
+ body.studio-mobile-layout>header .actions,
+ body.studio-mobile-layout>header #studioMobilePrimaryActions{
+   display:flex!important;flex-flow:row nowrap!important;align-items:center!important;
+   justify-content:flex-start!important;overflow-x:auto!important;overflow-y:hidden!important;
+   min-width:0!important;max-width:100%!important;gap:6px!important;
+ }
+ body.studio-mobile-layout>header .actions #studioTemplateLibrary,
+ body.studio-mobile-layout>header #studioTemplateLibrary{
+   display:inline-flex!important;align-items:center!important;justify-content:center!important;
+   flex:0 0 auto!important;width:auto!important;min-width:90px!important;
+   max-width:124px!important;min-height:38px!important;height:38px!important;
+   padding:5px 9px!important;margin:0!important;font-size:12px!important;
+   white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+   border:1px solid #c4b5fd!important;border-radius:9px!important;
+   background:#ede9fe!important;color:#5b21b6!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions{
+   display:flex!important;flex-flow:row nowrap!important;gap:5px!important;
+   align-items:center!important;overflow-x:auto!important;overflow-y:hidden!important;
+   width:100%!important;min-width:0!important;padding:2px 0!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>:is(button,.studio-layer-more){
+   flex:0 0 auto!important;width:auto!important;min-width:62px!important;
+   max-width:112px!important;margin:0!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions :is(button,summary){
+   display:inline-flex!important;align-items:center!important;justify-content:center!important;
+   min-height:36px!important;height:36px!important;box-sizing:border-box!important;
+   padding:5px 9px!important;line-height:1.2!important;font-size:12px!important;
+   font-weight:700!important;white-space:nowrap!important;border-radius:8px!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar #studioMobileTextStyle{
+   background:#dbeafe!important;color:#1d4ed8!important;border:1px solid #93c5fd!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-layer-more summary{
+   background:#fce7f3!important;color:#9d174d!important;border:1px solid #f9a8d4!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>button:nth-child(3n+1){
+   background:#dcfce7!important;color:#166534!important;border:1px solid #86efac!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>button:nth-child(3n+2){
+   background:#fef3c7!important;color:#92400e!important;border:1px solid #fcd34d!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar .studio-selection-actions>button:nth-child(3n){
+   background:#e0e7ff!important;color:#3730a3!important;border:1px solid #a5b4fc!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar :is(#studioMobileTextStyle,.studio-layer-more summary){
+   font-size:12px!important;
+ }
+ body.studio-mobile-layout #studioSelectionBar :is(#studioMobileTextStyle,.studio-layer-more summary)::after{
+   font-size:12px!important;
+ }
+}
