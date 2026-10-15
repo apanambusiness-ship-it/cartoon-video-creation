@@ -254,3 +254,10 @@
 /* Keep membership content compact after global history controls. */
 .membership-page .admin-main{margin-top:0!important;padding-top:0!important}
 .membership-page .member-vertical-menu{margin-top:0!important}
+
+/* Compact membership header: tighter logo/title spacing. */
+.membership-page .admin-header{min-height:72px!important;padding:7px max(16px,calc((100vw - 1160px)/2))!important;gap:14px!important}
+.membership-page .admin-header img{width:54px!important;height:54px!important;object-fit:contain!important;margin:0!important}
+.membership-page .admin-header>div:first-child{gap:10px!important;margin:0!important}
+.membership-page .admin-header h1{margin:1px 0 0!important;line-height:1.05!important}
+.membership-page .admin-header .header-utility-actions{margin-left:auto!important;gap:8px!important}
