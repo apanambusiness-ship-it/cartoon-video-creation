@@ -20,17 +20,20 @@ const userGroups=[
 ];
 const adminGroups=[
  ['studioAdminOverview','Dashboard','Business overview और जरूरी actions'],
- ['studioMemberAccount','Admin Account','Admin login और profile'],
- ['studioPayments','भुगतान','सभी payment operations'],
- ['studioBusinessMember','Memberships','सदस्यता और expiry नियंत्रण'],
- ['studioOwnPayments','Payment history','भुगतान और receipts'],
- ['studioMemberPlans','योजनाएँ','₹10 / ₹100 plan जानकारी'],
- ['studioAiBalance','AI लागत','AI balance, usage और लागत'],
- ['studioAutoPay','पुराने AutoPay','पुराने mandate की स्थिति'],
- ['studioSupport','Support Requests','User tickets, reply और resolve']
+ ['studioMemberAccount','Admin Account','Admin login, profile और security'],
+ ['studioAdminUsers','Users','Users, profile और search'],
+ ['studioAdminMemberships','Memberships','Active, expiry और access control'],
+ ['studioAdminPayments','Payments','Live, pending, failed और refund'],
+ ['studioAdminPaymentHistory','Payment History','Transaction ledger और filters'],
+ ['studioAdminPlans','Plans','Price, duration और availability'],
+ ['studioAdminAiCost','AI Cost','Provider cost, usage और margin'],
+ ['studioAdminAutoPay','Legacy AutoPay','पुराने mandates का control'],
+ ['studioAdminSupport','Support Requests','Tickets, reply और resolve'],
+ ['studioAdminSettings','Settings','Business और system settings'],
+ ['studioAdminActivity','Activity & Security','Admin activity और security log']
 ];
 let groups=userGroups;
-const icons={studioMemberAccount:'●',studioPayments:'₹',studioBusinessMember:'▦',studioOwnPayments:'▤',studioMemberPlans:'≡',studioAiBalance:'✦',studioAutoPay:'↻',accountDeletion:'⚙',studioSupport:'?'};
+const icons={studioAdminOverview:'▦',studioMemberAccount:'●',studioAdminUsers:'♙',studioAdminMemberships:'◆',studioAdminPayments:'₹',studioAdminPaymentHistory:'▤',studioAdminPlans:'≡',studioAdminAiCost:'✦',studioAdminAutoPay:'↻',studioAdminSupport:'?',studioAdminSettings:'⚙',studioAdminActivity:'✓',studioPayments:'₹',studioBusinessMember:'▦',studioOwnPayments:'▤',studioMemberPlans:'≡',studioAiBalance:'✦',studioAutoPay:'↻',accountDeletion:'⚙',studioSupport:'?'};
 const menu=document.createElement('details');menu.id='memberVerticalMenu';menu.className='member-vertical-menu';
 const summary=document.createElement('summary');summary.textContent='विकल्प चुनें';
 const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
