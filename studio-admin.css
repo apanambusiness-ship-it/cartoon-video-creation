@@ -34,3 +34,18 @@
 
 
 .header-account-menu .account-menu-state{margin:3px 6px 7px;padding:6px 8px;border-radius:7px;background:#f0e9fc;color:#4c1d95;font-size:12px;line-height:1.4}.header-account-menu button:disabled{opacity:1!important;color:#64748b!important;background:#f1f5f9!important}.header-account-menu>a{display:block;padding:9px 12px;font-size:13px;color:#4c1d95}.header-account-menu>[hidden]{display:none!important}
+
+/* 2026-10-16: clearer membership administration cards. */
+#memberships{position:relative}
+#memberships>h2{color:#3b176b}
+#memberships #manualGrant{max-width:none;grid-template-columns:minmax(0,1.7fr) minmax(150px,.55fr) auto;align-items:end;padding:14px;border:1px solid #e7def5;border-radius:12px;background:#faf8ff}
+#memberships #manualGrant label{margin:0}
+#memberships #manualGrant button{min-height:38px;white-space:nowrap}
+#manualGrantSelected:not(:empty),#manualGrantStatus:not(:empty){padding:8px 10px;border-radius:9px;background:#f3effb;border-left:4px solid #6d28d9;color:#3f2a5c}
+#manualMemberRefresh{margin:4px 0 10px;background:#fff;color:#5b21b6;border-color:#a78bfa;font-weight:700}
+#manualMemberList{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+#manualMemberList article{margin:0!important;padding:14px!important;border:1px solid #e5def0!important;border-radius:12px!important;background:#fff!important;box-shadow:0 3px 12px rgba(76,29,149,.05)}
+#manualMemberList article strong{color:#35145e}
+#manualMemberList article button{min-height:36px}
+@media(min-width:1000px){#manualMemberList{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){#memberships #manualGrant{grid-template-columns:1fr;gap:8px}#memberships #manualGrant button{width:100%}}
