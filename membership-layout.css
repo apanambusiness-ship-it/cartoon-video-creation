@@ -279,3 +279,25 @@
 .membership-page .member-brand small{font-size:13px!important;font-weight:700!important;line-height:1.1!important}
 
 .membership-page .header-utility-actions>a[href="index.html"]{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:42px!important;padding:0 16px!important;border-radius:12px!important;background:#f59e0b!important;color:#2e1065!important;border:2px solid #fbbf24!important;font-weight:800!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:0 3px 10px rgba(245,158,11,.28)!important}.membership-page .header-utility-actions>a[href="index.html"]:hover,.membership-page .header-utility-actions>a[href="index.html"]:focus-visible{background:#fbbf24!important;border-color:#fde68a!important}@media(max-width:700px){.membership-page .header-utility-actions>a[href="index.html"]{padding:0 10px!important;font-size:13px!important}}
+
+
+/* Final membership section isolation: no support heading may cover another selected panel. */
+.membership-page[data-member-section] .admin-main>section{position:relative!important;z-index:1}
+.membership-page[data-member-section] .admin-main>section[hidden]{display:none!important}
+.membership-page[data-member-section="studioMemberAccount"] #studioMemberAccount,
+.membership-page[data-member-section="studioPayments"] #studioPayments,
+.membership-page[data-member-section="studioBusinessMember"] #studioBusinessMember,
+.membership-page[data-member-section="studioOwnPayments"] #studioOwnPayments,
+.membership-page[data-member-section="studioMemberPlans"] #studioMemberPlans,
+.membership-page[data-member-section="studioAiBalance"] #studioAiBalance,
+.membership-page[data-member-section="studioAutoPay"] #studioAutoPay,
+.membership-page[data-member-section="accountDeletion"] #accountDeletion,
+.membership-page[data-member-section="studioSupport"] #studioSupport{display:block!important}
+.membership-page[data-member-section]:not([data-member-section="studioSupport"]) #studioSupport{display:none!important}
+.membership-page #studioSupport{overflow:visible!important}
+.membership-page #studioSupport .support-ticket-inline{margin-top:0!important;padding:18px!important;border:1px solid #ddd6fe!important;border-radius:14px!important;background:#fff!important;box-sizing:border-box!important}
+.membership-page #studioSupport .support-ticket-inline h3{margin:0 0 14px!important}
+.membership-page #studioSupport .support-ticket-inline form{display:grid!important;gap:12px!important}
+.membership-page #studioSupport .support-ticket-inline label{display:grid!important;gap:6px!important;font-weight:700!important}
+.membership-page #studioSupport .support-ticket-inline input,
+.membership-page #studioSupport .support-ticket-inline textarea{width:100%!important;box-sizing:border-box!important;margin:0!important}
