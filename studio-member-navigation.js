@@ -30,7 +30,7 @@ function choose(id,{focus=false}={}){
  if(!available(id))id=registered&&available('studioBusinessMember')?'studioBusinessMember':'studioMemberAccount';
  current=id;
  for(const [key] of groups){const section=document.getElementById(key);if(section&&section.parentElement===root)section.hidden=key!==id;}
- for(const button of nav.querySelectorAll('button[data-target]')){const active=button.dataset.target===id;button.setAttribute('aria-current',active?'page':'false');button.setAttribute('aria-pressed',String(active));}
+ for(const button of nav.querySelectorAll('button[data-target]')){const active=button.dataset.target===id;button.setAttribute('aria-current',active?'page':'false');button.setAttribute('aria-pressed',String(active));button.style.setProperty('background-color',active?'#552496':'','important');button.style.setProperty('color',active?'#ffffff':'','important');for(const el of button.querySelectorAll('strong,strong span'))el.style.setProperty('color',active?'#ffffff':'','important');}
  summary.textContent='विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account');
  if(notice)notice.hidden=registered&&id!=='studioPayments';
  if(window.matchMedia('(max-width:899px)').matches)menu.open=false;
