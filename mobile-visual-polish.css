@@ -254,3 +254,25 @@
  body.studio-mobile-layout #apanamCompactTools .apanam-strip{grid-template-columns:repeat(3,minmax(0,1fr))!important}
  body.studio-mobile-layout .apanam-header-brand span{display:none}
 }
+
+
+/* 2026-10-16 phone home/header refinement: keep primary actions in their intended row and compact. */
+@media (max-width:900px){
+ body.studio-mobile-layout #studioMobilePrimaryActions{
+   position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+   z-index:20!important;display:grid!important;
+   grid-template-columns:minmax(0,1.15fr) minmax(0,1.15fr) 44px 44px!important;
+   gap:5px!important;padding:4px 6px!important;min-height:48px!important;height:auto!important;
+   background:#fff!important;
+ }
+ body.studio-mobile-layout #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){
+   display:flex!important;width:100%!important;max-width:none!important;min-width:0!important;
+   height:40px!important;min-height:40px!important;margin:0!important;padding:5px 4px!important;
+   border-radius:10px!important;
+ }
+ body.studio-mobile-layout #studioMobilePrimaryActions>:is(#apanamSocialShare,#download){display:none!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #saveProject{background:#fce7f3!important;color:#9d174d!important;border-color:#f9a8d4!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #loadProject{background:#fdf2f8!important;color:#9d174d!important;border-color:#fbcfe8!important}
+ body.studio-mobile-layout #studioMobilePrimaryActions #undo,
+ body.studio-mobile-layout #studioMobilePrimaryActions #redo{background:#faf5ff!important;color:#6b21a8!important;border-color:#e9d5ff!important}
+}
