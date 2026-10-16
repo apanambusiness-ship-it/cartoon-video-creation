@@ -88,6 +88,9 @@ async function detectRole(){
  if(adminMode&&(current==='accountDeletion'||current==='studioMemberAccount'))choose('studioAdminOverview');
 }
 render();Promise.resolve(window.APANAM_CLOUD?.authReady).then(detectRole);if(hasOrder&&available('studioPayments'))choose('studioPayments');
+async function dashboardCounts(){if(!adminMode)return;try{const a=await window.APANAM_CLOUD.adminUserCount('', 'all');const e=document.getElementById('adminDashUsers');if(e)e.textContent='कुल '+(Number(a?.count??a?.total??a)||0);}catch{}try{const a=await window.APANAM_CLOUD.listMemberships();const e=document.getElementById('adminDashMembers');if(e)e.textContent='Manual records '+(a?.length||0);}catch{}try{const a=await window.APANAM_CLOUD.adminSupportTickets();const e=document.getElementById('adminDashSupport');if(e)e.textContent='Open '+(a||[]).filter(x=>x.status==='open').length;}catch{}}
+Promise.resolve(window.APANAM_CLOUD?.authReady).then(()=>setTimeout(dashboardCounts,0));
+document.addEventListener('apanam-cloud-session',()=>setTimeout(dashboardCounts,0));
 const desktop=window.matchMedia('(min-width:900px)');
 menu.open=desktop.matches;
 desktop.addEventListener('change',e=>{if(!manualMenu)menu.open=e.matches;});
