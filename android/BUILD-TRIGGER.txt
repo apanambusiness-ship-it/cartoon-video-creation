@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-16
-Purpose: rebuild APK with exact approved reference mobile layout proportions.
-Source commit: c1c98b9771ca3257be464ff5b2ca3429669118fa
+Purpose: phone reference lock build: exact compact spacing, 6 categories, 4x2 featured templates, 4 quick tools, fixed bottom nav.
+Source: 42225fde15d47146407e3a914b18d08ebc1ff0b0
