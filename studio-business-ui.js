@@ -42,3 +42,7 @@ document.addEventListener('apanam-cloud-session',()=>{list.replaceChildren();ms.
 
 
 
+
+async function syncPlanCards(){try{if(!api.adminMembershipPlans)return;const data=await api.adminMembershipPlans('list');const rows=Array.isArray(data)?data:(data?.plans||data?.rows||[]);for(const r of rows){const el=document.querySelector('[data-plan-price="'+r.plan+'"]');if(el)el.textContent='₹'+(Number(r.amount_paise)/100)+(r.plan==='manual'?' / '+r.duration_days+' दिन':'');}}catch{}}
+
+Promise.resolve(api.authReady).then(syncPlanCards);
