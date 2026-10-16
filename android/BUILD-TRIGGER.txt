@@ -1,4 +1,4 @@
-APANAMai Studio Android test APK build trigger
+APANAMai Studio Android build trigger
 Updated: 2026-10-16
-Purpose: rebuild APK after installed-app screenshot layout cleanup.
-Fixes: hide editor Save/Load/Undo/Redo on Home; compact six categories in one row; remove duplicate Quick Tools AI Chat; preserve four-item bottom nav; bust CSS cache.
+Purpose: rebuild APK with exact approved reference mobile layout proportions.
+Source commit: c1c98b9771ca3257be464ff5b2ca3429669118fa
