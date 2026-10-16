@@ -6,3 +6,46 @@
 .payment-record{border:1px solid #ded8ee;border-radius:12px;padding:16px;margin:12px 0}.payment-record h3{font-size:1rem;overflow-wrap:anywhere}.payment-record dd{overflow-wrap:anywhere}
 
 .payment-record{overflow-wrap:anywhere}#studioAlertHealth>div{max-height:520px;overflow:auto}#studioOwnPayments button,#studioAlertHealth button{cursor:pointer;min-height:36px}#studioSupport a{overflow-wrap:anywhere}
+
+/* 2026-10-16 membership/profile/payment phone polish */
+@media(max-width:700px){
+ .membership-page .admin-header{min-height:72px!important;padding:9px 10px!important;gap:7px!important}
+ .membership-page .admin-header h1{font-size:19px!important}
+ .membership-page .admin-header .header-utility-actions{width:auto!important;margin-left:auto!important;min-width:0!important}
+ .membership-page .admin-header .header-utility-actions a{min-height:42px!important;padding:7px 10px!important;font-size:12px!important;white-space:normal!important;text-align:center!important}
+ .membership-page .admin-main{padding:8px!important;max-width:100%!important}
+ .membership-page .admin-notice{display:grid!important;gap:3px!important;padding:10px 12px!important;font-size:13px!important;border-radius:12px!important}
+ .membership-page .admin-main>section{padding:12px!important;margin:8px 0!important;border-radius:14px!important;overflow:hidden!important}
+ .membership-page .admin-main h2{font-size:18px!important;line-height:1.25!important}
+ .membership-page .plans{grid-template-columns:1fr!important;gap:9px!important}
+ .membership-page .plan{padding:13px!important;border-radius:13px!important}
+ .membership-page .plan .price{font-size:23px!important;line-height:1.2!important}
+ .membership-page .member-tabs{display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px!important}
+ .membership-page .member-tabs button{min-width:0!important;min-height:46px!important;white-space:normal!important}
+ .membership-page .member-name-row{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+ .membership-page :is(#memberRegister,#memberLogin) label{min-width:0!important}
+ .membership-page :is(#memberRegister,#memberLogin) :is(input,select){width:100%!important;max-width:100%!important;min-width:0!important;min-height:44px!important;box-sizing:border-box!important}
+ .membership-page :is(#memberRegister,#memberLogin)>button{width:100%!important;min-height:46px!important}
+ .membership-page #memberLogin .admin-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ .membership-page #memberLogin .admin-actions>*{width:100%!important;min-width:0!important;min-height:44px!important;white-space:normal!important}
+ .membership-page .profile-records{grid-template-columns:110px minmax(0,1fr)!important;gap:7px 8px!important;padding:10px!important;font-size:12px!important}
+ .membership-page .profile-records dd{min-width:0!important;overflow-wrap:anywhere!important}
+ .membership-page .payment-record{padding:11px!important;margin:8px 0!important;border-radius:12px!important;overflow:hidden!important}
+ .membership-page .payment-record :is(dd,p,code,strong){overflow-wrap:anywhere!important}
+ .membership-page #studioSupport .support-ticket-inline{padding:12px!important;border-radius:14px!important}
+ .membership-page #memberInlineSupportForm input,.membership-page #memberInlineSupportForm textarea{font-size:16px!important}
+ .membership-page #memberInlineSupportForm button{width:100%!important;justify-content:center!important;min-height:46px!important}
+ .membership-page .admin-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ .membership-page .admin-actions>*{min-width:0!important;width:100%!important;min-height:44px!important;white-space:normal!important;text-align:center!important}
+ .membership-page .studio-business-dialog{width:calc(100vw - 16px)!important;max-height:calc(100dvh - 16px)!important;padding:11px!important;border-radius:16px!important}
+ .membership-page .studio-business-dialog>header{top:-11px!important;padding:8px 0!important}
+ .membership-page .studio-business-dialog button{min-height:44px!important;white-space:normal!important}
+ .membership-page .studio-support-dialog{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 16px)!important}
+ .membership-page .studio-support-dialog header{padding:10px 12px!important}
+ .membership-page .studio-support-dialog header button{width:42px!important;min-width:42px!important;height:42px!important;padding:0!important}
+}
+@media(max-width:380px){
+ .membership-page .member-name-row,.membership-page #memberLogin .admin-actions,.membership-page .admin-actions{grid-template-columns:1fr!important}
+ .membership-page .profile-records{grid-template-columns:1fr!important}
+ .membership-page .profile-records dt{font-weight:750!important}
+}
