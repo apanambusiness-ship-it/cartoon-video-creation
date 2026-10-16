@@ -337,3 +337,25 @@
 .membership-page.member-admin-mode #studioAutoPay>p:first-of-type::after{content:" Admin केवल पुराने mandates की स्थिति देखेगा; नया AutoPay नहीं बनेगा।";font-weight:700;color:#5b21b6}
 .membership-page.member-admin-mode #studioAiBalance>p:first-of-type::after{content:" Admin mode में user top-up controls बंद हैं।";font-weight:700;color:#5b21b6}
 .membership-page.member-admin-mode #studioMemberPlans .plan{border-color:#ddd6fe;background:#faf8ff}
+
+/* 2026-10-16 final membership/admin navigation phone polish */
+@media(max-width:700px){
+ .membership-page .member-vertical-menu{width:100%!important;max-width:100%!important;margin:0 0 8px!important;border-radius:13px!important;overflow:hidden!important}
+ .membership-page #studioMemberNavigation{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;padding:7px!important}
+ .membership-page #studioMemberNavigation button{width:100%!important;min-width:0!important;min-height:48px!important;padding:7px 8px!important;border-radius:10px!important;text-align:left!important}
+ .membership-page #studioMemberNavigation button strong{display:flex!important;align-items:center!important;gap:7px!important;min-width:0!important}
+ .membership-page #studioMemberNavigation .member-nav-icon{width:28px!important;height:28px!important;min-width:28px!important;display:grid!important;place-items:center!important;border-radius:8px!important}
+ .membership-page .member-history-nav{grid-template-columns:1fr 1fr!important;gap:6px!important;padding:0 7px 7px!important}
+ .membership-page .member-history-nav button{min-height:42px!important}
+ .membership-page.member-admin-mode #memberValidity{grid-template-columns:1fr!important;padding:11px!important}
+ .membership-page.member-admin-mode #memberValidity dt{font-size:11px!important;font-weight:800!important;text-transform:none!important}
+ .membership-page.member-admin-mode #memberValidity dd{margin:0 0 7px!important;overflow-wrap:anywhere!important}
+ .membership-page #studioAdminOverview{padding:12px!important}
+ .membership-page .member-admin-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ .membership-page .member-admin-kpis article{min-width:0!important;padding:10px!important}
+ .membership-page .member-admin-kpis strong{font-size:14px!important}
+ .membership-page .member-admin-kpis span{font-size:11px!important;overflow-wrap:anywhere!important}
+}
+@media(max-width:380px){
+ .membership-page #studioMemberNavigation,.membership-page .member-admin-kpis{grid-template-columns:1fr!important}
+}
