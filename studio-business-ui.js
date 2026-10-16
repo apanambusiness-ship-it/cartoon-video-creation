@@ -43,6 +43,6 @@ document.addEventListener('apanam-cloud-session',()=>{list.replaceChildren();ms.
 
 
 
-async function syncPlanCards(){try{if(!api.adminMembershipPlans)return;const data=await api.adminMembershipPlans('list');const rows=Array.isArray(data)?data:(data?.plans||data?.rows||[]);for(const r of rows){const el=document.querySelector('[data-plan-price="'+r.plan+'"]');if(el)el.textContent='₹'+(Number(r.amount_paise)/100)+(r.plan==='manual'?' / '+r.duration_days+' दिन':'');}}catch{}}
+async function syncPlanCards(){try{if(!api.membershipPlans)return;const data=await api.membershipPlans(),rows=Array.isArray(data)?data:(data?.plans||data?.rows||[]),map=Object.fromEntries(rows.map(r=>[r.plan,r]));for(const r of rows){const el=document.querySelector('[data-plan-price="'+r.plan+'"]');if(el)el.textContent='₹'+(Number(r.amount_paise)/100)+(r.plan==='manual'?' / '+r.duration_days+' दिन':'');document.querySelectorAll('[data-plan-days="'+r.plan+'"]').forEach(x=>x.textContent=String(r.duration_days));}const reg=map.registration,manual=map.manual,notice=document.getElementById('studioPlanNotice');if(notice&&reg&&manual)notice.innerHTML='<strong>₹'+(reg.amount_paise/100)+' Registration · '+reg.duration_days+' दिन उपयोग</strong><span>इसके बाद ₹'+(manual.amount_paise/100)+' / '+manual.duration_days+' दिन, भुगतान आप स्वयं करेंगे।</span>'; }catch{}}
 
 Promise.resolve(api.authReady).then(syncPlanCards);
