@@ -145,3 +145,21 @@ body.membership-page #studioMemberNavigation button[aria-current="page"] *,body.
 
 /* Preserve text for the labelled AI Chat header action. */
 body .header-utility-actions button#studioSupportOpen{font-size:15px!important}body .header-utility-actions button#studioSupportOpen .support-chat-label{display:inline!important;font-size:15px!important;visibility:visible!important}
+
+/* 2026-10-16 mobile overflow + navigation audit */
+@media(max-width:900px){
+ body :is(button,a,summary,label){overflow-wrap:anywhere}
+ body :is(button,a,summary){white-space:normal;line-height:1.25}
+ body :is(input,select,textarea){max-width:100%;min-width:0;box-sizing:border-box}
+ body .row,body .admin-actions,body .admin-checks{min-width:0;max-width:100%}
+ body .row>*{min-width:0}
+ body :is(.admin-main,.controls,dialog,.apanam-hub,.apanam-help,.apanam-gallery,.apanam-safety) :is(button,.admin-actions a,nav a){min-height:42px;padding:8px 10px;box-sizing:border-box}
+ body .admin-actions{display:flex;flex-wrap:wrap;gap:7px}
+ body .admin-actions>*{flex:1 1 150px}
+ body .admin-actions label{display:grid;gap:5px}
+ body .admin-main section{max-width:100%;overflow:hidden}
+ body .admin-main :is(table,.studio-library-grid,#studioAdminUserList,#studioAdminHistoryList,#studioUnifiedTemplatesList,#studioUnifiedServiceList,#studioUnifiedAuditList){max-width:100%;overflow-x:auto}
+ body.studio-mobile-layout #studioMobileActionGrid button{min-height:46px;padding:9px!important}
+ body.studio-mobile-layout #studioMobileActionGrid a{min-height:46px;box-sizing:border-box}
+ body.studio-mobile-layout .studio-selection-actions>*{min-width:0!important}
+}
