@@ -854,3 +854,33 @@
  body.studio-mobile-layout:not(.studio-home-dismissed) .studio-hero-cards{position:static!important;width:100%!important;display:flex!important;justify-content:flex-end!important;align-items:center!important;gap:4px!important;transform:none!important}
  body.studio-mobile-layout:not(.studio-home-dismissed) .studio-hero-cards b{width:38px!important;height:68px!important;flex:0 0 38px!important}
 }
+
+/* 2026-10-17 hero clarity + CTA below cards */
+@media(max-width:430px){
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-hero{
+  height:142px!important;min-height:142px!important;
+  grid-template-columns:minmax(0,54%) minmax(0,46%)!important;
+  padding:10px 12px!important
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-hero h2{font-size:16px!important;line-height:1.04!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-hero p{font-size:6.5px!important;line-height:1.18!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-hero-cards{
+  display:grid!important;grid-template-columns:repeat(3,1fr)!important;
+  grid-template-rows:76px 28px!important;gap:4px!important;align-self:center!important
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-hero-cards b{
+  width:100%!important;height:76px!important;min-width:0!important;flex:none!important;
+  border-radius:8px!important
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) #studioHomeCreate{
+  position:absolute!important;right:12px!important;bottom:8px!important;
+  width:calc(46% - 16px)!important;min-height:25px!important;
+  justify-content:center!important;background:#fff!important;color:#5b21b6!important;
+  border:1px solid rgba(255,255,255,.9)!important;box-shadow:0 3px 8px #40106c35!important;
+  font-size:7.5px!important;font-weight:800!important;z-index:3!important
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-hero{
+  background:linear-gradient(118deg,#3038e8 0%,#8d20dc 40%,#e51b9a 70%,#ff8536 100%)!important;
+  box-shadow:0 6px 16px rgba(83,35,153,.18)!important
+ }
+}
