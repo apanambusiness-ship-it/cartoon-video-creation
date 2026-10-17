@@ -487,3 +487,27 @@
  .studio-home-bottom button.active{background:linear-gradient(135deg,#ff1680,#ff006e)!important;color:#fff!important}
  .studio-home-bottom small{font-size:7.8px!important}
 }
+
+/* 2026-10-17 fit6: equal poster gutters + one-screen compact home */
+@media(max-width:430px){
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-mobile-home{padding:3px 12px 70px!important}
+ .studio-home-head{height:51px!important;min-height:51px!important;margin-bottom:3px!important}
+ .studio-home-brand img{width:50px!important;height:42px!important;flex-basis:50px!important}
+ .studio-home-brand strong{font-size:15.5px!important}.studio-home-brand small{font-size:5.8px!important}
+ .studio-home-profile{height:37px!important}
+ .studio-home-hero{min-height:154px!important;padding:10px 12px!important}
+ .studio-home-hero h2{font-size:22px!important}.studio-home-hero p{font-size:8.4px!important;margin:6px 0!important}
+ .studio-home-hero button{min-height:35px!important;font-size:12.5px!important}
+ .studio-hero-cards b{width:43px!important;height:76px!important}
+ .studio-home-search{height:39px!important;margin:5px 0 3px!important}.studio-home-search button{width:37px!important;height:37px!important}
+ .studio-home-title{margin:3px 1px 2px!important}.studio-home-title h3{font-size:15px!important}
+ .studio-home-categories{gap:4px!important}.studio-home-categories button{height:49px!important;min-height:49px!important;font-size:16px!important}
+ .studio-home-featured{width:100%!important;box-sizing:border-box!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:7px!important;row-gap:4px!important;padding:0!important;margin:0!important}
+ .studio-home-featured button{width:100%!important;min-width:0!important;height:82px!important;margin:0!important;border-radius:8px!important;box-sizing:border-box!important}
+ .studio-home-featured b{width:100%!important;height:62px!important;min-height:62px!important}
+ .studio-home-featured small{height:20px!important;font-size:6.3px!important;padding:2px 1px!important}
+ .studio-quick-title{margin:3px 1px 2px!important}
+ .studio-home-quick{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;margin-bottom:2px!important}
+ .studio-home-quick button{height:49px!important;min-height:49px!important}
+ .studio-home-bottom{height:53px!important;bottom:3px!important}.studio-home-bottom button{height:43px!important}
+}
