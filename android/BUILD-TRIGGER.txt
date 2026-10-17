@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: approved-base restoration. Restore commit 6624b352 mobile stylesheet, keep eight uploaded poster JPGs, remove duplicate Quick Tools AI Chat.
-Source: 85238461b9cb720e9e2e8a5c4a8488f7ffe2fac6
+Purpose: isolated baseline fixes only — full header branding/profile, pink Home active state, bottom navigation uses remaining viewport space. Hero/categories/posters/quick-tools unchanged.
+Source: 11b10ce767d86a4ad42d607058c71c76bf18e1df
