@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: rollback to last known good mobile home shown before clean stylesheet experiments. Restore stable hero, categories, 8 posters, quick tools and navigation.
-Source: e40aea9029a724ed6b442e101ba130c8953b60a0
+Purpose: approved-base restoration. Restore commit 6624b352 mobile stylesheet, keep eight uploaded poster JPGs, remove duplicate Quick Tools AI Chat.
+Source: 85238461b9cb720e9e2e8a5c4a8488f7ffe2fac6
