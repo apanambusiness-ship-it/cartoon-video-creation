@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: clean3 header-only correction; preserve approved hero/categories/templates/quick-tools layout. White header, contained APANAM AI Creative Studio logo, visible profile, pink Home.
-Source: eb6468d123ca0a65ee8f97f953b2d8cf7b2b500c
+Purpose: rollback to last known good mobile home shown before clean stylesheet experiments. Restore stable hero, categories, 8 posters, quick tools and navigation.
+Source: e40aea9029a724ed6b442e101ba130c8953b60a0
