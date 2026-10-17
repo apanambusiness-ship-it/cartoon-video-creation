@@ -2,7 +2,6 @@ package in.apanam.studio;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -33,22 +32,16 @@ public class StartActivity extends Activity {
         webView.loadUrl(BuildConfig.STUDIO_URL);
     }
 
-    @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // Home/editor views are SPA states on the same page. Ask the page to
-            // return to its clean mobile Home first instead of exposing editor UI.
-            webView.evaluateJavascript(
-                "(function(){var b=document.body;if(b&&b.classList.contains('studio-home-dismissed')){b.classList.remove('studio-home-dismissed');document.querySelectorAll('dialog[open]').forEach(function(d){try{d.close()}catch(e){}});var t=document.getElementById('studioMobileTypingPanel');if(t)t.hidden=true;var a=document.activeElement;if(a&&a.blur)a.blur();window.scrollTo(0,0);return 'home';}return 'none';})()",
-                value -> {
-                    if (!"\"home\"".equals(value)) {
-                        if (webView.canGoBack()) webView.goBack();
-                        else StartActivity.super.onBackPressed();
-                    }
+    @Override public void onBackPressed() {
+        webView.evaluateJavascript(
+            "(function(){var b=document.body;if(b&&b.classList.contains('studio-home-dismissed')){b.classList.remove('studio-home-dismissed');document.querySelectorAll('dialog[open]').forEach(function(d){try{d.close()}catch(e){}});var t=document.getElementById('studioMobileTypingPanel');if(t)t.hidden=true;var a=document.activeElement;if(a&&a.blur)a.blur();window.scrollTo(0,0);return 'home';}return 'none';})()",
+            value -> {
+                if (!"\"home\"".equals(value)) {
+                    if (webView.canGoBack()) webView.goBack();
+                    else StartActivity.super.onBackPressed();
                 }
-            );
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
+            }
+        );
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) {
