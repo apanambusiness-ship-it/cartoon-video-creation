@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: final home cleanup: remove duplicate AI Chat, correct logo/header, compact gaps, hero overlap, three quick tools, pink Home nav.
-Source: 6c51f2b6d041ee0bec48b9333c8b5d1ab83169df
+Purpose: equal featured poster side gaps, reduce vertical scroll, compact header/hero/categories/tools, keep AI Chat only in bottom navigation.
+Source: 663ae16daef6ccb1c8ba70d6bb3391abf1e2e6f3
