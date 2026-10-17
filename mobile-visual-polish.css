@@ -803,3 +803,38 @@
  .studio-home-bottom button{border-radius:14px!important}
  .studio-home-bottom button.active,.studio-home-bottom button[data-home-nav="home"].active{background:linear-gradient(135deg,#5b21b6,#7c3aed)!important}
 }
+
+/* 2026-10-17 mobile Home fit correction */
+@media (max-width:430px){
+ body.studio-mobile-layout .studio-mobile-home{padding-left:14px!important;padding-right:14px!important}
+ .studio-home-head{grid-template-columns:44px minmax(0,1fr) 105px!important;gap:6px!important;height:58px!important;min-height:58px!important}
+ .studio-home-brand{min-width:0!important;gap:5px!important;overflow:hidden!important}
+ .studio-home-brand img{width:46px!important;max-width:46px!important;height:44px!important;flex:0 0 46px!important;object-fit:contain!important}
+ .studio-home-brand-copy{min-width:0!important;overflow:hidden!important}
+ .studio-home-brand-copy b{display:block!important;font-size:12px!important;line-height:1.05!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important}
+ .studio-home-brand-copy small{display:block!important;font-size:6.5px!important;line-height:1.1!important;white-space:nowrap!important}
+ .studio-home-profile{width:105px!important;max-width:105px!important;padding:5px 7px!important;gap:5px!important}
+ .studio-home-profile span span,.studio-home-profile b{font-size:10px!important}
+ .studio-home-profile small{font-size:7px!important}
+ .studio-home-hero{height:174px!important;min-height:174px!important;padding:18px 14px!important;border-radius:16px!important;overflow:hidden!important}
+ .studio-home-hero h2{font-size:27px!important;line-height:.98!important;max-width:58%!important;margin:0 0 8px!important}
+ .studio-home-hero p{font-size:10px!important;line-height:1.25!important;max-width:57%!important;margin:0 0 10px!important}
+ .studio-home-hero>a,.studio-home-hero>button{font-size:13px!important;min-height:38px!important;padding:8px 14px!important}
+ .studio-home-search{height:46px!important;min-height:46px!important;margin-top:8px!important}
+ .studio-home-search input{font-size:12px!important;min-width:0!important}
+ .studio-home-title{margin:8px 0 5px!important}
+ .studio-home-title h3{font-size:17px!important;line-height:1.1!important}
+ .studio-home-title>button{font-size:9px!important;padding:6px 10px!important;min-height:30px!important}
+ .studio-home-categories{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;height:auto!important;min-height:0!important}
+ .studio-home-categories button{width:100%!important;height:57px!important;min-height:57px!important;padding:4px 2px!important;border-radius:10px!important;font-size:18px!important}
+ .studio-home-categories small{font-size:8px!important;line-height:1.05!important;white-space:normal!important}
+ .studio-home-featured{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}
+ .studio-home-featured button{width:100%!important;height:86px!important;min-width:0!important}
+ .studio-home-featured b{height:65px!important;min-height:65px!important}
+ .studio-home-featured small{height:21px!important;font-size:7.2px!important;padding:3px 1px!important}
+ .studio-home-quick{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;height:auto!important;min-height:0!important}
+ .studio-home-quick button{width:100%!important;height:58px!important;min-height:58px!important;padding:5px 2px!important}
+ .studio-home-quick small{font-size:7.5px!important;line-height:1.05!important}
+ .studio-home-bottom{height:58px!important;min-height:58px!important;margin-top:10px!important;padding:4px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .studio-home-bottom button{min-width:0!important;font-size:7.5px!important}
+}
