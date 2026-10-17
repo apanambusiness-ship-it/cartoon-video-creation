@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: clean stylesheet build: remove accumulated conflicting mobile-home overrides; static bottom nav directly after Quick Tools; pink Home; equal poster gaps; stable hero/header.
-Source: 0b77a916388e7995aa5dc0d5724ab469a38c7212
+Purpose: clean2 final header logo sizing, pink Home active state, bottom navigation anchored to viewport without middle dead space.
+Source: 183b2843a9397ed6719be848e588c4d0e84cd172
