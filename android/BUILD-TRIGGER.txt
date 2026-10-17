@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
-Updated: 2026-10-16
-Purpose: phone reference lock build: exact compact spacing, 6 categories, 4x2 featured templates, 4 quick tools, fixed bottom nav.
-Source: 42225fde15d47146407e3a914b18d08ebc1ff0b0
+Updated: 2026-10-17
+Purpose: build APK with eight uploaded featured template images and hero artwork.
+Source: 7d2e1dcd4882a3f69a2fc39769e9f6a1b88ca961
