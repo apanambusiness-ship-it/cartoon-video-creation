@@ -28,8 +28,8 @@ public class StartActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient());
         setContentView(webView);
         webView.clearCache(true);
-        String freshUrl = BuildConfig.STUDIO_URL + "?app_refresh=" + System.currentTimeMillis();
-        webView.loadUrl(freshUrl);
+        // Load the canonical Pages URL. A changing query string can break app-side URL/state assumptions.
+        webView.loadUrl(BuildConfig.STUDIO_URL);
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) {
