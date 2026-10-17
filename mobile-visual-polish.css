@@ -773,3 +773,33 @@
  }
  .studio-home-bottom button{height:44px!important}
 }
+
+/* 2026-10-17 approved mobile Home cleanup */
+@media(max-width:430px){
+ .studio-home-head{grid-template-columns:44px minmax(0,1fr) 104px!important;gap:7px!important;height:58px!important;min-height:58px!important}
+ .studio-home-brand{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;min-width:0!important;overflow:hidden!important}
+ .studio-home-brand img{width:48px!important;max-width:48px!important;height:46px!important;object-fit:contain!important;flex:0 0 48px!important;margin:0!important}
+ .studio-home-brand-copy{display:flex!important;flex-direction:column!important;min-width:0!important;line-height:1.05!important}
+ .studio-home-brand-copy b{font-size:13px!important;white-space:nowrap!important;color:#10234c!important;font-weight:900!important}
+ .studio-home-brand-copy em{font-style:normal!important;color:#d500d7!important}
+ .studio-home-brand-copy small{font-size:6.7px!important;color:#7b8498!important;white-space:nowrap!important;margin-top:2px!important}
+ .studio-home-profile{max-width:104px!important}
+ .studio-home-hero{border-radius:16px!important}
+ .studio-home-search{border-radius:18px!important}
+ .studio-home-title{margin-top:4px!important;margin-bottom:3px!important}
+ .studio-home-title h3{font-size:16px!important;line-height:1.1!important}
+ .studio-home-title>button{font-size:9.5px!important;border-radius:16px!important}
+ .studio-home-categories{height:auto!important;min-height:0!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}
+ .studio-home-categories button{height:54px!important;min-height:54px!important;border-radius:10px!important;font-size:18px!important}
+ .studio-home-categories small{font-size:8px!important;font-weight:800!important;line-height:1.05!important}
+ .studio-home-featured{gap:6px!important}
+ .studio-home-featured button{height:83px!important;border-radius:9px!important;overflow:hidden!important}
+ .studio-home-featured b{height:63px!important;min-height:63px!important}
+ .studio-home-featured small{height:20px!important;font-size:7px!important;line-height:1.05!important}
+ .studio-home-quick{height:auto!important;min-height:0!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}
+ .studio-home-quick button{height:55px!important;min-height:55px!important;border-radius:11px!important}
+ .studio-home-quick small{font-size:8px!important;font-weight:800!important}
+ .studio-home-bottom{margin-top:9px!important;border-radius:18px!important}
+ .studio-home-bottom button{border-radius:14px!important}
+ .studio-home-bottom button.active,.studio-home-bottom button[data-home-nav="home"].active{background:linear-gradient(135deg,#5b21b6,#7c3aed)!important}
+}
