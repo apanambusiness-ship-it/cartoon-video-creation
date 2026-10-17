@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: precision pass 9 - header balance, equal category/poster/tool gutters, compact labels, pink Home navigation, no editor/footer on Home.
-Source CSS commit: f673424b544f9d8569f15dc194d4f0104ff52e7b
+Purpose: precision pass 10 - ONLY enlarge/clarify logo, force pink active Home, anchor bottom nav to usable viewport bottom. Preserve hero/categories/posters/quick tools.
+Source CSS commit: f61ff578a131978b54edbc3bad36d305ba612ba3
