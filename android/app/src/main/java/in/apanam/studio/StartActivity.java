@@ -17,6 +17,8 @@ public class StartActivity extends Activity {
         s.setJavaScriptEnabled(true);
         s.setDomStorageEnabled(true);
         s.setDatabaseEnabled(true);
+        // Always fetch the current GitHub Pages UI instead of a stale WebView copy.
+        s.setCacheMode(WebSettings.LOAD_NO_CACHE);
         s.setLoadWithOverviewMode(true);
         s.setUseWideViewPort(true);
         s.setMediaPlaybackRequiresUserGesture(false);
@@ -25,8 +27,9 @@ public class StartActivity extends Activity {
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
         setContentView(webView);
-        if (savedState == null) webView.loadUrl(BuildConfig.STUDIO_URL);
-        else webView.restoreState(savedState);
+        webView.clearCache(true);
+        String freshUrl = BuildConfig.STUDIO_URL + "?app_refresh=" + System.currentTimeMillis();
+        webView.loadUrl(freshUrl);
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) {
