@@ -328,3 +328,27 @@
  .studio-home-bottom button.active{background:linear-gradient(135deg,#ff2f92,#ff006e)!important;color:#fff!important}
  .studio-home-bottom small{font-size:7.8px!important}
 }
+
+/* 2026-10-17 clean2: final header logo, pink active Home, bottom anchored without dead middle gap */
+@media(max-width:430px){
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-mobile-home{
+   min-height:calc(100dvh - 68px)!important;
+   display:flex!important;flex-direction:column!important;
+   padding:5px 14px 8px!important
+ }
+ .studio-home-head{grid-template-columns:46px minmax(0,1fr) 108px!important}
+ .studio-home-brand{justify-content:center!important;overflow:visible!important}
+ .studio-home-brand img{
+   width:100%!important;max-width:190px!important;height:52px!important;
+   object-fit:contain!important;object-position:center!important;transform:scale(1.16)!important
+ }
+ .studio-home-bottom{
+   margin-top:auto!important;position:static!important;flex:0 0 52px!important;
+   width:100%!important
+ }
+ .studio-home-bottom button.active,
+ .studio-home-bottom button[data-home-nav="home"].active{
+   background:#ff1680!important;background-image:linear-gradient(135deg,#ff3b9d,#ff006e)!important;
+   color:#fff!important
+ }
+}
