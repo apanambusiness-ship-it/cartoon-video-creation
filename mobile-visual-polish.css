@@ -312,3 +312,10 @@
  .studio-home-featured{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important}.studio-home-featured button{height:88px!important}.studio-home-featured b{min-height:64px!important;font-size:11px!important}.studio-home-featured small{font-size:7.5px!important}
  .studio-home-quick{gap:5px!important}.studio-home-quick small{font-size:7.5px!important}
 }
+
+/* Approved restore: assets + duplicate removal only */
+@media(max-width:900px){
+ .studio-home-featured b{overflow:hidden!important;padding:0!important}
+ .studio-home-featured b img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;border-radius:inherit!important}
+ .studio-home-quick{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
