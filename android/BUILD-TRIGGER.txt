@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: clean2 final header logo sizing, pink Home active state, bottom navigation anchored to viewport without middle dead space.
-Source: 183b2843a9397ed6719be848e588c4d0e84cd172
+Purpose: clean3 header-only correction; preserve approved hero/categories/templates/quick-tools layout. White header, contained APANAM AI Creative Studio logo, visible profile, pink Home.
+Source: eb6468d123ca0a65ee8f97f953b2d8cf7b2b500c
