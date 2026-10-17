@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: build APK with eight uploaded featured template images and hero artwork.
-Source: 7d2e1dcd4882a3f69a2fc39769e9f6a1b88ca961
+Purpose: screenshot correction build: tighter gaps, corrected logo/header, real template artwork, quick tools clearance and compact bottom navigation.
+Source: 4ed4726e3fbaf010caaf2dffde1ec9756238178c
