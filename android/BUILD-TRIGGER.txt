@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: final stable mobile home: logo-only brand header, restored hero proportions, single-line create button, equal poster gutters, compact viewport fit, pink Home state.
-Source: e33bb31770e39b83ec8afd5c186e0f8d9d77a551
+Purpose: final8 remove dead white space, place bottom nav after Quick Tools, enlarge APANAM brand area, equalize poster gaps, pink Home state.
+Source: 08393f96da2d641c8a02eeb25427f7213641cc10
