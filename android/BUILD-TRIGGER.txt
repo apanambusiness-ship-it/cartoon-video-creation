@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: equal featured poster side gaps, reduce vertical scroll, compact header/hero/categories/tools, keep AI Chat only in bottom navigation.
-Source: 663ae16daef6ccb1c8ba70d6bb3391abf1e2e6f3
+Purpose: final stable mobile home: logo-only brand header, restored hero proportions, single-line create button, equal poster gutters, compact viewport fit, pink Home state.
+Source: e33bb31770e39b83ec8afd5c186e0f8d9d77a551
