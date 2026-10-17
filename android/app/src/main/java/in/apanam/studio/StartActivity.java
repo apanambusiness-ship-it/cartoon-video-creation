@@ -34,8 +34,4 @@ public class StartActivity extends Activity {
         super.onSaveInstanceState(outState);
     }
 
-    @Override public void onBackPressed() {
-        if (webView != null && webView.canGoBack()) webView.goBack();
-        else super.onBackPressed();
-    }
 }
