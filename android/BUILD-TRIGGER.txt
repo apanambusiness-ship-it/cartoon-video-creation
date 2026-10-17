@@ -1,4 +1,4 @@
 APANAMai Studio Android build trigger
 Updated: 2026-10-17
-Purpose: isolated baseline fixes only — full header branding/profile, pink Home active state, bottom navigation uses remaining viewport space. Hero/categories/posters/quick-tools unchanged.
-Source: 11b10ce767d86a4ad42d607058c71c76bf18e1df
+Purpose: restore last stable final8 mobile Home; keep 6 categories in one row, 8 posters 4x2, 3 Quick Tools; hide Save/Load/Undo/Redo editor chrome and footer on Home.
+Source: 6c537f106fa15ea542a17e663761bce1873f3c64
