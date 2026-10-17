@@ -2,6 +2,7 @@ package in.apanam.studio;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.window.OnBackInvokedDispatcher;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -30,15 +31,21 @@ public class StartActivity extends Activity {
         webView.clearCache(true);
         // Load the canonical Pages URL. A changing query string can break app-side URL/state assumptions.
         webView.loadUrl(BuildConfig.STUDIO_URL);
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+                () -> handleStudioBack()
+            );
+        }
     }
 
-    @Override public void onBackPressed() {
+    private void handleStudioBack() {
         webView.evaluateJavascript(
             "(function(){var b=document.body;if(b&&b.classList.contains('studio-home-dismissed')){b.classList.remove('studio-home-dismissed');document.querySelectorAll('dialog[open]').forEach(function(d){try{d.close()}catch(e){}});var t=document.getElementById('studioMobileTypingPanel');if(t)t.hidden=true;var a=document.activeElement;if(a&&a.blur)a.blur();window.scrollTo(0,0);return 'home';}return 'none';})()",
             value -> {
                 if (!"\"home\"".equals(value)) {
                     if (webView.canGoBack()) webView.goBack();
-                    else StartActivity.super.onBackPressed();
+                    else finish();
                 }
             }
         );
