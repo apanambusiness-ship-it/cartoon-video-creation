@@ -662,3 +662,26 @@
    background-color:#ff1680!important;color:#fff!important;
  }
 }
+
+/* 2026-10-17 sourcefix11: authoritative Home state + Android viewport */
+@media(max-width:430px){
+ html,body{min-height:100%!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed){
+   height:auto!important;min-height:100dvh!important;overflow-y:auto!important;background:#fff!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-mobile-home{
+   min-height:calc(100dvh - 68px)!important;height:auto!important;overflow:visible!important;
+   display:flex!important;flex-direction:column!important;background:#fff!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-bottom{
+   margin-top:auto!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-bottom button.active,
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-bottom button[data-home-nav="home"].active{
+   background:#ff1680!important;
+   background-image:linear-gradient(135deg,#ff2f92,#ff006e)!important;
+   color:#fff!important;border-color:transparent!important;box-shadow:none!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-bottom button.active *,
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-bottom button[data-home-nav="home"].active *{color:#fff!important}
+}
