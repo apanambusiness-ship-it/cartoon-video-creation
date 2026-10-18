@@ -178,3 +178,20 @@
  body.studio-mobile-layout.studio-home-dismissed>header{display:flex!important}
  body.studio-mobile-layout.studio-home-dismissed>main{display:block!important}
 }
+
+/* Stable Home shell: hide every editor row while Home is active; keep Home controls aligned. */
+@media(max-width:900px){
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobilePrimaryActions,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobilePageNav,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.actions,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileShade,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileTypingPanel,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>footer{display:none!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed) #studioMobileHome{display:block!important;position:relative!important;z-index:40!important}
+ .studio-home-head{grid-template-columns:44px minmax(0,1fr) minmax(120px,auto)!important}
+ .studio-home-head #studioHomeMenu{justify-self:start!important}
+ .studio-home-profile{width:auto!important;max-width:160px!important;justify-self:end!important}
+ .studio-home-search{box-sizing:border-box!important;width:100%!important;padding:0 8px 0 14px!important}
+ .studio-home-search input{flex:1 1 auto!important;min-width:0!important;width:auto!important}
+ .studio-home-search #studioHomeTemplateFilter{position:static!important;flex:0 0 44px!important;width:44px!important;height:40px!important;min-width:44px!important;margin:0!important;padding:0!important;display:grid!important;place-items:center!important;border:1px solid #dce3f1!important;border-radius:12px!important;background:#f8f9ff!important;font-size:22px!important;line-height:1!important}
+}
