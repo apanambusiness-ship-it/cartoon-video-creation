@@ -15,8 +15,8 @@ function init(){
   const typing=byId('studioMobileTypingPanel');if(typing){typing.hidden=true;typing.style.display='none';}
  }
  function showHome(){pending++;closePanels();document.body.classList.remove('studio-home-dismissed');fromHome=false;status.textContent='';home.querySelector('[data-home-nav="home"]')?.focus();}
- function enter(){closePanels();if(media.matches&&!document.body.classList.contains('studio-home-dismissed')){history.pushState({studioHomeTool:true},'');fromHome=true;}document.body.classList.add('studio-home-dismissed');status.textContent='';}
- function returnHome(){if(fromHome&&history.state?.studioHomeTool){history.back();}else showHome();}
+ function enter(){closePanels();if(media.matches&&!document.body.classList.contains('studio-home-dismissed')){window.history.pushState({studioHomeTool:true},'');fromHome=true;}document.body.classList.add('studio-home-dismissed');status.textContent='';}
+ function returnHome(){if(fromHome&&window.history.state?.studioHomeTool){window.history.back();}else showHome();}
  back.onclick=returnHome;
  window.addEventListener('popstate',()=>{if(media.matches)showHome();});
  document.addEventListener('click',e=>{if(!media.matches||!fromHome)return;if(e.target.closest('[data-history-back],#studioHeaderPrev')){e.preventDefault();e.stopImmediatePropagation();returnHome();}},true);

@@ -7,7 +7,7 @@ const browser=await chromium.launch();fs.mkdirSync('quality-artifacts',{recursiv
 try{for(const width of [320,390,768]){
 const context=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true,serviceWorkers:'block'});
 await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.fulfill({contentType:'application/json',body:'{}'}));
-const p=await context.newPage();const errors=[];p.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.message);});await p.goto(origin+'/index.html?preview=1');
+const p=await context.newPage();const errors=[];p.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.stack);});await p.goto(origin+'/index.html?preview=1');
 await p.locator('#studioTemplateLibrary').waitFor({state:'attached'});await p.waitForFunction(()=>typeof document.getElementById('studioTemplateLibrary')?.onclick==='function');
 const home=p.locator('#studioMobileHome');assert(await home.isVisible());
 const canvas=await p.locator('#stage').innerHTML();
