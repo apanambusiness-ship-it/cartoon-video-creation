@@ -40,3 +40,17 @@ body.studio-mobile-layout #mobileSheetBody .studio-format-strip{display:grid!imp
 }
 
 @media(max-width:900px){body.studio-mobile-layout #apanamCompactTools .studio-format-strip{display:flex!important;height:44px;min-height:44px;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;gap:6px;padding:3px 6px;box-sizing:border-box;touch-action:pan-x}body.studio-mobile-layout .studio-format-strip>*{flex:0 0 auto}body.studio-mobile-layout .studio-format-strip select,body.studio-mobile-layout .studio-format-strip input{height:36px;max-width:130px;font-size:12px}body.studio-mobile-layout .studio-format-strip .apanam-inline-control{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}}
+
+/* Home must be exclusive on mobile: never stack editor chrome over the Home screen. */
+@media(max-width:900px){
+body:not(.studio-home-dismissed) .studio-mobile-home{display:block!important}
+body:not(.studio-home-dismissed)>header,
+body:not(.studio-home-dismissed)>main,
+body:not(.studio-home-dismissed)>#apanamCompactTools,
+body:not(.studio-home-dismissed)>.apanam-mobile-bar,
+body:not(.studio-home-dismissed)>#studioMobilePageNav,
+body:not(.studio-home-dismissed)>#studioMobileShade,
+body:not(.studio-home-dismissed)>#studioMobileTypingPanel,
+body:not(.studio-home-dismissed)>footer{display:none!important}
+body:not(.studio-home-dismissed){height:auto!important;overflow:auto!important;padding-bottom:76px!important}
+}
