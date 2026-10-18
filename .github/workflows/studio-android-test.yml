@@ -7,7 +7,7 @@ on:
     paths: ['android/**', '.github/workflows/studio-android-test.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,6 +45,20 @@ jobs:
             android/app/build/outputs/bundle/release/*.aab
             android/app/build/reports/lint-results-debug.html
           retention-days: 14
+
+      - name: Prepare direct mobile APK
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk APANAM-AI-Studio.apk
+
+      - name: Publish direct APK download
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apanam-ai-studio-latest
+          name: APANAM AI Studio - Latest Android APK
+          prerelease: true
+          make_latest: false
+          files: APANAM-AI-Studio.apk
 
       - name: Verify release signing with disposable CI fixture
         run: bash android/scripts/signing-smoke.sh
