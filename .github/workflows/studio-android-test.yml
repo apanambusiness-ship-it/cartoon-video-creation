@@ -48,17 +48,19 @@ jobs:
 
       - name: Prepare direct mobile APK
         if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk APANAM-AI-Studio.apk
+        run: |
+          APK="$(find android/app/build/outputs/apk/debug -type f -name '*.apk' | head -n 1)"
+          test -n "$APK"
+          cp "$APK" APANAM-AI-Studio.apk
 
       - name: Publish direct APK download
         if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: apanam-ai-studio-latest
-          name: APANAM AI Studio - Latest Android APK
-          prerelease: true
-          make_latest: false
-          files: APANAM-AI-Studio.apk
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view apanam-ai-studio-latest >/dev/null 2>&1 || \
+            gh release create apanam-ai-studio-latest --title "APANAM AI Studio - Latest Android APK" --prerelease
+          gh release upload apanam-ai-studio-latest APANAM-AI-Studio.apk --clobber
 
       - name: Verify release signing with disposable CI fixture
         run: bash android/scripts/signing-smoke.sh
