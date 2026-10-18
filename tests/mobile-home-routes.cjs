@@ -5,7 +5,7 @@ const server=http.createServer((req,res)=>{try{const name=decodeURIComponent(new
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;
 const browser=await chromium.launch();fs.mkdirSync('quality-artifacts',{recursive:true});
 try{for(const width of [320,390,768]){
-const context=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true,serviceWorkers:'block'});
+const context=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true});
 await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.fulfill({contentType:'application/json',body:'{}'}));
 const p=await context.newPage();const errors=[];p.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.stack);});await p.goto(origin+'/index.html?preview=1');
 await p.locator('#studioTemplateLibrary').waitFor({state:'attached'});await p.waitForFunction(()=>typeof document.getElementById('studioTemplateLibrary')?.onclick==='function');
@@ -29,7 +29,7 @@ for(const selector of ['#studioHomeAllCategories','#studioHomeTemplates','[data-
 await home.locator('[data-home-tool="size"]').tap();await p.locator('#studioPosterSizeDialog').waitFor({state:'visible'});await p.locator('[aria-label="Poster Size बंद करें"]').tap();await homeAgain();
 await home.locator('[data-home-tool="text-image"]').tap();await p.locator('.apanam-hub-overlay').waitFor({state:'visible'});await p.locator('[data-hub="close"]').tap();await homeAgain();
 // Cancellation must not send the user to the poster editor.
-const chooser=p.waitForEvent('filechooser');await home.locator('[data-home-tool="upload"]').tap();await chooser;assert(await home.isVisible());
+const chooser=p.waitForEvent('filechooser');await home.locator('[data-home-tool="upload"]').tap();const picker=await chooser;await picker.setFiles([]);assert(await home.isVisible());
 for(const selector of ['.studio-home-quick [data-home-nav="designs"]','.studio-home-bottom [data-home-nav="designs"]']){await home.locator(selector).tap();await p.locator('.apanam-gallery-backdrop').waitFor({state:'visible'});await p.locator('.apanam-gallery-backdrop [data-action="close"]').tap();await homeAgain();}
 await home.locator('[data-home-nav="chat"]').tap();await p.locator('dialog[open] .support-chat').waitFor({state:'visible'});assert(!(await p.locator('.apanam-hub-overlay').isVisible()));await p.locator('[data-support-close]').tap();await homeAgain();
 await home.locator('[data-home-nav="home"]').tap();assert(await home.isVisible());
