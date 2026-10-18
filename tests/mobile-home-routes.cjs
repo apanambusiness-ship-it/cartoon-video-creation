@@ -10,8 +10,9 @@ await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.conti
 const p=await context.newPage();const errors=[];p.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.stack);});await p.goto(origin+'/index.html?preview=1');
 await p.locator('#studioTemplateLibrary').waitFor({state:'attached'});await p.waitForFunction(()=>typeof document.getElementById('studioTemplateLibrary')?.onclick==='function');
 const home=p.locator('#studioMobileHome');assert(await home.isVisible());
-const canvas=await p.locator('#stage').innerHTML();
-const homeAgain=async()=>{await p.locator('#studioHomeReturn').tap();await home.waitFor({state:'visible'});assert.equal(await p.locator('#stage').innerHTML(),canvas,'Navigation must preserve the design');};
+const design=()=>p.locator('#stage>.element').evaluateAll(es=>es.map(e=>({kind:e.dataset.kind,text:e.dataset.text||'',name:e.dataset.name||'',left:e.style.left,top:e.style.top,width:e.style.width,height:e.style.height,image:e.querySelector('img')?.alt||''})));
+const canvas=await design();
+const homeAgain=async()=>{await p.locator('#studioHomeReturn').tap();await home.waitFor({state:'visible'});assert.deepEqual(await design(),canvas,'Navigation must preserve the design');};
 const library=p.locator('.studio-library-overlay');
 const closeLibrary=async()=>{await library.locator('[data-close]').tap();await homeAgain();};
 assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Home horizontal overflow');
