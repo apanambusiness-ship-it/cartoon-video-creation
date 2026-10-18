@@ -37,11 +37,3 @@
    display:grid!important;place-items:center!important;line-height:1!important;
  }
 }
-
-#studioHomeReturn{display:none}
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed>#studioHomeReturn{display:block;position:fixed;right:10px;bottom:calc(70px + env(safe-area-inset-bottom));z-index:9990;min-height:44px;padding:8px 16px;border:1px solid #6d28d9;border-radius:22px;background:#5b21b6;color:#fff;font-weight:700;box-shadow:0 3px 12px #0003}
- #studioHomeStatus:empty{display:none}
- #studioHomeStatus{color:#9f1239;padding:8px;line-height:1.4}
- #studioMobileHome button{touch-action:manipulation}
-}
