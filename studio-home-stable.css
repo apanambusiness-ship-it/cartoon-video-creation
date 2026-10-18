@@ -1,0 +1,39 @@
+/* APANAM AI Studio: final mobile Home state boundary.
+   Loaded last. It does not redesign the editor; it only prevents editor UI leaking into Home. */
+@media (max-width:900px){
+ body.studio-mobile-layout:not(.studio-home-dismissed)>header,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>main,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>footer,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobilePrimaryActions,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobilePageNav,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#apanamCompactTools,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.apanam-mobile-bar,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileShade,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileTypingPanel,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileSheet,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.studio-library-overlay,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.apanam-hub-overlay,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.apanam-help-overlay,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.apanam-safety-overlay,
+ body.studio-mobile-layout:not(.studio-home-dismissed)>.apanam-gallery-backdrop{display:none!important}
+
+ body.studio-mobile-layout:not(.studio-home-dismissed)>#studioMobileHome{
+   display:block!important;visibility:visible!important;position:relative!important;z-index:1!important;
+   width:100%!important;box-sizing:border-box!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed>#studioMobileHome{display:none!important}
+
+ body.studio-mobile-layout:not(.studio-home-dismissed){overflow:auto!important;height:auto!important;min-height:100dvh!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-search{
+   display:flex!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;gap:8px!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) .studio-home-search>span{flex:0 0 auto!important}
+ body.studio-mobile-layout:not(.studio-home-dismissed) #studioHomeTemplateSearch{
+   flex:1 1 auto!important;min-width:0!important;width:auto!important;box-sizing:border-box!important;
+ }
+ body.studio-mobile-layout:not(.studio-home-dismissed) #studioHomeTemplateFilter{
+   position:static!important;inset:auto!important;transform:none!important;flex:0 0 44px!important;
+   width:44px!important;min-width:44px!important;height:40px!important;margin:0!important;padding:0!important;
+   display:grid!important;place-items:center!important;line-height:1!important;
+ }
+}
