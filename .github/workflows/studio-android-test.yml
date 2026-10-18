@@ -60,7 +60,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release view apanam-ai-studio-latest >/dev/null 2>&1 || \
-            gh release create apanam-ai-studio-latest --title "APANAM AI Studio - Latest Android APK" --prerelease
+            gh release create apanam-ai-studio-latest --title "APANAM AI Studio - Latest Android APK" --notes "Direct Android APK for mobile installation."
+          gh release edit apanam-ai-studio-latest --draft=false --prerelease=false --latest
           gh release upload apanam-ai-studio-latest APANAM-AI-Studio.apk --clobber
 
       - name: Verify release signing with disposable CI fixture
