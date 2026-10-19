@@ -13,7 +13,7 @@ for(const width of [320,390,768,1280]){
  await check('#studioMobilePrimaryActions>button',44);await check('#apanamCompactTools .apanam-strip:first-child>button',44);
  const selected=await check('#studioSelectionBar .studio-selection-actions>button,#studioSelectionBar .studio-layer-more>summary',44);assert.equal(selected.length,5,'Exactly five clear selected-layer controls');
  for(let i=1;i<selected.length;i++)assert(Math.abs(selected[i].y-selected[0].y)<2,'Selected controls share a row');
- await check('.apanam-mobile-bar button',44);await check('.zoomBar button',40);
+ assert(await p.locator('#apanamCompactTools>.studio-format-strip').isHidden(),'Format controls stay inside their sheet');const poster=await p.locator('#stage').boundingBox();assert(poster.width>=200,'Poster must not start at tiny zoom: '+JSON.stringify(poster));await check('.apanam-mobile-bar button',44);await check('.zoomBar button',40);
  const wrap=await p.locator('#stageWrap').boundingBox(),nav=await p.locator('.apanam-mobile-bar').boundingBox();assert(wrap.height>=180,'Poster has usable space: '+JSON.stringify(wrap));assert(wrap.y+wrap.height<=nav.y+1,'Bottom navigation must not cover poster area');assert(await p.locator('#templateCanvasActions').isHidden(),'Large panel stays in its sheet');
  await p.evaluate(()=>window.dispatchEvent(new Event('resize')));assert(await p.locator('#templateCanvasActions').isHidden(),'Resize must not leak editing tools onto canvas');assert(await p.locator('#studioMobileSheet #templateCanvasActions').count());
  await p.screenshot({path:`quality-artifacts/editor-layout-${width}.png`,fullPage:true});
