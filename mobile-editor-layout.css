@@ -104,3 +104,39 @@
  body.studio-mobile-layout.studio-home-dismissed #stageWrap{padding:3px!important;min-height:180px!important}
 }
 }
+
+/* 2026-10-19 final mobile editor override: active elements only, no home rules. */
+@layer studioReadability{
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed>header{display:flex!important;height:42px!important;min-height:42px!important;padding:2px 4px!important;gap:3px!important}
+ body.studio-mobile-layout.studio-home-dismissed>header .apanam-header-brand{flex:0 0 38px!important;width:38px!important;min-width:38px!important;height:36px!important;background-size:36px auto!important}
+ body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{display:grid!important;grid-template-columns:minmax(76px,1.15fr) minmax(58px,.85fr) minmax(72px,1fr)!important;gap:3px!important;flex:1 1 auto!important;min-width:0!important;overflow:visible!important;padding:0!important}
+ body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{display:flex!important;min-width:0!important;width:100%!important;max-width:none!important;height:36px!important;min-height:36px!important;padding:2px 4px!important;font-size:10px!important;line-height:1!important;white-space:nowrap!important;margin:0!important;border-radius:8px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileTemplates{max-width:none!important}
+ body.studio-mobile-layout.studio-home-dismissed :is(#studioHeaderAccount,#studioMobileAllActions){flex:0 0 36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;height:36px!important;min-height:36px!important;padding:0!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{height:42px!important;min-height:42px!important;flex-basis:42px!important;padding:3px 5px!important;gap:4px!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px 36px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){height:36px!important;min-height:36px!important;padding:2px 4px!important;font-size:11px!important;border-radius:8px!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{height:42px!important;min-height:42px!important;flex-basis:42px!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{height:42px!important;min-height:42px!important;padding:3px 5px!important;gap:4px!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{height:36px!important;min-height:36px!important;padding:1px 2px!important;font-size:10px!important;line-height:1!important;gap:0!important;border-radius:8px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar{padding:3px 4px!important;gap:3px!important;border-radius:8px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{font-size:9px!important;line-height:1.05!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:11px!important;line-height:1.05!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:3px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerText,#studioMobileLayerDelete,#studioMobileLayerEdit),
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{height:32px!important;min-height:32px!important;padding:1px!important;font-size:10px!important;line-height:1!important;border-radius:7px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after,
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{font-size:10px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:4px!important;margin:1px 0!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{height:34px!important;min-height:34px!important;padding:2px 4px!important;font-size:10px!important;line-height:1.05!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{height:36px!important;min-height:36px!important;padding:1px 4px!important;margin:1px 0!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important;font-size:17px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge select{width:56px!important;height:32px!important;min-height:32px!important;font-size:10px!important}
+ body.studio-mobile-layout.studio-home-dismissed .zoomBar{min-height:34px!important;gap:3px!important;margin:1px 0!important;flex-wrap:nowrap!important}
+ body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){height:32px!important;min-height:32px!important;min-width:32px!important;padding:2px 5px!important;font-size:10px!important}
+ body.studio-mobile-layout.studio-home-dismissed #stageWrap{padding:2px!important;min-height:220px!important}
+ body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar{min-height:50px!important;flex-basis:50px!important;padding:3px 4px calc(3px + env(safe-area-inset-bottom))!important;gap:3px!important}
+ body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar button{height:44px!important;min-height:44px!important;padding:2px!important;gap:1px!important}
+ body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar small{font-size:9px!important;line-height:1!important}
+}
+}
