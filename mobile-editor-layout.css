@@ -225,3 +225,21 @@
  }
 }
 }
+
+/* 2026-10-19 safe pass: compact primary actions only. */
+@layer studioReadability{
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
+  display:flex!important;justify-content:flex-start!important;align-items:center!important;
+  height:38px!important;min-height:38px!important;flex-basis:38px!important;
+  padding:2px 8px!important;gap:4px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){
+  flex:0 0 72px!important;width:72px!important;min-width:72px!important;max-width:72px!important;
+  height:32px!important;min-height:32px!important;padding:1px 3px!important;
+  font-size:10px!important;border-radius:8px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{flex-basis:48px!important;width:48px!important;min-width:48px!important;max-width:48px!important}
+}
+}
