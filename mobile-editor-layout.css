@@ -140,3 +140,19 @@
  body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar small{font-size:9px!important;line-height:1!important}
 }
 }
+
+/* 2026-10-19 screenshot cleanup: only remaining broken controls. */
+@layer studioReadability{
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{font-size:0!important;overflow:hidden!important;white-space:nowrap!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶';font-size:22px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷';font-size:22px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle{font-size:0!important;overflow:hidden!important;white-space:nowrap!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{content:'Font'!important;font-size:10px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;gap:4px!important;align-items:center!important;min-height:16px!important;overflow:hidden!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child>small{font-size:8px!important;line-height:1!important;white-space:nowrap!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:10px!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{height:30px!important;min-height:30px!important;padding:1px 4px!important;font-size:9px!important;line-height:1!important}
+}
+}
