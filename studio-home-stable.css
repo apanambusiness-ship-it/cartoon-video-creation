@@ -37,3 +37,10 @@
    display:grid!important;place-items:center!important;line-height:1!important;
  }
 }
+
+/* Home Search uses its rounded container for the focus indicator. */
+@media(max-width:900px){
+ #studioMobileHome .studio-home-search:focus-within{outline:3px solid #552496!important;outline-offset:3px!important}
+ #studioMobileHome #studioHomeTemplateSearch:focus,
+ #studioMobileHome #studioHomeTemplateSearch:focus-visible{outline:none!important;box-shadow:none!important}
+}
