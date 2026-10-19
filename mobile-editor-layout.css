@@ -188,3 +188,40 @@
  }
 }
 }
+
+/* 2026-10-19 screenshot pass 8: balanced action row, clean Font, centered poster. */
+@layer studioReadability{
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  height:40px!important;min-height:40px!important;flex-basis:40px!important;
+  padding:3px 6px!important;gap:4px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){
+  width:100%!important;min-width:0!important;max-width:none!important;
+  height:34px!important;min-height:34px!important;padding:2px 3px!important;
+  font-size:10px!important;border-radius:8px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{font-size:0!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶';font-size:20px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷';font-size:20px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle{
+  font-size:0!important;line-height:0!important;overflow:hidden!important;
+  white-space:nowrap!important;text-indent:-9999px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:before{content:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{
+  content:'Font'!important;display:block!important;text-indent:0!important;
+  font-size:10px!important;line-height:30px!important;width:100%!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #stageWrap{
+  display:flex!important;justify-content:center!important;align-items:flex-start!important;
+  width:100%!important;max-width:100%!important;padding:4px 8px!important;
+  overflow:auto!important;box-sizing:border-box!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #stage{
+  flex:0 0 auto!important;margin-left:auto!important;margin-right:auto!important;
+ }
+}
+}
