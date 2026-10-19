@@ -19,7 +19,7 @@ const server=http.createServer((req,res)=>{try{const f=path.resolve(root,'.'+new
   // Existing editor API must still open phonetic editing for a real text layer.
   await p.evaluate(()=>{const layer=document.querySelector('#stage .element[data-text]');if(!layer)throw Error('Text fixture missing');window.APANAM_FLOATING_TEXT.open(layer);});
   assert(await panel.isVisible(),'Poster phonetic editing still opens');
-  await search.focus();assert(await panel.isHidden(),'Returning to Search closes any stale phonetic box');assert.equal(await search.inputValue(),'Diwali birthday');
+  await search.tap();assert(await panel.isHidden(),'Returning to Search closes any stale phonetic box');assert.equal(await search.inputValue(),'Diwali birthday');
   assert.deepEqual(await design(),originalDesign);assert.deepEqual(errors,[]);
   console.log(`PASS ${width}: Search typing; rounded focus; no phonetic popup; original cards and poster unchanged; editor phonetic preserved`);await c.close();
  }
