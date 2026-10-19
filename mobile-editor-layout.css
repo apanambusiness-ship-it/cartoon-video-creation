@@ -36,6 +36,9 @@
  body.studio-mobile-layout.studio-home-dismissed .studio-layer-more{order:2;min-width:0!important;width:100%!important;margin:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{font-size:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar :is(#studioMobileTextStyle,.studio-layer-more>summary):after{content:'Layer';font-size:13px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>div{left:50%!important;right:auto!important;transform:translateX(-50%);width:min(260px,calc(100vw - 32px))!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>div button,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{min-height:44px!important;height:auto!important;font-size:13px!important;line-height:1.3!important;white-space:normal!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileLayerDelete{order:3}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileLayerEdit{order:4}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{flex:0 0 auto;gap:5px!important;margin:0!important;padding:3px!important}
