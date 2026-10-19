@@ -8,7 +8,7 @@ for(const width of [320,390,768,1280]){
  await p.evaluate(()=>{window.APANAM_FLOATING_TEXT.close();window.select(document.querySelector('#stage .element[data-text]'));});await p.waitForFunction(()=>document.body.classList.contains('studio-text-selected'));
  if(!mobile){assert(await p.locator('.studio-layers-pane').isVisible());assert(await p.locator('#stage').isVisible());console.log('PASS desktop 1280: existing editor remains available');await c.close();continue;}
  const snapshot=()=>p.locator('#stage>.element').evaluateAll(es=>es.map(e=>({kind:e.dataset.kind,text:e.dataset.text,left:e.style.left,top:e.style.top,width:e.style.width,height:e.style.height})));
- const original=await snapshot();
+ const original=await snapshot();await p.screenshot({path:`quality-artifacts/editor-layout-${width}.png`,fullPage:true});
  const check=async(selector,minHeight=40)=>{const boxes=await p.locator(selector).evaluateAll(es=>es.filter(e=>e.getClientRects().length).map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent.trim(),x:r.x,y:r.y,w:r.width,h:r.height,scroll:e.scrollWidth,client:e.clientWidth};}));for(const a of boxes){assert(a.h>=minHeight-1,`Small target ${a.text} ${a.h}`);assert(a.x>=-1&&a.x+a.w<=width+1,`Offscreen ${a.text} ${JSON.stringify(a)}`);assert(a.scroll<=a.client+2,`Clipped label ${a.text} ${JSON.stringify(a)}`);}return boxes;};
  await check('#studioMobilePrimaryActions>button',44);await check('#apanamCompactTools .apanam-strip:first-child>button',44);
  const selected=await check('#studioSelectionBar .studio-selection-actions>button,#studioSelectionBar .studio-layer-more>summary',44);assert.equal(selected.length,5,'Exactly five clear selected-layer controls');
