@@ -928,3 +928,6 @@
   flex:0 0 21px!important;width:21px!important;height:21px!important;font-size:13px!important;border-radius:5px!important;
  }
 }
+
+/* 2026-10-23 final All Tools title scale. */
+@media(max-width:900px){body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetTitle{font-size:16px!important;line-height:1.12!important}body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose{font-size:10px!important}}
