@@ -36,7 +36,7 @@ const adminGroups=[
 let groups=userGroups;
 const icons={studioAdminOverview:'▦',studioMemberAccount:'●',studioAdminUsers:'♙',studioAdminMemberships:'◆',studioAdminPayments:'₹',studioAdminPaymentHistory:'▤',studioAdminPlans:'≡',studioAdminAiCost:'✦',studioAdminAutoPay:'↻',studioAdminSupport:'?',studioAdminSettings:'⚙',studioAdminActivity:'✓',studioPayments:'₹',studioBusinessMember:'▦',studioOwnPayments:'▤',studioMemberPlans:'≡',studioAiBalance:'✦',studioAutoPay:'↻',accountDeletion:'⚙',studioSupport:'?'};
 const menu=document.createElement('details');menu.id='memberVerticalMenu';menu.className='member-vertical-menu';
-const summary=document.createElement('summary');summary.textContent='विकल्प चुनें';
+const summary=document.createElement('summary');summary.innerHTML='<span>विकल्प चुनें</span><span class="member-nav-chevron" aria-hidden="true">▾</span>';
 const nav=document.createElement('nav');nav.id='studioMemberNavigation';nav.setAttribute('aria-label','Membership विकल्प');
 menu.append(summary,nav);root.prepend(menu);
 const notice=root.querySelector('.admin-notice');
@@ -55,7 +55,7 @@ function choose(id,{focus=false}={}){
  current=id;
  const allIds=[...new Set([...userGroups,...adminGroups].map(row=>row[0]))];for(const key of allIds){const section=document.getElementById(key);if(section&&section.parentElement===root)section.hidden=key!==id;}
  for(const button of nav.querySelectorAll('button[data-target]')){const active=button.dataset.target===id;button.setAttribute('aria-current',active?'page':'false');button.setAttribute('aria-pressed',String(active));button.style.setProperty('background-color',active?'#552496':'','important');button.style.setProperty('color',active?'#ffffff':'','important');for(const el of button.querySelectorAll('strong,strong span'))el.style.setProperty('color',active?'#ffffff':'','important');}
- summary.textContent='विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account');
+ summary.innerHTML='<span>विकल्प: '+(groups.find(row=>row[0]===id)?.[1]||'Account')+'</span><span class="member-nav-chevron" aria-hidden="true">▾</span>';
  if(notice)notice.hidden=id!=='studioPayments';
  document.body.dataset.memberSection=id;
  if(window.matchMedia('(max-width:899px)').matches)menu.open=false;
