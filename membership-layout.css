@@ -359,3 +359,38 @@
 @media(max-width:380px){
  .membership-page #studioMemberNavigation,.membership-page .member-admin-kpis{grid-template-columns:1fr!important}
 }
+
+/* 2026-10-23 mobile account page: compact, orderly controls only. */
+@media(max-width:700px){
+ .membership-page .admin-header{
+  min-height:54px!important;padding:5px 8px!important;gap:8px!important;
+ }
+ .membership-page .member-brand h1{font-size:18px!important;line-height:1.05!important}
+ .membership-page .member-brand small{font-size:9px!important;line-height:1!important}
+ .membership-page .header-utility-actions{gap:5px!important}
+ .membership-page .header-utility-actions>a[href="index.html"]{
+  min-height:36px!important;height:36px!important;padding:0 10px!important;
+  border-radius:10px!important;font-size:12px!important;line-height:1!important;
+ }
+ .membership-page .header-utility-actions .studio-ai-chat-link,
+ .membership-page .header-utility-actions a:not([href="index.html"]){
+  min-height:36px!important;height:36px!important;padding:0 10px!important;
+  border-radius:10px!important;font-size:12px!important;line-height:1!important;
+ }
+ .membership-page #studioMemberAccount{padding:14px!important}
+ .membership-page #studioMemberAccount>h2{font-size:22px!important;margin:0 0 8px!important}
+ .membership-page #studioMemberAccount .member-intro{font-size:14px!important;line-height:1.45!important;margin:0 0 10px!important}
+ .membership-page .member-tabs{gap:7px!important;margin:8px 0 12px!important}
+ .membership-page .member-tabs button{
+  min-height:38px!important;height:38px!important;padding:5px 8px!important;
+  border-radius:10px!important;font-size:14px!important;line-height:1!important;
+ }
+ .membership-page #memberRegister>button,
+ .membership-page #memberLogin .admin-actions button{
+  min-height:40px!important;height:40px!important;padding:6px 12px!important;
+  border-radius:10px!important;font-size:14px!important;line-height:1!important;
+ }
+ .membership-page #memberRegister>button{width:100%!important;margin-top:4px!important}
+ .membership-page #memberLogin .admin-actions{gap:7px!important}
+ .membership-page #memberLogin .admin-actions button{width:auto!important;min-width:92px!important}
+}
