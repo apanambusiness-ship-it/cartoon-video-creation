@@ -276,6 +276,20 @@
     };
   });
 
+  function migrateRestoredSocialSquare(){
+    const isSocial=[...stage.querySelectorAll('.element')].some(el=>(el.dataset?.text||el.textContent||'').includes('BRAND SPOTLIGHT'));
+    const w=parseFloat(stage.style.width)||stage.offsetWidth,h=parseFloat(stage.style.height)||stage.offsetHeight;
+    if(!isSocial||!w||!h||h<=w*1.05)return;
+    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size');
+    if(cw)cw.value='1080';if(ch)ch.value='1080';
+    if(size){const square=[...size.options].find(o=>o.value==='1080,1080');if(square)size.value=square.value;}
+    stage.style.width='540px';stage.style.height='540px';
+    window.APANAM_PROJECT?.save();
+    setTimeout(()=>document.getElementById('zoomFit')?.click(),0);
+  }
+  setTimeout(migrateRestoredSocialSquare,0);
+  setTimeout(migrateRestoredSocialSquare,500);
+
   window.APANAM_ECOMMERCE_DEFS=defs;
 
   // A late-loaded template pack must preserve restored or newly edited content.
