@@ -1006,3 +1006,26 @@
 
 /* 2026-10-23 tighten icon-to-label spacing in All Tools cards. */
 @media(max-width:900px){body.studio-mobile-layout #studioMobileActionGrid button{gap:4px!important;padding-left:8px!important;padding-right:8px!important}body.studio-mobile-layout #studioMobileActionGrid button::before{margin:0!important}}
+
+
+/* 2026-10-23 tools popup: compact, consistent, scoped only to All Tools sheet. */
+@media(max-width:900px){
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu){width:calc(100vw - 20px)!important;max-width:520px!important;max-height:calc(100dvh - 28px)!important;padding:8px!important}
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) .mobile-sheet-heading{padding:2px 2px 7px!important;margin:0 0 4px!important;min-height:42px!important}
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetTitle{font-size:20px!important;line-height:1.1!important}
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose{width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important;padding:0!important;font-size:0!important;border-radius:50%!important}
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose::after{content:'×';font-size:24px!important;line-height:1!important}
+ body.studio-mobile-layout #studioMobileActionTabs{gap:5px!important;padding:5px 0 7px!important}
+ body.studio-mobile-layout #studioMobileActionTabs button{height:40px!important;min-height:40px!important;padding:4px 2px!important;font-size:12px!important;line-height:1.1!important;border-radius:9px!important}
+ body.studio-mobile-layout #studioMobileActionGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
+ body.studio-mobile-layout #studioMobileActionGrid :is(button,a){min-height:42px!important;height:42px!important;padding:5px 7px!important;font-size:11.5px!important;line-height:1.1!important;border-radius:9px!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;word-break:normal!important}
+ body.studio-mobile-layout #studioMobileActionGrid button{gap:6px!important}
+ body.studio-mobile-layout #studioMobileActionGrid button::before{flex:0 0 22px!important;width:22px!important;height:22px!important;font-size:13px!important;border-radius:6px!important}
+ body.studio-mobile-layout #studioMobileActionGrid a{display:flex!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important}
+}
+@media(max-width:420px){
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu){width:calc(100vw - 16px)!important;padding:7px!important}
+ body.studio-mobile-layout #studioMobileActionGrid{gap:5px!important}
+ body.studio-mobile-layout #studioMobileActionGrid :is(button,a){min-height:40px!important;height:40px!important;padding:4px 6px!important;font-size:11px!important}
+ body.studio-mobile-layout #studioMobileActionTabs button{height:38px!important;min-height:38px!important;font-size:11px!important}
+}
