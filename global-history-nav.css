@@ -1,22 +1,13 @@
-.apanam-history-nav{position:static!important;display:flex!important;align-items:center!important;gap:5px!important;width:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
-.apanam-history-nav button{box-sizing:border-box;width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important;padding:0!important;border:1px solid #ffffff66!important;border-radius:9px!important;background:#ffffff12!important;color:#fff!important;font:800 21px/1 system-ui,sans-serif!important;cursor:pointer!important}
-.apanam-history-nav button:hover{background:#ffffff26!important}
+.apanam-history-nav{display:flex;align-items:center;gap:5px}.apanam-history-nav button{box-sizing:border-box;cursor:pointer}
 @media(max-width:900px){
  body.studio-mobile-layout:not(.studio-home-dismissed) .apanam-history-nav{display:none!important}
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  position:fixed!important;left:auto!important;right:6px!important;top:46px!important;
-  z-index:2147483646!important;width:auto!important;height:34px!important;
-  gap:5px!important;padding:0!important;margin:0!important;
-  background:transparent!important;border:0!important;box-shadow:none!important;
-  backdrop-filter:none!important;pointer-events:auto!important
- }
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav>button{
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav{display:contents!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav>button{
   box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;
-  flex:0 0 40px!important;width:40px!important;min-width:40px!important;max-width:40px!important;
+  position:static!important;float:none!important;transform:none!important;
+  width:40px!important;min-width:40px!important;max-width:40px!important;
   height:34px!important;min-height:34px!important;max-height:34px!important;
   padding:0!important;margin:0!important;border-radius:8px!important;
-  background:#ffffff18!important;border:1px solid #ffffff4d!important;color:#fff!important;
   font:700 19px/1 Arial,sans-serif!important;text-align:center!important;text-indent:0!important
  }
 }
