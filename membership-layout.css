@@ -394,3 +394,40 @@
  .membership-page #memberLogin .admin-actions{gap:7px!important}
  .membership-page #memberLogin .admin-actions button{width:auto!important;min-width:92px!important}
 }
+
+/* 2026-10-23 compact membership navigation cards on phones. */
+@media(max-width:700px){
+ .membership-page .member-vertical-menu{margin:0 0 4px!important}
+ .membership-page #studioMemberNavigation{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:4px!important;padding:4px!important;
+ }
+ .membership-page #studioMemberNavigation button{
+  display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;
+  align-items:center!important;column-gap:7px!important;
+  width:100%!important;min-width:0!important;
+  min-height:58px!important;height:auto!important;
+  padding:6px 7px!important;margin:0!important;border-radius:9px!important;
+  text-align:left!important;overflow:hidden!important;
+ }
+ .membership-page #studioMemberNavigation button strong{
+  display:contents!important;font-size:0!important;line-height:1.1!important;
+ }
+ .membership-page #studioMemberNavigation .member-nav-icon{
+  grid-column:1!important;grid-row:1 / span 2!important;
+  width:30px!important;height:30px!important;min-width:30px!important;
+  margin:0!important;font-size:16px!important;border-radius:8px!important;
+ }
+ .membership-page #studioMemberNavigation button strong>span:last-child{
+  grid-column:2!important;grid-row:1!important;
+  display:block!important;min-width:0!important;
+  font-size:13px!important;line-height:1.15!important;font-weight:800!important;
+  overflow-wrap:normal!important;word-break:keep-all!important;hyphens:none!important;
+ }
+ .membership-page #studioMemberNavigation button small{
+  grid-column:2!important;grid-row:2!important;
+  display:block!important;min-width:0!important;margin:2px 0 0!important;
+  font-size:10px!important;line-height:1.15!important;font-weight:500!important;
+  overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;
+ }
+}
