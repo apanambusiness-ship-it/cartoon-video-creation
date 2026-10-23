@@ -543,3 +543,66 @@
  .membership-page #studioMemberNavigation button strong>span:last-child{font-size:12px!important}
  .membership-page #studioMemberNavigation button small{font-size:9px!important;margin-top:1px!important}
 }
+
+/* 2026-10-23 targeted phone layout for Trial / Reminder / AI quote. */
+@media(max-width:700px){
+ .membership-page #studioBusinessMember{
+  display:block!important;width:auto!important;min-width:0!important;
+  margin:4px 5px!important;padding:8px!important;overflow:hidden!important;
+ }
+ .membership-page #studioBusinessMember>h2{margin:0 0 4px!important;font-size:18px!important;line-height:1.15!important}
+ .membership-page #studioBusinessMember>p{margin:3px 0 6px!important;font-size:11px!important;line-height:1.35!important}
+ .membership-page #studioBusinessMember>.admin-actions{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:4px!important;margin:4px 0!important;width:100%!important;
+ }
+ .membership-page #studioBusinessMember>.admin-actions>*{
+  width:100%!important;min-width:0!important;min-height:34px!important;height:auto!important;
+  margin:0!important;padding:5px 6px!important;font-size:11px!important;line-height:1.15!important;
+  white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;
+ }
+ .membership-page #studioBusinessMember #studioMemberMedia{grid-column:1 / -1!important;width:50%!important}
+ .membership-page #studioTrialRecord{
+  display:grid!important;grid-template-columns:minmax(90px,.7fr) minmax(0,1.3fr)!important;
+  gap:3px 7px!important;width:100%!important;min-width:0!important;margin:4px 0!important;
+ }
+ .membership-page #studioTrialRecord dt,.membership-page #studioTrialRecord dd{
+  min-width:0!important;margin:0!important;font-size:10px!important;line-height:1.25!important;
+  overflow-wrap:normal!important;word-break:normal!important;
+ }
+ .membership-page #studioReminderPreferences{
+  display:grid!important;grid-template-columns:1fr!important;gap:4px!important;
+  width:100%!important;min-width:0!important;margin:5px 0!important;padding:6px!important;
+ }
+ .membership-page #studioReminderPreferences label{
+  display:grid!important;grid-template-columns:20px minmax(0,1fr)!important;align-items:start!important;
+  gap:5px!important;width:100%!important;min-width:0!important;margin:0!important;
+  font-size:10px!important;line-height:1.25!important;white-space:normal!important;
+  overflow-wrap:normal!important;word-break:normal!important;
+ }
+ .membership-page #studioReminderPreferences input[type="checkbox"]{
+  width:18px!important;height:18px!important;min-width:18px!important;margin:0!important;padding:0!important;
+ }
+ .membership-page #studioReminderPreferences button{
+  justify-self:start!important;width:auto!important;min-width:0!important;min-height:32px!important;
+  padding:4px 8px!important;margin:2px 0 0!important;font-size:11px!important;
+ }
+ .membership-page #studioQuoteForm{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:4px!important;width:100%!important;min-width:0!important;margin:6px 0 3px!important;
+ }
+ .membership-page #studioQuoteForm label{
+  display:grid!important;grid-template-columns:1fr!important;gap:2px!important;
+  width:100%!important;min-width:0!important;margin:0!important;font-size:10px!important;line-height:1.2!important;
+  white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;
+ }
+ .membership-page #studioQuoteForm select,.membership-page #studioQuoteForm input{
+  width:100%!important;min-width:0!important;height:34px!important;min-height:34px!important;
+  padding:3px 6px!important;margin:0!important;font-size:11px!important;
+ }
+ .membership-page #studioQuoteForm>button{
+  grid-column:1 / -1!important;width:100%!important;min-height:34px!important;height:34px!important;
+  margin:0!important;padding:4px 8px!important;font-size:11px!important;
+ }
+ .membership-page #studioQuoteStatus{margin:3px 0 0!important;font-size:10px!important;line-height:1.3!important}
+}
