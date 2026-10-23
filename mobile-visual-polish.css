@@ -1019,7 +1019,10 @@
  body.studio-mobile-layout #studioMobileActionTabs button{height:40px!important;min-height:40px!important;padding:4px 2px!important;font-size:12px!important;line-height:1.1!important;border-radius:9px!important}
  body.studio-mobile-layout #studioMobileActionGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
  body.studio-mobile-layout #studioMobileActionGrid :is(button,a){min-height:42px!important;height:42px!important;padding:5px 7px!important;font-size:11.5px!important;line-height:1.1!important;border-radius:9px!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;word-break:normal!important}
- body.studio-mobile-layout #studioMobileActionGrid button{gap:6px!important}
+ body.studio-mobile-layout #studioMobileActionGrid button{gap:6px!important;align-items:center!important}
+ body.studio-mobile-layout #studioMobileActionGrid button[data-action="politicalDesignOpen"]{font-size:10.75px!important}
+ body.studio-mobile-layout #studioMobileActionGrid button[data-action="studioTemplateLibrary"],
+ body.studio-mobile-layout #studioMobileActionGrid button[data-action="mobileTyping"]{line-height:1.05!important}
  body.studio-mobile-layout #studioMobileActionGrid button::before{flex:0 0 22px!important;width:22px!important;height:22px!important;font-size:13px!important;border-radius:6px!important}
  body.studio-mobile-layout #studioMobileActionGrid a{display:flex!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important}
 }
