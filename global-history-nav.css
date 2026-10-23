@@ -11,3 +11,10 @@
 @media(max-width:900px){
  body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:none!important}
 }
+
+/* 2026-10-23: Mobile history arrows belong to editor/secondary view, never Home. */
+@media(max-width:900px){
+ body.studio-mobile-layout:not(.studio-home-dismissed) .apanam-history-nav{display:none!important}
+ body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:flex!important;position:fixed!important;left:auto!important;right:6px!important;top:46px!important;width:auto!important;height:30px!important;gap:3px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;z-index:2147483646!important;pointer-events:auto!important}
+ body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav button{display:flex!important;width:30px!important;min-width:30px!important;height:30px!important;min-height:30px!important;padding:0!important;margin:0!important;align-items:center!important;justify-content:center!important;font-size:17px!important;line-height:1!important;border-radius:7px!important}
+}
