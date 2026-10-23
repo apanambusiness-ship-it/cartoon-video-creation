@@ -33,11 +33,11 @@
 
   const esc=s=>String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
   function syncSquareCanvas(){
-    stage.style.width='540px'; stage.style.height='540px';
-    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size');
-    if(cw)cw.value='540'; if(ch)ch.value='540';
-    if(size){const square=[...size.options].find(o=>o.value==='1080,1080'); if(square)size.value=square.value;}
-    window.dispatchEvent(new Event('resize'));
+    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size'),apply=document.getElementById('applySize');
+    if(cw)cw.value='1080';if(ch)ch.value='1080';
+    if(size){const square=[...size.options].find(o=>o.value==='1080,1080');if(square)size.value=square.value;}
+    if(apply&&typeof apply.onclick==='function')apply.onclick();
+    else{stage.style.width='540px';stage.style.height='540px';}
   }
   function clear(){stage.innerHTML=''; stage.style.background='#fff'; syncSquareCanvas();}
 
@@ -67,10 +67,19 @@
     Object.assign(g.style,{position:'absolute',left:x+'px',top:y+'px',width:w+'px',height:h+'px',zIndex:'3',overflow:'hidden',borderRadius:'20px',background:pale,boxSizing:'border-box'});
     const img=document.createElement('img');
     img.alt=type+' product illustration';
-    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(artSVG(type,w,h,accent,dark,pale));
     Object.assign(img.style,{width:'100%',height:'100%',objectFit:'contain',display:'block'});
     g.appendChild(img);
-    stage.appendChild(g); wire?.(g); return g;
+    stage.appendChild(g); wire?.(g);
+    rasterizeArt(img,type,w,h,accent,pale,dark);
+    return g;
+  }
+
+  /* Store a PNG data URL so project restore/export keeps the illustration. */
+  function rasterizeArt(img,type,w,h,accent,pale,dark){
+    const svg='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(artSVG(type,w,h,accent,dark,pale));
+    const finish=source=>{if(!img.isConnected||!stage.contains(img))return;img.src=source;window.APANAM_PROJECT?.save();};
+    const fallback=()=>{const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(w*2));canvas.height=Math.max(1,Math.round(h*2));const ctx=canvas.getContext('2d');if(!ctx)return;ctx.scale(2,2);ctx.fillStyle=pale;ctx.fillRect(0,0,w,h);ctx.fillStyle=accent;ctx.beginPath();ctx.arc(w/2,h*.42,Math.min(w,h)*.21,0,Math.PI*2);ctx.fill();ctx.fillStyle=dark;ctx.font='bold '+Math.max(14,Math.round(Math.min(w,h)*.11))+'px Arial';ctx.textAlign='center';ctx.fillText(type,w/2,h*.8,w*.9);finish(canvas.toDataURL('image/png'));};
+    const probe=new Image();probe.onload=()=>{try{const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(w*2));canvas.height=Math.max(1,Math.round(h*2));const ctx=canvas.getContext('2d');ctx.drawImage(probe,0,0,canvas.width,canvas.height);finish(canvas.toDataURL('image/png'));}catch(_){fallback();}};probe.onerror=fallback;probe.src=svg;
   }
 
   function artSVG(type,w,h,a,d,pale){
@@ -246,6 +255,8 @@
     b.onclick=()=>{
       clear();
       layout(i,d);
+      window.APANAM_PROJECT?.save();
+      document.getElementById('zoomFit')?.click();
     };
 
     grid.appendChild(b);
@@ -260,12 +271,23 @@
     window.APANAM_ECOMMERCE_TEMPLATES[d[0]]=()=>{
       clear();
       layout(i,d);
+      window.APANAM_PROJECT?.save();
+      document.getElementById('zoomFit')?.click();
     };
   });
 
   window.APANAM_ECOMMERCE_DEFS=defs;
 
-  clear();
-  layout(0,defs[0]);
+  // A late-loaded template pack must preserve restored or newly edited content.
+  /* Older saved drafts may have lost the SVG src during sanitization. */
+  for(const img of stage.querySelectorAll('img[alt$=" product illustration"]')){
+    if(img.getAttribute('src'))continue;
+    const type=img.alt.replace(/ product illustration$/,'');
+    const entry=defs.find(d=>d[5]===type),frame=img.closest('.element');
+    if(!entry||!frame)continue;
+    const w=parseFloat(frame.style.width),h=parseFloat(frame.style.height);
+    if(w>0&&h>0)rasterizeArt(img,type,w,h,entry[2][1],entry[2][2],entry[2][0]);
+  }
+  if(!stage.querySelector('.element')){clear();layout(0,defs[0]);}
 
 })();
