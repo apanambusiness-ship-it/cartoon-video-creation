@@ -255,6 +255,8 @@
     b.onclick=()=>{
       clear();
       layout(i,d);
+      window.APANAM_PROJECT?.save();
+      document.getElementById('zoomFit')?.click();
     };
 
     grid.appendChild(b);
@@ -269,6 +271,8 @@
     window.APANAM_ECOMMERCE_TEMPLATES[d[0]]=()=>{
       clear();
       layout(i,d);
+      window.APANAM_PROJECT?.save();
+      document.getElementById('zoomFit')?.click();
     };
   });
 
