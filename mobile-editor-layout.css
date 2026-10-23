@@ -274,3 +274,33 @@
  }
 }
 }
+
+/* 2026-10-23 final mobile editor control sizing; no canvas/template mutation. */
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
+  display:grid!important;grid-template-columns:72px 72px 38px 38px!important;
+  justify-content:start!important;height:40px!important;min-height:40px!important;
+  flex-basis:40px!important;padding:2px 6px!important;gap:4px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject){
+  width:72px!important;min-width:72px!important;max-width:72px!important;height:34px!important;min-height:34px!important;
+  padding:1px 4px!important;font-size:10px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo){
+  width:38px!important;min-width:38px!important;max-width:38px!important;flex-basis:38px!important;
+  height:34px!important;min-height:34px!important;padding:0!important;font-size:0!important;
+  overflow:hidden!important;white-space:nowrap!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶'!important;font-size:19px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷'!important;font-size:19px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions:not([hidden]){
+  display:flex!important;justify-content:center!important;gap:6px!important;width:100%!important;margin:1px 0!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{
+  flex:0 1 145px!important;width:auto!important;max-width:145px!important;
+  height:28px!important;min-height:28px!important;padding:1px 5px!important;font-size:9px!important;line-height:1!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){
+  height:30px!important;min-height:30px!important;padding:1px 5px!important;font-size:10px!important;
+ }
+}
