@@ -1,52 +1,22 @@
-.apanam-history-nav{position:static!important;display:flex!important;align-items:center!important;gap:5px!important;width:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}.apanam-history-nav button{box-sizing:border-box;width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important;padding:0!important;border:1px solid #ffffff66!important;border-radius:9px!important;background:#ffffff12!important;color:#fff!important;font:800 21px/1 system-ui,sans-serif!important;cursor:pointer!important}.apanam-history-nav button:hover{background:#ffffff26!important}@media(max-width:600px){.apanam-history-nav{gap:3px!important}.apanam-history-nav button{width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important;font-size:19px!important}}@media(max-width:900px){.apanam-history-nav{position:fixed!important;top:max(8px,env(safe-area-inset-top))!important;right:8px!important;z-index:2147483000!important;padding:3px!important;border-radius:11px!important;background:#26134dcc!important;box-shadow:0 4px 14px #1118272e!important;backdrop-filter:blur(8px)}.apanam-history-nav button{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;background:#ffffff18!important;border-color:#ffffff4d!important;color:#fff!important}.apanam-history-nav button:disabled{opacity:.38!important}}
-/* Keep page Back/Forward visible above every mobile studio page. */
-@media(max-width:900px){body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:flex!important;position:fixed!important;top:max(6px,env(safe-area-inset-top))!important;right:52px!important;z-index:2147483646!important;gap:2px!important;padding:2px!important}body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav button{display:flex!important;align-items:center!important;justify-content:center!important;width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important;font-size:17px!important;border-radius:8px!important}}
-
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:flex!important;position:fixed!important;left:auto!important;right:6px!important;top:46px!important;width:auto!important;height:30px!important;gap:3px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;z-index:2147483646!important;pointer-events:auto!important}
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav button{display:flex!important;width:30px!important;min-width:30px!important;height:30px!important;min-height:30px!important;padding:0!important;margin:0!important;align-items:center!important;justify-content:center!important;font-size:17px!important;line-height:1!important;border-radius:7px!important}
-}
-
-/* Hide unfinished page-history controls on mobile until navigation is wired correctly. */
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:none!important}
-}
-
-/* 2026-10-23: Mobile history arrows belong to editor/secondary view, never Home. */
-@media(max-width:900px){
- body.studio-mobile-layout:not(.studio-home-dismissed) .apanam-history-nav{display:none!important}
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{display:flex!important;position:fixed!important;left:auto!important;right:6px!important;top:46px!important;width:auto!important;height:30px!important;gap:3px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;z-index:2147483646!important;pointer-events:auto!important}
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav button{display:flex!important;width:30px!important;min-width:30px!important;height:30px!important;min-height:30px!important;padding:0!important;margin:0!important;align-items:center!important;justify-content:center!important;font-size:17px!important;line-height:1!important;border-radius:7px!important}
-}
-
-/* 2026-10-23 final secondary-page arrows; hidden on Home. */
+.apanam-history-nav{position:static!important;display:flex!important;align-items:center!important;gap:5px!important;width:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+.apanam-history-nav button{box-sizing:border-box;width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important;padding:0!important;border:1px solid #ffffff66!important;border-radius:9px!important;background:#ffffff12!important;color:#fff!important;font:800 21px/1 system-ui,sans-serif!important;cursor:pointer!important}
+.apanam-history-nav button:hover{background:#ffffff26!important}
 @media(max-width:900px){
  body.studio-mobile-layout:not(.studio-home-dismissed) .apanam-history-nav{display:none!important}
  body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{
   display:flex!important;align-items:center!important;justify-content:center!important;
   position:fixed!important;left:auto!important;right:6px!important;top:46px!important;
-  width:auto!important;height:34px!important;gap:4px!important;padding:0!important;margin:0!important;
+  z-index:2147483646!important;width:auto!important;height:34px!important;
+  gap:5px!important;padding:0!important;margin:0!important;
   background:transparent!important;border:0!important;box-shadow:none!important;
- }
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav>button{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:34px!important;min-width:34px!important;max-width:34px!important;
-  height:34px!important;min-height:34px!important;max-height:34px!important;
-  margin:0!important;padding:0!important;font:700 20px/1 Arial,sans-serif!important;
-  text-align:center!important;text-indent:0!important;border-radius:8px!important;
- }
-}
-
-/* 2026-10-23 compact secondary Back/Forward only. */
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav{
-  height:34px!important;gap:5px!important;right:6px!important;top:46px!important;
+  backdrop-filter:none!important;pointer-events:auto!important
  }
  body.studio-mobile-layout.studio-home-dismissed .apanam-history-nav>button{
   box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;
   flex:0 0 40px!important;width:40px!important;min-width:40px!important;max-width:40px!important;
   height:34px!important;min-height:34px!important;max-height:34px!important;
   padding:0!important;margin:0!important;border-radius:8px!important;
-  font:700 19px/1 Arial,sans-serif!important;
+  background:#ffffff18!important;border:1px solid #ffffff4d!important;color:#fff!important;
+  font:700 19px/1 Arial,sans-serif!important;text-align:center!important;text-indent:0!important
  }
 }
