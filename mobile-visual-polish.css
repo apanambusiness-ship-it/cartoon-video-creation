@@ -931,3 +931,66 @@
 
 /* 2026-10-23 final All Tools title scale. */
 @media(max-width:900px){body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetTitle{font-size:16px!important;line-height:1.12!important}body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose{font-size:10px!important}}
+
+
+/* 2026-10-23 professional mobile All Tools panel. */
+@media(max-width:900px){
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu){
+  width:calc(100vw - 24px)!important;max-width:480px!important;
+  max-height:calc(100dvh - 96px)!important;padding:12px!important;
+  border-radius:18px!important;border:1px solid #ded7e8!important;
+  box-shadow:0 18px 48px #17122538!important;
+ }
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) .mobile-sheet-heading{
+  min-height:32px!important;margin:0 0 8px!important;padding:0 0 8px!important;
+  border-bottom:1px solid #ebe7f0!important;align-items:center!important;
+ }
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetTitle{
+  font-size:17px!important;line-height:1!important;font-weight:800!important;
+  letter-spacing:-.2px!important;white-space:nowrap!important;
+ }
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose{
+  min-width:32px!important;width:32px!important;max-width:32px!important;
+  min-height:32px!important;height:32px!important;max-height:32px!important;
+  padding:0!important;border-radius:50%!important;font-size:0!important;
+  display:grid!important;place-items:center!important;background:#f6f3f9!important;
+  color:#31263e!important;border:1px solid #ded7e8!important;
+ }
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose::before{
+  content:'×';font-size:23px!important;font-weight:500!important;line-height:1!important;
+ }
+ body.studio-mobile-layout #studioMobileActionTabs{
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:5px!important;padding:0 0 9px!important;margin:0!important;border:0!important;
+ }
+ body.studio-mobile-layout #studioMobileActionTabs button{
+  min-height:34px!important;height:34px!important;padding:0 4px!important;
+  font-size:11px!important;line-height:1!important;font-weight:700!important;
+  border-radius:9px!important;white-space:nowrap!important;
+  background:#f6f3f9!important;color:#443653!important;border:1px solid #e2dbe9!important;
+ }
+ body.studio-mobile-layout #studioMobileActionTabs button[aria-pressed=true]{
+  background:#5a269f!important;color:#fff!important;border-color:#5a269f!important;
+  box-shadow:none!important;
+ }
+ body.studio-mobile-layout #studioMobileActionGrid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;
+ }
+ body.studio-mobile-layout #studioMobileActionGrid :is(button,a){
+  min-height:46px!important;height:46px!important;padding:0 10px!important;
+  border-radius:11px!important;font-size:12px!important;line-height:1!important;
+  font-weight:700!important;white-space:nowrap!important;overflow:hidden!important;
+  text-overflow:ellipsis!important;box-shadow:none!important;
+ }
+ body.studio-mobile-layout #studioMobileActionGrid button{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;
+ }
+ body.studio-mobile-layout #studioMobileActionGrid button::before{
+  flex:0 0 24px!important;width:24px!important;height:24px!important;
+  font-size:13px!important;border-radius:7px!important;background:#fff!important;
+ }
+}
+@media(max-width:380px){
+ body.studio-mobile-layout #studioMobileActionGrid :is(button,a){font-size:11px!important;padding:0 7px!important}
+ body.studio-mobile-layout #studioMobileActionTabs button{font-size:10px!important}
+}
