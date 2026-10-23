@@ -360,3 +360,37 @@
   margin:0!important;padding:0 3px!important;font-size:11px!important;line-height:1!important;
  }
 }
+
+/* 2026-10-23 authoritative mobile editor header/actions.
+   Keep this last: it owns only the editor header and primary action row. */
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
+  display:grid!important;
+  grid-template-columns:72px 72px 40px 40px 40px 40px!important;
+  grid-auto-flow:column!important;
+  justify-content:start!important;align-items:center!important;
+  width:100%!important;height:40px!important;min-height:40px!important;
+  padding:2px 6px!important;gap:5px!important;overflow:hidden!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#saveProject{grid-column:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#loadProject{grid-column:2!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo{grid-column:3!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{grid-column:4!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav{display:contents!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav>[data-history-back]{grid-column:5!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav>[data-history-forward]{grid-column:6!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject){
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:72px!important;min-width:72px!important;max-width:72px!important;
+  height:34px!important;min-height:34px!important;max-height:34px!important;
+  margin:0!important;padding:0 5px!important;font-size:11px!important;line-height:1!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo),
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav>button{
+  position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  width:40px!important;min-width:40px!important;max-width:40px!important;
+  height:34px!important;min-height:34px!important;max-height:34px!important;
+  margin:0!important;padding:0!important;box-sizing:border-box!important;border-radius:8px!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo):not(.apanam-history-nav){display:none!important}
+}
