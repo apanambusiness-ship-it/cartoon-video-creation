@@ -33,11 +33,11 @@
 
   const esc=s=>String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
   function syncSquareCanvas(){
-    stage.style.width='540px';stage.style.height='540px';
-    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size');
-    if(cw)cw.value='540';if(ch)ch.value='540';
+    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size'),apply=document.getElementById('applySize');
+    if(cw)cw.value='1080';if(ch)ch.value='1080';
     if(size){const square=[...size.options].find(o=>o.value==='1080,1080');if(square)size.value=square.value;}
-    window.dispatchEvent(new Event('resize'));
+    if(apply&&typeof apply.onclick==='function')apply.onclick();
+    else{stage.style.width='540px';stage.style.height='540px';}
   }
   function clear(){stage.innerHTML=''; stage.style.background='#fff'; syncSquareCanvas();}
 
