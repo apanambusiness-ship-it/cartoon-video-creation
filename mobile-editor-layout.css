@@ -394,3 +394,18 @@
  }
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo):not(.apanam-history-nav){display:none!important}
 }
+
+/* Native editor history arrows: fixed grid positions, no observer dependency. */
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#editorHistoryBack{
+  grid-column:5!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  width:40px!important;min-width:40px!important;max-width:40px!important;height:34px!important;min-height:34px!important;max-height:34px!important;
+  margin:0!important;padding:0!important;position:static!important;font:700 19px/1 Arial,sans-serif!important;text-indent:0!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#editorHistoryForward{
+  grid-column:6!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  width:40px!important;min-width:40px!important;max-width:40px!important;height:34px!important;min-height:34px!important;max-height:34px!important;
+  margin:0!important;padding:0!important;position:static!important;font:700 19px/1 Arial,sans-serif!important;text-indent:0!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo):not(#editorHistoryBack):not(#editorHistoryForward){display:none!important}
+}
