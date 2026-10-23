@@ -32,7 +32,14 @@
   ];
 
   const esc=s=>String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
-  function clear(){stage.innerHTML=''; stage.style.background='#fff';}
+  function syncSquareCanvas(){
+    stage.style.width='540px';stage.style.height='540px';
+    const cw=document.getElementById('cw'),ch=document.getElementById('ch'),size=document.getElementById('size');
+    if(cw)cw.value='540';if(ch)ch.value='540';
+    if(size){const square=[...size.options].find(o=>o.value==='1080,1080');if(square)size.value=square.value;}
+    window.dispatchEvent(new Event('resize'));
+  }
+  function clear(){stage.innerHTML=''; stage.style.background='#fff'; syncSquareCanvas();}
 
   function addText(text,x,y,w,h,size,color,weight=700,align='left',name=''){
     const e=document.createElement('div');
