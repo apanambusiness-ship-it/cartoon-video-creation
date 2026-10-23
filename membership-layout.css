@@ -662,3 +662,21 @@
   min-height:31px!important;height:31px!important;font-size:10.5px!important;
  }
 }
+
+/* Membership section chooser: clear dropdown affordance on all sizes. */
+.membership-page #memberVerticalMenu>summary{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;
+}
+.membership-page #memberVerticalMenu>summary .member-nav-chevron{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ flex:0 0 auto!important;font-size:16px!important;line-height:1!important;transition:transform .15s ease!important;
+}
+.membership-page #memberVerticalMenu[open]>summary .member-nav-chevron{transform:rotate(180deg)!important}
+@media(max-width:700px){
+ .membership-page #memberVerticalMenu>summary{
+  min-height:34px!important;padding:5px 9px!important;font-size:11px!important;border-radius:8px!important;
+ }
+ .membership-page #memberVerticalMenu>summary .member-nav-chevron{font-size:14px!important}
+}
+/* Never expose Admin Dashboard in the ordinary member account menu. */
+.membership-page:not(.member-admin-mode) #studioAccountMenu a[href="admin.html"]{display:none!important}
