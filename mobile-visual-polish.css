@@ -994,3 +994,12 @@
  body.studio-mobile-layout #studioMobileActionGrid :is(button,a){font-size:11px!important;padding:0 7px!important}
  body.studio-mobile-layout #studioMobileActionTabs button{font-size:10px!important}
 }
+
+/* 2026-10-23 mobile tools final alignment. */
+@media(max-width:900px){
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose{font-size:22px!important;line-height:1!important}
+ body.studio-mobile-layout #studioMobileSheet:has(#studioMobileActionMenu) #mobileSheetClose::before{content:none!important}
+ body.studio-mobile-layout #studioMobileActionGrid :is(button,a){white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important}
+ body.studio-mobile-layout #studioMobileActionGrid button{font-size:11px!important}
+ body.studio-mobile-layout #studioMobileActionGrid button[data-action=politicalDesignOpen]{font-size:10px!important}
+}
