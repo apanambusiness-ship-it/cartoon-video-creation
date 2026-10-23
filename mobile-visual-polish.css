@@ -1003,3 +1003,6 @@
  body.studio-mobile-layout #studioMobileActionGrid button{font-size:11px!important}
  body.studio-mobile-layout #studioMobileActionGrid button[data-action=politicalDesignOpen]{font-size:10px!important}
 }
+
+/* 2026-10-23 tighten icon-to-label spacing in All Tools cards. */
+@media(max-width:900px){body.studio-mobile-layout #studioMobileActionGrid button{gap:4px!important;padding-left:8px!important;padding-right:8px!important}body.studio-mobile-layout #studioMobileActionGrid button::before{margin:0!important}}
