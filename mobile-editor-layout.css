@@ -1,362 +1,78 @@
-/* Editor-only mobile layout. Home and desktop keep their existing rules. */
+/* One mobile editor layout. Keep sizing changes here, not in appended overrides. */
 @layer studioReadability {
 @media(max-width:900px){
  body.studio-mobile-layout.studio-home-dismissed{display:flex!important;flex-direction:column!important;height:100dvh!important;min-height:0!important;overflow:hidden!important;padding:0!important}
- body.studio-mobile-layout.studio-home-dismissed>header{order:0;flex:0 0 48px!important;height:48px!important;min-height:48px!important;padding:2px 6px!important;gap:6px!important}
+ body.studio-mobile-layout.studio-home-dismissed>header{order:0;flex:0 0 44px!important;height:40px!important;min-height:40px!important;padding:2px 6px!important;gap:4px!important}
  body.studio-mobile-layout.studio-home-dismissed>header .apanam-header-brand{flex:0 0 40px!important;width:40px!important;min-width:40px!important;height:40px!important;background-size:40px auto!important}
  body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{flex:1;min-width:0}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{min-height:44px!important;height:44px!important;font-size:14px!important}
- body.studio-mobile-layout.studio-home-dismissed :is(#studioHeaderAccount,#studioMobileAllActions){flex:0 0 44px!important;width:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;height:44px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{order:1;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px 44px!important;flex:0 0 52px!important;height:52px!important;min-height:52px!important;padding:4px 6px!important;gap:6px!important;overflow:visible!important;box-sizing:border-box}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){display:flex!important;align-items:center;justify-content:center;min-width:0!important;width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;padding:5px!important;line-height:1.2!important;font-size:14px!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{min-height:40px!important;height:40px!important;font-size:12px!important}
+ body.studio-mobile-layout.studio-home-dismissed :is(#studioHeaderAccount,#studioMobileAllActions){flex:0 0 44px!important;width:44px!important;min-width:44px!important;max-width:44px!important;min-height:40px!important;height:40px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{order:1;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px 44px!important;flex:0 0 44px!important;height:40px!important;min-height:40px!important;padding:4px 6px!important;gap:4px!important;overflow:visible!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){display:flex!important;align-items:center;justify-content:center;min-width:0!important;width:100%!important;height:40px!important;min-height:40px!important;margin:0!important;padding:5px!important;line-height:1.2!important;font-size:12px!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#saveProject{order:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#loadProject{order:1!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo{order:2!important;font-size:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{order:3!important;font-size:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo){display:none!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{order:2;flex:0 0 52px!important;height:52px!important;min-height:52px!important;overflow:visible!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:5px!important;height:52px!important;min-height:52px!important;padding:4px 6px!important;box-sizing:border-box;overflow:visible!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{min-width:0!important;width:100%!important;height:44px!important;min-height:44px!important;padding:3px!important;font-size:12px!important;line-height:1.2!important;white-space:normal!important;overflow-wrap:normal!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{order:2;flex:0 0 44px!important;height:40px!important;min-height:40px!important;overflow:visible!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important;height:40px!important;min-height:40px!important;padding:4px 6px!important;box-sizing:border-box;overflow:visible!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{min-width:0!important;width:100%!important;height:40px!important;min-height:40px!important;padding:3px!important;font-size:12px!important;line-height:1.2!important;white-space:normal!important;overflow-wrap:normal!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools>.studio-format-strip{display:none!important}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button:not([aria-label="Text"]):not([aria-label="Image"]):not([aria-label="Logo"]):not(#studioMobileTyping):not(#studioMobileCreateMore){display:none!important}
  body.studio-mobile-layout.studio-home-dismissed>main{order:3;flex:1 1 0!important;height:auto!important;min-height:0!important;overflow:hidden!important;width:100%!important}
- body.studio-mobile-layout.studio-home-dismissed .workspace{display:flex!important;flex-direction:column!important;gap:6px!important;min-height:0!important;height:100%!important;padding:6px!important;overflow:auto!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed .workspace{display:flex!important;flex-direction:column!important;gap:4px!important;min-height:0!important;height:100%!important;padding:6px!important;overflow:auto!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed :is(#studioMobileGuide,.workspace #templateCanvasActions){display:none!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar{display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:0 0 auto!important;gap:5px!important;padding:6px!important;margin:0!important;min-height:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{display:flex;align-items:center;gap:8px;min-width:0;font-size:11px;line-height:1.3}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:13px!important;max-width:100%!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;min-width:0!important;gap:5px!important;flex:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar{display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:0 0 auto!important;gap:4px!important;padding:6px!important;margin:0!important;min-height:0!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{display:flex;align-items:center;gap:4px;min-width:0;font-size:11px;line-height:1.3}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:12px!important;max-width:100%!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;min-width:0!important;gap:4px!important;flex:none!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>button{display:none!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerText,#studioMobileLayerDelete,#studioMobileLayerEdit),
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:100%!important;min-height:44px!important;height:44px!important;padding:4px 2px!important;margin:0!important;font-size:13px!important;line-height:1.2!important;white-space:normal!important;text-align:center;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:100%!important;min-height:40px!important;height:40px!important;padding:4px 2px!important;margin:0!important;font-size:12px!important;line-height:1.2!important;white-space:normal!important;text-align:center;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>#studioMobileTextStyle{order:0;font-size:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{content:'Font';font-size:13px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{content:'Font';font-size:12px!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileLayerText{order:1}
  body.studio-mobile-layout.studio-home-dismissed .studio-layer-more{order:2;min-width:0!important;width:100%!important;margin:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{font-size:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{content:'Layer';font-size:13px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{content:'Layer';font-size:12px!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>div{left:50%!important;right:auto!important;transform:translateX(-50%);width:min(260px,calc(100vw - 32px))!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>div button,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{min-height:44px!important;height:auto!important;font-size:13px!important;line-height:1.3!important;white-space:normal!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{min-height:40px!important;height:auto!important;font-size:12px!important;line-height:1.3!important;white-space:normal!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileLayerDelete{order:3}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileLayerEdit{order:4}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{flex:0 0 auto;gap:5px!important;margin:0!important;padding:3px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{flex:0 0 auto;gap:4px!important;margin:0!important;padding:3px!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge select{width:65px!important;min-height:40px!important;height:40px!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar{display:flex!important;flex:0 0 auto!important;flex-wrap:wrap!important;align-items:center!important;gap:5px!important;margin:0!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){height:40px!important;min-height:40px!important;min-width:38px!important;padding:5px 8px!important;font-size:13px!important;line-height:1.2!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed .zoomBar{display:flex!important;flex:0 0 auto!important;flex-wrap:wrap!important;align-items:center!important;gap:4px!important;margin:0!important}
+ body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){height:40px!important;min-height:40px!important;min-width:38px!important;padding:5px 8px!important;font-size:12px!important;line-height:1.2!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed #stageWrap{flex:1 1 auto!important;min-height:120px!important;padding:6px!important;margin:0!important;max-width:100%!important;overflow:auto!important;box-sizing:border-box}
- body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar{order:4;position:static!important;inset:auto!important;flex:0 0 64px!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;height:auto!important;min-height:64px!important;margin:0!important;padding:5px 6px calc(5px + env(safe-area-inset-bottom))!important;gap:5px!important;box-sizing:border-box;border-radius:12px 12px 0 0!important}
- body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar button{min-width:0!important;min-height:52px!important;height:52px!important;padding:4px 2px!important;display:flex!important;flex-direction:column!important;gap:3px!important;box-sizing:border-box}
+ body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar{order:4;position:static!important;inset:auto!important;flex:0 0 52px!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;height:auto!important;min-height:52px!important;margin:0!important;padding:5px 6px calc(5px + env(safe-area-inset-bottom))!important;gap:4px!important;box-sizing:border-box;border-radius:12px 12px 0 0!important}
+ body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar button{min-width:0!important;min-height:40px!important;height:40px!important;padding:4px 2px!important;display:flex!important;flex-direction:column!important;gap:3px!important;box-sizing:border-box}
  body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar small{font-size:11px!important;line-height:1.2!important;white-space:normal}
  body.studio-mobile-layout.studio-home-dismissed>footer,
  body.studio-mobile-layout.studio-home-dismissed>a[href='admin.html']{display:none!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobileSheet{max-height:calc(100dvh - 32px)!important;margin:auto!important;width:calc(100vw - 16px)!important;max-width:520px!important;padding:10px!important;box-sizing:border-box}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileSheet :is(button,summary){min-height:44px!important;line-height:1.3!important;white-space:normal!important;overflow-wrap:anywhere}
- body.studio-mobile-layout.studio-home-dismissed #mobileSheetBody #templateCanvasActions{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
-}
-
-}
-
-/* 2026-10-19: compact editor-only mobile controls; keep home/poster content untouched. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerText,#studioMobileLayerDelete,#studioMobileLayerEdit),
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{min-height:40px!important;height:40px!important;padding:3px 4px!important;font-size:12px!important;border-radius:9px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{content:'Font';font-size:12px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{content:'Layer';font-size:12px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important;padding:4px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{height:40px!important;min-height:40px!important;padding:2px 3px!important;font-size:11px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{gap:4px!important;padding:2px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge select{width:60px!important;height:36px!important;min-height:36px!important;font-size:12px!important}
-}
-}
-
-/* 2026-10-19 screenshot pass: compact visible editor chrome and preserve poster space. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed>header{grid-template-columns:56px minmax(0,1fr) 42px 42px!important}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{min-width:0!important}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{height:40px!important;min-height:40px!important;padding:3px 8px!important;font-size:12px!important;border-radius:9px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileTemplates{max-width:180px!important;margin-inline:auto!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{height:48px!important;min-height:48px!important;flex-basis:48px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){height:40px!important;min-height:40px!important;font-size:12px!important;border-radius:9px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{height:46px!important;min-height:46px!important;flex-basis:46px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{height:46px!important;min-height:46px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{height:38px!important;min-height:38px!important;font-size:10.5px!important;line-height:1.05!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-button-icon{font-size:14px!important;height:14px!important;min-width:14px!important;margin:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar{padding:4px!important;gap:4px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{font-size:10px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:12px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:3px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerText,#studioMobileLayerDelete,#studioMobileLayerEdit),
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{height:36px!important;min-height:36px!important;padding:2px!important;font-size:10.5px!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after,
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{font-size:10.5px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions{gap:4px!important;margin:2px 0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{height:38px!important;min-height:38px!important;padding:3px 5px!important;font-size:11px!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{min-height:36px!important;margin:2px 0!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar{gap:4px!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){height:36px!important;min-height:36px!important;padding:3px 6px!important;font-size:11px!important}
- body.studio-mobile-layout.studio-home-dismissed #stageWrap{padding:3px!important;min-height:180px!important}
-}
-}
-
-/* 2026-10-19 final mobile editor override: active elements only, no home rules. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed>header{display:flex!important;height:42px!important;min-height:42px!important;padding:2px 4px!important;gap:3px!important}
- body.studio-mobile-layout.studio-home-dismissed>header .apanam-header-brand{flex:0 0 38px!important;width:38px!important;min-width:38px!important;height:36px!important;background-size:36px auto!important}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{display:grid!important;grid-template-columns:minmax(76px,1.15fr) minmax(58px,.85fr) minmax(72px,1fr)!important;gap:3px!important;flex:1 1 auto!important;min-width:0!important;overflow:visible!important;padding:0!important}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{display:flex!important;min-width:0!important;width:100%!important;max-width:none!important;height:36px!important;min-height:36px!important;padding:2px 4px!important;font-size:10px!important;line-height:1!important;white-space:nowrap!important;margin:0!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileTemplates{max-width:none!important}
- body.studio-mobile-layout.studio-home-dismissed :is(#studioHeaderAccount,#studioMobileAllActions){flex:0 0 36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;height:36px!important;min-height:36px!important;padding:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{height:42px!important;min-height:42px!important;flex-basis:42px!important;padding:3px 5px!important;gap:4px!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px 36px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){height:36px!important;min-height:36px!important;padding:2px 4px!important;font-size:11px!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{height:42px!important;min-height:42px!important;flex-basis:42px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{height:42px!important;min-height:42px!important;padding:3px 5px!important;gap:4px!important}
- body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{height:36px!important;min-height:36px!important;padding:1px 2px!important;font-size:10px!important;line-height:1!important;gap:0!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar{padding:3px 4px!important;gap:3px!important;border-radius:8px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{font-size:9px!important;line-height:1.05!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:11px!important;line-height:1.05!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:3px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-selection-actions>:is(#studioMobileTextStyle,#studioMobileLayerText,#studioMobileLayerDelete,#studioMobileLayerEdit),
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary{height:32px!important;min-height:32px!important;padding:1px!important;font-size:10px!important;line-height:1!important;border-radius:7px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after,
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar .studio-layer-more>summary:after{font-size:10px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:4px!important;margin:1px 0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{height:34px!important;min-height:34px!important;padding:2px 4px!important;font-size:10px!important;line-height:1.05!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge{height:36px!important;min-height:36px!important;padding:1px 4px!important;margin:1px 0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important;font-size:17px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge select{width:56px!important;height:32px!important;min-height:32px!important;font-size:10px!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar{min-height:34px!important;gap:3px!important;margin:1px 0!important;flex-wrap:nowrap!important}
- body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){height:32px!important;min-height:32px!important;min-width:32px!important;padding:2px 5px!important;font-size:10px!important}
- body.studio-mobile-layout.studio-home-dismissed #stageWrap{padding:2px!important;min-height:220px!important}
- body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar{min-height:50px!important;flex-basis:50px!important;padding:3px 4px calc(3px + env(safe-area-inset-bottom))!important;gap:3px!important}
- body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar button{height:44px!important;min-height:44px!important;padding:2px!important;gap:1px!important}
- body.studio-mobile-layout.studio-home-dismissed>.apanam-mobile-bar small{font-size:9px!important;line-height:1!important}
-}
-}
-
-/* 2026-10-19 screenshot cleanup: only remaining broken controls. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{font-size:0!important;overflow:hidden!important;white-space:nowrap!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶';font-size:22px!important;line-height:1!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷';font-size:22px!important;line-height:1!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle{font-size:0!important;overflow:hidden!important;white-space:nowrap!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{content:'Font'!important;font-size:10px!important;line-height:1!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;gap:4px!important;align-items:center!important;min-height:16px!important;overflow:hidden!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar>div:first-child>small{font-size:8px!important;line-height:1!important;white-space:nowrap!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionName{font-size:10px!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{height:30px!important;min-height:30px!important;padding:1px 4px!important;font-size:9px!important;line-height:1!important}
-}
-}
-
-/* 2026-10-19 restore horizontal navigation for Templates / Elements / Create only. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{
-  display:flex!important;
-  flex:1 1 auto!important;
-  min-width:0!important;
-  width:auto!important;
-  gap:4px!important;
-  overflow-x:auto!important;
-  overflow-y:hidden!important;
-  -webkit-overflow-scrolling:touch!important;
-  scrollbar-width:none!important;
-  scroll-snap-type:x proximity!important;
-  touch-action:pan-x!important;
- }
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav::-webkit-scrollbar{display:none!important}
- body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{
-  flex:0 0 auto!important;
-  width:auto!important;
-  min-width:82px!important;
-  max-width:128px!important;
-  height:36px!important;
-  min-height:36px!important;
-  padding:2px 10px!important;
-  font-size:10px!important;
-  white-space:nowrap!important;
-  scroll-snap-align:start!important;
- }
-}
-}
-
-/* 2026-10-19 screenshot pass 8: balanced action row, clean Font, centered poster. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
-  grid-template-columns:repeat(4,minmax(0,1fr))!important;
-  height:40px!important;min-height:40px!important;flex-basis:40px!important;
-  padding:3px 6px!important;gap:4px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){
-  width:100%!important;min-width:0!important;max-width:none!important;
-  height:34px!important;min-height:34px!important;padding:2px 3px!important;
-  font-size:10px!important;border-radius:8px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{font-size:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶';font-size:20px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷';font-size:20px!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle{
-  font-size:0!important;line-height:0!important;overflow:hidden!important;
-  white-space:nowrap!important;text-indent:-9999px!important;
- }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileSheet :is(button,summary){min-height:40px!important;line-height:1.3!important;white-space:normal!important;overflow-wrap:anywhere}
+ body.studio-mobile-layout.studio-home-dismissed #mobileSheetBody #templateCanvasActions{display:flex!important;flex-wrap:wrap!important;gap:4px!important}
+ body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav{display:flex!important;gap:4px!important;overflow-x:auto!important;overflow-y:hidden!important;touch-action:pan-x!important;padding:0!important;height:40px!important;scrollbar-width:thin}
+ body.studio-mobile-layout.studio-home-dismissed>header #studioMobilePageNav>*{flex:0 0 auto!important;width:auto!important;min-width:max-content!important;padding:2px 8px!important;font-size:12px!important;white-space:nowrap!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 40px 40px!important;height:44px!important;min-height:44px!important;flex-basis:44px!important;padding:2px 6px!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{height:44px!important;min-height:44px!important;flex-basis:44px!important}
+ body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{height:44px!important;min-height:44px!important;padding:2px 6px!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo){position:relative!important;font-size:0!important;text-indent:-9999px!important;overflow:hidden!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo):before{content:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo):after{position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font-size:22px;line-height:1}
+ body.studio-mobile-layout.studio-home-dismissed #undo:after{content:'↶'}
+ body.studio-mobile-layout.studio-home-dismissed #redo:after{content:'↷'}
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle{font-size:0!important;line-height:0!important;text-indent:-9999px!important}
  body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:before{content:none!important}
- body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{
-  content:'Font'!important;display:block!important;text-indent:0!important;
-  font-size:10px!important;line-height:30px!important;width:100%!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #stageWrap{
-  display:flex!important;justify-content:center!important;align-items:flex-start!important;
-  width:100%!important;max-width:100%!important;padding:4px 8px!important;
-  overflow:auto!important;box-sizing:border-box!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #stage{
-  flex:0 0 auto!important;margin-left:auto!important;margin-right:auto!important;
- }
+ body.studio-mobile-layout.studio-home-dismissed #studioSelectionBar #studioMobileTextStyle:after{text-indent:0;font-size:12px!important;line-height:1.3!important}
+ body.studio-mobile-layout.studio-home-dismissed :is(#studioMobileNudge,#studioMobilePhotoActions)[hidden]{display:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge:not([hidden]){display:flex!important;flex-wrap:wrap;align-items:center;justify-content:center}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions:not([hidden]){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;margin:0}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{display:grid!important;place-items:center!important;padding:0!important;font-size:20px!important;line-height:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #stageWrap{min-height:180px!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
+ body.studio-mobile-layout.studio-home-dismissed #stage{flex:0 0 auto!important}
 }
-}
-
-/* 2026-10-19 safe pass: compact primary actions only. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
-  display:flex!important;justify-content:flex-start!important;align-items:center!important;
-  height:38px!important;min-height:38px!important;flex-basis:38px!important;
-  padding:2px 8px!important;gap:4px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject,#undo,#redo){
-  flex:0 0 72px!important;width:72px!important;min-width:72px!important;max-width:72px!important;
-  height:32px!important;min-height:32px!important;padding:1px 3px!important;
-  font-size:10px!important;border-radius:8px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{flex-basis:48px!important;width:48px!important;min-width:48px!important;max-width:48px!important}
-}
-}
-
-/* 2026-10-19 safe editor controls: restore object nudge and compact photo actions. */
-@layer studioReadability{
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge:not([hidden]){
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:100%!important;height:34px!important;min-height:34px!important;
-  gap:3px!important;padding:1px 4px!important;margin:1px 0!important;
-  overflow:visible!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge span{font-size:9px!important;white-space:nowrap!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge button{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:30px!important;min-width:30px!important;height:30px!important;min-height:30px!important;
-  padding:0!important;font-size:16px!important;line-height:1!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge select{
-  display:block!important;width:52px!important;min-width:52px!important;height:30px!important;min-height:30px!important;
-  padding:0 2px!important;font-size:9px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions:not([hidden]){
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:100%!important;gap:4px!important;margin:1px 0!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{
-  flex:0 1 150px!important;width:auto!important;max-width:150px!important;
-  height:28px!important;min-height:28px!important;padding:1px 5px!important;
-  font-size:9px!important;line-height:1!important;white-space:nowrap!important;
- }
-}
-}
-
-/* 2026-10-23 final mobile editor control sizing; no canvas/template mutation. */
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
-  display:grid!important;grid-template-columns:72px 72px 38px 38px!important;
-  justify-content:start!important;height:40px!important;min-height:40px!important;
-  flex-basis:40px!important;padding:2px 6px!important;gap:4px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#saveProject,#loadProject){
-  width:72px!important;min-width:72px!important;max-width:72px!important;height:34px!important;min-height:34px!important;
-  padding:1px 4px!important;font-size:10px!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:is(#undo,#redo){
-  width:38px!important;min-width:38px!important;max-width:38px!important;flex-basis:38px!important;
-  height:34px!important;min-height:34px!important;padding:0!important;font-size:0!important;
-  overflow:hidden!important;white-space:nowrap!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶'!important;font-size:19px!important;line-height:1!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷'!important;font-size:19px!important;line-height:1!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions:not([hidden]){
-  display:flex!important;justify-content:center!important;gap:6px!important;width:100%!important;margin:1px 0!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePhotoActions button{
-  flex:0 1 145px!important;width:auto!important;max-width:145px!important;
-  height:28px!important;min-height:28px!important;padding:1px 5px!important;font-size:9px!important;line-height:1!important;
- }
- body.studio-mobile-layout.studio-home-dismissed .zoomBar :is(button,#zoomValue){
-  height:30px!important;min-height:30px!important;padding:1px 5px!important;font-size:10px!important;
- }
-}
-
-/* 2026-10-23 clean primary action row: final override only. */
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
-  display:grid!important;grid-template-columns:72px 72px 40px 40px!important;
-  justify-content:start!important;align-items:center!important;
-  width:100%!important;height:40px!important;min-height:40px!important;
-  padding:2px 6px!important;gap:5px!important;overflow:hidden!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#saveProject,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#loadProject{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:72px!important;min-width:72px!important;max-width:72px!important;
-  height:34px!important;min-height:34px!important;padding:0 5px!important;
-  font-size:11px!important;line-height:1!important;white-space:nowrap!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{
-  position:relative!important;display:block!important;width:40px!important;min-width:40px!important;max-width:40px!important;
-  height:34px!important;min-height:34px!important;padding:0!important;
-  font-size:0!important;line-height:0!important;color:transparent!important;
-  text-indent:-9999px!important;overflow:hidden!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:before,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:before{content:none!important;display:none!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after,
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{
-  position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;
-  text-indent:0!important;color:#1d2140!important;font-size:20px!important;line-height:1!important;font-family:Arial,sans-serif!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶'!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷'!important}
-}
-
-/* 2026-10-23 final mobile arrow alignment. */
-@media(max-width:900px){
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge:not([hidden]){
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:100%!important;height:36px!important;min-height:36px!important;
-  gap:4px!important;padding:2px 4px!important;margin:1px 0!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>span{
-  flex:0 0 auto!important;margin:0 2px 0 0!important;font-size:11px!important;line-height:1!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>button{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important;
-  height:34px!important;min-height:34px!important;max-height:34px!important;
-  margin:0!important;padding:0!important;font-size:20px!important;line-height:1!important;
-  text-align:center!important;text-indent:0!important;font-family:Arial,sans-serif!important;
- }
- body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>select{
-  flex:0 0 58px!important;width:58px!important;min-width:58px!important;height:34px!important;min-height:34px!important;
-  margin:0!important;padding:0 3px!important;font-size:11px!important;line-height:1!important;
- }
 }
