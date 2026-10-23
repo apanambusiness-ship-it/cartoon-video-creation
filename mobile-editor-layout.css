@@ -304,3 +304,36 @@
   height:30px!important;min-height:30px!important;padding:1px 5px!important;font-size:10px!important;
  }
 }
+
+/* 2026-10-23 clean primary action row: final override only. */
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions{
+  display:grid!important;grid-template-columns:72px 72px 40px 40px!important;
+  justify-content:start!important;align-items:center!important;
+  width:100%!important;height:40px!important;min-height:40px!important;
+  padding:2px 6px!important;gap:5px!important;overflow:hidden!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#saveProject,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#loadProject{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:72px!important;min-width:72px!important;max-width:72px!important;
+  height:34px!important;min-height:34px!important;padding:0 5px!important;
+  font-size:11px!important;line-height:1!important;white-space:nowrap!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{
+  position:relative!important;display:block!important;width:40px!important;min-width:40px!important;max-width:40px!important;
+  height:34px!important;min-height:34px!important;padding:0!important;
+  font-size:0!important;line-height:0!important;color:transparent!important;
+  text-indent:-9999px!important;overflow:hidden!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:before,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:before{content:none!important;display:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after,
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{
+  position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  text-indent:0!important;color:#1d2140!important;font-size:20px!important;line-height:1!important;font-family:Arial,sans-serif!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶'!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷'!important}
+}
