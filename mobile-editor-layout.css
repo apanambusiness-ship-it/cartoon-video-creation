@@ -337,3 +337,26 @@
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo:after{content:'↶'!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo:after{content:'↷'!important}
 }
+
+/* 2026-10-23 final mobile arrow alignment. */
+@media(max-width:900px){
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge:not([hidden]){
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:100%!important;height:36px!important;min-height:36px!important;
+  gap:4px!important;padding:2px 4px!important;margin:1px 0!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>span{
+  flex:0 0 auto!important;margin:0 2px 0 0!important;font-size:11px!important;line-height:1!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>button{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important;
+  height:34px!important;min-height:34px!important;max-height:34px!important;
+  margin:0!important;padding:0!important;font-size:20px!important;line-height:1!important;
+  text-align:center!important;text-indent:0!important;font-family:Arial,sans-serif!important;
+ }
+ body.studio-mobile-layout.studio-home-dismissed #studioMobileNudge>select{
+  flex:0 0 58px!important;width:58px!important;min-width:58px!important;height:34px!important;min-height:34px!important;
+  margin:0!important;padding:0 3px!important;font-size:11px!important;line-height:1!important;
+ }
+}
