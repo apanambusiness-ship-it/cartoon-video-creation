@@ -8,7 +8,7 @@ function init(){
  const languages=document.getElementById('apanamTypingLanguage');if(languages)for(const option of languages.options)language.add(new Option(option.textContent,option.value));else for(const [v,l] of [['off','English'],['hi','हिंदी'],['bn','বাংলা'],['mr','मराठी'],['gu','ગુજરાતી'],['pa','ਪੰਜਾਬੀ'],['ta','தமிழ்'],['te','తెలుగు'],['kn','ಕನ್ನಡ'],['ml','മലയാളം'],['or','ଓଡ଼ିଆ'],['ur','اردو'],['ne','नेपाली']])language.add(new Option(l,v));language.value='hi';
  roman.dataset.apanamPhoneticFinal='1';let active=null,changed=false,sequence=0,timer,drag,fieldRange,applyingField=false,effectsOpen=false;
  function field(el){return el?.matches('textarea,input:not([type]),input[type=text],input[type=search]')&&!el.disabled&&!el.readOnly&&!panel.contains(el)&&!el.closest('#apanamTextBar,#apanamPhoneticBox,#studioMobileTypingPanel')&&!/roman|phonetic/i.test(el.id||'')&&!el.matches('.inline-text-input,#textValue,#studioHomeTemplateSearch');}
- function colorTarget(){if(!field(active))return active;const linked=active.__apanamTextLayer;if(linked&&stage?.contains(linked))return linked;if(['apanamEditText','apanamDirectText'].includes(active.id))return stage?.querySelector('.element.selected[data-text]');return null;}
+ function colorTarget(){if(!field(active))return active;const linked=active.__apanamTextLayer;if(linked&&linked.isConnected)return linked;if(['apanamEditText','apanamDirectText'].includes(active.id))return stage?.querySelector('.element.selected[data-text]');return null;}
  function eligible(el){return el&&(field(el)?el.isConnected:stage?.contains(el)&&el.dataset.text!=null&&el.dataset.locked!=='1');}
  function begin(){if(field(active))return;if(!changed){window.snap?.();changed=true;}}
  function save(){window.APANAM_PROJECT?.save();}
