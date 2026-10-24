@@ -19,10 +19,16 @@ if(file==='index.html'){
 }
 if(file==='membership.html'){
  await p.locator('#studioMemberNavigation button').first().waitFor({state:'attached'});
- for(const name of ['Account','भुगतान','मेरी अवधि','पुराने भुगतान','योजनाएँ','AI लागत','पुराने AutoPay','Account settings','सहायता']){
-  const toggle=p.locator('#memberVerticalMenu>summary');if(await toggle.count()&&!(await p.locator('#studioMemberNavigation').isVisible()))await toggle.tap();
-  const item=p.locator('#studioMemberNavigation button').filter({hasText:new RegExp('^'+name+'$')});if(await item.isVisible()){await item.tap();await capture('account-'+name);}
+ const targets=await p.locator('#studioMemberNavigation button').evaluateAll(es=>es.filter(e=>!e.hidden).map(e=>e.dataset.target));
+ assert(targets.length>=5,'Account navigation is populated');
+ for(const id of targets){
+  const toggle=p.locator('#memberVerticalMenu>summary');
+  if(!(await p.locator('#studioMemberNavigation').isVisible()))await toggle.tap();
+  await p.locator('#studioMemberNavigation button[data-target="'+id+'"]').tap();
+  assert(await p.locator('#'+id).isVisible(),'Account option opens '+id);
+  await capture('account-'+id);
  }
+
 }
 if(file==='cartoon-video.html'){for(const tab of await p.locator('#videoWorkspaceNav button').all()){await tab.tap();await capture('video-'+await tab.getAttribute('data-workspace'));}}
 assert.equal(errors.length,0,errors.join('\n'));

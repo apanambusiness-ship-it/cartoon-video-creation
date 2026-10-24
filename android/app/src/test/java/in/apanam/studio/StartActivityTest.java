@@ -2,6 +2,7 @@ package in.apanam.studio;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.ClipData;
 import android.net.Uri;
 import android.webkit.WebChromeClient;
 import org.junit.Test;
@@ -57,6 +58,12 @@ public class StartActivityTest {
   controller.get().chooseFiles(results::add, picker());
   controller.pause().stop().destroy();
   assertEquals(1, results.size()); assertNull(results.get(0));
+ }
+ @Test public void multipleImagesAndUntrustedPathsAreHandled() {
+  Uri first = Uri.parse("content://media/images/1"), second = Uri.parse("content://media/images/2");
+  ClipData clips = ClipData.newRawUri("photos", first); clips.addItem(new ClipData.Item(second));
+  assertArrayEquals(new Uri[]{first, second}, StartActivity.selectedFiles(Activity.RESULT_OK, new Intent().setClipData(clips)));
+  assertNull(StartActivity.selectedFiles(Activity.RESULT_OK, new Intent().setData(Uri.parse("file:///private/data"))));
  }
  @Test public void studioUrlIsHttps() { assertTrue(BuildConfig.STUDIO_URL.startsWith("https://")); }
 }

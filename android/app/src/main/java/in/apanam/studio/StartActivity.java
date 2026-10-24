@@ -3,6 +3,8 @@ package in.apanam.studio;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.ClipData;
+import java.util.ArrayList;
 import android.net.Uri;
 import android.os.Build;
 import android.webkit.ValueCallback;
@@ -47,8 +49,23 @@ public class StartActivity extends Activity {
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_FILE) {
-            finishFileSelection(WebChromeClient.FileChooserParams.parseResult(resultCode, data));
+            finishFileSelection(selectedFiles(resultCode, data));
         }
+    }
+
+    static Uri[] selectedFiles(int resultCode, Intent data) {
+        if (resultCode != RESULT_OK || data == null) return null;
+        ArrayList<Uri> files = new ArrayList<>();
+        ClipData clips = data.getClipData();
+        if (clips != null) {
+            for (int i = 0; i < clips.getItemCount(); i++) {
+                Uri uri = clips.getItemAt(i).getUri();
+                if (uri != null && "content".equals(uri.getScheme())) files.add(uri);
+            }
+        } else if (data.getData() != null && "content".equals(data.getData().getScheme())) {
+            files.add(data.getData());
+        }
+        return files.isEmpty() ? null : files.toArray(new Uri[0]);
     }
 
     private void navigateBack() {

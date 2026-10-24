@@ -14,8 +14,9 @@ const sync=()=>{
   if(box.parentElement!==row)row.append(box);
   box.style.setProperty('display','contents','important');
  }else{
-  if(!box.isConnected)document.body.append(box);
-  box.style.setProperty('display','none','important');
+  if(box.parentElement!==document.body)document.body.append(box);
+  const home=document.getElementById('studioMobileHome')&&!editor;
+  box.style.setProperty('display',mobile&&!home?'flex':'none','important');
  }
 };
 sync();
