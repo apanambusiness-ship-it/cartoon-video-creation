@@ -71,7 +71,7 @@ function render(){
   if(!icon){icon=document.createElement('span');icon.className='member-nav-icon';icon.setAttribute('aria-hidden','true');strong.append(icon,document.createElement('span'));}
   icon.textContent=icons[id]||'•';strong.lastElementChild.textContent=label;
   b.querySelector('small').textContent=description;
-  b.hidden=!available(id);
+  b.hidden=!available(id)||(!adminMode&&!registered&&['studioBusinessMember','studioOwnPayments','studioAiBalance','studioAutoPay','accountDeletion'].includes(id));
  }
  for(const b of nav.querySelectorAll('button[data-target]'))if(!groups.some(row=>row[0]===b.dataset.target))b.hidden=true;
  if(!available(current))choose('studioMemberAccount');
