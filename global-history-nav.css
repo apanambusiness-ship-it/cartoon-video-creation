@@ -11,3 +11,8 @@
   font:700 19px/1 Arial,sans-serif!important;text-align:center!important;text-indent:0!important
  }
 }
+@media(max-width:900px){
+ body:not(.studio-mobile-layout){padding-bottom:58px}
+ body:not(.studio-mobile-layout)>.apanam-history-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;justify-content:center;padding:5px 8px calc(5px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #ddd6fe}
+ body:not(.studio-mobile-layout)>.apanam-history-nav button{width:44px;height:40px;border:1px solid #c4b5fd;border-radius:8px;background:#f5f3ff;color:#4c1d95;font-size:22px}
+}

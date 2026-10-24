@@ -13,7 +13,7 @@
     const extras=document.createElement('details');extras.id='apanamHeaderExtras';extras.innerHTML='<summary>Install / Publish tools</summary>';
     (document.querySelector('.organizer-panel[data-group="Export"]')||document.querySelector('main>aside:not(.right)'))?.append(extras);
     const allowed=new Set(order.map(item=>typeof item==='string'?item:item.id));
-    const moveExtras=()=>[...actions.children].filter(node=>!allowed.has(node.id)).forEach(node=>extras.append(node));
+    const moveExtras=()=>[...actions.children].filter(node=>!allowed.has(node.id)&&!node.matches(".apanam-history-nav")).forEach(node=>extras.append(node));
     moveExtras();new MutationObserver(moveExtras).observe(actions,{childList:true});
     const icon=(button,symbol,label)=>{const mark=document.createElement('span');mark.className='apanam-button-icon';mark.setAttribute('aria-hidden','true');mark.textContent=symbol;button.replaceChildren(mark,document.createTextNode(label));button.setAttribute('aria-label',label);return button};
     const headerIcons={apanamCreatorHubButton:['✦','Create'],saveProject:['▣','Save'],headerEditProject:['✎','Edit'],loadProject:['▤','Load'],headerDeleteProject:['▢','Delete'],undo:['↶','Undo'],redo:['↷','Redo'],download:['↓','Download'],apanamInstallApp:['⬇','Install App'],apanamHelpButton:['?','Help'],apanamSafetyButton:['◇','Safety']};

@@ -14,6 +14,7 @@ if(isAdmin){const section=el('section');section.id='studioAlertHealth';section.a
  async function load(){if(busy)return;const owner=api.user()?.id,n=epoch;list.replaceChildren();if(!owner){status.textContent='Admin login करें।';return;}busy=true;try{const data=await api.alertHealth();if(n!==epoch||api.user()?.id!==owner)return;let errors=0;for(const [label,rows] of [['Payment',data.payment_alerts],['Expiry',data.expiry_alerts]]){list.append(el('h3',label));for(const r of rows||[]){if(['failed','uncertain'].includes(r.status))errors++;const card=el('article');card.className='payment-record';card.append(el('strong',r.status+' · '+(r.reference||r.user_id)),el('p',(r.result_code||'—')+' · '+date(r.attempted_at||r.created_at)));list.append(card);}}status.textContent='Failed / uncertain: '+errors+'। Provider logs जाँचें; duplicate email से बचने के लिए automatic retry बंद है।';}catch(e){if(n===epoch)status.textContent=e.message;}finally{busy=false;}}
  refresh.onclick=load;document.addEventListener('apanam-cloud-session',()=>{list.replaceChildren();status.textContent='Admin login करके Refresh करें।';});
 }
+if(document.getElementById('studioSupport'))return;
 const support=el('section');support.id='studioSupport';support.append(el('h2','सहायता / Payment या Refund समस्या'),el('p','समस्या यहीं Support Request में भेजें। Payment समस्या में Order ID / Payment ID और तारीख लिखें। Password, OTP या API key न भेजें।'));
 main.append(support);
 })();
