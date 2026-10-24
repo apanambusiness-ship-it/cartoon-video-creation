@@ -75,6 +75,12 @@
  body.studio-mobile-layout.studio-home-dismissed #stageWrap{min-height:180px!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
  body.studio-mobile-layout.studio-home-dismissed #stage{flex:0 0 auto!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav{display:contents!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions #saveProject{grid-row:1!important;grid-column:1!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions #loadProject{grid-row:1!important;grid-column:2!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions #undo{grid-row:1!important;grid-column:3!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions #redo{grid-row:1!important;grid-column:4!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions [data-history-back]{grid-row:1!important;grid-column:5!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions [data-history-forward]{grid-row:1!important;grid-column:6!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>.apanam-history-nav>button{width:36px!important;min-width:36px!important;height:40px!important;min-height:40px!important;max-height:40px!important}
 
 }
