@@ -62,7 +62,8 @@ public class StartActivityTest {
  @Test public void multipleImagesAndUntrustedPathsAreHandled() {
   Uri first = Uri.parse("content://media/images/1"), second = Uri.parse("content://media/images/2");
   ClipData clips = ClipData.newRawUri("photos", first); clips.addItem(new ClipData.Item(second));
-  Intent multiple = new Intent(); multiple.setClipData(clips);\n  assertArrayEquals(new Uri[]{first, second}, StartActivity.selectedFiles(Activity.RESULT_OK, multiple));
+  Intent multiple = new Intent(); multiple.setClipData(clips);
+  assertArrayEquals(new Uri[]{first, second}, StartActivity.selectedFiles(Activity.RESULT_OK, multiple));
   assertNull(StartActivity.selectedFiles(Activity.RESULT_OK, new Intent().setData(Uri.parse("file:///private/data"))));
  }
  @Test public void studioUrlIsHttps() { assertTrue(BuildConfig.STUDIO_URL.startsWith("https://")); }
