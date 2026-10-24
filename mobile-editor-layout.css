@@ -79,3 +79,5 @@
 
 }
 }
+
+@media (max-width:900px){body.studio-mobile-tools-open #studioFloatingText{display:none!important;pointer-events:none!important}}
