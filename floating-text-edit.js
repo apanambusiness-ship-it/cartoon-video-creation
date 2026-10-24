@@ -27,7 +27,7 @@ function init(){
   if(!result)try{const response=await fetch('https://inputtools.google.com/request?text='+encodeURIComponent(value)+'&itc='+encodeURIComponent(lang+'-t-i0-und')+'&num=1&cp=0&cs=1&ie=utf-8&oe=utf-8',{signal:AbortSignal.timeout(2500)});const data=await response.json();result=data?.[1]?.[0]?.[1]?.[0]||result;}catch{}
   if(request!==sequence||target!==active||panel.hidden)return;if(result){text(result);status.textContent='✓ '+result;}else status.textContent='इस भाषा की phonetic service उपलब्ध नहीं है। सीधे canvas पर लिख सकते हैं।';
  }
- roman.oninput=()=>{stopVoice();sequence++;clearTimeout(timer);timer=setTimeout(convert,180);};language.onchange=()=>{stopVoice();sequence++;clearTimeout(timer);roman.value='';status.textContent=language.value==='off'?'यहाँ सीधे text लिखें':'English अक्षरों में उच्चारण लिखें';};
+ roman.oninput=()=>{stopVoice();sequence++;clearTimeout(timer);const value=roman.value,lang=language.value;if(['hi','mr','ne'].includes(lang)&&/^(namaste|aap|aapka|aapki|aapke|naam|kya|hai|hain|mera|meri|mere|bahut|achha|accha|ghar|ke|ki|ka|liye|sundar|aur|main|me|mein|se|ko|nahi)$/i.test(value))convert();else timer=setTimeout(convert,180);};language.onchange=()=>{stopVoice();sequence++;clearTimeout(timer);roman.value='';status.textContent=language.value==='off'?'यहाँ सीधे text लिखें':'English अक्षरों में उच्चारण लिखें';};
  
  const mic=q('studioVoiceTyping'),Speech=window.SpeechRecognition||window.webkitSpeechRecognition;let voice=null;
  function stopVoice(){const old=voice;voice=null;mic.setAttribute('aria-pressed','false');mic.textContent='🎤';if(old)try{old.abort();}catch{}}
