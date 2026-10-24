@@ -73,8 +73,6 @@ public class StartActivity extends Activity {
         else finish();
     }
 
-    @Override public void onBackPressed() { navigateBack(); }
-
     @Override protected void onDestroy() {
         finishFileSelection(null);
         if (webView != null) webView.destroy();
