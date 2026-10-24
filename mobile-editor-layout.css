@@ -13,7 +13,7 @@
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#loadProject{order:1!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#undo{order:2!important;font-size:0!important}
  body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>#redo{order:3!important;font-size:0!important}
- body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo){display:none!important}
+ body.studio-mobile-layout.studio-home-dismissed #studioMobilePrimaryActions>:not(#saveProject):not(#loadProject):not(#undo):not(#redo):not(.apanam-history-nav){display:none!important}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools{order:2;flex:0 0 44px!important;height:40px!important;min-height:40px!important;overflow:visible!important}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important;height:40px!important;min-height:40px!important;padding:4px 6px!important;box-sizing:border-box;overflow:visible!important}
  body.studio-mobile-layout.studio-home-dismissed #apanamCompactTools .apanam-strip:first-child>button{min-width:0!important;width:100%!important;height:40px!important;min-height:40px!important;padding:3px!important;font-size:12px!important;line-height:1.2!important;white-space:normal!important;overflow-wrap:normal!important;box-sizing:border-box}
@@ -81,3 +81,5 @@
 }
 
 @media (max-width:900px){body.studio-mobile-tools-open #studioFloatingText{display:none!important;pointer-events:none!important}}
+
+@media(max-width:900px){body.studio-mobile-layout #studioMobileActionGrid>[hidden]{display:none!important}}

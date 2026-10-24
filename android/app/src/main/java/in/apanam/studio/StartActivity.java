@@ -73,6 +73,10 @@ public class StartActivity extends Activity {
         else finish();
     }
 
+    // Legacy devices do not have OnBackInvokedDispatcher.
+    @android.annotation.SuppressLint("GestureBackNavigation")
+    @Override public void onBackPressed() { navigateBack(); }
+
     @Override protected void onDestroy() {
         finishFileSelection(null);
         if (webView != null) webView.destroy();
